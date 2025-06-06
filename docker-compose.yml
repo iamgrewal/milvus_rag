@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  milvus-standalone:
+    image: milvusdb/milvus:v2.3.4
+    container_name: milvus-standalone
+    ports:
+      - \"19530:19530\"
+    healthcheck:
+      test: [\"CMD\", \"curl\", \"-f\", \"http://localhost:9091\"] || exit 1
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  neo4j:
+    image: neo4j:5.13
+    container_name: neo4j
+    ports:
+      - \"7474:7474\"
+      - \"7687:7687\"
+    environment:
+      - NEO4J_AUTH=neo4j/password
+    volumes:
+      - neo4j-data:/data
+
+  graphrag-app:
+    build: .
+    depends_on:
+      - milvus-standalone
+      - neo4j
+    env_file:
+      - .env
+    volumes:
+      - ./graphrag:/app/graphrag
+
+volumes:
+  neo4j-data:
