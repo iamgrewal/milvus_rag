@@ -684,3 +684,29 @@ yarn-error.log
 .pnp.*
 .idea
 file-to-purge.txt
+# Ignore .env with secrets
+.env
+
+# Ignore log files
+*.log
+logs/
+*.log.*
+
+# Ignore Cursor-specific logs and cache
+.cursor/logs/
+.cursor/cache/
+
+# Node.js / Python environments (optional depending on stack)
+node_modules/
+venv/
+__pycache__/
+
+# IDE files
+.vscode/
+.idea/
+
+# Docker and Kube artifacts (if generated locally)
+*.pid
+*.sock
+docker-compose.override.yml
+.kube/
