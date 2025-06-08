@@ -1,6 +1,7 @@
 #! /bin/bash
 
 conda create  -c conda-forge  --name milvus_env python=3.13.4  -y
+conda init -y
 conda activate milvus_env
 
 conda install -c conda-forge uv -y
