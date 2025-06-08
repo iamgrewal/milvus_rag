@@ -1,0 +1,19 @@
+# Documentation
+mkdocs
+mkdocs-material
+mkdocstrings[python]
+pymdown-extensions
+
+# Testing
+pytest
+pytest-asyncio
+coverage
+
+# Linting & Formatting
+ruff
+mypy
+black
+pre-commit
+
+# Tag generation
+python-language-server

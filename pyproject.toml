@@ -1,0 +1,29 @@
+[project]
+name = "milvus_rag"
+version = "0.1.0"
+description = "Milvus-powered RAG pipeline with FastAPI and Neo4j"
+authors = [
+    {name = "Jatinder Grewal", email = "iamgrewal@gmail.com"}
+]
+dependencies = [
+    "langchain",
+    "openai",
+    "sentence-transformers",
+    "pymilvus",
+    "neo4j",
+    "neo4j-graphrag[openai]",
+    "python-dotenv",
+    "tqdm",
+    "requests",
+    "numpy",
+    "protobuf",
+    "grpcio-tools"
+]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+packages = ["graphrag", "milvus_docs"]

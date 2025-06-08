@@ -1,14 +1,19 @@
+# Core Dependencies
 langchain
 openai
 sentence-transformers
+pymilvus==2.5.10
+neo4j
+neo4j-graphrag[openai]
+
+# Config & Secrets
 python-dotenv
+pydantic
+pydantic-settings
+
+# Utilities
 tqdm
 requests
 numpy
 protobuf
 grpcio-tools
-pymilvus==2.5.10
-pymilvus[model]
-pymilvus[client]
-neo4j
-neo4j-graphrag[openai]
