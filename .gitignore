@@ -710,3 +710,5 @@ __pycache__/
 *.sock
 docker-compose.override.yml
 .kube/
+.cursor/docs/
+.cursor/rules/

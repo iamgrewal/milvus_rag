@@ -1,0 +1,57 @@
+site_name: Milvus RAG
+site_description: RAG pipeline using Milvus, LangChain, and LLMs
+site_url: https://yourusername.github.io/milvus_rag
+repo_url: https://github.com/iamgrewal/milvus_rag
+repo_name: iamgrewal/milvus_rag
+
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.indexes
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+  palette:
+    - scheme: default
+      primary: blue
+      accent: deep purple
+
+markdown_extensions:
+  - admonition
+  - codehilite
+  - footnotes
+  - toc:
+      permalink: true
+
+nav:
+  - Home: index.md
+  - Getting Started: getting-started.md
+  - RAG Pipeline:
+      - Overview: rag/overview.md
+      - Milvus Integration: rag/milvus.md
+      - LangChain Setup: rag/langchain.md
+      - LlamaIndex Setup: rag/llamaindex.md
+  - API Docs: api.md
+  - Testing: testing.md
+  - Contributing: contributing.md
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          options:
+            show_source: true
+            members_order: source
+
+watch:
+  - rag/
+  - app/
+  - tests/
+
+extra_css:
+  - stylesheets/extra.css
+
+extra_javascript:
+  - javascripts/extra.js

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://raw.githubusercontent.com/cursorinsights/schemas/main/codemap.schema.json",
+  "entryPoints": [
+    "main.py",
+    "app.py",
+    "rag/engine.py",
+    "rag/vector_store/milvus_client.py",
+    "rag/index_builder.py"
+  ],
+  "modules": {
+    "langchain": "Used in RAG chain construction and QA pipeline.",
+    "llamaindex": "Optional or used for document parsing/embedding.",
+    "neo4j": "Graph relationships, if used for metadata/context linkage.",
+    "milvus": "Vector store backend for document embeddings.",
+    "fastapi": "Serves API endpoints for retrieval and user input.",
+    "pytest": "Handles automated testing for RAG flows and logic."
+  },
+  "tags": ["rag", "vector-db", "llms", "milvus", "langchain", "llamaindex"]
+}

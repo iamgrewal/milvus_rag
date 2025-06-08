@@ -18,6 +18,7 @@ uv pip install -e . -y
 uv pip install -U setuptools -y
 uv pip install -U wheel -y
 uv pip install -U twine -y
+uv pip install -U mkdocs-material -y
 
 uv pip install -U langchain -y
 uv pip install -U pymilvus -y
