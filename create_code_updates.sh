@@ -1,5 +1,20 @@
 #!/bin/bash
 
+# Install virtualenv if not present
+if ! command -v virtualenv &> /dev/null; then
+    echo "Installing virtualenv..."
+    pip install virtualenv==20.31.2
+fi
+
+# Create and activate virtual environment if it doesn't exist
+if [ ! -d "venv" ]; then
+    echo "Creating virtual environment..."
+    virtualenv venv
+fi
+
+# Activate virtual environment
+source venv/bin/activate
+
 ## Secure Configuration Utility
 
 #```python
@@ -109,4 +124,12 @@ EOF
 #- ✅ Asynchronous batch processing
 #- ✅ Retry handling with logging
 #- ✅ FastAPI-based REST API layer for RAG queries
+
+# Optional: Generate ctags if available
+if command -v ctags &> /dev/null; then
+    echo "Generating ctags..."
+    ctags -R --languages=Python --python-kinds=-iv -f .tags .
+else
+    echo "Warning: ctags not found. Skipping tag generation."
+fi
 

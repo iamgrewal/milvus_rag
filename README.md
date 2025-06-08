@@ -1,211 +1,134 @@
+# Milvus RAG Project
 
-Here’s a tailored README for your **"Build RAG with Milvus"** project, reflecting your Debian WSL environment, conda setup, and Docker Milvus configuration. You can adapt or expand sections as needed.
+A robust Retrieval-Augmented Generation (RAG) system built with Milvus vector database.
 
----
+## Prerequisites
 
-# Build RAG with Milvus
-### PO1 – Projects. Open. One.
-#### A unified hub to Automate. Innovate. Elevate. Encourages automation and innovation for growth.
+- Python 3.8+
+- Conda (Miniconda or Anaconda)
+- Git
+- Universal-ctags (for code navigation)
 
-## Introduction
+## Project Setup
 
-This project demonstrates how to build a Retrieval-Augmented Generation (RAG) system using [Milvus](https://milvus.io), a high-performance vector database. It follows the official guide from [Milvus Documentation](https://milvus.io/docs/build-rag-with-milvus.md), adapted for a local environment on Debian running via WSL (Windows Subsystem for Linux).
+### 1. Clone the Repository
 
-Milvus is deployed via Docker, and the project environment is managed using Conda within WSL.
+```bash
+git clone <repository-url>
+cd milvus_rag
+```
 
----
+### 2. Environment Setup
 
-## Table of Contents
+The project uses Conda for environment management. Two scripts are provided to handle environment setup and execution:
 
-* [Introduction](#introduction)
-* [Project Structure](#project-structure)
-* [Installation](#installation)
-* [Usage](#usage)
-* [Features](#features)
-* [Configuration](#configuration)
-* [Dependencies](#dependencies)
-* [Examples](#examples)
-* [Troubleshooting](#troubleshooting)
-* [Contributors](#contributors)
-* [License](#license)
+#### Option 1: Automated Setup (Recommended)
 
----
+Run the setup script to create and configure the Conda environment:
+
+```bash
+./create_conda.sh
+```
+
+This script will:
+- Create a new Conda environment named `milvus_env`
+- Install all required dependencies
+- Set up development tools
+- Generate ctags for code navigation
+
+#### Option 2: Manual Setup
+
+If you prefer manual setup:
+
+```bash
+# Create and activate the environment
+conda create -n milvus_env python=3.8
+conda activate milvus_env
+
+# Install dependencies
+pip install -U pip
+pip install -r requirements.txt
+pip install -r dev-requirements.txt
+pip install -e .
+```
+
+### 3. Running Commands
+
+Always ensure you're using the correct environment. Two methods are available:
+
+#### Method 1: Using the Wrapper Script (Recommended)
+
+```bash
+# Run any command in the correct environment
+./run_in_env.sh python your_script.py
+./run_in_env.sh pytest
+./run_in_env.sh python -m graphrag.rag_system.main
+```
+
+#### Method 2: Manual Activation
+
+```bash
+# Activate the environment
+source "$(conda info --base)/etc/profile.d/conda.sh"
+conda activate milvus_env
+
+# Run your commands
+python your_script.py
+```
+
+## Development
+
+### Code Navigation
+
+The project uses ctags for code navigation. Tags are automatically generated during setup. To regenerate tags:
+
+```bash
+ctags -R --languages=Python --python-kinds=-iv -f .tags .
+```
+
+### IDE Setup
+
+#### VSCode
+
+Add the following to `.vscode/settings.json`:
+
+```json
+{
+    "python.pythonPath": "/home/<your-user>/anaconda3/envs/milvus_env/bin/python",
+    "python.analysis.extraPaths": ["src"]
+}
+```
 
 ## Project Structure
 
-env file
 ```
-# Path to Docker volume directory inside WSL
-DOCKER_VOLUME_DIRECTORY=/mnt/d/projects/wslprojects/milvus_env
-
-# MinIO credentials
-MINIO_ACCESS_KEY=minioadmin
-MINIO_SECRET_KEY=minioadmin
-```
-
-Project Directory
-
-```bash
-BASE_DIR=$DOCKER_VOLUME_DIRECTORY
-BASE_DIR/
-├── docker-compose.yml         # Milvus, etcd, minio containers
-├── .env                       # Environment variable file
-├── app/                       # RAG-related Python code
-├── data/                      # Sample or ingested documents
-└── notebooks/                 # Optional Jupyter notebooks
+milvus_rag/
+├── create_conda.sh      # Environment setup script
+├── run_in_env.sh        # Environment wrapper script
+├── requirements.txt     # Production dependencies
+├── dev-requirements.txt # Development dependencies
+├── pyproject.toml       # Project configuration
+└── src/
+    └── graphrag/        # Main package
+        ├── config/      # Configuration
+        ├── embedding_service/  # Embedding service
+        ├── milvus/      # Milvus integration
+        ├── neo4j/       # Neo4j integration
+        ├── nlp/         # NLP processing
+        └── rag_system/  # RAG system implementation
 ```
 
----
+## Contributing
 
-## Installation
-
-### 1. Prerequisites
-
-Ensure the following are installed in your WSL Debian environment:
-
-* [Docker](https://docs.docker.com/engine/install/)
-* [Conda (Miniconda/Anaconda)](https://docs.conda.io/en/latest/)
-* Git, Curl, Python 3.9+
-
-### 2. Create and Activate Conda Environment
-
-```bash
-conda create -n milvus_env python=3.9
-conda activate milvus_env
-```
-
-### 3. Clone Project Repository
-
-```bash
-BASE_DIR=$DOCKER_VOLUME_DIRECTORY
-git clone https://github.com/iamgrewal/milvus_rag BASE_DIR
-cd BASE_DIR
-```
-
-### 4. Install Python Dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
-### 5. Configure `.env` File
-
-```ini
-DOCKER_VOLUME_DIRECTORY=BASE_DIR
-```
-
----
-### 6. Requirements 
-
-```bash
-langchain>=0.1.0
-pymilvus==2.2.9
-openai>=1.0.0
-sentence-transformers>=2.2.2
-python-dotenv>=1.0.0
-tqdm
-requests
-numpy
-```
-
-## Usage
-
-### 1. Start Milvus via Docker Compose
-
-```bash
-docker-compose up -d
-```
-
-This will spin up:
-
-* **Milvus Standalone** (port 19530)
-* **etcd** for metadata
-* **MinIO** for object storage (access key: `minioadmin`, secret key: `minioadmin`)
-
-### 2. Run the RAG Pipeline
-
-Follow the Milvus documentation or provided scripts in `app/` to:
-
-* Ingest documents
-* Embed and store vectors in Milvus
-* Query documents using natural language and LLM
-
----
-
-## Features
-
-* Full local deployment of Milvus via Docker
-* Persistent volumes for Milvus, MinIO, and etcd
-* Integration-ready for RAG pipelines using LangChain or custom logic
-* Optimized for WSL on Windows
-
----
-
-## Configuration
-
-Edit the `.env` file for custom paths or volume mappings. Docker containers are set to use:
-
-```env
-DOCKER_VOLUME_DIRECTORY=BASE_DIR
-```
-
-You may also configure:
-
-* Milvus port: `19530`
-* MinIO port: `9000`
-* etcd port: `2379`
-
----
-
-## Dependencies
-
-* [Milvus v2.2.9](https://milvus.io)
-* [MinIO](https://min.io)
-* [etcd](https://etcd.io)
-* Python libraries:
-
-  * langchain
-  * pymilvus
-  * sentence-transformers
-  * openai
-  * dotenv
-
----
-
-## Examples
-
-```bash
-python app/load_data.py       # Embeds and inserts data into Milvus
-python app/query_rag.py       # Queries Milvus and uses LLM to respond
-```
-
-You can also explore via Jupyter notebooks in the `notebooks/` directory (optional).
-
----
-
-## Troubleshooting
-
-* **Milvus container won't start?**
-
-  * Ensure ports `19530`, `2379`, and `9000` are not blocked or already in use.
-  * Check volumes have proper write permissions from WSL.
-
-* **WSL volume mount issues?**
-
-  * Ensure Docker Desktop has access to your mounted D: drive.
-
-* **Python dependency errors?**
-
-  * Make sure your conda environment is activated (`milvus_env`).
-
----
-
-## Contributors
-
-* Jatinder GRewal ([@yourhandle](https://github.com/iamgrewal))
-
----
+1. Ensure you're using the correct Conda environment
+2. Follow the project's coding standards
+3. Run tests before submitting changes
+4. Update documentation as needed
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE), unless otherwise specified by upstream dependencies.
+[Your License Here]
+
+## Contact
+
+[Your Contact Information]

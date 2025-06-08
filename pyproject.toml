@@ -16,8 +16,10 @@ dependencies = [
     "tqdm",
     "requests",
     "numpy",
-    "protobuf",
-    "grpcio-tools"
+    "protobuf>=3.20.3,<5.0.0",  # Compatible with tensorflow
+    "grpcio-tools",
+    "pansi>=2020.7.3",  # Required by py2neo
+    "packaging>=23.2,<24.0"  # Compatible with langfuse
 ]
 
 [build-system]
@@ -27,3 +29,12 @@ build-backend = "setuptools.build_meta"
 [tool.setuptools]
 package-dir = {"" = "src"}
 packages = ["graphrag", "milvus_docs"]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "black",
+    "isort",
+    "mypy",
+    "flake8"
+] 
