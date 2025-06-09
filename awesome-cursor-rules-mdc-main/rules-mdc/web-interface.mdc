@@ -1,0 +1,210 @@
+---
+description: This rule file provides guidelines and best practices for developing web interface libraries, focusing on React, Vue, and general frontend development principles. It covers code organization, performance, security, testing, and common pitfalls.
+globs: **/*.{js,jsx,ts,tsx}
+---
+---
+# Web Interface Library Best Practices
+
+This document outlines the best practices for developing robust, maintainable, and performant web interface libraries. These guidelines apply primarily to libraries built with React, Vue, or similar component-based frameworks, but many principles are applicable across various frontend technologies.
+
+## 1. Code Organization and Structure
+
+*   **Component-Based Architecture:**
+    *   **Small, Reusable Components:** Break down complex UIs into smaller, function-specific, and reusable components. Each component should ideally have a single responsibility.
+    *   **Component Composition:** Compose complex UIs by combining smaller, reusable components. This promotes modularity and reduces code duplication.
+    *   **Folder Structure:**
+        *   **Feature-Based Grouping:** Organize components by feature or domain. This makes it easier to locate related files and understand the application's structure.
+        *   **Component-Centric Structure:**  Keep all files related to a component (JavaScript/TypeScript, CSS/SCSS, tests, assets) within a single folder.
+        *   Example:
+            
+            src/
+            ├── components/
+            │   ├── Button/
+            │   │   ├── Button.jsx
+            │   │   ├── Button.module.scss
+            │   │   ├── Button.test.jsx
+            │   │   └── index.js
+            │   ├── Input/
+            │   │   ├── Input.jsx
+            │   │   ├── Input.module.scss
+            │   │   ├── Input.test.jsx
+            │   │   └── index.js
+            │   └── ...
+            ├── pages/
+            │   ├── Home/
+            │   │   ├── Home.jsx
+            │   │   ├── Home.module.scss
+            │   │   └── index.js
+            │   └── ...
+            ├── utils/
+            ├── services/
+            └── ...
+            
+    *   **Naming Conventions:**
+        *   **PascalCase for Components:** Use PascalCase for component names (e.g., `MyComponent`).
+        *   **camelCase for Methods:** Use camelCase for methods and functions within components (e.g., `handleClick`).
+        *   **Meaningful Names:** Choose descriptive and concise names for components, props, and variables.
+
+*   **State Management:**
+    *   **Centralized State (When Necessary):** For complex applications, consider using a centralized state management library like Redux, Zustand, or Context API with `useReducer`. Avoid overusing global state; prefer local state for component-specific data.
+    *   **Context API:** Use React's Context API for sharing data between components without prop drilling.
+    *   **useState Hook:** Utilize the `useState` hook for managing component state in functional components.
+
+*   **Directory Structure:**
+    *   `components`: Reusable UI components.
+    *   `hooks`: Custom React hooks.
+    *   `utils`: Utility functions.
+    *   `services`: API interaction logic.
+    *   `constants`: Application-wide constants.
+    *   `types`: TypeScript type definitions.
+    *   `styles`: Global styles and theming.
+
+## 2. Common Patterns and Anti-patterns
+
+*   **Patterns:**
+    *   **Higher-Order Components (HOCs):** Use HOCs for cross-cutting concerns like authentication or data fetching.  Consider using hooks as an alternative for better composability.
+    *   **Render Props:**  Use render props to share code between React components.  Consider using hooks as an alternative for better composability.
+    *   **Compound Components:** Create components that implicitly share state and behavior among their children (e.g., Tabs, Accordion).
+    *   **Custom Hooks:** Extract reusable logic into custom hooks to keep components clean and focused.
+*   **Anti-patterns:**
+    *   **Prop Drilling:** Avoid passing props through multiple layers of components. Use Context API or a state management library to share data more efficiently.
+    *   **Mutating State Directly:** Never directly modify the state object. Use the `setState` method or the state updater function provided by `useState` to trigger re-renders.
+    *   **Over-Engineering:** Don't introduce complex patterns or libraries unless they are truly necessary. Keep the code simple and maintainable.
+    *   **Inline Styles:** Avoid using inline styles directly.  Use CSS modules, styled-components, or CSS-in-JS solutions for better maintainability and reusability.
+
+## 3. Performance Considerations
+
+*   **Memoization:**
+    *   **React.memo:** Use `React.memo` to memoize functional components and prevent unnecessary re-renders when props haven't changed.
+    *   **PureComponent:** Use `PureComponent` for class components to perform shallow prop and state comparisons.
+    *   **useMemo:** Use `useMemo` to memoize the result of expensive calculations.
+    *   **useCallback:** Use `useCallback` to memoize function instances and prevent unnecessary re-renders of child components.
+
+*   **Code Splitting:**
+    *   **Lazy Loading:** Use `React.lazy` and `<Suspense>` to lazy-load components and reduce the initial bundle size.
+    *   **Dynamic Imports:** Use dynamic imports to load modules on demand.
+
+*   **Virtualization:**
+    *   **react-window, react-virtualized:** Use virtualization libraries for rendering large lists or tables efficiently.
+
+*   **Immutable Data Structures:**
+    *   Use immutable data structures (e.g., Immer, Immutable.js) to simplify state updates and improve performance.
+
+*   **Optimize Re-renders:**
+    *   **Shallow Comparison:** Ensure that props passed to child components are stable and don't change unnecessarily.  Use shallow comparison techniques to prevent re-renders when data hasn't changed.
+
+*   **Debouncing and Throttling:**
+    *   Implement debouncing and throttling techniques to limit the frequency of expensive operations (e.g., API calls, event handlers).
+
+*   **Image Optimization:**
+    *   Optimize images for web use by compressing them and using appropriate formats (e.g., WebP).
+    *   Use lazy loading for images that are not immediately visible.
+
+## 4. Security Best Practices
+
+*   **Input Validation and Sanitization:**
+    *   Validate and sanitize all user inputs to prevent cross-site scripting (XSS) attacks and other security vulnerabilities.
+    *   Use a library like DOMPurify to sanitize HTML content.
+
+*   **Authentication and Authorization:**
+    *   Implement secure authentication and authorization mechanisms to protect sensitive data.
+    *   Use HTTPS to encrypt data in transit.
+    *   Store authentication tokens securely (e.g., using HttpOnly cookies or a secure storage mechanism).
+
+*   **Dependency Management:**
+    *   Regularly update dependencies to patch security vulnerabilities.
+    *   Use a dependency scanner (e.g., npm audit, Yarn audit) to identify and fix known vulnerabilities.
+
+*   **Avoid eval() and dangerouslySetInnerHTML:**
+    *   Never use `eval()` to execute arbitrary code.
+    *   Use `dangerouslySetInnerHTML` with extreme caution and only after sanitizing the input.
+
+*   **Server-Side Rendering (SSR) Security:**
+    *   When using SSR, ensure that the server-side environment is properly secured to prevent code injection and other attacks.
+
+*   **Protect API Keys:** Never expose API keys directly in the client-side code. Store them securely on the server and access them through an API.
+
+## 5. Testing Approaches
+
+*   **Unit Testing:**
+    *   Test individual components and functions in isolation.
+    *   Use a testing framework like Jest or Mocha and an assertion library like Chai.
+    *   Use a testing library like React Testing Library to test components from a user's perspective.
+
+*   **Integration Testing:**
+    *   Test the interaction between multiple components or modules.
+    *   Use a testing framework like Cypress or Playwright for end-to-end testing.
+
+*   **End-to-End Testing:**
+    *   Test the entire application flow from the user's perspective.
+    *   Use a testing framework like Cypress or Playwright for end-to-end testing.
+
+*   **Component Testing:**
+    *   Use Storybook or similar tools for developing and testing individual components in isolation.
+
+*   **Code Coverage:**
+    *   Use code coverage tools to ensure that your tests cover a sufficient portion of the codebase.
+
+*   **Test-Driven Development (TDD):**
+    *   Consider using TDD to write tests before writing the actual code.
+
+## 6. Common Pitfalls and Gotchas
+
+*   **Incorrect `this` Binding:**
+    *   In class components, ensure that `this` is properly bound in event handlers.
+    *   Use arrow functions or the `bind` method to bind `this` correctly.
+
+*   **Missing Keys in Lists:**
+    *   Always provide a unique `key` prop when rendering lists of elements. This helps React efficiently update the DOM.
+
+*   **Infinite Re-render Loops:**
+    *   Avoid causing infinite re-render loops by carefully managing state updates and dependencies in `useEffect` hooks.
+
+*   **Asynchronous State Updates:**
+    *   Be aware that `setState` updates are asynchronous. Use the updater function to access the previous state when calculating the new state.
+
+*   **Closure Issues:**
+    *   Be mindful of closure issues when using variables from the outer scope in event handlers or asynchronous callbacks.
+    *   Use the `useRef` hook to access the latest value of a variable without triggering re-renders.
+
+*   **Forgetting Dependencies in `useEffect`:**
+    *   Always specify all dependencies in the dependency array of `useEffect` hooks to prevent stale closures and unexpected behavior.
+
+*   **Not Handling Errors:**
+    *   Wrap asynchronous operations in `try...catch` blocks to handle errors gracefully.
+    *   Use error boundaries to catch errors in component trees.
+
+*   **Ignoring Accessibility (A11y):**
+    *   Follow accessibility guidelines to make your application usable for people with disabilities.
+    *   Use semantic HTML elements, provide alternative text for images, and ensure that your application is keyboard-accessible.
+
+## 7. Tooling and Environment
+
+*   **Code Editor:**
+    *   Use a code editor with React support (e.g., VS Code, Sublime Text, Atom).
+    *   Install React-specific extensions for syntax highlighting, code completion, and linting.
+
+*   **Linting:**
+    *   Use ESLint with the `eslint-plugin-react` and `eslint-plugin-react-hooks` plugins to enforce coding standards and identify potential errors.
+
+*   **Formatting:**
+    *   Use Prettier to automatically format your code and ensure consistent styling.
+
+*   **Bundling:**
+    *   Use a module bundler like Webpack, Parcel, or Rollup to bundle your code and optimize it for production.
+
+*   **Debugging:**
+    *   Use the React Developer Tools browser extension to inspect component hierarchies, props, and state.
+
+*   **Version Control:**
+    *   Use Git for version control.
+    *   Follow a consistent branching strategy (e.g., Gitflow).
+
+*   **Package Manager:**
+    *   Use npm or Yarn to manage dependencies.
+
+*   **TypeScript:**
+    *   Consider using TypeScript for type checking and improved code maintainability.
+
+*   **Storybook:**
+    *   Use Storybook for developing and showcasing UI components in isolation.

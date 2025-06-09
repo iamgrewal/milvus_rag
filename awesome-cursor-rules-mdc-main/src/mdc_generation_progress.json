@@ -239,5 +239,21 @@
   "zsh": "completed",
   "unreal-engine": "completed",
   "vim": "completed",
-  "databricks": "completed"
+  "databricks": "completed",
+  "embedding_service": "completed",
+  "ai-fusion-agent": "completed",
+  "ai-execution-agent": "failed",
+  "execution-agent": "completed",
+  "beautifulsoup": "completed",
+  "fallback-mechanism": "completed",
+  "nlp_processor": "completed",
+  "planner-agent": "completed",
+  "opentelemetry": "completed",
+  "prometheus": "completed",
+  "report-generator": "completed",
+  "knowledge-graph": "failed",
+  "task_manager": "completed",
+  "task-management": "completed",
+  "secure_config": "completed",
+  "web-interface": "completed"
 }

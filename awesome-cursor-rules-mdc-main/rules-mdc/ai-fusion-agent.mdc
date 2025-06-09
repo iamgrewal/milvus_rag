@@ -1,0 +1,176 @@
+---
+description: This rule provides best practices, coding standards, and architectural guidelines for the ai-fusion-agent library, ensuring maintainability, performance, and security. It includes recommendations for code organization, common patterns, performance optimizations, security measures, testing methodologies, common pitfalls, and tooling.
+globs: **/*.py, **/*.md, **/*.txt, **/Dockerfile, **/requirements.txt, **/config.yaml, **/*.json
+---
+# ai-fusion-agent Library Best Practices and Coding Standards
+
+This document outlines the best practices and coding standards for developing and maintaining the `ai-fusion-agent` library. Adhering to these guidelines ensures code quality, maintainability, performance, and security.
+
+## 1. Code Organization and Structure
+
+- **Modular Design:**
+    - Break down the library into logical modules or packages, each responsible for a specific functionality (e.g., data ingestion, agent core logic, tool management, output formatting).
+    - Each module should have a clear interface and minimal dependencies on other modules.
+    - Utilize a well-defined directory structure to reflect the modular design (e.g., `ai_fusion_agent/data_ingestion`, `ai_fusion_agent/agent_core`, `ai_fusion_agent/tools`, `ai_fusion_agent/output`).
+
+- **Clear Naming Conventions:**
+    - Use descriptive and consistent names for modules, classes, functions, and variables.
+    - Follow Python's PEP 8 naming conventions (e.g., `module_name`, `ClassName`, `function_name`, `variable_name`).
+    - Be explicit in naming to avoid ambiguity. For instance, prefer `get_data_from_api` over `get_data`.
+
+- **Documentation as Code:**
+    - Comprehensive README.md files at the root of your project and in each package.
+    - Create a CONTRIBUTING.md document that explains coding practices, PR expectations, and test coverage requirements.
+    - Add additional docs inline near the source files that require explanations or add documentation in those files that explains the goals/techniques if they are not obvious from the code.
+
+- **Minimize Package Explosion:**
+    - Use a minimal number of packages with clear boundaries.
+    - Only create separate packages when code needs to be shared between multiple applications.
+
+- **Simplify Project Structure:**
+    - Flatter directory structures with semantically meaningful names.
+    - Put related functionality together rather than fragmenting it across many files and folders.
+
+- **Avoid Re-exports and Indirection:**
+    - Limit re-exports to the package level. Internal re-exports create indirection that makes it harder for the AI to trace dependencies.
+
+## 2. Common Patterns and Anti-patterns
+
+- **Agent Pattern:**
+    - Implement the agent as a class with methods for initialization, planning, execution, and result processing.
+    - Use a state management system (e.g., a dictionary or a dedicated state class) to track the agent's internal state.
+
+- **Tool Use Pattern:**
+    - Define tools as separate functions or classes with well-defined inputs and outputs.
+    - Use a tool registry to manage available tools and their descriptions.
+    - Implement a tool selection mechanism (e.g., using LLMs) to determine the appropriate tool for a given task.
+
+- **Data Fusion Pattern:**
+    - Implement a data fusion module to combine information from multiple sources (APIs, databases, files).
+    - Use appropriate data structures and algorithms for data aggregation and conflict resolution.
+
+- **Anti-patterns:**
+    - **God Classes/Functions:** Avoid creating classes or functions that are too large and handle too many responsibilities. Break them down into smaller, more manageable units.
+    - **Tight Coupling:** Minimize dependencies between modules to improve maintainability and reusability.
+    - **Code Duplication:** Avoid duplicating code by creating reusable functions or classes.
+
+## 3. Performance Considerations
+
+- **Asynchronous Operations:**
+    - Use asynchronous programming (e.g., `asyncio`) to handle I/O-bound operations (e.g., API calls) concurrently.
+    - This improves the agent's responsiveness and overall throughput.
+
+- **Caching:**
+    - Implement caching mechanisms to store frequently accessed data (e.g., API responses, database query results).
+    - Use appropriate cache eviction policies (e.g., LRU) to manage cache size.
+
+- **Efficient Data Structures and Algorithms:**
+    - Choose appropriate data structures and algorithms for data processing and manipulation.
+    - Consider using libraries like NumPy or Pandas for numerical computations and data analysis.
+
+- **Profiling and Optimization:**
+    - Use profiling tools to identify performance bottlenecks in the code.
+    - Optimize the code based on profiling results.
+
+- **Lazy Loading:**
+    - Load resources or data only when they are needed, rather than loading everything upfront.
+    - This reduces startup time and memory usage.
+
+## 4. Security Best Practices
+
+- **Input Validation:**
+    - Validate all inputs from external sources (e.g., user input, API responses) to prevent injection attacks.
+    - Use appropriate validation techniques (e.g., regular expressions, type checking).
+
+- **Authentication and Authorization:**
+    - Implement proper authentication and authorization mechanisms to control access to sensitive resources and functionalities.
+    - Use strong passwords and multi-factor authentication.
+
+- **Data Encryption:**
+    - Encrypt sensitive data at rest and in transit.
+    - Use appropriate encryption algorithms and key management practices.
+
+- **Secure API Keys and Credentials:**
+    - Never hardcode API keys or credentials in the code.
+    - Store them securely using environment variables or a dedicated secret management system.
+
+- **Rate Limiting:**
+    - Implement rate limiting to prevent abuse and denial-of-service attacks.
+
+- **Authorize tool calling and agent delegation with re-authentication based on data risk**
+
+## 5. Testing Approaches
+
+- **Unit Testing:**
+    - Write unit tests for individual modules, classes, and functions to ensure they behave as expected.
+    - Use a testing framework like `pytest` or `unittest`.
+
+- **Integration Testing:**
+    - Write integration tests to verify the interaction between different modules and components.
+
+- **End-to-End Testing:**
+    - Write end-to-end tests to simulate real-world scenarios and validate the overall functionality of the agent.
+
+- **LLM Interaction Testing:**
+   - Design tests that evaluate the LLM's responses to various prompts and inputs.
+   - Use techniques like prompt engineering and few-shot learning to improve the LLM's performance.
+   - Implement a feedback mechanism to allow users to report incorrect or inappropriate responses.
+
+- **Test-Driven Development (TDD):**
+    - Consider using TDD to write tests before implementing the code.
+    - This helps ensure that the code meets the requirements and is testable.
+
+## 6. Common Pitfalls and Gotchas
+
+- **Prompt Injection:**
+    - Be aware of prompt injection attacks, where malicious users can manipulate the LLM by crafting specific prompts.
+    - Implement input validation and sanitization techniques to mitigate this risk.
+
+- **Context Window Limitations:**
+    - Understand the context window limitations of the LLM.
+    - Use techniques like summarization and information retrieval to manage context size.
+
+- **Hallucinations:**
+    - LLMs can sometimes generate incorrect or nonsensical information (hallucinations).
+    - Implement verification mechanisms to validate the LLM's outputs.
+
+- **Non-Deterministic Behavior:**
+    - LLMs can exhibit non-deterministic behavior, meaning that the same input can produce different outputs.
+    - Be aware of this when designing and testing the agent.
+
+- **Unclear Error Messages:** Ensure clear and helpful error messages are provided for debugging.
+
+## 7. Tooling and Environment
+
+- **Virtual Environments:**
+    - Use virtual environments (e.g., `venv` or `conda`) to isolate project dependencies.
+
+- **Dependency Management:**
+    - Use a dependency management tool (e.g., `pip` or `poetry`) to manage project dependencies.
+    - Use UV when installing dependencies
+
+- **Linting and Code Formatting:**
+    - Use a linter (e.g., `flake8` or `pylint`) to enforce code style and identify potential errors.
+    - Use a code formatter (e.g., `black` or `autopep8`) to automatically format the code.
+
+- **IDE and Editor Configuration:**
+    - Configure your IDE or editor to use the project's coding standards and linting rules.
+
+- **Version Control:**
+    - Use a version control system (e.g., Git) to track changes to the code.
+
+- **Containerization:**
+    - Use containerization (e.g., Docker) to package the agent and its dependencies into a portable container.
+
+- **Monitoring and Logging:**
+    - Implement monitoring and logging to track the agent's performance and identify potential issues.
+
+- **Infrastructure as Code (IaC):** Define and manage infrastructure using code for automated provisioning and management.
+
+- **Continuous Integration/Continuous Deployment (CI/CD):** Automate the build, test, and deployment processes for faster and more reliable releases.
+
+- **Prefer Compile-Time Validation Over Runtime Checks:** Push as much validation as possible to compile time using strong typing and static analysis.
+
+- **Always use Python 3.12 or higher**
+
+- **Always use classes instead of functions**

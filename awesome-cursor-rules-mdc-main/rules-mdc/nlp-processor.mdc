@@ -1,0 +1,256 @@
+---
+description: This rule provides comprehensive guidelines for developing and maintaining the nlp_processor library, covering code structure, performance, security, and testing. It aims to ensure code quality, maintainability, and robustness.
+globs: **/*.{py,ipynb,txt,md}
+---
+---
+# nlp_processor Library Best Practices
+
+This document outlines the recommended best practices for developing and maintaining the `nlp_processor` library. Following these guidelines will help ensure code quality, maintainability, performance, security, and testability.
+
+## 1. Code Organization and Structure
+
+*   **Modular Design:**
+    *   Break down the library into smaller, well-defined modules and classes, each responsible for a specific task (e.g., tokenization, stemming, stop word removal). This promotes code reusability and maintainability.
+    *   Use clear and descriptive names for modules and classes.
+    *   Example:
+        python
+        # nlp_processor/tokenization.py
+        class Tokenizer:
+            def __init__(self, method='whitespace'):
+                self.method = method
+
+            def tokenize(self, text):
+                # Tokenization logic
+                pass
+        
+
+*   **Package Structure:**
+    *   Organize the library into a well-defined package structure.  Use a top-level directory `nlp_processor` containing subdirectories for different functionalities.
+    *   Include an `__init__.py` file in each directory to make it a Python package.
+    *   Example:
+        
+        nlp_processor/
+        ├── __init__.py
+        ├── tokenization/
+        │   ├── __init__.py
+        │   ├── tokenizer.py
+        ├── stemming/
+        │   ├── __init__.py
+        │   ├── stemmer.py
+        ├── stopword_removal/
+        │   ├── __init__.py
+        │   ├── stopword_remover.py
+        ├── utils/
+        │   ├── __init__.py
+        │   ├── helper_functions.py
+        
+
+*   **Clear API Design:**
+    *   Define a clear and consistent API for the library.  This makes it easier for users to understand and use the library.
+    *   Use docstrings to document all public functions, classes, and modules.
+    *   Example:
+        python
+        def clean_text(text: str, remove_stopwords: bool = False) -> str:
+            """Cleans the input text by removing punctuation and optionally stopwords.
+
+            Args:
+                text: The input text string.
+                remove_stopwords: Whether to remove stopwords.
+
+            Returns:
+                The cleaned text string.
+            """
+            pass
+        
+
+*   **Configuration Management:**
+    *   Use a configuration file (e.g., `config.ini`, `config.yaml`, `config.json`) to store configurable parameters, such as paths to data files, model parameters, and API keys.
+    *   Use a library like `configparser`, `PyYAML`, or `json` to load the configuration file.
+    *   Example:
+        python
+        import configparser
+
+        config = configparser.ConfigParser()
+        config.read('config.ini')
+
+        data_path = config['data']['path']
+        
+
+## 2. Common Patterns and Anti-patterns
+
+*   **Factory Pattern:**
+    *   Use the factory pattern to create instances of different NLP components (e.g., tokenizers, stemmers) based on a configuration parameter.
+    *   This allows users to easily switch between different implementations without modifying the code.
+    *   Example:
+        python
+        class TokenizerFactory:
+            def create_tokenizer(self, method):
+                if method == 'whitespace':
+                    return WhitespaceTokenizer()
+                elif method == 'nltk':
+                    return NLTKTokenizer()
+                else:
+                    raise ValueError(f'Invalid tokenization method: {method}')
+        
+
+*   **Strategy Pattern:**
+    *   Use the strategy pattern to encapsulate different algorithms for a specific task (e.g., stemming, stop word removal).
+    *   This allows users to easily switch between different algorithms without modifying the code.
+    *   Example:
+        python
+        class Stemmer:
+            def __init__(self, stemming_strategy):
+                self.stemming_strategy = stemming_strategy
+
+            def stem(self, word):
+                return self.stemming_strategy.stem(word)
+        
+
+*   **Anti-pattern: God Class:**
+    *   Avoid creating a single class that performs too many tasks.  Break down the functionality into smaller, more manageable classes.
+
+*   **Anti-pattern: Code Duplication:**
+    *   Avoid duplicating code.  Extract common functionality into reusable functions or classes.
+
+*   **Anti-pattern: Hardcoding:**
+    *   Avoid hardcoding values in the code.  Use configuration files or environment variables to store configurable parameters.
+
+## 3. Performance Considerations
+
+*   **Vectorization:**
+    *   Utilize vectorized operations with libraries like NumPy and Pandas whenever possible. Vectorization significantly improves performance compared to explicit loops.
+    *   Example:
+        python
+        import numpy as np
+
+        def process_data(data):
+            data = np.array(data)
+            result = data * 2  # Vectorized operation
+            return result.tolist()
+        
+
+*   **Data Structures:**
+    *   Choose appropriate data structures for different tasks.  For example, use sets for fast membership testing and dictionaries for fast lookups.
+
+*   **Caching:**
+    *   Implement caching to store frequently accessed data or results of expensive computations.  Use libraries like `functools.lru_cache` or `diskcache`.
+    *   Example:
+        python
+        from functools import lru_cache
+
+        @lru_cache(maxsize=128)
+        def expensive_function(arg):
+            # Computationally intensive operation
+            return result
+        
+
+*   **Lazy Loading:**
+    *   Load large datasets or models only when they are needed.  Avoid loading everything into memory at startup.
+
+*   **Profiling:**
+    *   Use profiling tools like `cProfile` or `line_profiler` to identify performance bottlenecks in the code.
+    *   Example:
+        python
+        import cProfile
+        import pstats
+
+        cProfile.run('your_function()', 'profile_output')
+        p = pstats.Stats('profile_output')
+        p.sort_stats('cumulative').print_stats(10) # Top 10 functions by time
+        
+
+*   **Asynchronous Processing:**
+    *   For I/O-bound tasks, consider using asynchronous processing with libraries like `asyncio` or `concurrent.futures` to improve responsiveness.
+
+## 4. Security Best Practices
+
+*   **Input Validation:**
+    *   Validate all input data to prevent injection attacks (e.g., SQL injection, command injection).  Sanitize input data by removing or escaping potentially harmful characters.
+
+*   **Dependency Management:**
+    *   Keep dependencies up to date to patch security vulnerabilities.  Use a tool like `pip-audit` or `safety` to scan for known vulnerabilities in dependencies.
+
+*   **Secure Storage of Secrets:**
+    *   Never store API keys, passwords, or other sensitive information directly in the code.  Use environment variables or a dedicated secret management tool (e.g., HashiCorp Vault, AWS Secrets Manager).
+
+*   **Avoid Arbitrary Code Execution:**
+    *   Avoid using functions like `eval()` or `exec()` that can execute arbitrary code.  These functions can be exploited by attackers to run malicious code.
+
+*   **Regular Security Audits:**
+    *   Conduct regular security audits of the code to identify and address potential vulnerabilities.
+
+## 5. Testing Approaches
+
+*   **Unit Testing:**
+    *   Write unit tests for all modules and classes to ensure that they function correctly in isolation.  Use a testing framework like `pytest` or `unittest`.
+    *   Aim for high code coverage (e.g., 80% or higher).
+    *   Example:
+        python
+        # tests/test_tokenizer.py
+        import pytest
+        from nlp_processor.tokenization import Tokenizer
+
+        def test_tokenizer_whitespace():
+            tokenizer = Tokenizer(method='whitespace')
+            text = 'This is a test sentence.'
+            tokens = tokenizer.tokenize(text)
+            assert tokens == ['This', 'is', 'a', 'test', 'sentence.']
+        
+
+*   **Integration Testing:**
+    *   Write integration tests to ensure that different modules and classes work together correctly.
+
+*   **End-to-End Testing:**
+    *   Write end-to-end tests to verify that the library functions correctly in a real-world scenario.
+
+*   **Test-Driven Development (TDD):**
+    *   Consider using TDD, where you write the tests before writing the code.  This helps to ensure that the code is testable and that it meets the requirements.
+
+*   **Property-Based Testing:**
+    *   Use property-based testing frameworks like `hypothesis` to generate a wide range of inputs and verify that the code satisfies certain properties.
+
+*   **Mocking:**
+    *   Use mocking libraries like `unittest.mock` or `pytest-mock` to isolate units of code during testing by replacing dependencies with mock objects.
+
+## 6. Common Pitfalls and Gotchas
+
+*   **Unicode Handling:**
+    *   Be aware of Unicode encoding issues.  Use UTF-8 encoding for all text files and strings.  Normalize Unicode strings to a consistent form (e.g., NFC or NFKD).
+
+*   **Regular Expression Performance:**
+    *   Regular expressions can be slow.  Use them carefully and optimize them for performance.  Consider using precompiled regular expressions.
+
+*   **Memory Management:**
+    *   Be mindful of memory usage, especially when processing large datasets.  Use generators or iterators to process data in chunks.
+
+*   **Global State:**
+    *   Avoid using global variables or mutable global state.  This can make the code difficult to test and debug.
+
+*   **Hidden Dependencies:**
+    *   Explicitly declare all dependencies in the `setup.py` or `pyproject.toml` file.  This makes it easier for users to install and use the library.
+
+## 7. Tooling and Environment
+
+*   **Virtual Environments:**
+    *   Use virtual environments (e.g., `venv`, `conda`) to isolate dependencies for different projects.
+
+*   **Dependency Management:**
+    *   Use a dependency management tool like `pip` or `conda` to manage dependencies.
+
+*   **Linters and Code Formatters:**
+    *   Use linters like `flake8` or `pylint` to enforce code style and identify potential errors.
+    *   Use code formatters like `black` or `autopep8` to automatically format the code.
+
+*   **Static Analysis Tools:**
+    *   Use static analysis tools like `mypy` or `pytype` to check for type errors.
+
+*   **Version Control:**
+    *   Use a version control system like Git to track changes to the code.
+
+*   **Continuous Integration (CI):**
+    *   Use a CI system like GitHub Actions, GitLab CI, or Jenkins to automatically run tests and linters whenever code is pushed to the repository.
+
+*   **Documentation Generation:**
+    *   Use a documentation generator like Sphinx to generate documentation from docstrings.
+
+By adhering to these best practices, developers can create a robust, maintainable, and high-performing `nlp_processor` library that meets the needs of its users.

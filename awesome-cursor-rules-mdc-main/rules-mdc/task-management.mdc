@@ -1,0 +1,350 @@
+---
+description: This rule file outlines best practices for the task-management library, covering code structure, performance, security, testing, and common pitfalls. It aims to provide clear guidelines for developers to build robust and maintainable task management solutions.
+globs: **/*.{js,ts,jsx,tsx}
+---
+# Task Management Library Best Practices
+
+This document outlines best practices for developing and maintaining a robust, efficient, and secure task-management library. It covers various aspects, from code organization to security considerations, providing actionable guidance for developers.
+
+## Library Information:
+- Name: task-management
+- Tags: workflow, tasks, management, productivity
+
+## 1. Code Organization and Structure
+
+### 1.1. Modular Design
+
+- **Principle:** Break down the library into smaller, independent modules or components. Each module should have a clear responsibility and a well-defined interface.
+- **Implementation:**
+    - Use ES modules (ESM) or CommonJS (CJS) for module definition and import.
+    - Organize modules into directories based on functionality (e.g., `core`, `ui`, `api`).
+    - Employ a layered architecture (e.g., presentation, business logic, data access) to separate concerns.
+- **Example:**
+
+  javascript
+  // core/task.js
+  export class Task {
+    constructor(id, title, description, dueDate, priority) { ... }
+    // ... methods for task manipulation
+  }
+
+  // ui/task-list.js
+  import { Task } from '../core/task';
+  export function renderTaskList(tasks) { ... }
+  
+
+### 1.2. Clear Naming Conventions
+
+- **Principle:** Use descriptive and consistent names for variables, functions, classes, and modules.
+- **Implementation:**
+    - Follow a naming convention (e.g., camelCase for variables and functions, PascalCase for classes).
+    - Use meaningful names that reflect the purpose of the element.
+    - Avoid abbreviations unless they are widely understood within the domain.
+- **Example:**
+
+  javascript
+  const taskTitle = 'Grocery Shopping'; // Good
+  const t = 'Grocery Shopping'; // Bad
+
+  function createTask(title, description) { ... } // Good
+  function cT(t, d) { ... } // Bad
+  
+
+### 1.3. Consistent Code Style
+
+- **Principle:** Adhere to a consistent code style throughout the library.
+- **Implementation:**
+    - Use a code formatter (e.g., Prettier) to automatically format code according to a predefined style.
+    - Configure a linter (e.g., ESLint) to enforce code style rules and detect potential errors.
+    - Use a style guide (e.g., Airbnb JavaScript Style Guide) as a reference.
+- **Tools:** Prettier, ESLint, Stylelint
+
+### 1.4. Directory Structure
+
+- **Principle:** Maintain a well-organized directory structure to improve navigability and maintainability.
+- **Implementation:**
+    - Root directory:
+        - `src/`: Source code
+        - `test/`: Unit and integration tests
+        - `docs/`: Documentation
+        - `examples/`: Usage examples
+        - `dist/`: Build output
+        - `package.json`: Project metadata and dependencies
+        - `README.md`: Project description and usage instructions
+        - `.gitignore`: Specifies intentionally untracked files that Git should ignore.
+        - `LICENSE`: License information
+        - `.eslintrc.js`, `.prettierrc.js`: Linter and formatter configurations
+    - Within `src/`:
+        - Feature-based folders (e.g., `src/tasks`, `src/users`)
+        - Common or utility functions in a `src/utils` or `src/common` folder.
+
+## 2. Common Patterns and Anti-patterns
+
+### 2.1. Task Abstraction
+
+- **Pattern:** Use a `Task` class or interface to represent tasks within the library.
+- **Implementation:**
+    - Define properties such as `id`, `title`, `description`, `dueDate`, `priority`, and `status`.
+    - Implement methods for task manipulation, such as `updateStatus`, `assignToUser`, and `addComment`.
+- **Benefits:** Provides a consistent and reusable representation of tasks.
+
+### 2.2. Observer Pattern for Task Updates
+
+- **Pattern:** Implement the Observer pattern to notify subscribers (e.g., UI components) when a task changes.
+- **Implementation:**
+    - Define a `Task` class that maintains a list of observers.
+    - Implement methods for attaching and detaching observers.
+    - When a task changes, notify all attached observers.
+- **Benefits:** Decouples task management logic from UI updates.
+
+### 2.3. Avoid Global State
+
+- **Anti-pattern:** Storing task data in global variables or singletons.
+- **Reason:** Makes it difficult to reason about the state of the application and can lead to unexpected side effects.
+- **Solution:** Pass task data as arguments to functions or components, or use a state management library (e.g., Redux, Zustand) to manage the application state in a predictable way.
+
+### 2.4. Premature Optimization
+
+- **Anti-pattern:** Optimizing code before it is necessary.
+- **Reason:** Can lead to complex and unreadable code, and may not actually improve performance.
+- **Solution:** Focus on writing clean and maintainable code first, and then optimize only if performance becomes a bottleneck.
+- **Profiling Tools:** Use profiling tools (e.g., Chrome DevTools) to identify performance bottlenecks.
+
+## 3. Performance Considerations
+
+### 3.1. Efficient Data Structures
+
+- **Principle:** Choose appropriate data structures for storing and manipulating task data.
+- **Implementation:**
+    - Use arrays for storing lists of tasks.
+    - Use maps or sets for efficient lookups and membership tests.
+    - Consider using immutable data structures to avoid unintended side effects and improve performance in certain scenarios.
+- **Libraries:** Immer, Immutable.js
+
+### 3.2. Minimize DOM Updates
+
+- **Principle:** Minimize the number of DOM updates, as they can be expensive.
+- **Implementation:**
+    - Use techniques like batching and debouncing to update the DOM less frequently.
+    - Use virtual DOM libraries (e.g., React, Vue) to efficiently update the DOM.
+- **Techniques:**
+    - **Batching:** Group multiple updates into a single update.
+    - **Debouncing:** Delay updates until a certain amount of time has passed.
+    - **Throttling:** Limit the rate at which updates are performed.
+
+### 3.3. Lazy Loading
+
+- **Principle:** Load resources (e.g., images, data) only when they are needed.
+- **Implementation:**
+    - Use techniques like lazy loading and code splitting to reduce the initial load time of the application.
+    - Load images only when they are visible in the viewport.
+    - Split the code into smaller chunks that can be loaded on demand.
+- **Tools:** Webpack, Parcel
+
+### 3.4. Memoization
+
+- **Principle:** Cache the results of expensive function calls and reuse them when the same inputs are provided.
+- **Implementation:**
+    - Use memoization techniques to avoid recomputing the same values multiple times.
+    - Use memoization libraries (e.g., Lodash's `memoize` function) to simplify the implementation.
+- **Example:**
+
+  javascript
+  import { memoize } from 'lodash';
+
+  const getTaskPriority = memoize((taskId) => {
+    // Expensive calculation to determine task priority
+    ...
+  });
+  
+
+## 4. Security Best Practices
+
+### 4.1. Input Validation
+
+- **Principle:** Validate all user inputs to prevent injection attacks and other security vulnerabilities.
+- **Implementation:**
+    - Use server-side validation to ensure that data is valid before it is stored in the database.
+    - Use client-side validation to provide immediate feedback to the user.
+    - Sanitize user inputs to remove potentially harmful characters.
+- **Libraries:** Joi, validator.js
+
+### 4.2. Authentication and Authorization
+
+- **Principle:** Implement proper authentication and authorization mechanisms to protect sensitive data.
+- **Implementation:**
+    - Use a secure authentication protocol (e.g., OAuth 2.0, JWT) to verify the identity of users.
+    - Use role-based access control (RBAC) to restrict access to resources based on user roles.
+    - Store passwords securely using a strong hashing algorithm (e.g., bcrypt).
+- **Libraries:** Passport.js, Auth0
+
+### 4.3. Cross-Site Scripting (XSS) Prevention
+
+- **Principle:** Prevent XSS attacks by properly escaping user inputs and using a content security policy (CSP).
+- **Implementation:**
+    - Escape user inputs before rendering them in the browser.
+    - Use a CSP to restrict the sources from which the browser can load resources.
+- **Techniques:**
+    - **Escaping:** Convert special characters (e.g., `<`, `>`, `&`) into their corresponding HTML entities.
+    - **CSP:** Define a policy that specifies the sources from which the browser can load resources.
+
+### 4.4. Cross-Site Request Forgery (CSRF) Prevention
+
+- **Principle:** Prevent CSRF attacks by using a CSRF token.
+- **Implementation:**
+    - Generate a unique CSRF token for each user session.
+    - Include the CSRF token in all forms and AJAX requests.
+    - Verify the CSRF token on the server before processing the request.
+- **Libraries:** csurf
+
+### 4.5. Dependency Management
+
+- **Principle:** Regularly update dependencies to patch security vulnerabilities.
+- **Implementation:**
+    - Use a dependency management tool (e.g., npm, yarn) to manage dependencies.
+    - Regularly update dependencies to the latest versions.
+    - Use a vulnerability scanner (e.g., npm audit, yarn audit) to identify and fix security vulnerabilities in dependencies.
+- **Tools:** npm, yarn, Snyk
+
+## 5. Testing Approaches
+
+### 5.1. Unit Testing
+
+- **Principle:** Test individual units of code (e.g., functions, classes) in isolation.
+- **Implementation:**
+    - Write unit tests for all core modules and components.
+    - Use a unit testing framework (e.g., Jest, Mocha) to write and run unit tests.
+    - Aim for high code coverage.
+- **Frameworks:** Jest, Mocha, Jasmine
+
+### 5.2. Integration Testing
+
+- **Principle:** Test the interaction between different units of code.
+- **Implementation:**
+    - Write integration tests to verify that different modules and components work together correctly.
+    - Use an integration testing framework (e.g., Jest, Mocha) to write and run integration tests.
+- **Frameworks:** Jest, Mocha, Cypress
+
+### 5.3. End-to-End (E2E) Testing
+
+- **Principle:** Test the entire application from end to end.
+- **Implementation:**
+    - Write E2E tests to verify that the application works as expected from the user's perspective.
+    - Use an E2E testing framework (e.g., Cypress, Selenium) to write and run E2E tests.
+- **Frameworks:** Cypress, Selenium, Puppeteer
+
+### 5.4. Test-Driven Development (TDD)
+
+- **Principle:** Write tests before writing code.
+- **Implementation:**
+    - Write a test that fails.
+    - Write the minimum amount of code to make the test pass.
+    - Refactor the code to improve its structure and readability.
+- **Benefits:** Leads to cleaner and more testable code.
+
+### 5.5. Code Coverage
+
+- **Principle:** Measure the percentage of code that is covered by tests.
+- **Implementation:**
+    - Use a code coverage tool (e.g., Istanbul) to measure code coverage.
+    - Aim for high code coverage to ensure that all parts of the code are tested.
+- **Tools:** Istanbul, Jest (built-in coverage reports)
+
+## 6. Common Pitfalls and Gotchas
+
+### 6.1. Callback Hell
+
+- **Pitfall:** Nesting multiple callbacks can lead to complex and unreadable code.
+- **Solution:** Use Promises or async/await to simplify asynchronous code.
+- **Example:**
+
+  javascript
+  // Callback hell
+  asyncFunction1(function(result1) {
+    asyncFunction2(result1, function(result2) {
+      asyncFunction3(result2, function(result3) {
+        ...
+      });
+    });
+  });
+
+  // Using Promises
+  asyncFunction1()
+    .then(result1 => asyncFunction2(result1))
+    .then(result2 => asyncFunction3(result2))
+    .then(result3 => ...);
+
+  // Using async/await
+  async function myFunction() {
+    const result1 = await asyncFunction1();
+    const result2 = await asyncFunction2(result1);
+    const result3 = await asyncFunction3(result2);
+    ...
+  }
+  
+
+### 6.2. Memory Leaks
+
+- **Pitfall:** Failing to release resources can lead to memory leaks.
+- **Solution:** Properly manage resources and avoid creating circular references.
+- **Techniques:**
+    - **Garbage Collection:** Understand how the JavaScript garbage collector works.
+    - **Resource Management:** Release resources (e.g., event listeners, timers) when they are no longer needed.
+    - **Circular References:** Avoid creating circular references between objects.
+
+### 6.3. Unhandled Exceptions
+
+- **Pitfall:** Failing to handle exceptions can lead to application crashes.
+- **Solution:** Use try/catch blocks to handle exceptions and prevent application crashes.
+- **Example:**
+
+  javascript
+  try {
+    // Code that may throw an exception
+  } catch (error) {
+    // Handle the exception
+    console.error(error);
+  }
+  
+
+### 6.4. Blocking the Main Thread
+
+- **Pitfall:** Performing long-running operations on the main thread can block the UI and make the application unresponsive.
+- **Solution:** Offload long-running operations to a worker thread.
+- **Techniques:**
+    - **Web Workers:** Use Web Workers to run code in a background thread.
+    - **Asynchronous Operations:** Use asynchronous operations (e.g., setTimeout, setInterval) to avoid blocking the main thread.
+
+## 7. Tooling and Environment
+
+### 7.1. Package Manager
+
+- **Recommendation:** Use npm or yarn for dependency management.
+- **Benefits:** Simplifies dependency management and ensures that all developers are using the same versions of dependencies.
+
+### 7.2. Build Tool
+
+- **Recommendation:** Use a build tool like Webpack or Parcel to bundle and optimize code.
+- **Benefits:** Improves performance by reducing the number of HTTP requests and optimizing code for production.
+
+### 7.3. Code Editor
+
+- **Recommendation:** Use a code editor like VS Code or Sublime Text.
+- **Benefits:** Provides features like syntax highlighting, code completion, and debugging.
+
+### 7.4. Version Control
+
+- **Recommendation:** Use Git for version control.
+- **Benefits:** Allows developers to track changes to the codebase and collaborate effectively.
+
+### 7.5. Continuous Integration (CI)
+
+- **Recommendation:** Use a CI tool like Jenkins or GitHub Actions to automate the build, test, and deployment process.
+- **Benefits:** Improves code quality and reduces the risk of introducing bugs into production.
+
+### 7.6. Containerization
+
+- **Recommendation:** Use Docker to containerize the application.
+- **Benefits:** Makes it easier to deploy and run the application in different environments.
+
+By following these best practices, developers can build a robust, efficient, and secure task-management library that meets the needs of its users.

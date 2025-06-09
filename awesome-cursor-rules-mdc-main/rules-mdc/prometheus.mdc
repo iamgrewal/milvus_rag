@@ -1,0 +1,210 @@
+---
+description: This rule provides comprehensive best practices for working with the Prometheus monitoring library, covering code organization, performance, security, testing, and common pitfalls. It aims to ensure robust, efficient, and secure Prometheus deployments.
+globs: **/*.go,**/prometheus.yml,**/rules.yml
+---
+# Prometheus Library Best Practices
+
+This document outlines best practices for using the Prometheus monitoring library in Go, covering various aspects from code organization to security. Following these guidelines will help you build robust, efficient, and maintainable monitoring solutions.
+
+## 1. Code Organization and Structure
+
+*   **Dedicated Monitoring Package/Module:**
+
+    *   Create a dedicated package or module within your project specifically for Prometheus-related code. This promotes separation of concerns and makes it easier to manage monitoring logic.
+    *   Example: `myporject/monitoring`
+
+*   **Configuration Files:**
+    * Store Prometheus configuration (`prometheus.yml`) and alerting rules (`rules.yml`) in a dedicated directory, typically `config/prometheus` or `.cursor/rules`. This ensures easy management and version control.
+
+*   **Modular Exporters:**
+
+    *   If you're building custom exporters, break them down into smaller, reusable modules or functions. This improves code readability and testability.
+    *   Example: Separate modules for collecting CPU metrics, memory metrics, and network metrics.
+
+*   **Consistent Naming Conventions:**
+
+    *   Use consistent naming conventions for metrics, labels, functions, and variables within your monitoring code. Adhere to the Prometheus naming conventions for metrics (see the Metrics Guidelines section below).
+
+*   **Monitoring Subfolder:** It is highly recommended to separate your monitoring code from your core operator code, in a dedicated `/monitoring` subfolder.
+
+## 2. Common Patterns and Anti-patterns
+
+*   **Pattern: Centralized Metric Registration:**
+
+    *   Create a central registry or function to register all Prometheus metrics. This ensures that all metrics are properly initialized and avoids naming conflicts.
+
+*   **Pattern: Reusable Metric Functions:**
+
+    *   Define reusable functions for common metric operations, such as incrementing counters, setting gauges, and observing histograms. This reduces code duplication and improves consistency.
+
+*   **Pattern: Error Handling:**
+
+    *   Implement robust error handling in your monitoring code. Log errors and handle them gracefully to prevent monitoring from crashing or losing data.
+
+*   **Anti-pattern: Global Metric Variables:**
+
+    *   Avoid using global variables to store Prometheus metrics. This can lead to race conditions and make it difficult to test your code. Instead, pass metric variables as arguments to functions or methods.
+
+*   **Anti-pattern: Hardcoded Metric Names:**
+
+    *   Avoid hardcoding metric names in your code. Instead, define metric names as constants or use a configuration file to manage them. This makes it easier to change metric names without modifying code.
+
+*   **Anti-pattern: Excessive Label Cardinality:**
+
+    *   Avoid using labels with high cardinality (i.e., labels with a large number of unique values). This can significantly increase the amount of data stored by Prometheus and degrade performance.  Consider alternative approaches, such as using histograms or summaries to track distributions.
+
+## 3. Performance Considerations
+
+*   **Minimize Metric Collection Frequency:**
+
+    *   Collect metrics only as frequently as necessary. Collecting metrics too often can put unnecessary load on your system and increase the amount of data stored by Prometheus.
+
+*   **Use Histograms and Summaries Sparingly:**
+
+    *   Histograms and summaries can be expensive to compute, especially if you have a large number of samples. Use them sparingly and only when you need to track distributions.
+
+*   **Optimize PromQL Queries:**
+
+    *   Write efficient PromQL queries to minimize the load on your Prometheus server. Use filters and aggregations to reduce the amount of data processed by your queries.
+    * Use `rate()` and `irate()` appropriately. `rate()` calculates the average rate of increase over time, while `irate()` calculates the instantaneous rate of increase. Use `irate()` for volatile counters that reset frequently.
+
+*   **Limit the Number of Targets:**
+
+    *   Avoid monitoring too many targets with a single Prometheus server. This can overload the server and degrade performance. Consider using multiple Prometheus servers or a federated setup to scale your monitoring infrastructure.
+
+*   **Compression:** Ensure that data is compressed when being transferred to Prometheus, reducing bandwidth usage.
+
+## 4. Security Best Practices
+
+*   **Authentication and Authorization:**
+
+    *   Enable authentication and authorization for your Prometheus server to prevent unauthorized access to your monitoring data.
+    *   Use strong passwords or certificates for authentication.
+    *   Implement role-based access control (RBAC) to restrict access to specific metrics or queries.
+
+*   **Secure Communication:**
+
+    *   Use HTTPS to encrypt communication between your Prometheus server and exporters. This protects your monitoring data from eavesdropping and tampering.
+
+*   **Input Validation:**
+
+    *   Validate all input to your monitoring code to prevent injection attacks. This includes metric names, label values, and PromQL queries.
+
+*   **Minimize Privileges:**
+
+    *   Run your Prometheus server and exporters with the minimum privileges required to perform their tasks. This reduces the risk of a security breach if an attacker gains access to your system.
+
+*   **Regular Security Audits:**
+
+    *   Conduct regular security audits of your monitoring infrastructure to identify and address potential vulnerabilities.
+
+*   **Avoid exposing sensitive information in metrics.** Do not include things like API keys, passwords, or other credentials as label values or in metric names.
+
+## 5. Testing Approaches
+
+*   **Unit Tests:**
+
+    *   Write unit tests to verify the functionality of your monitoring code. Test individual functions and methods to ensure that they are working correctly.
+    *   Use mocking or stubbing to isolate your code from external dependencies.
+
+*   **Integration Tests:**
+
+    *   Write integration tests to verify the interaction between different components of your monitoring system. Test the communication between your Prometheus server and exporters.
+
+*   **End-to-End Tests:**
+
+    *   Write end-to-end tests to verify the overall functionality of your monitoring system. Test the entire monitoring pipeline, from metric collection to alerting.
+
+*   **PromQL Query Tests:**
+
+    *   Write tests to verify that your PromQL queries are returning the expected results. This helps to ensure that your queries are accurate and efficient.
+
+*   **Alerting Rule Tests:**
+
+    *   Write tests to verify that your alerting rules are firing correctly. This helps to ensure that you are receiving timely alerts when problems occur.
+
+*   **Metrics Tests:** Metrics should include tests that verify that they exist and that their value is correct.
+*   **Alert Tests:** Alerts should include E2E Testing and unit tests.
+
+## 6. Common Pitfalls and Gotchas
+
+*   **Counter Resets:**
+
+    *   Be aware that Prometheus counters can reset if the monitored process restarts. Use the `increase()` function to handle counter resets when calculating rates.
+
+*   **Stale Data:**
+
+    *   Prometheus can return stale data if a target is unavailable. Use the `Absent()` function to detect stale data and handle it appropriately.
+
+*   **Rate Limiting:**
+
+    *   Prometheus can rate limit queries to prevent overload. Be aware of the rate limits and design your queries accordingly.
+
+*   **Out of Memory Errors:**
+
+    *   Prometheus can run out of memory if it is storing too much data. Monitor the memory usage of your Prometheus server and adjust the retention policy if necessary.
+
+*   **Timestamp Alignment:** When aggregating metrics from multiple sources, ensure that timestamps are properly aligned to avoid inaccuracies.
+
+## 7. Tooling and Environment
+
+*   **Promtool:**
+
+    *   Use `promtool` to validate your Prometheus configuration files and alerting rules. This helps to catch errors before they are deployed to production.
+    *   `promtool check config <path_to_your_prometheus.yml>`
+    *   `promtool check rules <path_to_your_rules.yml>`
+
+*   **Grafana:**
+
+    *   Use Grafana to visualize your Prometheus metrics and create dashboards. Grafana provides a rich set of features for exploring and analyzing your monitoring data.
+
+*   **Alertmanager:**
+
+    *   Use Alertmanager to manage and route your Prometheus alerts. Alertmanager provides features for grouping, silencing, and routing alerts to different receivers.
+
+*   **Kubernetes:**
+
+    *   If you are running Prometheus in Kubernetes, use the Prometheus Operator to manage your Prometheus deployments. The Prometheus Operator simplifies the deployment and management of Prometheus in Kubernetes.
+
+*   **Docker:**
+
+    *   Use Docker to containerize your Prometheus server and exporters. This makes it easier to deploy and manage your monitoring infrastructure.
+
+## 8. Metrics Guidelines
+
+*   **Metrics Naming:**
+    *   Follow Prometheus naming conventions. Metric names should be descriptive, concise, and use the base unit if applicable.
+    *   Check if a similar Kubernetes metric, for node, container or pod, exists and try to align to it.
+    *   Your operator metrics name will follow this format: `operator name prefix + the sub-operator name or entity + metric name based on the Prometheus naming conventions`.
+    *   Your metric suffix should indicate the metric unit. For better compatibility, Prometheus base units should be used.
+
+*   **Metric Types:**
+    *   Use the appropriate metric type for the data you are collecting (Counter, Gauge, Histogram, Summary).
+    *   `_total` suffix should be used for accumulating count. If your metrics has labels with high cardinality, like pod / container it usually means that you can aggregate it more, thus it will not require `_total` suffix.
+
+*   **Prometheus Labels:**
+
+    *   Prometheus labels are used to differentiate the characteristics of the thing that is being measured.
+    *   Be cautious when adding labels to metrics. Labels can dramatically increase the amount of data stored. Do not use labels to store dimensions with high cardinality (many different label values), such as user IDs, email addresses, or other unbounded sets of values. Note: There are still cases when we will still need to have a high cardinality label like the pod name , but try to keep this to the minimum.
+    *   When creating a new metric, recording rule or alert, that reports a resource like a pod or a container , make sure that the namespace is included, in order to be able to uniquely identify it.
+
+*   **Metrics Help message:**
+
+    *   Your operator metrics help message should include the following details:
+        *   What does this metric measure?
+        *   What does the output mean?
+        *   What important labels does the metric use? (Optional. If applicable).
+
+## 9. Prometheus Recording Rules Naming
+
+*   As per Prometheus documentation, Recording rules allow you to pre-compute frequently needed or computationally expensive expressions and save their result as a new set of time series.
+*   The Prometheus recording rules appear in Prometheus UI as metrics.
+*   In order to easily identify your operator recording rules, their names should usually follow the same naming guidelines as the metrics.
+
+## 10. Prometheus Alerts Guidelines
+
+*   Clear and actionable alerts are a key component of a smooth operational experience and will result in a better experience for the end users.
+*   Individual operator authors are responsible for writing and maintaining alerting rules for their components, i.e. their operators and operands.
+*   Operator authors should also take into consideration how their components interact with existing monitoring and alerting.
+
+By following these best practices, you can build a robust, efficient, and secure Prometheus monitoring system that provides valuable insights into the health and performance of your applications and infrastructure.

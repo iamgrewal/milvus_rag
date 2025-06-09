@@ -1,0 +1,92 @@
+---
+description: This rule provides comprehensive best practices for using OpenTelemetry, covering aspects from code organization and performance to security and testing. It aims to guide developers in effectively instrumenting their applications for observability.
+globs: **/*.{js,ts,py,java,go,rb,php,cs,cpp,c,rs,kt,scala,swift,m,mm,clj,groovy,dart,lua,erl,hrl,ex,exs}
+---
+# OpenTelemetry Best Practices
+
+This guide provides comprehensive best practices for using OpenTelemetry (OTel) to instrument your applications for observability. It covers various aspects, including code organization, common patterns, performance considerations, security, testing, common pitfalls, and tooling.
+
+## Library Information
+
+- Name: OpenTelemetry
+- Tags: observability, tracing, metrics, logs, monitoring, distributed tracing, instrumentation
+
+## 1. Code Organization and Structure
+
+- **Consistent Instrumentation:** Maintain a consistent approach to instrumentation across your codebase.  Use the same naming conventions, attribute keys, and semantic conventions throughout your application.
+- **Centralized Configuration:** Define and manage your OpenTelemetry configuration in a central location. This includes sampler settings, resource attributes, and exporter configurations. This simplifies management and ensures consistency.
+- **Modular Instrumentation:** Break down your instrumentation logic into reusable modules or components.  This avoids code duplication and promotes maintainability.  For example, create separate modules for database instrumentation, HTTP request instrumentation, and custom business logic instrumentation.
+- **Layered Approach:**  Consider a layered approach where instrumentation is added at different levels of your application architecture (e.g., framework level, business logic level). This allows for capturing different types of telemetry data at different granularities.
+- **Avoid Mixing Concerns:**  Keep your instrumentation code separate from your core business logic.  Use techniques like decorators, middleware, or interceptors to add instrumentation without cluttering your application code.  This promotes separation of concerns and makes your code easier to read and maintain.
+- **Use Semantic Conventions:** Strictly adhere to OpenTelemetry semantic conventions for naming attributes and resources. This ensures interoperability and consistency across different systems and vendors.  Refer to the official OpenTelemetry documentation for the latest conventions.
+- **Resource Attributes:** Define resource attributes that accurately describe your application, service, and environment.  This helps to provide context to your telemetry data and allows for better filtering and analysis.
+
+## 2. Common Patterns and Anti-patterns
+
+### Common Patterns
+
+- **Auto-Instrumentation First:** Start with auto-instrumentation whenever possible. This provides a quick and easy way to get basic telemetry data without modifying your code. Then, supplement with manual instrumentation as needed to capture more specific or custom data.
+- **Manual Instrumentation for Custom Code:** Use manual instrumentation to capture telemetry data for custom code that is not covered by auto-instrumentation.  This allows you to track the performance and behavior of your specific business logic.
+- **Context Propagation:** Ensure proper context propagation across service boundaries. This is crucial for distributed tracing and allows you to correlate spans across different services. Use the W3C Trace Context standard for interoperability.
+- **Baggage for Correlation:** Use OpenTelemetry baggage to propagate key-value pairs between spans. This is useful for correlating data across different services or components. Use baggage sparingly, as it can impact performance.
+- **Sampling Strategies:** Implement appropriate sampling strategies to reduce the volume of telemetry data.  Use head-based sampling, tail-based sampling, or a combination of both, depending on your needs.  Consider using probabilistic sampling or adaptive sampling techniques.
+- **Batching and Compression:** Batch and compress telemetry data before exporting it to reduce network overhead and improve performance. Configure the batch processor in the OpenTelemetry Collector to optimize batching and compression settings.
+- **Span Events:** Use span events to record interesting and meaningful events that occur during a span's lifecycle.  This can include error messages, configuration changes, or other important events. Span events provide valuable context for troubleshooting and analysis.
+
+### Anti-patterns
+
+- **Over-Instrumentation:** Avoid instrumenting every single line of code. This can lead to excessive overhead and make your telemetry data noisy and difficult to analyze. Focus on instrumenting critical paths and key operations.
+- **Ignoring Semantic Conventions:** Failing to adhere to OpenTelemetry semantic conventions can result in inconsistent and meaningless telemetry data. Always use the recommended naming conventions and attribute keys.
+- **Propagating Sensitive Data in Baggage:** Avoid propagating sensitive data (e.g., passwords, API keys) in OpenTelemetry baggage. Baggage is not designed for secure data transmission.
+- **Using Metrics for Logs or Traces:** Do not use metrics to store log messages or trace data. Metrics, logs, and traces are different types of telemetry data and should be used for their intended purposes.
+- **Blocking Operations in Span Creation:** Avoid performing blocking operations (e.g., network calls, database queries) during span creation. This can negatively impact performance. Create spans quickly and efficiently.
+- **Ignoring Error Handling:** Do not ignore errors during instrumentation. Handle errors gracefully and log them appropriately. This helps to ensure that your instrumentation does not interfere with the normal operation of your application.
+- **Vendor Lock-in:** Avoid using vendor-specific APIs or features that tie you to a particular observability platform. Stick to the OpenTelemetry standard to maintain portability and avoid vendor lock-in.
+
+## 3. Performance Considerations
+
+- **Minimize Overhead:**  OpenTelemetry instrumentation should have minimal impact on your application's performance. Use efficient data structures and algorithms, and avoid unnecessary computations.
+- **Asynchronous Operations:**  Perform telemetry operations asynchronously whenever possible to avoid blocking the main thread. This can improve responsiveness and throughput.
+- **Sampling:** Use sampling to reduce the volume of telemetry data, especially in high-traffic environments.  Configure sampling rates carefully to balance data accuracy and performance.
+- **Resource Limits:**  Configure resource limits for the OpenTelemetry SDK and Collector to prevent them from consuming excessive resources.  This includes setting limits on memory usage, CPU usage, and network bandwidth.
+- **Profiling:** Use profiling tools to identify performance bottlenecks in your instrumentation code.  Optimize your code to minimize overhead and improve efficiency.
+- **Avoid String Concatenation:**  Avoid string concatenation when creating span names or attribute values. String concatenation can be expensive and can negatively impact performance.  Use string formatting or other efficient techniques instead.
+- **Efficient Data Serialization:** Use efficient data serialization formats (e.g., Protocol Buffers) to reduce the size of telemetry data. This can improve network performance and reduce storage costs.
+
+## 4. Security Best Practices
+
+- **Data Encryption:** Encrypt telemetry data in transit and at rest to protect it from unauthorized access. Use TLS/SSL for network communication and encryption algorithms for data storage.
+- **Access Control:** Implement strict access control policies to limit who can access and modify telemetry data. Use role-based access control (RBAC) to manage user permissions.
+- **Data Masking:** Mask or redact sensitive data (e.g., passwords, credit card numbers) before it is exported. Use data masking techniques to protect sensitive information from being exposed in telemetry data.
+- **Secure Configuration:** Securely store and manage your OpenTelemetry configuration. Avoid storing sensitive information (e.g., API keys, passwords) in plain text. Use environment variables or secure configuration management tools.
+- **Regular Audits:** Conduct regular security audits of your OpenTelemetry infrastructure to identify and address potential vulnerabilities. Review your configuration, access control policies, and data handling procedures.
+- **Input Validation:** Validate all inputs to your OpenTelemetry instrumentation code to prevent injection attacks. Sanitize data before it is used in span names, attribute values, or log messages.
+- **Dependency Management:** Keep your OpenTelemetry dependencies up to date to address security vulnerabilities. Regularly update your OpenTelemetry SDK, Collector, and other components.
+
+## 5. Testing Approaches
+
+- **Unit Tests:** Write unit tests for your instrumentation code to ensure that it is working correctly. Test your span creation logic, attribute setting logic, and context propagation logic.
+- **Integration Tests:** Write integration tests to verify that your instrumentation code is working correctly with other components of your application. Test your instrumentation in a realistic environment.
+- **End-to-End Tests:** Write end-to-end tests to verify that your telemetry data is being collected and processed correctly. Test your entire observability pipeline, from instrumentation to data analysis.
+- **Performance Tests:** Conduct performance tests to measure the overhead of your OpenTelemetry instrumentation.  Identify and address any performance bottlenecks.
+- **Chaos Engineering:** Use chaos engineering techniques to test the resilience of your OpenTelemetry infrastructure. Simulate failures and verify that your observability system can still collect and process telemetry data.
+- **Golden Signals:**  Verify that key metrics (golden signals) are being correctly captured and reported. Golden signals typically include latency, traffic, errors, and saturation.
+
+## 6. Common Pitfalls and Gotchas
+
+- **Incorrect Context Propagation:** Failing to properly propagate context across service boundaries can result in broken traces and incomplete observability. Ensure that you are using the correct context propagation mechanism for your environment.
+- **Span Leaks:** Failing to properly close spans can result in span leaks, which can negatively impact performance and increase memory consumption. Always ensure that all spans are properly closed.
+- **Deadlocks:** Ensure that your instrumentation code does not introduce deadlocks into your application. Use appropriate locking mechanisms and avoid circular dependencies.
+- **Data Loss:** Ensure that your telemetry data is not being lost due to configuration errors or infrastructure failures. Configure your OpenTelemetry Collector to buffer data and retry failed exports.
+- **Clock Skew:** Be aware of clock skew between different servers in your environment. Clock skew can result in incorrect trace durations and incorrect causality analysis. Use NTP or other time synchronization mechanisms to minimize clock skew.
+- **Sampling Bias:** Understand the potential for sampling bias in your telemetry data.  Sampling can introduce bias into your data, which can affect your analysis and decision-making.  Use appropriate sampling techniques to minimize bias.
+
+## 7. Tooling and Environment
+
+- **OpenTelemetry SDK:** Use the official OpenTelemetry SDK for your programming language. The SDK provides the APIs and tools you need to instrument your application.
+- **OpenTelemetry Collector:** Use the OpenTelemetry Collector to receive, process, and export telemetry data. The Collector provides a flexible and scalable way to manage your telemetry pipeline.
+- **Observability Backend:** Choose an observability backend that supports OpenTelemetry. This could be a commercial platform (e.g., New Relic, Datadog, Dynatrace) or an open-source solution (e.g., Jaeger, Zipkin, Prometheus).
+- **Configuration Management:** Use a configuration management tool (e.g., Ansible, Chef, Puppet) to manage your OpenTelemetry configuration. This helps to ensure consistency and reduces the risk of errors.
+- **Monitoring and Alerting:** Implement monitoring and alerting for your OpenTelemetry infrastructure. Monitor the health of your Collector, exporters, and other components. Set up alerts to notify you of any issues.
+- **Containerization:** Deploy your OpenTelemetry Collector and other components in containers. This makes it easier to manage and scale your infrastructure.
+- **Environment Variables:** Use environment variables to configure your OpenTelemetry SDK and Collector. This allows you to easily change your configuration without modifying your code.

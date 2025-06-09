@@ -1,0 +1,231 @@
+---
+description: This rule provides best practices for developing and maintaining the execution-agent library, covering code structure, performance, security, and testing. It aims to guide developers in building robust, efficient, and secure AI agents.
+globs: **/*.py
+---
+# execution-agent Best Practices
+
+This document outlines best practices for developing and maintaining the `execution-agent` library. Following these guidelines will help ensure the library is robust, efficient, secure, and easy to maintain.
+
+## 1. Code Organization and Structure
+
+- **Modular Design:**
+  - Break down the agent's functionality into smaller, independent modules or classes. This improves code reusability, testability, and maintainability.
+  - Each module should have a clear and well-defined responsibility.
+  - Use appropriate design patterns like the Strategy pattern, Factory pattern, or Observer pattern to manage complexity.
+
+- **Clear Abstractions:**
+  - Define clear interfaces and abstract classes to represent key concepts within the agent framework (e.g., `Tool`, `Agent`, `Memory`).
+  - This allows for easy extension and customization of the agent's behavior.
+  - Avoid tight coupling between modules by programming to interfaces rather than concrete implementations.
+
+- **Consistent Naming Conventions:**
+  - Use descriptive and consistent naming conventions for variables, functions, classes, and modules.
+  - Follow PEP 8 guidelines for Python code.
+  - Choose names that clearly indicate the purpose and functionality of each element.
+
+- **Directory Structure:**
+  - Organize the codebase into a logical directory structure. For example:
+    
+    execution_agent/
+      __init__.py
+      agent.py         # Core Agent class
+      tools/           # Directory for various tools
+        __init__.py
+        web_browser.py # Tool for web browsing
+        calculator.py  # Tool for performing calculations
+      memory/          # Directory for memory management
+        __init__.py
+        vector_memory.py # Vector database integration
+        simple_memory.py # In-memory storage
+      models/          # Directory for LLM models
+        __init__.py
+        openai_model.py
+        huggingface_model.py
+      prompts/         # Stored prompt templates
+        __init__.py
+        default_prompts.py
+      utils/           # Utility functions
+        __init__.py
+        http_requests.py
+      config.py        # Configuration settings
+      tests/           # Unit and integration tests
+        __init__.py
+        test_agent.py
+        test_tools.py
+    
+
+- **Configuration Management:**
+  - Use a configuration file (`config.py` or a `.env` file) to store settings such as API keys, model names, and other parameters.
+  - This makes it easy to modify the agent's behavior without changing the code.
+  - Use environment variables for sensitive information like API keys.
+
+## 2. Common Patterns and Anti-patterns
+
+- **Patterns:**
+  - **Strategy Pattern:** Implement different reasoning strategies (e.g., chain-of-thought, tree-of-thought) as separate classes that conform to a common interface. This allows the agent to easily switch between strategies.
+  - **Factory Pattern:** Use a factory function or class to create instances of tools or models. This decouples the agent from the specific implementation of these components.
+  - **Observer Pattern:** Implement an event system that allows modules to subscribe to events triggered by the agent (e.g., tool execution, plan update). This enables loose coupling and allows for easy extension of the agent's behavior.
+  - **Agentic RAG (Retrieval Augmented Generation):** Empower the agent to dynamically control the retrieval process, improving the relevance and accuracy of retrieved information.  The agent can decide when and how to retrieve information, making it a core component of the workflow.
+
+- **Anti-patterns:**
+  - **God Class:** Avoid creating a single, monolithic class that handles all aspects of the agent's functionality. This leads to code that is difficult to understand, test, and maintain.
+  - **Hardcoding:** Avoid hardcoding values directly into the code. Use configuration files or environment variables instead.
+  - **Tight Coupling:** Minimize dependencies between modules to improve code reusability and testability.
+  - **Over-Engineering:** Don't overcomplicate the design with unnecessary abstractions or patterns. Keep the code as simple as possible while still meeting the requirements.
+  - **Ignoring Error Handling:** Implement proper error handling to prevent the agent from crashing or producing incorrect results.
+
+## 3. Performance Considerations
+
+- **Token Usage Optimization:**
+  - Minimize token usage to reduce costs and improve response times.
+  - Use techniques like prompt compression, summarization, and function calling to reduce the amount of text sent to the LLM.
+  - Carefully design prompts to be concise and efficient.
+
+- **Asynchronous Operations:**
+  - Use asynchronous operations (e.g., `asyncio` in Python) to perform tasks concurrently, such as tool execution or API calls.
+  - This can significantly improve the agent's overall performance.
+  - Implement proper error handling and concurrency control to prevent race conditions and deadlocks.
+
+- **Caching:**
+  - Cache the results of expensive operations, such as API calls or LLM responses.
+  - Use a caching mechanism like `functools.lru_cache` or a dedicated caching library like `redis`.
+  - Ensure that the cache is properly invalidated when the underlying data changes.
+
+- **Parallel Tool Calls:**
+  - Execute multiple tool calls in parallel to speed up the agent's execution.
+  - Use techniques like `asyncio.gather` or `concurrent.futures.ThreadPoolExecutor` to manage concurrent tool calls.
+  - Limit the number of concurrent tool calls to avoid overwhelming the system.
+
+- **Vectorization and Indexing:**
+  - Use vector databases (e.g., FAISS, ChromaDB, Pinecone) to store and retrieve information efficiently.
+  - Vectorize text data using embeddings models (e.g., Sentence Transformers, OpenAI embeddings).
+  - Create indexes on the vector data to speed up similarity searches.
+
+- **Code Profiling:**
+  - Use code profiling tools (e.g., `cProfile` in Python) to identify performance bottlenecks in the code.
+  - Optimize the code based on the profiling results.
+
+## 4. Security Best Practices
+
+- **Input Validation:**
+  - Validate all inputs to the agent to prevent malicious code injection.
+  - Sanitize inputs to remove potentially harmful characters or commands.
+  - Use regular expressions or other validation techniques to ensure that inputs conform to the expected format.
+
+- **Output Sanitization:**
+  - Sanitize the agent's outputs to prevent the disclosure of sensitive information or the execution of malicious code.
+  - Encode or escape special characters in the output.
+  - Use a content security policy (CSP) to restrict the types of resources that the agent can access.
+
+- **Authentication and Authorization:**
+  - Implement authentication and authorization mechanisms to control access to the agent and its resources.
+  - Use strong passwords and multi-factor authentication.
+  - Grant users only the minimum necessary privileges.
+
+- **API Key Management:**
+  - Store API keys securely using environment variables or a dedicated secret management system.
+  - Never hardcode API keys directly into the code.
+  - Rotate API keys regularly.
+
+- **Rate Limiting:**
+  - Implement rate limiting to prevent abuse of the agent and its resources.
+  - Limit the number of requests that can be made from a single IP address or user account within a given time period.
+
+- **Dependency Management:**
+  - Use a dependency management tool (e.g., `pip` in Python) to manage the agent's dependencies.
+  - Keep dependencies up to date to patch security vulnerabilities.
+  - Use a virtual environment to isolate the agent's dependencies from the system's global dependencies.
+
+- **Prompt Injection Prevention:**
+  - Design prompts carefully to minimize the risk of prompt injection attacks.
+  - Use delimiters or other techniques to separate user input from the agent's instructions.
+  - Implement input validation and output sanitization to prevent malicious code from being injected into the prompt.
+
+## 5. Testing Approaches
+
+- **Unit Tests:**
+  - Write unit tests to verify the functionality of individual modules and classes.
+  - Use a testing framework like `pytest` or `unittest` in Python.
+  - Aim for high code coverage to ensure that all parts of the code are tested.
+
+- **Integration Tests:**
+  - Write integration tests to verify the interaction between different modules and classes.
+  - Test the agent's end-to-end behavior to ensure that it performs as expected.
+
+- **End-to-End Tests:**
+  - Simulate real-world scenarios to test the agent's ability to handle complex tasks.
+  - Use a testing framework like `Selenium` or `Playwright` to automate browser interactions.
+
+- **LLM Output Evaluation:**
+  - Implement methods to evaluate the quality and correctness of the LLM's output.
+  - Use metrics like accuracy, relevance, and fluency to assess the output.
+  - Implement automated tests to verify that the output meets the expected criteria.
+
+- **Regression Tests:**
+  - Create regression tests to ensure that new code changes do not break existing functionality.
+  - Run regression tests regularly to catch bugs early.
+
+- **Test-Driven Development (TDD):**
+  - Write tests before writing the code to ensure that the code meets the requirements.
+  - Use TDD to guide the development process and improve the quality of the code.
+
+## 6. Common Pitfalls and Gotchas
+
+- **Hallucinations:**
+  - LLMs can sometimes generate incorrect or nonsensical information (hallucinations).
+  - Implement techniques to reduce hallucinations, such as using retrieval-augmented generation (RAG) or enforcing structured outputs with schemas.
+
+- **Context Window Limitations:**
+  - LLMs have a limited context window, which means they can only process a certain amount of text at a time.
+  - Manage the context window carefully to ensure that the agent has access to the information it needs.
+  - Use techniques like summarization or truncation to reduce the amount of text in the context window.
+
+- **Prompt Engineering Challenges:**
+  - Designing effective prompts can be challenging.
+  - Experiment with different prompt templates and techniques to find what works best.
+  - Use a prompt engineering tool to manage and optimize prompts.
+
+- **Tool Reliability:**
+  - The reliability of the agent depends on the reliability of the tools it uses.
+  - Implement error handling and retry mechanisms to handle tool failures.
+  - Monitor the performance of the tools and address any issues promptly.
+
+- **Cost Management:**
+  - Using LLMs can be expensive.
+  - Monitor token usage and implement strategies to reduce costs.
+  - Use caching and other optimization techniques to minimize the number of API calls.
+
+- **Complexity Thresholds:**
+  - Be aware of the complexity thresholds of LLMs.
+  - Split complex tasks into smaller, simpler tasks that can be handled by specialized agents.
+
+## 7. Tooling and Environment
+
+- **Python:**
+  - Use Python 3.8 or later.
+  - Use a virtual environment to manage dependencies.
+
+- **Dependency Management:**
+  - Use `pip` or `conda` to manage dependencies.
+  - Create a `requirements.txt` file to specify the project's dependencies.
+
+- **LLM Libraries:**
+  - Use libraries like `openai`, `transformers`, or `langchain` to interact with LLMs.
+
+- **Vector Databases:**
+  - Use vector databases like `FAISS`, `ChromaDB`, or `Pinecone` to store and retrieve information efficiently.
+
+- **Testing Frameworks:**
+  - Use testing frameworks like `pytest` or `unittest` to write and run tests.
+
+- **Code Editors and IDEs:**
+  - Use a code editor or IDE like `VS Code`, `PyCharm`, or `Jupyter Notebook` to develop and debug the code.
+
+- **Environment Variables:**
+  - Use environment variables to store sensitive information like API keys.
+  - Use a library like `python-dotenv` to load environment variables from a `.env` file.
+
+- **Observability Tools:**
+  - Use observability tools like `Helicone`, `Langfuse` or `Weights & Biases` to monitor the agent's performance and identify issues.
+
+By following these best practices, developers can build robust, efficient, secure, and maintainable AI agents using the `execution-agent` library.

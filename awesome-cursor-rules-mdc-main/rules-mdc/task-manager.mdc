@@ -1,0 +1,231 @@
+---
+description: This rule provides comprehensive best practices for the task_manager library, covering code organization, performance, security, testing, and common pitfalls to ensure robust and maintainable code. It emphasizes industry standards and community-accepted practices.
+globs: **/*.py
+---
+# task_manager Library Best Practices and Coding Standards
+
+This document outlines the recommended best practices and coding standards for developing and maintaining the `task_manager` library. Adhering to these guidelines will ensure code quality, maintainability, and consistency across the project.
+
+## 1. Code Organization and Structure
+
+*   **Modular Design:**
+    *   Break down the library into smaller, independent modules, each responsible for a specific set of functionalities (e.g., `task`, `priority`, `category`, `scheduler`, `ai`).
+    *   Use clear and descriptive module names.
+    *   Minimize dependencies between modules to promote reusability and testability.
+*   **Directory Structure:**
+    
+task_manager/
+    __init__.py
+    task/
+        __init__.py
+        task.py
+        task_model.py  # Data models for tasks
+    priority/
+        __init__.py
+        priority.py
+    category/
+        __init__.py
+        category.py
+    scheduler/
+        __init__.py
+        scheduler.py
+    ai/
+        __init__.py
+        decomposition.py
+        categorization.py
+        priority.py
+        sentiment.py
+        summarization.py
+    utils/
+        __init__.py
+        logger.py  # Centralized logging
+        exceptions.py  # Custom exceptions
+        config.py # Configuration management
+    tests/
+        __init__.py
+        task/
+            test_task.py
+        priority/
+            test_priority.py
+        ...
+    README.md
+    LICENSE
+    pyproject.toml  # or setup.py
+    .gitignore
+    .cursor/
+        rules/
+            task_manager_best_practices.mdc
+    
+*   **Clear Separation of Concerns:**
+    *   Separate data models from business logic.
+    *   Keep AI-related functionalities (decomposition, categorization, etc.) in dedicated modules.
+    *   Isolate external API interactions.
+*   **Use of Packages:**
+    *   Organize modules into packages to create a clear namespace hierarchy.
+    *   Use `__init__.py` files to define package structure and import necessary modules.
+
+## 2. Common Patterns and Anti-patterns
+
+*   **Common Patterns:**
+    *   **Factory Pattern:** Use factory functions or classes to create task objects, allowing for flexible task creation and configuration.
+    *   **Strategy Pattern:** Implement different task prioritization algorithms using the Strategy pattern, allowing for easy switching between prioritization methods.
+    *   **Observer Pattern:** Use the Observer pattern to notify subscribers (e.g., UI components, logging services) when a task's status changes.
+    *   **Singleton Pattern (Use with Caution):** For global resources like a central task scheduler, consider the Singleton pattern, but be mindful of its impact on testability.
+    *   **Data Transfer Objects (DTOs):** Use DTOs to encapsulate data when passing information between layers of the application.
+    *   **Repository Pattern:** Abstract data access logic using repositories to decouple the application from the underlying data storage mechanism.
+*   **Anti-patterns:**
+    *   **God Classes:** Avoid creating large classes that handle too many responsibilities. Break them down into smaller, more focused classes.
+    *   **Spaghetti Code:** Refrain from writing complex, unstructured code that is difficult to understand and maintain. Use modular design and clear control flow.
+    *   **Copy-Paste Programming:** Avoid duplicating code. Extract common functionalities into reusable functions or classes.
+    *   **Magic Numbers/Strings:** Use named constants for values with specific meanings instead of hardcoding them directly into the code.
+
+## 3. Performance Considerations
+
+*   **Efficient Data Structures:**
+    *   Use appropriate data structures (e.g., sets, dictionaries, heaps) for task storage and retrieval based on performance requirements.
+    *   Consider using specialized data structures for priority queues or scheduling algorithms.
+*   **Asynchronous Programming:**
+    *   Employ asynchronous programming (e.g., `asyncio`) for long-running operations such as API calls or complex AI computations to prevent blocking the main thread.
+    *   Use thread pools or process pools for CPU-bound tasks.
+*   **Caching:**
+    *   Implement caching mechanisms to store frequently accessed task data or AI model results to reduce latency.
+    *   Use appropriate cache invalidation strategies.
+*   **Profiling and Optimization:**
+    *   Use profiling tools (e.g., `cProfile`) to identify performance bottlenecks.
+    *   Optimize computationally intensive AI algorithms using techniques like vectorization or parallelization.
+*   **Lazy Loading:**
+    *   Load tasks or AI models only when they are needed to reduce startup time.
+*   **Minimize Data Transfer:**
+    *   Avoid transferring large amounts of data unnecessarily. Use pagination or filtering to retrieve only the required information.
+*   **Database Optimization:**
+    *   Use indexes on frequently queried fields in the task database.
+    *   Optimize database queries to reduce execution time.
+
+## 4. Security Best Practices
+
+*   **Input Validation:**
+    *   Validate all user inputs to prevent injection attacks (e.g., SQL injection, command injection).
+    *   Sanitize inputs to remove potentially harmful characters.
+*   **Authentication and Authorization:**
+    *   Implement robust authentication and authorization mechanisms to control access to task data and functionalities.
+    *   Use secure password storage techniques (e.g., hashing with salt).
+*   **Data Encryption:**
+    *   Encrypt sensitive task data at rest and in transit to protect against unauthorized access.
+    *   Use strong encryption algorithms and key management practices.
+*   **API Security:**
+    *   Secure external API endpoints using authentication tokens, rate limiting, and input validation.
+    *   Follow OWASP API Security Top 10 guidelines.
+*   **Dependency Management:**
+    *   Keep dependencies up-to-date to patch security vulnerabilities.
+    *   Use dependency scanning tools to identify and address known vulnerabilities.
+*   **Logging and Auditing:**
+    *   Log all security-related events (e.g., authentication attempts, access control violations) for auditing and incident response.
+*   **Principle of Least Privilege:**
+    *   Grant only the necessary permissions to users and services.
+*   **Regular Security Audits:**
+    *   Conduct regular security audits to identify and address potential vulnerabilities.
+
+## 5. Testing Approaches
+
+*   **Unit Testing:**
+    *   Write unit tests for individual modules and functions to verify their correctness.
+    *   Use mocking and stubbing to isolate units under test.
+    *   Aim for high test coverage.
+*   **Integration Testing:**
+    *   Write integration tests to verify the interaction between different modules and components.
+    *   Test the integration with external APIs and databases.
+*   **End-to-End Testing:**
+    *   Write end-to-end tests to simulate user workflows and verify the overall system behavior.
+*   **AI Model Testing:**
+    *   Test AI models for accuracy, bias, and fairness.
+    *   Use appropriate metrics to evaluate model performance.
+    *   Implement data validation and monitoring to detect data drift.
+*   **Test-Driven Development (TDD):**
+    *   Consider using TDD to write tests before implementing the code.
+*   **Continuous Integration (CI):**
+    *   Integrate testing into the CI/CD pipeline to automatically run tests on every code change.
+*   **Code Coverage:**
+    *   Monitor code coverage to ensure that all parts of the codebase are adequately tested.
+*   **Fuzz Testing:**
+    *   Use fuzz testing to find vulnerabilities and errors by providing invalid or unexpected inputs.
+
+## 6. Common Pitfalls and Gotchas
+
+*   **Lack of Error Handling:**
+    *   Implement proper error handling to gracefully handle exceptions and prevent application crashes.
+    *   Use try-except blocks to catch and handle potential errors.
+*   **Ignoring Edge Cases:**
+    *   Consider all possible edge cases and boundary conditions when designing and implementing the library.
+    *   Write tests to cover edge cases.
+*   **Over-Engineering:**
+    *   Avoid over-engineering the library by adding unnecessary features or complexity.
+    *   Keep the design simple and focused on the core functionalities.
+*   **Ignoring Logging:**
+    *   Implement proper logging to track application behavior and debug issues.
+    *   Use appropriate log levels (e.g., DEBUG, INFO, WARNING, ERROR) to control log verbosity.
+*   **Hardcoding Configuration:**
+    *   Avoid hardcoding configuration values directly into the code.
+    *   Use configuration files or environment variables to manage configuration settings.
+*   **Not Following PEP 8:**
+    *   Adhere to PEP 8 style guidelines to ensure code readability and consistency.
+    *   Use code linters (e.g., `flake8`, `pylint`) to automatically check for style violations.
+*   **Global State:**
+    *   Minimize the use of global state to avoid unexpected side effects and improve testability.
+*   **Circular Dependencies:**
+    *   Avoid circular dependencies between modules to prevent import errors and improve code maintainability.
+*   **Ignoring Security Vulnerabilities:**
+    *   Be aware of common security vulnerabilities and take steps to mitigate them.
+    *   Regularly scan dependencies for known vulnerabilities.
+*   **Misusing AI Models:**
+    *   Understand the limitations of AI models and use them appropriately.
+    *   Avoid over-reliance on AI models for critical decision-making.
+
+## 7. Tooling and Environment
+
+*   **Python Version:**
+    *   Use Python 3.10 or later.
+*   **Virtual Environment:**
+    *   Use virtual environments (`venv`, `conda`) to isolate project dependencies.
+*   **Dependency Management:**
+    *   Use `pip` or `poetry` to manage project dependencies.
+    *   Specify dependencies in a `requirements.txt` or `pyproject.toml` file.
+*   **Code Editor/IDE:**
+    *   Use a code editor or IDE with Python support (e.g., VS Code, PyCharm).
+    *   Configure the editor/IDE to use a code linter and formatter.
+*   **Code Linter:**
+    *   Use a code linter (e.g., `flake8`, `pylint`) to automatically check for style violations and potential errors.
+*   **Code Formatter:**
+    *   Use a code formatter (e.g., `black`, `autopep8`) to automatically format the code according to PEP 8.
+*   **Testing Framework:**
+    *   Use a testing framework (e.g., `pytest`, `unittest`) to write and run tests.
+*   **CI/CD Tool:**
+    *   Use a CI/CD tool (e.g., GitHub Actions, GitLab CI, Jenkins) to automate the testing and deployment process.
+*   **Logging Library:**
+    *   Use a logging library (e.g., `logging`) to log application events.
+*   **AI Development Tools:**
+    *   Use appropriate AI development tools (e.g., TensorFlow, PyTorch, scikit-learn) for AI-related functionalities.
+*   **Task Management Tools:**
+    *   Leverage task management tools like Jira or Trello, integrated with the task_manager, to efficiently organize, track, and prioritize tasks throughout the development lifecycle.
+*   **Documentation Generator:**
+    *   Use Sphinx or similar tools to automatically generate documentation from docstrings.
+
+## Additional Considerations
+
+*   **Documentation:**
+    *   Write clear and concise documentation for the library, including API documentation and usage examples.
+    *   Use docstrings to document modules, classes, and functions.
+    *   Keep the documentation up-to-date.
+*   **Code Reviews:**
+    *   Conduct code reviews to ensure code quality and adherence to coding standards.
+    *   Encourage peer review to identify potential issues and improve the code.
+*   **Version Control:**
+    *   Use a version control system (e.g., Git) to track code changes and collaborate with other developers.
+    *   Use branching strategies to manage different versions of the code.
+*   **Continuous Improvement:**
+    *   Continuously monitor and improve the library based on user feedback and performance metrics.
+    *   Regularly refactor the code to improve its design and maintainability.
+*   **Ethical Considerations:**
+    *   Address ethical considerations related to AI models, such as bias and fairness.
+    *   Ensure that the library is used responsibly and ethically.
+
+By following these best practices and coding standards, developers can create a robust, maintainable, and high-quality `task_manager` library that meets the needs of its users.

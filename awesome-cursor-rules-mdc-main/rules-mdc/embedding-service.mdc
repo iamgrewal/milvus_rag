@@ -1,0 +1,160 @@
+---
+description: This guide outlines best practices for developing and maintaining an embedding_service library, covering code structure, performance, security, and testing. It aims to provide clear, actionable guidance for developers working on or with the embedding_service library.
+globs: **/*.py
+---
+# embedding_service Best Practices Guide
+
+This guide provides comprehensive best practices for developing and maintaining a robust and efficient `embedding_service` library in Python. It covers various aspects, including code organization, performance optimization, security considerations, testing strategies, and common pitfalls.
+
+## 1. Code Organization and Structure
+
+*   **Modular Design:**
+    *   Break down the service into smaller, self-contained modules, each responsible for a specific task (e.g., data loading, embedding generation, vector database interaction, API handling). This promotes code reusability, maintainability, and testability.
+    *   Example:
+        *   `embedding_service/
+            __init__.py
+            data_loader.py  # Handles loading data from various sources
+            embedding_generator.py  # Generates embeddings using different models
+            vector_database.py  # Manages interactions with the vector database
+            api.py  # Exposes the service through an API (e.g., FastAPI, Flask)
+            config.py # Configuration management
+*   **Clear Naming Conventions:**
+    *   Use descriptive and consistent naming for modules, classes, functions, and variables. Follow PEP 8 guidelines for Python code.
+    *   Example: `generate_embeddings` instead of `gen_embed`, `VectorDatabaseClient` instead of `VecDB`.
+*   **Layered Architecture:**
+    *   Implement a layered architecture to separate concerns and improve maintainability. A typical layered architecture might include:
+        *   **Data Access Layer:** Handles data loading and storage.
+        *   **Service Layer:** Implements the core business logic, such as embedding generation and similarity search.
+        *   **API Layer:** Exposes the service through an API.
+*   **Configuration Management:**
+    *   Use a dedicated configuration module (`config.py`) to manage all service configurations (e.g., model paths, API keys, database connection details). This allows for easy modification and deployment in different environments.
+    *   Consider using libraries like `pydantic` or `dataclasses` for defining configuration objects with validation.
+    *   Example:
+        python
+        from pydantic import BaseModel
+
+        class EmbeddingServiceConfig(BaseModel):
+            model_name: str = "text-embedding-ada-002"
+            vector_database_url: str
+            api_key: str
+        
+*   **Logging:**
+    *   Implement comprehensive logging throughout the service to track events, errors, and performance metrics. Use a logging library like `logging` and configure it appropriately.
+    *   Include timestamps, log levels (e.g., DEBUG, INFO, WARNING, ERROR), and informative messages.
+
+## 2. Common Patterns and Anti-patterns
+
+*   **Dependency Injection:**
+    *   Use dependency injection to decouple components and improve testability.  Pass dependencies (e.g., embedding models, database connections) as arguments to classes and functions, rather than hardcoding them.
+    *   This allows you to easily swap out dependencies for testing or to use different implementations in different environments.
+*   **Singleton Pattern (Use with Caution):**
+    *   If you need to ensure that only one instance of a class exists (e.g., a database connection pool), consider using the Singleton pattern. However, overuse of Singletons can lead to tight coupling and make testing difficult. Use with caution and only when truly necessary.
+*   **Context Manager:**
+    *   Use context managers (`with` statement) to ensure that resources (e.g., file handles, database connections) are properly closed and released, even if exceptions occur.
+*   **Anti-patterns:**
+    *   **God Class:** Avoid creating classes that are responsible for too many tasks. Break down large classes into smaller, more manageable ones.
+    *   **Spaghetti Code:** Avoid writing code that is difficult to follow and understand. Use clear naming conventions, modular design, and comments to improve readability.
+    *   **Hardcoding:** Avoid hardcoding values (e.g., API keys, model paths) directly in the code. Use configuration files or environment variables instead.
+    *   **Ignoring Errors:** Always handle exceptions and log errors appropriately. Ignoring errors can lead to unexpected behavior and make debugging difficult.
+
+## 3. Performance Considerations
+
+*   **Batch Processing:**
+    *   Process multiple inputs in batches to improve throughput. Most embedding models and vector databases are optimized for batch operations.
+    *   Example:
+        python
+        def generate_embeddings_batch(texts: List[str], model: EmbeddingModel) -> List[List[float]]:
+            embeddings = model.encode(texts)
+            return embeddings.tolist()
+        
+*   **Asynchronous Operations:**
+    *   Use asynchronous operations (e.g., `asyncio`) to handle long-running tasks (e.g., API requests, database queries) without blocking the main thread. This improves responsiveness and scalability.
+*   **Caching:**
+    *   Implement caching to store frequently accessed data (e.g., embeddings, model outputs). Use a caching library like `functools.lru_cache` or `redis`.
+*   **Model Optimization:**
+    *   Use optimized embedding models (e.g., SentenceTransformers) and quantization techniques to reduce model size and improve inference speed. Utilize libraries like `torch.compile` for potential performance improvements.
+    *   Consider using smaller, faster models if accuracy requirements allow.
+*   **Vector Database Optimization:**
+    *   Choose a vector database that is appropriate for your workload and optimize its configuration. Consider factors such as indexing methods, query types, and data size.
+    *   Use approximate nearest neighbor (ANN) search algorithms to improve query performance.
+*   **Profiling:**
+    *   Use profiling tools (e.g., `cProfile`, `line_profiler`) to identify performance bottlenecks and optimize code accordingly.
+
+## 4. Security Best Practices
+
+*   **API Key Management:**
+    *   Never hardcode API keys directly in the code. Store them securely using environment variables or a secrets management system.
+    *   Restrict API key access to only the necessary resources.
+    *   Rotate API keys regularly.
+*   **Input Validation:**
+    *   Validate all user inputs to prevent injection attacks and other security vulnerabilities.
+    *   Sanitize inputs to remove potentially harmful characters.
+    *   Use regular expressions or validation libraries to enforce input constraints.
+*   **Rate Limiting:**
+    *   Implement rate limiting to prevent abuse and protect the service from denial-of-service attacks.
+    *   Use a rate limiting library or implement your own rate limiting logic.
+*   **Authentication and Authorization:**
+    *   Implement authentication and authorization to control access to the service. Use a secure authentication protocol like OAuth 2.0.
+    *   Enforce the principle of least privilege, granting users only the permissions they need.
+*   **Data Encryption:**
+    *   Encrypt sensitive data at rest and in transit. Use HTTPS to secure communication between the client and the service.
+    *   Consider using a data encryption library to encrypt sensitive data stored in the database.
+*   **Regular Security Audits:**
+    *   Conduct regular security audits to identify and address potential vulnerabilities. Use automated security scanning tools and manual code reviews.
+*   **Dependency Management:** Keep all dependencies up to date to patch security vulnerabilities. Use a tool like `pip-audit` to scan for known vulnerabilities.
+
+## 5. Testing Approaches
+
+*   **Unit Tests:**
+    *   Write unit tests to verify the functionality of individual modules, classes, and functions. Use a testing framework like `pytest` or `unittest`.
+    *   Mock external dependencies (e.g., embedding models, database connections) to isolate the code under test.
+    *   Aim for high code coverage.
+*   **Integration Tests:**
+    *   Write integration tests to verify the interaction between different components of the service. Test the entire data flow from input to output.
+*   **End-to-End Tests:**
+    *   Write end-to-end tests to verify the functionality of the entire service from the client's perspective. Simulate real-world user scenarios.
+*   **Performance Tests:**
+    *   Write performance tests to measure the service's performance under different load conditions. Identify performance bottlenecks and optimize code accordingly.
+    *   Use load testing tools to simulate a large number of concurrent users.
+*   **Security Tests:**
+    *   Write security tests to identify and address potential vulnerabilities. Use security scanning tools and manual code reviews.
+*   **Test-Driven Development (TDD):** Consider using TDD to write tests before writing the actual code. This can help you to design more testable and maintainable code.
+
+## 6. Common Pitfalls and Gotchas
+
+*   **Token Limits:**
+    *   Be aware of the token limits of the embedding models you are using. Truncate or split long texts into smaller chunks to avoid exceeding the limits.
+*   **API Rate Limits:**
+    *   Be aware of the API rate limits of the embedding providers you are using. Implement rate limiting and backoff strategies to avoid exceeding the limits.
+*   **Vector Database Size Limits:**
+    *   Be aware of the size limits of the vector database you are using. Consider using a distributed vector database if you need to store a large number of embeddings.
+*   **Data Drift:**
+    *   Monitor the distribution of the input data and the embeddings over time. Retrain the embedding model periodically to account for data drift.
+*   **Model Bias:**
+    *   Be aware of potential biases in the embedding model and the training data. Take steps to mitigate these biases.
+*   **Incorrect Similarity Metrics:**
+    *   Using the wrong similarity metric (e.g., Euclidean distance when cosine similarity is more appropriate) can lead to inaccurate results. Choose the appropriate metric based on the characteristics of the embeddings and the data.
+*   **Ignoring Edge Cases:**
+    *   Failing to handle edge cases (e.g., empty input, invalid data) can lead to unexpected behavior and errors. Always validate inputs and handle exceptions appropriately.
+
+## 7. Tooling and Environment
+
+*   **Version Control:**
+    *   Use a version control system like Git to track changes to the code and collaborate with other developers.
+*   **Dependency Management:**
+    *   Use a dependency management tool like `pip` or `conda` to manage project dependencies. Use a `requirements.txt` file to specify the project's dependencies.
+*   **Virtual Environments:**
+    *   Use virtual environments to isolate project dependencies and avoid conflicts. Use `venv` or `conda` to create virtual environments.
+*   **Code Formatting:**
+    *   Use a code formatting tool like `black` or `autopep8` to ensure consistent code formatting. Use a linter like `flake8` or `pylint` to identify potential code quality issues.
+*   **CI/CD:**
+    *   Use a CI/CD system like GitHub Actions or GitLab CI to automate the build, test, and deployment process.
+*   **Monitoring and Alerting:**
+    *   Use a monitoring and alerting system like Prometheus or Grafana to monitor the service's performance and health. Set up alerts to notify you of potential issues.
+*   **Containerization:**
+    *   Use containerization technology like Docker to package the service and its dependencies into a portable container. This makes it easier to deploy the service in different environments.
+*   **Orchestration:**
+    *   Use an orchestration tool like Kubernetes to manage and scale the service in a production environment.
+*   **IDE/Editor:** Choose an IDE or editor that supports Python development and provides features like code completion, debugging, and refactoring. Popular options include VS Code, PyCharm, and Sublime Text.
+
+By following these best practices, you can develop and maintain a robust, efficient, and secure `embedding_service` library that meets the needs of your users.

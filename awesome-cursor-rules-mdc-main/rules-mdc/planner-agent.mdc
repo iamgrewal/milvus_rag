@@ -1,0 +1,211 @@
+---
+description: This rule provides comprehensive best practices for developing and maintaining the planner-agent library, focusing on code quality, performance, security, and maintainability. It covers code structure, common patterns, testing, and tooling to ensure robust and scalable agent development.
+globs: **/*.py
+---
+# planner-agent Library Best Practices and Coding Standards
+
+This document outlines the recommended best practices and coding standards for developing and maintaining the `planner-agent` library. Following these guidelines will ensure code quality, performance, security, and maintainability.
+
+## 1. Code Organization and Structure
+
+*   **Modular Design:**
+    *   Break down complex functionalities into smaller, independent modules and classes. This promotes reusability, testability, and maintainability.
+    *   Each module should have a clear and well-defined purpose.
+
+*   **Layered Architecture:**
+    *   Consider a layered architecture to separate concerns (e.g., data access, business logic, presentation). A common approach includes:
+        *   **Data Layer:** Handles data storage and retrieval.
+        *   **Service Layer:** Contains the core business logic and agent planning algorithms.
+        *   **Agent Layer:** Defines the agent and its interactions with the environment.
+        *   **Utility Layer:** Common helper functions and classes. 
+
+*   **Clear Directory Structure:**
+    *   Organize the project directory in a logical manner. Example:
+
+        
+        planner_agent/
+        ├── data/
+        │   ├── ... (data files, schemas)
+        ├── models/
+        │   ├── ... (agent models, planning models)
+        ├── agents/
+        │   ├── ... (agent implementations)
+        ├── tools/
+        │   ├── ... (tool implementations)
+        ├── core/
+        │   ├── ... (core functionalities, base classes)
+        ├── utils/
+        │   ├── ... (utility functions)
+        ├── tests/
+        │   ├── ... (unit and integration tests)
+        ├── examples/
+        │   ├── ... (example usage scenarios)
+        ├── docs/
+        │   ├── ... (documentation files)
+        ├── README.md
+        ├── setup.py
+        └── requirements.txt
+        
+
+*   **Consistent Naming Conventions:**
+    *   Use descriptive and consistent names for modules, classes, functions, and variables.
+    *   Follow PEP 8 guidelines for Python code style (e.g., `snake_case` for variables and functions, `CamelCase` for classes).
+
+## 2. Common Patterns and Anti-patterns
+
+*   **Design Patterns:**
+    *   **Strategy Pattern:** Implement different planning algorithms as strategies that can be easily swapped or configured.
+    *   **Factory Pattern:** Use factories to create agent instances or tools, allowing for flexible configuration and dependency injection.
+    *   **Observer Pattern:** Implement event handling for agent actions or environment changes, enabling reactive behavior.
+
+*   **Plan-and-Execute Loop:**
+    *   Implement a clear plan-and-execute loop for AI agents. This involves:
+        1.  **Planning:** The agent analyzes the goal and creates a plan of action.
+        2.  **Execution:** The agent executes the plan using available tools.
+        3.  **Observation:** The agent observes the results of its actions.
+        4.  **Reflection:** The agent reflects on its actions and adjusts its plan if necessary.
+
+*   **Tool Abstraction:**
+    *   Abstract tool interactions behind a consistent interface. This allows agents to use different tools without modifying their core logic.
+
+*   **Memory Management:**
+    *   Implement a memory system to store agent experiences and knowledge.  Consider using short-term and long-term memory.
+    *   Use techniques like summarization or relevance filtering to manage memory size.
+
+*   **Anti-patterns:**
+    *   **God Classes:** Avoid creating large, monolithic classes that handle too many responsibilities.  Break them down into smaller, more focused classes.
+    *   **Spaghetti Code:**  Write clear, well-structured code with proper indentation and comments. Avoid deeply nested loops and conditional statements.
+    *   **Copy-Paste Programming:**  Extract common code into reusable functions or classes to avoid duplication.
+    *   **Hardcoded Values:**  Use configuration files or environment variables to manage configurable parameters.
+
+## 3. Performance Considerations
+
+*   **Profiling:**
+    *   Use profiling tools (e.g., `cProfile`) to identify performance bottlenecks in the code.
+    *   Focus on optimizing the most time-consuming parts of the code.
+
+*   **Vectorization:**
+    *   Leverage NumPy and other vectorized operations to perform calculations efficiently on large datasets.
+
+*   **Caching:**
+    *   Implement caching mechanisms (e.g., using `functools.lru_cache`) to store the results of expensive function calls.
+
+*   **Asynchronous Operations:**
+    *   Use asynchronous programming (e.g., `asyncio`) to perform I/O-bound operations concurrently, improving responsiveness.
+
+*   **Efficient Data Structures:**
+    *   Choose appropriate data structures for the task at hand.  For example, use sets for membership testing and dictionaries for fast lookups.
+
+*   **Lazy Loading:**
+    *   Load data or resources only when they are needed, reducing startup time and memory usage.
+
+*   **Resource Management:**
+    *   Properly manage resources such as file handles and network connections to avoid leaks.
+
+## 4. Security Best Practices
+
+*   **Input Validation:**
+    *   Validate all inputs from external sources (e.g., user input, API responses) to prevent injection attacks.
+    *   Use appropriate data types and regular expressions to enforce input constraints.
+
+*   **Authentication and Authorization:**
+    *   Implement secure authentication and authorization mechanisms to control access to sensitive resources.
+    *   Use strong passwords and multi-factor authentication.
+
+*   **Data Encryption:**
+    *   Encrypt sensitive data at rest and in transit to protect it from unauthorized access.
+    *   Use established encryption algorithms and libraries.
+
+*   **Secure API Keys:**
+    *   Store API keys and other secrets securely using environment variables or a dedicated secrets management system.
+    *   Avoid hardcoding API keys in the code.
+
+*   **Dependency Management:**
+    *   Keep dependencies up to date with the latest security patches.
+    *   Use a dependency management tool (e.g., `pip`) to manage dependencies and ensure reproducibility.
+
+*   **Rate Limiting:**
+    *   Implement rate limiting to prevent abuse and denial-of-service attacks.
+
+*   **Logging and Monitoring:**
+    *   Log all security-related events and monitor the system for suspicious activity.
+
+## 5. Testing Approaches
+
+*   **Unit Tests:**
+    *   Write unit tests for individual modules and classes to verify their functionality.
+    *   Use a testing framework (e.g., `pytest`, `unittest`) to organize and run tests.
+    *   Aim for high test coverage to ensure that all parts of the code are tested.
+
+*   **Integration Tests:**
+    *   Write integration tests to verify the interaction between different modules and components.
+
+*   **End-to-End Tests:**
+    *   Write end-to-end tests to simulate real-world scenarios and verify the overall system behavior.
+
+*   **Test-Driven Development (TDD):**
+    *   Consider using TDD, where you write tests before writing the code. This helps to clarify requirements and ensure that the code is testable.
+
+*   **Mocking and Stubbing:**
+    *   Use mocking and stubbing to isolate units of code during testing and avoid dependencies on external resources.
+
+*   **Property-Based Testing:**
+    *   Use property-based testing (e.g., using `hypothesis`) to generate a wide range of inputs and verify that the code satisfies certain properties.
+
+*   **Code Coverage Analysis:**
+    *   Use code coverage tools (e.g., `coverage.py`) to measure test coverage and identify areas that need more testing.
+
+## 6. Common Pitfalls and Gotchas
+
+*   **Prompt Injection:**
+    *   Be aware of prompt injection attacks, where malicious users can manipulate the agent's behavior by crafting specific input prompts.
+    *   Implement input validation and sanitization to mitigate this risk.
+
+*   **Hallucinations:**
+    *   Large language models can sometimes generate incorrect or nonsensical information (hallucinations).
+    *   Use techniques like grounding the agent in external knowledge sources to reduce hallucinations.
+
+*   **Bias:**
+    *   Be aware of potential biases in the training data and the model itself.
+    *   Use techniques like data augmentation and adversarial training to mitigate bias.
+
+*   **Overfitting:**
+    *   Avoid overfitting the model to the training data. Use techniques like regularization and cross-validation to prevent overfitting.
+
+*   **Scalability:**
+    *   Design the system to be scalable to handle increasing workloads.
+    *   Use techniques like load balancing and caching to improve scalability.
+
+*   **Explainability:**
+    *   Strive for explainability in the agent's behavior.
+    *   Use techniques like attention mechanisms and rule extraction to understand how the agent makes decisions.
+
+## 7. Tooling and Environment
+
+*   **Python Version:**
+    *   Always use the latest stable version of Python (currently 3.12).  Specify the version in your project's documentation and CI/CD pipeline.
+
+*   **Dependency Management:**
+    *   Use `pip` with a `requirements.txt` file or `poetry` to manage project dependencies.
+
+*   **Virtual Environments:**
+    *   Use virtual environments (e.g., `venv`, `virtualenv`) to isolate project dependencies.
+
+*   **Code Editor:**
+    *   Use a code editor with support for Python development (e.g., VS Code, PyCharm).
+    *   Configure the editor to follow PEP 8 guidelines and use a linter (e.g., `flake8`, `pylint`).
+
+*   **Debugging Tools:**
+    *   Use a debugger to step through the code and inspect variables.
+    *   Use logging to record events and debug issues.
+
+*   **Continuous Integration/Continuous Deployment (CI/CD):**
+    *   Use a CI/CD system (e.g., GitHub Actions, GitLab CI) to automate testing and deployment.
+
+*   **Containerization:**
+    *   Use containerization (e.g., Docker) to package the application and its dependencies into a portable container.
+
+*   **Orchestration:**
+    *   Use an orchestration system (e.g., Kubernetes) to manage and scale the application in a production environment.
+
+By adhering to these best practices and coding standards, you can ensure the `planner-agent` library is robust, maintainable, and secure, fostering a collaborative and efficient development environment.
