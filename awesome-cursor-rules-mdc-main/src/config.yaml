@@ -6,7 +6,7 @@ paths:
 
 api:
   llm_model: "gemini/gemini-2.5-flash"
-  rate_limit_calls: 2000 
+  rate_limit_calls: 1000 
   rate_limit_period: 60
   max_retries: 3
   retry_min_wait: 4
@@ -20,6 +20,6 @@ exa_api:
   retry_max_wait: 5
 
 processing:
-  max_workers: 4  # Adjust based on your system's capabilities
+  max_workers: 6  # Adjust based on your system's capabilities
   chunk_size: 50000  # Reduced from 50000 to optimize token usage
   retry_failed_only: true  # Default to retry only failed libraries 

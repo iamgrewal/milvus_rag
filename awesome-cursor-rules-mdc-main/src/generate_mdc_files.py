@@ -211,6 +211,8 @@ def validate_environment_variables() -> bool:
         required_vars.append("OPENAI_API_KEY")
     elif model.startswith("claude") or model.startswith("anthropic"):
         required_vars.append("ANTHROPIC_API_KEY")
+    elif model.startswith("deepseek"):
+        required_vars.append("DEEPSEEK_API_KEY")
     
     # Check for Exa API key
     required_vars.append("EXA_API_KEY")
