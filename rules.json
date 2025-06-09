@@ -2149,67 +2149,6 @@
         "javascript",
         "react"
       ]
-    },
-    {
-      "name": "secure_config",
-      "tags": [
-        "security",
-        "fernet",
-        "encryption",
-        "env",
-        "secrets",
-        "configuration",
-        "api-keys"
-      ]
-    },
-    {
-      "name": "embedding_service",
-      "tags": [
-        "ai",
-        "ml",
-        "llm",
-        "python",
-        "inference",
-        "embedding",
-        "openai",
-        "transformers",
-        "sentence-transformers",
-        "vectorization"
-      ]
-    },
-    {
-      "name": "nlp_processor",
-      "tags": [
-        "ai",
-        "ml",
-        "llm",
-        "nlp",
-        "preprocessing",
-        "tokenization",
-        "text-cleaning",
-        "normalization"
-      ]
-    },
-    {
-      "name": "task_manager",
-      "tags": [
-        "ai",
-        "ml",
-        "llm",
-        "nlp",
-        "task-management",
-        "categorization",
-        "priority-management",
-        "deadline-tracking",
-        "task-tracking",
-        "task-scheduling",
-        "task-completion",
-        "task-prioritization",
-        "task-deadline-tracking",
-        "task-categorization",
-        "task-completion",
-        "sentiment-analysis",
-      ]
-    },
+    }
   ]
 }
