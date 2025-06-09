@@ -1,0 +1,38 @@
+---
+description: This file provides security and deployment guidelines for hybrid RAG applications.
+globs: ['**/deploy/**', '**/config/**']
+alwaysApply: true
+---
+
+# Security & Deployment Guidelines
+
+This document outlines the security and deployment practices for hybrid RAG (Retrieval-Augmented Generation) applications. It serves as a crucial reference for developers to ensure that their deployments are secure and follow best practices.
+
+## Overview
+
+The `010-security-deployment.md` file contains essential guidelines that should be adhered to when deploying applications within the codebase. It emphasizes the importance of security measures and proper deployment strategies to protect sensitive information and ensure reliable service operation.
+
+## Key Components
+
+- **Secrets Management**: It is recommended to use `.env` files or a secrets management tool like Vault to handle sensitive information securely. This prevents hardcoding secrets in the codebase, reducing the risk of exposure.
+- **TLS Encryption**: All services should implement TLS encryption to secure data in transit. This is critical for protecting user data and maintaining confidentiality.
+- **Containerization**: The guidelines advocate for containerizing applications using Docker. This approach simplifies deployment and scaling. Additionally, orchestration tools like Docker Compose or Kubernetes should be used to manage containerized applications effectively.
+
+## Dependencies
+
+This file does not import any other files in the repository, nor is it imported by any other files. It stands alone as a set of guidelines that apply universally to the deployment and security practices within the codebase.
+
+## Usage Examples
+
+While this file does not contain executable code, the practices outlined can be applied as follows:
+- When setting up a new service, ensure that you create a `.env` file to store environment variables securely.
+- Always configure TLS for any web service you deploy to protect user data.
+- Use Docker to create a container for your application, and manage it with Docker Compose or Kubernetes for better scalability and management.
+
+## Best Practices
+
+- Regularly review and update your secrets management strategy to adapt to new security threats.
+- Ensure that all team members are aware of and follow these security and deployment guidelines.
+- Test your deployment process in a staging environment before going live to catch any potential issues early.
+
+By following these guidelines, developers can enhance the security and reliability of their deployments, contributing to a more robust application architecture.

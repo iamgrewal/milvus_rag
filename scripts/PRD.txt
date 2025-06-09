@@ -1,0 +1,236 @@
+Based on a comprehensive review and de-duplication of the provided artifacts—including the primary technical specification, architectural documentation, and pseudocode extracts from the .pdf, .docx, and .txt files—I have consolidated a production-ready technical and implementation blueprint for the rhoSearcher system.
+
+This merged specification removes redundant content, harmonizes architectural interpretations, and integrates both practical guidance and implementation clarity across all development layers.
+
+⸻
+
+📘 Consolidated Technical Requirements and Implementation Blueprint
+
+Project Title:
+
+rhoSearcher — Autonomous Research Agent System
+
+⸻
+
+1. Executive Summary
+
+rhoSearcher is a multi-agent, hybrid RAG (Retrieval-Augmented Generation) research copilot integrating vector search (Milvus), graph databases (Neo4j), and LLMs (OpenAI GPT family). Designed for automated, traceable, and insightful research, it replaces fragmented manual workflows with scalable, intelligent automation for professionals in sales, legal, academia, and strategic roles.
+
+Core Capabilities:
+	•	Semantic + graph-based retrieval with fusion
+	•	Self-correcting autonomous agents
+	•	Multi-source research orchestration
+	•	Structured, citation-backed reporting
+
+⸻
+
+2. Business Objectives
+	•	Speed: Automate exhaustive online research
+	•	Quality: Improve information accuracy and contextual synthesis
+	•	Credibility: Ensure source traceability and APA citation
+	•	Scalability: Serve thousands of concurrent tasks
+	•	Persona-alignment: Support for sales, legal, academic, and strategic researchers
+
+⸻
+
+3. Scope
+
+✅ In-Scope
+	•	Multi-agent orchestration (Planner, Executor, Publisher)
+	•	Hybrid retrieval: Milvus (vector) + Neo4j (graph)
+	•	Fusion logic and reranking (RRF, BERTScore, etc.)
+	•	Fallback via APIs (Exa.ai, Perplexity)
+	•	Source-linked PDF/Markdown reports
+	•	Web interface for task creation and result visualization
+
+Stage 2
+	•	Real-time conversational UX
+	•	Continuous learning or live user training cycles
+
+⸻
+
+4. Functional Requirements
+
+ID	Feature	Description
+FR-01	Task Manager	Orchestrate user research requests with status tracking
+FR-02	Planner Agent	Decompose topics into sub-queries using GPT-4
+FR-03	Executor Agents	Fetch, summarize, and validate information per sub-query
+FR-04	Fusion Engine	Combine and rerank multi-source results intelligently
+FR-05	Self-Correction Engine	Detect hallucinations and trigger fallback retrieval
+FR-06	Knowledge Graph	Store relationships and entities in Neo4j
+FR-07	Vector Store	Embed and retrieve text chunks via Milvus
+FR-08	Report Generator	Generate structured, cited outputs (PDF, Markdown)
+FR-09	Frontend Interface	Research UI for input and output review
+
+
+⸻
+
+5. System Architecture
+
+            ┌────────────────────────────┐
+            │       Web UI (Vue/React)   │
+            └────────────┬───────────────┘
+                         │
+       ┌────────────────▼────────────────┐
+       │         FastAPI Orchestrator    │
+       └──────┬────────────┬────────────┘
+              │            │
+    ┌─────────▼─────┐   ┌──▼────────────┐
+    │ Planner Agent │   │ Task Manager  │
+    └────────┬──────┘   └───────────────┘
+             │
+     ┌───────▼──────────────┐
+     │  Hybrid Retrieval    │
+     │  (Neo4j + Milvus)    │
+     └────────┬─────────────┘
+              │
+     ┌────────▼─────────────┐
+     │ Executor Agents       │<────External APIs (Exa.ai, Tavily)
+     └────────┬─────────────┘
+              │
+     ┌────────▼─────────────┐
+     │ Fusion & Validation   │
+     └────────┬─────────────┘
+              │
+     ┌────────▼─────────────┐
+     │ Report Generator      │
+     └──────────────────────┘
+
+
+⸻
+
+6. Technology Stack
+
+Layer	Tool
+Backend/API	FastAPI
+Frontend	Vue.js / React
+Orchestration	LangGraph
+Vector DB	Milvus
+Graph DB	Neo4j
+Cache/Queue	Redis
+Language Models	GPT-4 (Planner), GPT-3.5 (Executor)
+Web Scraping	Playwright, BeautifulSoup
+CI/CD	GitHub Actions, Docker Hub
+Monitoring	Prometheus, OpenTelemetry
+Security	Vault, OAuth2, Regex Filters
+
+
+⸻
+
+7. Data Flow
+	1.	User inputs a high-level research topic.
+	2.	Planner Agent breaks topic into research questions.
+	3.	Executor Agents retrieve results using:
+	•	Neo4j (graph context)
+	•	Milvus (vector similarity)
+	•	External APIs if fallback is triggered
+	4.	Fusion Engine merges and ranks results.
+	5.	Self-Correction detects hallucinated or low-confidence outputs.
+	6.	Publisher Agent generates APA-cited PDF or Markdown report.
+
+⸻
+
+8. Component Directory Structure
+
+src/
+└── graphrag/
+    ├── config/                 # env, secrets
+    ├── embedding_service/      # OpenAI/BGE embedding
+    ├── milvus/                 # vector store operations
+    ├── neo4j/                  # Cypher queries and graph linking
+    ├── nlp/                    # NER, relation extraction
+    ├── rag_system/             # core orchestration and fusion logic
+    ├── logger.py               # structured logging
+    └── requirements.txt        # dependencies
+
+
+⸻
+
+9. Implementation Roadmap
+
+🔹 Phase 1 – Setup & Infrastructure
+	•	LangGraph orchestration
+	•	Milvus and Neo4j ingestion pipelines
+	•	Basic task routing
+
+🔹 Phase 2 – Research Pipeline
+	•	Planner/Executor agent orchestration
+	•	Report generation module
+	•	Self-correction fallback via Tavily/Exa.ai
+
+🔹 Phase 3 – Optimization & Deployment
+	•	Monitoring with OpenTelemetry
+	•	OAuth2 security layer
+	•	Dockerization for scalable deployment
+
+🔹 Phase 4 – Enterprise Enhancements
+	•	Persona-based modules (legal, academic, sales)
+	•	Multimodal input support (PDFs, CSVs)
+	•	Real-time dashboard and analytics
+
+⸻
+
+10. Quality Assurance
+
+Test Type	Tools
+Unit Tests	Pytest
+Integration Tests	Postman, FastAPI TestClient
+LLM Sanity Checks	Confidence thresholds
+Static Analysis	pylint, mypy
+Load Testing	Locust
+Monitoring	OpenTelemetry, Prometheus
+
+
+⸻
+
+11. Security & Compliance
+	•	API key management via Vault
+	•	Query sanitization via Regex libraries
+	•	STIG-compliant Docker images
+	•	OAuth2 for user auth (Phase 3)
+	•	HTTPS and rate-limiting enforced at gateway
+
+⸻
+
+12. Metrics and KPIs
+
+Metric	Target
+Latency (per subquery)	< 2 seconds
+Report Accuracy	+30% over baseline
+System Uptime	99.5%
+Task Throughput	>10K concurrent reqs
+Fallback Recovery Rate	≥ 80%
+
+
+⸻
+
+13. Personas and Use Case Alignment
+
+Persona	Use Case
+Sales Reps	Competitor analysis, prospect deep dives
+Legal Analysts	Case law aggregation, citation-ready briefs
+Academics	Literature reviews, grant proposal sourcing
+PMs/Execs	Market scans, internal strategic research
+SysAdmins	Deployment, monitoring, API key control
+
+
+⸻
+
+14. Enhanced System Integration (Optional Agents)
+
+Agent	Role
+Exa.ai	Web intelligence fallback
+Perplexity	Context validation + planning assist
+PhantomBuster	Social data for enrichment
+MCP Servers	GitHub, Slack, Docker, DuckDuckGo
+Browserbase	Complex web scraping for dynamic content
+
+
+⸻
+
+15. Conclusion
+
+rhoSearcher is not merely a research tool—it is a strategic intelligence copilot designed for enterprise-grade research, synthesis, and automation. With a modular, extensible, and AI-first architecture, the platform empowers decision-makers with traceable, factual, and context-aware insights at scale.
+
+⸻
+

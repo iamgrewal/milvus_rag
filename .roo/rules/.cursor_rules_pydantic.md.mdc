@@ -1,0 +1,63 @@
+---
+description: Documentation for best practices and standards when using Pydantic in Python projects.
+globs: ['*.py']
+alwaysApply: false
+---
+
+# Pydantic Best Practices Documentation
+
+## Overview
+This file provides comprehensive best practices and coding standards for utilizing Pydantic effectively in Python projects. It covers various aspects such as code organization, performance optimization, security considerations, and testing approaches to ensure that developers can leverage Pydantic's capabilities to build robust applications.
+
+## Key Components
+- **Model Definition:** Guidelines on defining data schemas using `BaseModel`, including the use of type annotations and nested models.
+- **Validation and Error Handling:** Best practices for implementing validators, handling validation errors, and ensuring user-friendly error messages.
+- **Performance Optimization:** Techniques to enhance performance, such as lazy initialization and using `model_rebuild`.
+- **Code Organization and Structure:** Recommendations for organizing code into directories and modules, including naming conventions and component architecture.
+- **Common Patterns and Anti-patterns:** Insights into design patterns suitable for Pydantic, as well as common pitfalls to avoid.
+- **Security Best Practices:** Strategies to mitigate vulnerabilities and ensure data protection when using Pydantic models.
+- **Testing Approaches:** Methods for unit, integration, and end-to-end testing of Pydantic models.
+- **Getting Started with Pydantic:** A quick guide on installing Pydantic and defining data models.
+
+## Dependencies
+This file does not import any other files in the repository and is not imported by any other files. It serves as a standalone guide for developers working with Pydantic in their Python projects.
+
+## Usage Example
+Here is a simple example demonstrating how to define a Pydantic model and handle validation errors:
+```python
+from pydantic import BaseModel, ValidationError
+from typing import List, Optional
+
+class Address(BaseModel):
+    street: str
+    city: str
+    zip_code: Optional[str] = None
+
+class User(BaseModel):
+    id: int
+    name: str
+    email: str
+    addresses: List[Address]
+
+try:
+    user_data = {
+        "id": 1,
+        "name": "John Doe",
+        "email": "invalid-email",
+        "addresses": [{
+            "street": "123 Main St",
+            "city": "Anytown"
+        }]
+    }
+    user = User(**user_data)
+    print(user)
+except ValidationError as e:
+    print(e.json())
+```
+
+## Best Practices
+- Always define a `Config` class within your models to control behavior.
+- Use clear and informative error messages for validation errors.
+- Organize your code into a modular structure to enhance maintainability.
+- Avoid embedding business logic directly into models to keep them clean and focused on data validation.
+- Regularly review and update your Pydantic models to align with the latest version and best practices.

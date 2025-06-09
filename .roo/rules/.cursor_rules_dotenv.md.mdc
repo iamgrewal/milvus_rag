@@ -1,0 +1,64 @@
+---
+description: Documentation for best practices when using the dotenv library in Python projects.
+globs: ['**/.env']
+alwaysApply: false
+---
+
+# dotenv Library Best Practices
+
+This guide outlines best practices for effectively using the `dotenv` library in Python projects. It focuses on security, maintainability, and configuration management, providing guidelines for managing environment variables effectively across different environments.
+
+## Overview
+The `.roo/rules/dotenv.md` file serves as a comprehensive guide for developers on how to utilize the `dotenv` library in Python applications. It emphasizes the importance of proper environment variable management, ensuring that sensitive information is handled securely and that configurations are maintainable across different environments.
+
+## Key Components
+- **Code Organization and Structure:** Recommendations for placing `.env` files, creating centralized configuration modules, and modularizing settings for better maintainability.
+- **Common Patterns and Anti-patterns:** Examples of effective patterns such as using configuration objects and environment-specific loading, alongside anti-patterns to avoid like hardcoding secrets and over-reliance on `.env` files in production.
+- **Performance Considerations:** Tips on loading environment variables efficiently and caching configurations to enhance application performance.
+- **Security Best Practices:** Guidelines for securing sensitive information, including using `.gitignore`, leveraging secrets management tools, and ensuring regular credential rotation.
+- **Testing Approaches:** Strategies for testing configurations, including unit tests with mocked environment variables and integration tests with separate `.env` files.
+- **Common Pitfalls and Gotchas:** Warnings about issues like variable shadowing, type conversion, and handling missing variables.
+- **Tooling and Environment:** Recommendations for tools that can assist in managing environment variables, such as `python-dotenv`, `direnv`, and `Docker Compose`.
+- **Additional Best Practices:** Suggestions for naming conventions, documentation, and regular reviews of configuration settings.
+
+## Usage Examples
+### Loading Environment Variables
+```python
+import os
+from dotenv import load_dotenv
+
+load_dotenv()  # Load environment variables from .env file
+
+SECRET_KEY = os.getenv("SECRET_KEY")
+DATABASE_URL = os.getenv("DATABASE_URL")
+DEBUG = os.getenv("DEBUG", "False").lower() == "true"  # Default to False
+```
+
+### Configuration Object Example
+```python
+from dataclasses import dataclass
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+@dataclass
+class Config:
+    secret_key: str = os.getenv("SECRET_KEY")
+    database_url: str = os.getenv("DATABASE_URL")
+    debug: bool = os.getenv("DEBUG", "False").lower() == "true"  # Default to False
+
+config = Config()
+print(f"Secret Key: {config.secret_key}")
+print(f"Database URL: {config.database_url}")
+print(f"Debug Mode: {config.debug}")
+```
+
+## Best Practices
+- **Use Descriptive Names:** Choose clear and consistent names for environment variables (e.g., `DATABASE_URL`, `API_KEY`).
+- **Document Environment Variables:** Maintain documentation outlining each variable's purpose and expected format.
+- **Avoid Default Secrets:** Ensure sensitive secrets are explicitly set and not left with default values in `.env` files.
+- **Regularly Review Configuration:** Periodically check configuration settings for validity and security.
+- **Automated Configuration:** Utilize configuration management tools to automate the deployment of environment variables in production.
+
+By adhering to these best practices, developers can effectively manage environment variables in their Python projects, enhancing security and maintainability.
