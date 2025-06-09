@@ -2198,6 +2198,7 @@
         "llm",
         "nlp",
         "task-management",
+        "decomposition",
         "categorization",
         "priority-management",
         "deadline-tracking",
@@ -2209,7 +2210,151 @@
         "task-categorization",
         "task-completion",
         "sentiment-analysis",
+        "summarization",
+        "subtask-management",
+        "subtask-tracking",
+        "subtask-scheduling",
+        "subtask-completion",
+        "subtask-prioritization",
+        "subtask-deadline-tracking",
+        "subtask-categorization",
+        "subtask-completion"
       ]
     },
+    {
+      "name": "ai-execution-agent",
+      "tags": [
+        "ai",
+        "agent",
+        "automation",
+        "retrieval"
+      ]
+    },
+    {
+      "name": "ai-fusion-agent",
+      "tags": [
+        "ai",
+        "agent",
+        "integration",
+        "data-fusion"
+      ]
+    },
+    {
+      "name": "knowledge-graph",
+      "tags": [
+        "graph",
+        "database",
+        "semantic",
+        "neo4j"
+      ]
+    },
+    {
+      "name": "fallback-mechanism",
+      "tags": [
+        "reliability",
+        "web-search",
+        "api",
+        "redundancy"
+      ]
+    },
+    {
+      "name": "report-generator",
+      "tags": [
+        "reporting",
+        "markdown",
+        "pdf",
+        "citations"
+      ]
+    },
+    {
+      "name": "web-interface",
+      "tags": [
+        "frontend",
+        "ui",
+        "react",
+        "vue"
+      ]
+    },
+    {
+      "name": "task-management",
+      "tags": [
+        "workflow",
+        "tasks",
+        "management",
+        "productivity"
+      ]
+    },
+    {
+      "name": "planner-agent",
+      "tags": [
+        "ai",
+        "agent",
+        "task-planning",
+        "decomposition"
+      ]
+    },
+    {
+      "name": "execution-agent",
+      "tags": [
+        "ai",
+        "agent",
+        "retrieval",
+        "summarization"
+      ]
+    },
+    {
+      "name": "langgraph",
+      "tags": [
+        "ai",
+        "state-machine",
+        "parallel",
+        "orchestration"
+      ]
+    },
+    {
+      "name": "beautifulsoup",
+      "tags": [
+        "python",
+        "web-scraping",
+        "html",
+        "parsing"
+      ]
+    },
+    {
+      "name": "playwright",
+      "tags": [
+        "web-scraping",
+        "automation",
+        "testing",
+        "javascript"
+      ]
+    },
+    {
+      "name": "prometheus",
+      "tags": [
+        "monitoring",
+        "metrics",
+        "observability",
+        "devops"
+      ]
+    },
+    {
+      "name": "opentelemetry",
+      "tags": [
+        "observability",
+        "tracing",
+        "metrics",
+        "monitoring"
+      ]
+    },
+    {
+      "name": "github-actions",
+      "tags": [
+        "ci",
+        "cd",
+        "automation",
+        "devops"
+      ]
+    }
   ]
 }
