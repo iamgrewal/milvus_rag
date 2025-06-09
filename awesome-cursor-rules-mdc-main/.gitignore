@@ -1,0 +1,17 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+awesome-cursorrules/
+.env
+exa_results/
+logs/
+.cache/
+.DS_Store
