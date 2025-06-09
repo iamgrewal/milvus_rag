@@ -1,0 +1,9619 @@
+# Repository Analysis Report
+
+## Local Repository: /home/jgrewal/projects/aiprojects/milvus_rag
+
+## Directory Structure
+
+```
+./
+├── .
+│   ├── .cursor
+│   │   └── rules
+│   │       ├── 000-hybrid-rag-project.mdc
+│   │       ├── 001-langgraph-orchestration.mdc
+│   │       ├── 002-parallel-retrieval.mdc
+│   │       ├── 003-fusion-logic.mdc
+│   │       ├── 004-self-correction.mdc
+│   │       ├── 005-milvus-retrieval.mdc
+│   │       ├── 006-neo4j-relationships.mdc
+│   │       ├── 007-entity-extraction.mdc
+│   │       ├── 008-fallback-mechanism.mdc
+│   │       ├── 009-observability.mdc
+│   │       ├── 010-security-deployment.mdc
+│   │       ├── asyncio.mdc
+│   │       ├── dotenv.mdc
+│   │       ├── fastapi.mdc
+│   │       ├── github-actions.mdc
+│   │       ├── langchain.mdc
+│   │       ├── llamaindex.mdc
+│   │       ├── milvus.mdc
+│   │       ├── mkdocs.mdc
+│   │       ├── neo4j.mdc
+│   │       ├── openai.mdc
+│   │       ├── pydantic.mdc
+│   │       ├── pytest.mdc
+│   │       ├── python.mdc
+│   │       ├── rag.mdc
+│   │       ├── structlog.mdc
+│   │       ├── tenacity.mdc
+│   │       └── transformers.mdc
+│   ├── .vscode
+│   ├── ctags
+│   │   ├── .ctags.d
+│   │   │   └── exclusion.ctags
+│   │   ├── Tmain
+│   │   │   ├── abnormal-output-file-names.d
+│   │   │   │   ├── input.c
+│   │   │   │   └── run.sh
+│   │   │   ├── alias-for-unknown-language.d
+│   │   │   │   └── run.sh
+│   │   │   ├── allow-null-tag.d
+│   │   │   │   └── run.sh
+│   │   │   ├── broken-extradef.d
+│   │   │   │   └── run.sh
+│   │   │   ├── broken-fielddef.d
+│   │   │   │   └── run.sh
+│   │   │   ├── broken-json-output.d
+│   │   │   │   ├── exit-expected.tx
+│   │   │   │   ├── input.f
+│   │   │   │   └── run.sh
+│   │   │   ├── broken-langdef.d
+│   │   │   │   ├── input.c
+│   │   │   │   └── run.sh
+│   │   │   ├── broken-paramdef.d
+│   │   │   │   └── run.sh
+│   │   │   ├── broken-regex-pattern.d
+│   │   │   │   ├── broken-pattern.ctags
+│   │   │   │   ├── input.py
+│   │   │   │   └── run.sh
+│   │   │   ├── broken-tagname-in-ectags-format.d
+│   │   │   │   ├── input.cst
+│   │   │   │   └── run.sh
+│   │   │   ├── broken-tagname-quiet.d
+│   │   │   │   ├── input.cst
+│   │   │   │   └── run.sh
+│   │   │   ├── broken-tagname.d
+│   │   │   │   ├── input.cst
+│   │   │   │   └── run.sh
+│   │   │   ├── broken-version.d
+│   │   │   │   └── run.sh
+│   │   │   ├── c-anon-counter.d
+│   │   │   │   ├── input1.c
+│   │   │   │   ├── input2.c
+│   │   │   │   └── run.sh
+│   │   │   ├── c-large-enum.d
+│   │   │   │   └── run.sh
+│   │   │   ├── case-insensitive-pattern.d
+│   │   │   │   ├── INPUT.MK
+│   │   │   │   └── run.sh
+│   │   │   ├── clear-aliases.d
+│   │   │   │   └── run.sh
+│   │   │   ├── client-vista-vim-fields-expectation.d
+│   │   │   │   ├── run.sh
+│   │   │   │   └── test.vim
+│   │   │   ├── combination-of-fields-Zs.d
+│   │   │   │   ├── input.c
+│   │   │   │   └── run.sh
+│   │   │   ├── combination-of-fields-zkK.d
+│   │   │   │   ├── input.c
+│   │   │   │   └── run.sh
+│   │   │   ├── common-prelude.d
+│   │   │   │   ├── aindex.expected
+│   │   │   │   ├── aindex.ps
+│   │   │   │   ├── amember.expected
+│   │   │   │   ├── amember.ps
+│   │   │   │   ├── buildstring.expected
+│   │   │   │   ├── buildstring.ps
+│   │   │   │   ├── chop.expected
+│   │   │   │   ├── chop.ps
+│   │   │   │   ├── dedup.expected
+│   │   │   │   ├── dedup.ps
+│   │   │   │   ├── dedup_spaces.expected
+│   │   │   │   ├── dedup_spaces.ps
+│   │   │   │   ├── ndup.expected
+│   │   │   │   ├── ndup.ps
+│   │   │   │   ├── normalize_spaces.expected
+│   │   │   │   ├── normalize_spaces.ps
+│   │   │   │   ├── putlast.expected
+│   │   │   │   ├── putlast.ps
+│   │   │   │   ├── run.sh
+│   │   │   │   ├── tr.expected
+│   │   │   │   └── tr.ps
+│   │   │   ├── cxx-how-kinds-defs-are-shared-or-copyed.d
+│   │   │   │   └── run.sh
+│   │   │   ├── disable-fixed-field.d
+│   │   │   │   ├── input.c
+│   │   │   │   └── run.sh
+│   │   │   ├── disable-languages.d
+│   │   │   │   ├── input-matlab.m
+│   │   │   │   ├── input-objc.m
+│   │   │   │   ├── input.m
+│   │   │   │   └── run.sh
+│   │   │   ├── dot-ctags-with-indentation.d
+│   │   │   │   ├── args.ctags
+│   │   │   │   └── run.sh
+│   │   │   ├── dynamic-kinds.d
+│   │   │   │   └── run.sh
+│   │   │   ├── e-ctags-output.d
+│   │   │   │   ├── input_file.cc
+│   │   │   │   └── run.sh
+│   │   │   ├── early--version-opt-processing.d
+│   │   │   │   └── run.sh
+│   │   │   ├── emacs-modeline-downcased-mode.d
+│   │   │   │   ├── functions
+│   │   │   │   └── run.sh
+│   │   │   ├── emacs-modeline-non-alnum-in-head.d
+│   │   │   │   ├── input
+│   │   │   │   └── run.sh
+│   │   │   ├── emacs-modeline-non-alnum-in-head2.d
+│   │   │   │   ├── input
+│   │   │   │   └── run.sh
+│   │   │   ├── emacs-modeline-non-alnum-in-tail.d
+│   │   │   │   ├── input
+│   │   │   │   └── run.sh
+│   │   │   ├── emacs-modeline-uppercased-marker.d
+│   │   │   │   ├── macros
+│   │   │   │   └── run.sh
+│   │   │   ├── emacs-modline-shell-script-zsh.d
+│   │   │   │   ├── input-firstline0.unknown
+│   │   │   │   ├── input-firstline1.unknown
+│   │   │   │   ├── input-firstline2.unknown
+│   │   │   │   ├── input-firstline3.unknown
+│   │   │   │   ├── input-firstline4.unknown
+│   │   │   │   ├── input-firstline5.unknown
+│   │   │   │   ├── input-lastlist0.unknown
+│   │   │   │   ├── input-lastlist1.unknown
+│   │   │   │   ├── input-lastlist2.unknown
+│   │   │   │   └── run.sh
+│   │   │   ├── enable-kind-postfix-with-wildcard.d
+│   │   │   │   └── run.sh
+│   │   │   ├── enable-kind-postfix.d
+│   │   │   │   └── run.sh
+│   │   │   ├── enable-kind-prefix-with-wildcard.d
+│   │   │   │   └── run.sh
+│   │   │   ├── enable-kind-prefix.d
+│   │   │   │   └── run.sh
+│   │   │   ├── enable-non-existing-kind.d
+│   │   │   │   └── run.sh
+│   │   │   ├── epoch-field.d
+│   │   │   │   └── run.sh
+│   │   │   ├── errors-about-parser-specific-extras.d
+│   │   │   │   └── run.sh
+│   │   │   ├── errors-if-tags-exits-as-directory.d
+│   │   │   │   ├── tags
+│   │   │   │   └── run.sh
+│   │   │   ├── errors-in-options-roles.d
+│   │   │   │   └── run.sh
+│   │   │   ├── excmd-combine-backward.d
+│   │   │   │   ├── input.cpp
+│   │   │   │   └── run.sh
+│   │   │   ├── excmd-combine.d
+│   │   │   │   ├── input.cpp
+│   │   │   │   └── run.sh
+│   │   │   ├── extension-vs-pattern.d
+│   │   │   │   ├── input.xxx
+│   │   │   │   └── run.sh
+│   │   │   ├── extras-field-for-pseudo-tags.d
+│   │   │   │   ├── input.c
+│   │   │   │   └── run.sh
+│   │   │   ├── extras-field.d
+│   │   │   │   ├── input.cpp
+│   │   │   │   └── run.sh
+│   │   │   ├── extras-long.d
+│   │   │   │   └── run.sh
+│   │   │   ├── filter-option-write-to-file.d
+│   │   │   │   ├── input.c
+│   │   │   │   └── run.sh
+│   │   │   ├── filter-option.d
+│   │   │   │   ├── input.c
+│   │   │   │   └── run.sh
+│   │   │   ├── fixed-field-handling-in-json-format.d
+│   │   │   │   ├── input.c
+│   │   │   │   └── run.sh
+│   │   │   ├── fixed-field-handling.d
+│   │   │   │   ├── input.c
+│   │   │   │   └── run.sh
+│   │   │   ├── flags-fielddef-datatype.d
+│   │   │   │   └── run.sh
+│   │   │   ├── flags-langdef-version.d
+│   │   │   │   └── run.sh
+│   │   │   ├── force-initializing-option.d
+│   │   │   │   └── run.sh
+│   │   │   ├── gcov-sandbox.d
+│   │   │   │   └── run.sh
+│   │   │   ├── generate-anon-ids.d
+│   │   │   │   ├── input0.c
+│   │   │   │   ├── input1.c
+│   │   │   │   └── run.sh
+│   │   │   ├── getter-extras-field.d
+│   │   │   │   ├── input.unknown
+│   │   │   │   ├── run.sh
+│   │   │   │   └── x.ctags
+│   │   │   ├── input-encoding-option.d
+│   │   │   │   ├── input.java
+│   │   │   │   ├── input.js
+│   │   │   │   └── run.sh
+│   │   │   ├── interactive-mode.d
+│   │   │   │   ├── run.sh
+│   │   │   │   ├── test.c
+│   │   │   │   └── test.rb
+│   │   │   ├── interactive-notice-output.d
+│   │   │   │   ├── input.cst
+│   │   │   │   └── run.sh
+│   │   │   ├── interactive-option-write-to-file.d
+│   │   │   │   ├── run.sh
+│   │   │   │   └── test.rb
+│   │   │   ├── interactive-resource-management.d
+│   │   │   │   ├── input.c
+│   │   │   │   └── run.sh
+│   │   │   ├── invalid-encoding-option.d
+│   │   │   │   ├── input.java
+│   │   │   │   ├── input.js
+│   │   │   │   └── run.sh
+│   │   │   ├── json-output-backslash-in-input-field.d
+│   │   │   │   ├── input.php
+│   │   │   │   └── run.sh
+│   │   │   ├── json-output-for-broken-input.d
+│   │   │   │   ├── input.cs
+│   │   │   │   └── run.sh
+│   │   │   ├── json-output-format.d
+│   │   │   │   ├── input.c
+│   │   │   │   ├── input.go
+│   │   │   │   ├── input.py
+│   │   │   │   └── run.sh
+│   │   │   ├── json-output-much-parser-fields.d
+│   │   │   │   ├── input.h
+│   │   │   │   └── run.sh
+│   │   │   ├── json-output-ptag-in-list-extras.d
+│   │   │   │   └── run.sh
+│   │   │   ├── json-output-to-file.d
+│   │   │   │   ├── input.c
+│   │   │   │   └── run.sh
+│   │   │   ├── json-output-typed-fields.d
+│   │   │   │   ├── input.c
+│   │   │   │   ├── input.ctst
+│   │   │   │   └── run.sh
+│   │   │   ├── json-parser-limit-recursion.d
+│   │   │   │   └── run.sh
+│   │   │   ├── kind-abnormal-spec.d
+│   │   │   │   ├── input.x
+│   │   │   │   └── run.sh
+│   │   │   ├── kind-and-role-defaults.d
+│   │   │   │   ├── input.cst
+│   │   │   │   └── run.sh
+│   │   │   ├── kind-long-lregex.d
+│   │   │   │   └── run.sh
+│   │   │   ├── kind-long.d
+│   │   │   │   └── run.sh
+│   │   │   ├── kinddef.d
+│   │   │   │   └── run.sh
+│   │   │   ├── kinds-all-with-spec.d
+│   │   │   │   ├── input.c
+│   │   │   │   └── run.sh
+│   │   │   ├── lang-sequel.d
+│   │   │   │   ├── args.ctags
+│   │   │   │   ├── input.unknown
+│   │   │   │   └── run.sh
+│   │   │   ├── lang-with-no-pattern.d
+│   │   │   │   ├── input.foo
+│   │   │   │   └── run.sh
+│   │   │   ├── langmap-option-including-patterns.d
+│   │   │   │   └── run.sh
+│   │   │   ├── langmap-option.d
+│   │   │   │   └── run.sh
+│   │   │   ├── language-filed-optscript.d
+│   │   │   │   ├── foo.ctags
+│   │   │   │   ├── input.foo
+│   │   │   │   └── run.sh
+│   │   │   ├── language-names.d
+│   │   │   │   └── run.sh
+│   │   │   ├── languages-and-language-force-options.d
+│   │   │   │   ├── input.c
+│   │   │   │   └── run.sh
+│   │   │   ├── line-regex-optscript.d
+│   │   │   │   ├── hello.ctags
+│   │   │   │   ├── input.hello
+│   │   │   │   └── run.sh
+│   │   │   ├── list-aliases.d
+│   │   │   │   └── run.sh
+│   │   │   ├── list-excludes.d
+│   │   │   │   └── run.sh
+│   │   │   ├── list-extras.d
+│   │   │   │   └── run.sh
+│   │   │   ├── list-fielddef-flags.d
+│   │   │   │   └── run.sh
+│   │   │   ├── list-fields-fixed-field-handling.d
+│   │   │   │   └── run.sh
+│   │   │   ├── list-fields-none.d
+│   │   │   │   └── run.sh
+│   │   │   ├── list-fields-with-prefix.d
+│   │   │   │   └── run.sh
+│   │   │   ├── list-fields.d
+│   │   │   │   ├── input.c
+│   │   │   │   ├── input.java
+│   │   │   │   ├── input.sh
+│   │   │   │   └── run.sh
+│   │   │   ├── list-kinddef-flags.d
+│   │   │   │   └── run.sh
+│   │   │   ├── list-kinds-full.d
+│   │   │   │   └── run.sh
+│   │   │   ├── list-language-fields.d
+│   │   │   │   └── run.sh
+│   │   │   ├── list-map-extensions.d
+│   │   │   │   └── run.sh
+│   │   │   ├── list-map-patterns.d
+│   │   │   │   └── run.sh
+│   │   │   ├── list-mline-regex-flags.d
+│   │   │   │   └── run.sh
+│   │   │   ├── list-mtable-regex-flags.d
+│   │   │   │   └── run.sh
+│   │   │   ├── list-output-formats.d
+│   │   │   │   └── run.sh
+│   │   │   ├── list-params.d
+│   │   │   │   └── run.sh
+│   │   │   ├── list-pseudo-tags.d
+│   │   │   │   └── run.sh
+│   │   │   ├── list-regex-flags.d
+│   │   │   │   └── run.sh
+│   │   │   ├── list-roles-with-kind-names.d
+│   │   │   │   └── run.sh
+│   │   │   ├── list-roles.d
+│   │   │   │   └── run.sh
+│   │   │   ├── list-subparsers-all.d
+│   │   │   │   └── run.sh
+│   │   │   ├── load-conf-files-under-cwd-no-dot.d
+│   │   │   │   ├── ctags.d
+│   │   │   │   │   ├── a.ctags
+│   │   │   │   │   ├── b.ctags
+│   │   │   │   │   └── c.ctags
+│   │   │   │   └── run.sh
+│   │   │   ├── load-conf-files-under-cwd.d
+│   │   │   │   ├── .ctags.d
+│   │   │   │   │   ├── a.ctags
+│   │   │   │   │   ├── b.ctags
+│   │   │   │   │   └── c.ctags
+│   │   │   │   └── run.sh
+│   │   │   ├── load-conf-files-under-default-xdg-config-home.d
+│   │   │   │   ├── myhome
+│   │   │   │   │   └── .config
+│   │   │   │   │       └── ctags
+│   │   │   │   │           ├── a.ctags
+│   │   │   │   │           ├── b.ctags
+│   │   │   │   │           └── c.ctags
+│   │   │   │   └── run.sh
+│   │   │   ├── load-conf-files-under-home.d
+│   │   │   │   ├── myhome
+│   │   │   │   │   └── .ctags.d
+│   │   │   │   │       ├── a.ctags
+│   │   │   │   │       ├── b.ctags
+│   │   │   │   │       └── c.ctags
+│   │   │   │   └── run.sh
+│   │   │   ├── load-conf-files-under-xdg-config-home.d
+│   │   │   │   ├── .config
+│   │   │   │   │   └── ctags
+│   │   │   │   │       ├── a.ctags
+│   │   │   │   │       ├── b.ctags
+│   │   │   │   │       └── c.ctags
+│   │   │   │   └── run.sh
+│   │   │   ├── load-dot-ctags-twice.d
+│   │   │   │   ├── dot.ctags
+│   │   │   │   └── run.sh
+│   │   │   ├── lregex-clear-patterns.d
+│   │   │   │   ├── input.c
+│   │   │   │   ├── mylang.ctags
+│   │   │   │   └── run.sh
+│   │   │   ├── lregex-kind-letter.d
+│   │   │   │   └── run.sh
+│   │   │   ├── lregex-kind-name.d
+│   │   │   │   └── run.sh
+│   │   │   ├── lregex-list-kinds-full.d
+│   │   │   │   └── run.sh
+│   │   │   ├── lregex-list-kinds-uniquely.d
+│   │   │   │   └── run.sh
+│   │   │   ├── lregex-list-kinds.d
+│   │   │   │   └── run.sh
+│   │   │   ├── lregex-reject-reserved-kind.d
+│   │   │   │   └── run.sh
+│   │   │   ├── lregex-scan-the-rest-of-input.d
+│   │   │   │   ├── input.cst
+│   │   │   │   └── run.sh
+│   │   │   ├── lregex-unexpected-regex-kind.d
+│   │   │   │   ├── X.ctags
+│   │   │   │   ├── Y-r-regex-with-kinddef.ctags
+│   │   │   │   ├── Y-r-regex.ctags
+│   │   │   │   ├── Y-r.ctags
+│   │   │   │   ├── Y-regex.ctags
+│   │   │   │   ├── Yempty1.ctags
+│   │   │   │   ├── Yempty2.ctags
+│   │   │   │   ├── Ynokind.ctags
+│   │   │   │   ├── input.yyy
+│   │   │   │   └── run.sh
+│   │   │   ├── map-for-unknown-language.d
+│   │   │   │   └── run.sh
+│   │   │   ├── map-lang-option.d
+│   │   │   │   └── run.sh
+│   │   │   ├── map-removing.d
+│   │   │   │   ├── ada.m
+│   │   │   │   ├── matlab.m
+│   │   │   │   ├── objc.m
+│   │   │   │   └── run.sh
+│   │   │   ├── maxdepth.d
+│   │   │   │   ├── src
+│   │   │   │   │   ├── subdir
+│   │   │   │   │   │   └── b.c
+│   │   │   │   │   └── a.c
+│   │   │   │   └── run.sh
+│   │   │   ├── mline-no-advance.d
+│   │   │   │   ├── args.ctags
+│   │   │   │   ├── input.foo
+│   │   │   │   └── run.sh
+│   │   │   ├── mtable-avoid-infinite-loop-at-the-eof.d
+│   │   │   │   ├── args.ctags
+│   │   │   │   ├── input.foo
+│   │   │   │   ├── input2.foo
+│   │   │   │   └── run.sh
+│   │   │   ├── mtable-mutual-entering.d
+│   │   │   │   ├── args.ctags
+│   │   │   │   ├── input0.foo
+│   │   │   │   ├── input1.foo
+│   │   │   │   ├── input2.bar
+│   │   │   │   ├── input3.baz
+│   │   │   │   └── run.sh
+│   │   │   ├── mtable-pinning.d
+│   │   │   │   ├── args.ctags
+│   │   │   │   ├── input0.foo
+│   │   │   │   ├── input1.foo
+│   │   │   │   └── run.sh
+│   │   │   ├── mtable-stats.d
+│   │   │   │   ├── args.ctags
+│   │   │   │   ├── input.foo
+│   │   │   │   └── run.sh
+│   │   │   ├── multi-roles.d
+│   │   │   │   ├── input.x
+│   │   │   │   └── run.sh
+│   │   │   ├── nameless-long-option.d
+│   │   │   │   └── run.sh
+│   │   │   ├── nested-mio.d
+│   │   │   │   ├── input.cst
+│   │   │   │   └── run.sh
+│   │   │   ├── nested-subparsers-multilines.d
+│   │   │   │   ├── event.ctags
+│   │   │   │   ├── hook.ctags
+│   │   │   │   ├── input.c
+│   │   │   │   └── run.sh
+│   │   │   ├── nested-subparsers.d
+│   │   │   │   ├── event.ctags
+│   │   │   │   ├── hook.ctags
+│   │   │   │   ├── input.c
+│   │   │   │   ├── plugin.ctags
+│   │   │   │   ├── run.sh
+│   │   │   │   └── unused-attr.ctags
+│   │   │   ├── no-empty-tag.d
+│   │   │   │   ├── input-0.mak
+│   │   │   │   └── run.sh
+│   │   │   ├── no-input-encoding-option.d
+│   │   │   │   ├── input.java
+│   │   │   │   ├── input.js
+│   │   │   │   └── run.sh
+│   │   │   ├── null-description-in-pseudo-tag.d
+│   │   │   │   └── run.sh
+│   │   │   ├── nulltag-extra.d
+│   │   │   │   ├── input.cst
+│   │   │   │   └── run.sh
+│   │   │   ├── omit-long-patterns-etags.d
+│   │   │   │   ├── input.sh
+│   │   │   │   └── run.sh
+│   │   │   ├── omit-long-patterns.d
+│   │   │   │   ├── gen.sh
+│   │   │   │   ├── input.sh
+│   │   │   │   └── run.sh
+│   │   │   ├── option-dump-keywords.d
+│   │   │   │   └── run.sh
+│   │   │   ├── option-dump-options.d
+│   │   │   │   └── run.sh
+│   │   │   ├── option-echo-and-force-quit.d
+│   │   │   │   └── run.sh
+│   │   │   ├── option-exclude-exception.d
+│   │   │   │   ├── input.d
+│   │   │   │   │   ├── bazel-x
+│   │   │   │   │   │   └── x.c
+│   │   │   │   │   ├── bazel-y
+│   │   │   │   │   │   └── y.c
+│   │   │   │   │   └── bazel-z
+│   │   │   │   │       └── z.c
+│   │   │   │   └── run.sh
+│   │   │   ├── option-exclude-including-fsep.d
+│   │   │   │   ├── input.d
+│   │   │   │   │   ├── bazel-x
+│   │   │   │   │   │   └── x.c
+│   │   │   │   │   ├── bazel-y
+│   │   │   │   │   │   └── y.c
+│   │   │   │   │   ├── bazel-z
+│   │   │   │   │   │   └── z.c
+│   │   │   │   │   └── labze-a
+│   │   │   │   │       └── a.c
+│   │   │   │   └── run.sh
+│   │   │   ├── option-exclude-simple.d
+│   │   │   │   ├── input.d
+│   │   │   │   │   ├── bazel-x
+│   │   │   │   │   │   └── x.c
+│   │   │   │   │   ├── bazel-y
+│   │   │   │   │   │   └── y.c
+│   │   │   │   │   ├── bazel-z
+│   │   │   │   │   │   └── z.c
+│   │   │   │   │   └── a.h
+│   │   │   │   └── run.sh
+│   │   │   ├── option-extradef-in-mtable.d
+│   │   │   │   ├── input.mtextra
+│   │   │   │   ├── mtextra.ctags
+│   │   │   │   └── run.sh
+│   │   │   ├── option-extras-enabling-all.d
+│   │   │   │   └── run.sh
+│   │   │   ├── option-no-such-foreign-extra.d
+│   │   │   │   └── run.sh
+│   │   │   ├── option-no-such-foreign-field.d
+│   │   │   │   └── run.sh
+│   │   │   ├── option-options-directory.d
+│   │   │   │   ├── optlib
+│   │   │   │   │   ├── a.ctags
+│   │   │   │   │   ├── b.ctags
+│   │   │   │   │   └── c.ctags
+│   │   │   │   └── run.sh
+│   │   │   ├── option-options-maybe.d
+│   │   │   │   ├── input-maybe.c
+│   │   │   │   ├── input.c
+│   │   │   │   └── run.sh
+│   │   │   ├── option-pseudo-tags.d
+│   │   │   │   ├── input.c
+│   │   │   │   └── run.sh
+│   │   │   ├── option-totals-extra.d
+│   │   │   │   ├── input.unknown
+│   │   │   │   └── run.sh
+│   │   │   ├── option-use-slash-as-filename-separator.d
+│   │   │   │   ├── src
+│   │   │   │   │   └── input.c
+│   │   │   │   └── run.sh
+│   │   │   ├── optlib-dir-option.d
+│   │   │   │   ├── optlib
+│   │   │   │   │   ├── a.ctags
+│   │   │   │   │   ├── b.ctags
+│   │   │   │   │   └── c.ctags
+│   │   │   │   └── run.sh
+│   │   │   ├── optlib-message-flag.d
+│   │   │   │   ├── args.ctags
+│   │   │   │   ├── input0.foo
+│   │   │   │   ├── input1.foo
+│   │   │   │   ├── input2.foo
+│   │   │   │   ├── input3.foo
+│   │   │   │   └── run.sh
+│   │   │   ├── optscript-preludes-stack.d
+│   │   │   │   ├── args-c.ctags
+│   │   │   │   ├── args-cpreprocessor.ctags
+│   │   │   │   ├── args-dts.ctags
+│   │   │   │   ├── input.c
+│   │   │   │   ├── input.dts
+│   │   │   │   ├── input.i
+│   │   │   │   └── run.sh
+│   │   │   ├── optscript-scope.d
+│   │   │   │   ├── input.unknown
+│   │   │   │   ├── run.sh
+│   │   │   │   └── unknown.ctags
+│   │   │   ├── optscript.d
+│   │   │   │   ├── arithmetic.expected
+│   │   │   │   ├── arithmetic.ps
+│   │   │   │   ├── array.expected
+│   │   │   │   ├── array.ps
+│   │   │   │   ├── arrayx.expected
+│   │   │   │   ├── arrayx.ps
+│   │   │   │   ├── compound.expected
+│   │   │   │   ├── compound.ps
+│   │   │   │   ├── control.expected
+│   │   │   │   ├── control.ps
+│   │   │   │   ├── dict.expected
+│   │   │   │   ├── dict.ps
+│   │   │   │   ├── dictx.expected
+│   │   │   │   ├── dictx.ps
+│   │   │   │   ├── error-undefined-if-if.expected
+│   │   │   │   ├── error-undefined-if-if.ps
+│   │   │   │   ├── error-undefined-if.expected
+│   │   │   │   ├── error-undefined-if.ps
+│   │   │   │   ├── misc.expected
+│   │   │   │   ├── misc.ps
+│   │   │   │   ├── pstack.expected
+│   │   │   │   ├── pstack.ps
+│   │   │   │   ├── read-and-print.expected
+│   │   │   │   ├── read-and-print.ps
+│   │   │   │   ├── relalogbits.expected
+│   │   │   │   ├── relalogbits.ps
+│   │   │   │   ├── run.sh
+│   │   │   │   ├── stack.expected
+│   │   │   │   ├── stack.ps
+│   │   │   │   ├── string.expected
+│   │   │   │   ├── string.ps
+│   │   │   │   ├── typeattrconv.expected
+│   │   │   │   └── typeattrconv.ps
+│   │   │   ├── output-encoding-option.d
+│   │   │   │   ├── input.java
+│   │   │   │   ├── input.js
+│   │   │   │   └── run.sh
+│   │   │   ├── output-file-resource-management.d
+│   │   │   │   ├── input.c
+│   │   │   │   └── run.sh
+│   │   │   ├── output-format-option.d
+│   │   │   │   ├── input.c
+│   │   │   │   └── run.sh
+│   │   │   ├── output-input-field-with-no-escape.d
+│   │   │   │   └── run.sh
+│   │   │   ├── parser-init-useCork.d
+│   │   │   │   ├── input.x
+│   │   │   │   ├── run.sh
+│   │   │   │   └── x.ctags
+│   │   │   ├── parser-specific-extras-for-foreign-lang.d
+│   │   │   │   ├── input-0.x1
+│   │   │   │   ├── input-1.x1
+│   │   │   │   ├── run.sh
+│   │   │   │   ├── x0.ctags
+│   │   │   │   └── x1.ctags
+│   │   │   ├── parser-specific-extras.d
+│   │   │   │   └── run.sh
+│   │   │   ├── parser-specific-fields-clearing-all.d
+│   │   │   │   └── run.sh
+│   │   │   ├── parser-specific-fields-for-foreign-lang-in-json.d
+│   │   │   │   ├── input.unknownx
+│   │   │   │   ├── knownz.ctags
+│   │   │   │   ├── run.sh
+│   │   │   │   └── unknownx.ctags
+│   │   │   ├── parser-specific-fields-for-foreign-lang.d
+│   │   │   │   ├── input.unknownx
+│   │   │   │   ├── knownz.ctags
+│   │   │   │   ├── run.sh
+│   │   │   │   └── unknownx.ctags
+│   │   │   ├── parser-specific-fields-with-datatype.d
+│   │   │   │   ├── input.testlang
+│   │   │   │   ├── run.sh
+│   │   │   │   └── testlang.ctags
+│   │   │   ├── parser-specific-fields-with-scripts.d
+│   │   │   │   ├── input.testlang
+│   │   │   │   ├── run.sh
+│   │   │   │   └── testlang.ctags
+│   │   │   ├── parser-specific-fields.d
+│   │   │   │   ├── input.unknownx
+│   │   │   │   ├── run.sh
+│   │   │   │   └── unknownx.ctags
+│   │   │   ├── pattern-length-limit.d
+│   │   │   │   ├── input-iso-8859-1.py
+│   │   │   │   ├── input-utf8.py
+│   │   │   │   ├── input.java
+│   │   │   │   └── run.sh
+│   │   │   ├── pretend-option.d
+│   │   │   │   └── run.sh
+│   │   │   ├── ptag-dont-emit-to-stdout-by-default.d
+│   │   │   │   ├── input.c
+│   │   │   │   └── run.sh
+│   │   │   ├── ptag-emits-even-when-rewinding.d
+│   │   │   │   ├── input.cpp
+│   │   │   │   └── run.sh
+│   │   │   ├── ptag-extra-desc.d
+│   │   │   │   ├── input.robot
+│   │   │   │   └── run.sh
+│   │   │   ├── ptag-field-sec.d
+│   │   │   │   ├── input.c
+│   │   │   │   └── run.sh
+│   │   │   ├── ptag-in-optlib-parser.d
+│   │   │   │   ├── input.foo
+│   │   │   │   ├── input.sh
+│   │   │   │   └── run.sh
+│   │   │   ├── ptag-kind-desc.d
+│   │   │   │   ├── input.c
+│   │   │   │   └── run.sh
+│   │   │   ├── ptag-kind-sep.d
+│   │   │   │   ├── input.php
+│   │   │   │   └── run.sh
+│   │   │   ├── ptag-output-excmd.d
+│   │   │   │   ├── input.c
+│   │   │   │   └── run.sh
+│   │   │   ├── ptag-proc-cwd-including-tab.d
+│   │   │   │   └── run.sh
+│   │   │   ├── ptag-proc-cwd.d
+│   │   │   │   ├── input.c
+│   │   │   │   └── run.sh
+│   │   │   ├── ptag-role-desc.d
+│   │   │   │   ├── input.c
+│   │   │   │   └── run.sh
+│   │   │   ├── readtags-alias.d
+│   │   │   │   ├── input.c
+│   │   │   │   ├── output.tags
+│   │   │   │   └── run.sh
+│   │   │   ├── readtags-broken-input.d
+│   │   │   │   ├── run.sh
+│   │   │   │   └── target.tags
+│   │   │   ├── readtags-canonicalize-input-names.d
+│   │   │   │   ├── drive-letter0.tags
+│   │   │   │   ├── drive-letter1.tags
+│   │   │   │   ├── good-ptags.tags
+│   │   │   │   ├── good0.tags
+│   │   │   │   ├── good1.tags
+│   │   │   │   ├── good2.tags
+│   │   │   │   └── run.sh
+│   │   │   ├── readtags-combine.d
+│   │   │   │   ├── backward.tags
+│   │   │   │   ├── forward.tags
+│   │   │   │   └── run.sh
+│   │   │   ├── readtags-default-field-val.d
+│   │   │   │   ├── input.c
+│   │   │   │   ├── output.tags
+│   │   │   │   └── run.sh
+│   │   │   ├── readtags-error-conflicting-actions.d
+│   │   │   │   ├── input.tags
+│   │   │   │   └── run.sh
+│   │   │   ├── readtags-error-in-sorter.d
+│   │   │   │   ├── input.c
+│   │   │   │   ├── output.tags
+│   │   │   │   └── run.sh
+│   │   │   ├── readtags-error-no-action.d
+│   │   │   │   ├── input.tags
+│   │   │   │   └── run.sh
+│   │   │   ├── readtags-error-no-input.d
+│   │   │   │   └── run.sh
+│   │   │   ├── readtags-escaping.d
+│   │   │   │   ├── output.tags
+│   │   │   │   ├── output2.tags
+│   │   │   │   └── run.sh
+│   │   │   ├── readtags-formatter-op-regex-extraction.d
+│   │   │   │   ├── input.c
+│   │   │   │   ├── output.tags
+│   │   │   │   └── run.sh
+│   │   │   ├── readtags-formatter-op-tr.d
+│   │   │   │   ├── input.cpp
+│   │   │   │   ├── output.tags
+│   │   │   │   └── run.sh
+│   │   │   ├── readtags-formatter.d
+│   │   │   │   ├── input.c
+│   │   │   │   ├── output.tags
+│   │   │   │   └── run.sh
+│   │   │   ├── readtags-list-pseudo-tags.d
+│   │   │   │   ├── ptag-sort-no.tags
+│   │   │   │   ├── ptag-sort-yes.tags
+│   │   │   │   └── run.sh
+│   │   │   ├── readtags-ptags-dls.d
+│   │   │   │   ├── input.tags
+│   │   │   │   └── run.sh
+│   │   │   ├── readtags-ptags-escaping.d
+│   │   │   │   ├── pseudo-input-b_.tags
+│   │   │   │   ├── pseudo-input-bb.tags
+│   │   │   │   ├── pseudo-input-bt.tags
+│   │   │   │   ├── pseudo-name-b_.tags
+│   │   │   │   ├── pseudo-name-bb.tags
+│   │   │   │   ├── pseudo-name-bt.tags
+│   │   │   │   ├── regular-input-b_.tags
+│   │   │   │   ├── regular-input-bb.tags
+│   │   │   │   ├── regular-input-bt.tags
+│   │   │   │   ├── regular-kind-b_.tags
+│   │   │   │   ├── regular-kind-bb.tags
+│   │   │   │   ├── regular-name-b_.tags
+│   │   │   │   ├── regular-name-bb.tags
+│   │   │   │   ├── regular-name-bt.tags
+│   │   │   │   └── run.sh
+│   │   │   ├── readtags-ptags-escaping2.d
+│   │   │   │   ├── example-_-_.tags
+│   │   │   │   ├── example-_-b.tags
+│   │   │   │   ├── example-_-s.tags
+│   │   │   │   ├── example-e-_.tags
+│   │   │   │   ├── example-e-b.tags
+│   │   │   │   ├── example-e-s.tags
+│   │   │   │   ├── example-u-_.tags
+│   │   │   │   ├── example-u-b.tags
+│   │   │   │   ├── example-u-s.tags
+│   │   │   │   └── run.sh
+│   │   │   ├── readtags-qualifier-begin.d
+│   │   │   │   ├── output.tags
+│   │   │   │   ├── run.sh
+│   │   │   │   └── sample.c
+│   │   │   ├── readtags-qualifier-broken-exp.d
+│   │   │   │   ├── input.c
+│   │   │   │   ├── output.tags
+│   │   │   │   └── run.sh
+│   │   │   ├── readtags-qualifier-end-field.d
+│   │   │   │   ├── output.tags
+│   │   │   │   └── run.sh
+│   │   │   ├── readtags-qualifier-nth-field.d
+│   │   │   │   ├── input.c
+│   │   │   │   ├── output.tags
+│   │   │   │   └── run.sh
+│   │   │   ├── readtags-qualifier-op-downcase-upcase.d
+│   │   │   │   ├── input.cpp
+│   │   │   │   ├── output.tags
+│   │   │   │   └── run.sh
+│   │   │   ├── readtags-qualifier-op-length.d
+│   │   │   │   ├── input.el
+│   │   │   │   ├── output.tags
+│   │   │   │   └── run.sh
+│   │   │   ├── readtags-qualifier-op-regexp-quote.d
+│   │   │   │   ├── input.x
+│   │   │   │   ├── output.tags
+│   │   │   │   ├── run.sh
+│   │   │   │   └── x.ctags
+│   │   │   ├── readtags-qualifier-op-string-append.d
+│   │   │   │   ├── input.c
+│   │   │   │   ├── output.tags
+│   │   │   │   └── run.sh
+│   │   │   ├── readtags-qualifier-regex.d
+│   │   │   │   ├── input.hxx
+│   │   │   │   ├── output.tags
+│   │   │   │   └── run.sh
+│   │   │   ├── readtags-qualifier-sf-cond.d
+│   │   │   │   ├── input.c
+│   │   │   │   ├── output.tags
+│   │   │   │   └── run.sh
+│   │   │   ├── readtags-qualifier.d
+│   │   │   │   ├── base.c
+│   │   │   │   ├── base.py
+│   │   │   │   ├── c.tags
+│   │   │   │   ├── output.tags
+│   │   │   │   ├── roles.tags
+│   │   │   │   └── run.sh
+│   │   │   ├── readtags-simple-listing.d
+│   │   │   │   ├── input.c
+│   │   │   │   ├── run.sh
+│   │   │   │   └── sorted.tags
+│   │   │   ├── readtags-sorter-cmp_or-sform.d
+│   │   │   │   ├── input.d
+│   │   │   │   │   ├── bar.c
+│   │   │   │   │   ├── decl.h
+│   │   │   │   │   └── foo.c
+│   │   │   │   ├── output.tags
+│   │   │   │   └── run.sh
+│   │   │   ├── readtags-sorter-if-sform-order.d
+│   │   │   │   ├── output.tags
+│   │   │   │   └── run.sh
+│   │   │   ├── readtags-sorter-if-sform.d
+│   │   │   │   ├── input.c
+│   │   │   │   ├── output.tags
+│   │   │   │   └── run.sh
+│   │   │   ├── readtags-sorter.d
+│   │   │   │   ├── .ctags.d
+│   │   │   │   │   ├── 0.ctags
+│   │   │   │   │   └── src.list
+│   │   │   │   ├── src
+│   │   │   │   │   ├── input-area.cpp
+│   │   │   │   │   ├── input-volume.cpp
+│   │   │   │   │   └── input.h
+│   │   │   │   ├── output.tags
+│   │   │   │   └── run.sh
+│   │   │   ├── readtags-stdin.d
+│   │   │   │   ├── output.tags
+│   │   │   │   └── run.sh
+│   │   │   ├── readtags-with-list-pseudo-tags.d
+│   │   │   │   ├── ptag-sort-no.tags
+│   │   │   │   ├── ptag-sort-yes.tags
+│   │   │   │   └── run.sh
+│   │   │   ├── regex-for-unknown-language.d
+│   │   │   │   └── run.sh
+│   │   │   ├── regex-patterns-from-file.d
+│   │   │   │   ├── input.c
+│   │   │   │   ├── list.regex
+│   │   │   │   └── run.sh
+│   │   │   ├── reset-fields.d
+│   │   │   │   ├── input.h
+│   │   │   │   └── run.sh
+│   │   │   ├── roledef.d
+│   │   │   │   └── run.sh
+│   │   │   ├── roles-field-optscript.d
+│   │   │   │   ├── foo.ctags
+│   │   │   │   ├── input.foo
+│   │   │   │   └── run.sh
+│   │   │   ├── ruby-scope-loop-oom.d
+│   │   │   │   ├── a.rb
+│   │   │   │   ├── b.rb
+│   │   │   │   └── run.sh
+│   │   │   ├── run-as-etags.d
+│   │   │   │   └── run.sh
+│   │   │   ├── sandbox-crash.d
+│   │   │   │   └── run.sh
+│   │   │   ├── sandbox-default-req.d
+│   │   │   │   ├── input.c
+│   │   │   │   └── run.sh
+│   │   │   ├── sandbox-no-eager-guessing.d
+│   │   │   │   └── run.sh
+│   │   │   ├── sandbox-unknown-submode.d
+│   │   │   │   └── run.sh
+│   │   │   ├── sandbox-with-eager-guessing.d
+│   │   │   │   └── run.sh
+│   │   │   ├── sandbox.d
+│   │   │   │   └── run.sh
+│   │   │   ├── scopesep.d
+│   │   │   │   ├── input.tcl
+│   │   │   │   └── run.sh
+│   │   │   ├── selector-dont-select-disabled-lang.d
+│   │   │   │   ├── input.h
+│   │   │   │   └── run.sh
+│   │   │   ├── selector-select-C-for-dot-h.d
+│   │   │   │   ├── input.h
+│   │   │   │   └── run.sh
+│   │   │   ├── selector-select-perl6-for-dot-pm.d
+│   │   │   │   ├── input0.pm
+│   │   │   │   ├── input1.pm
+│   │   │   │   ├── input2.pm
+│   │   │   │   ├── input3.pm
+│   │   │   │   └── run.sh
+│   │   │   ├── selector-xml-root-elelement.d
+│   │   │   │   └── run.sh
+│   │   │   ├── sorted-list-languages.d
+│   │   │   │   └── run.sh
+│   │   │   ├── sql-null-tag-warning-2.d
+│   │   │   │   ├── input.sql
+│   │   │   │   └── run.sh
+│   │   │   ├── sql-null-tag-warning.d
+│   │   │   │   ├── input.sql
+│   │   │   │   └── run.sh
+│   │   │   ├── subparser-direction.d
+│   │   │   │   ├── input.cc
+│   │   │   │   ├── input.mojom
+│   │   │   │   ├── mojom-bidirectional.ctags
+│   │   │   │   ├── mojom-dedicated.ctags
+│   │   │   │   ├── mojom-default.ctags
+│   │   │   │   ├── mojom-shared.ctags
+│   │   │   │   └── run.sh
+│   │   │   ├── tab-in-parser-specific-field.d
+│   │   │   │   ├── foo.ctags
+│   │   │   │   ├── input.foo
+│   │   │   │   └── run.sh
+│   │   │   ├── tag-relative-option-in-etags.d
+│   │   │   │   ├── indirect
+│   │   │   │   │   └── src
+│   │   │   │   │       └── input.c
+│   │   │   │   └── run.sh
+│   │   │   ├── tag-relative-option-no-optarg.d
+│   │   │   │   └── run.sh
+│   │   │   ├── tag-relative-option.d
+│   │   │   │   ├── input.c
+│   │   │   │   └── run.sh
+│   │   │   ├── tags-output-typed-fields.d
+│   │   │   │   ├── input.c
+│   │   │   │   ├── input.ctst
+│   │   │   │   └── run.sh
+│   │   │   ├── tmain-example.d
+│   │   │   │   └── run.sh
+│   │   │   ├── tmain-skip-example.d
+│   │   │   │   └── run.sh
+│   │   │   ├── trace-option.d
+│   │   │   │   ├── input.unknown
+│   │   │   │   └── run.sh
+│   │   │   ├── two-inputs-requiring-scope-stack.d
+│   │   │   │   ├── a.dts
+│   │   │   │   └── b.dts
+│   │   │   ├── unreadable-input.d
+│   │   │   │   ├── input-1.c
+│   │   │   │   └── run.sh
+│   │   │   ├── version-option.d
+│   │   │   │   └── run.sh
+│   │   │   ├── w32-slash-in-exclude-option.d
+│   │   │   │   ├── input.d
+│   │   │   │   │   ├── capture_me
+│   │   │   │   │   │   └── input.c
+│   │   │   │   │   ├── dont_capture_me
+│   │   │   │   │   │   └── input.c
+│   │   │   │   │   └── input.c
+│   │   │   │   └── run.sh
+│   │   │   ├── warn-garbage-on-ostack.d
+│   │   │   │   ├── garbage.ctags
+│   │   │   │   ├── input.garbage
+│   │   │   │   ├── input.kconfig
+│   │   │   │   └── run.sh
+│   │   │   ├── warn-reusing-kind-letter.d
+│   │   │   │   └── run.sh
+│   │   │   ├── wildcard-in-lang-of-fields-option.d
+│   │   │   │   └── run.sh
+│   │   │   ├── wrong-parser-name-in-field.d
+│   │   │   │   └── run.sh
+│   │   │   ├── xref-output-common-fields.d
+│   │   │   │   ├── input.py
+│   │   │   │   └── run.sh
+│   │   │   ├── xref-output-formatting-parser-specific-field.d
+│   │   │   │   └── run.sh
+│   │   │   ├── xref-output-ptag-in-list-extras.d
+│   │   │   │   └── run.sh
+│   │   │   ├── xref-output-to-file.d
+│   │   │   │   ├── input.c
+│   │   │   │   └── run.sh
+│   │   │   ├── xref-output-typed-fields.d
+│   │   │   │   ├── input.c
+│   │   │   │   ├── input.ctst
+│   │   │   │   └── run.sh
+│   │   │   └── utils.sh
+│   │   ├── Units
+│   │   │   ├── afl-fuzz.r
+│   │   │   │   ├── github-issue-528-sml.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sml
+│   │   │   │   ├── github-issue-529-bas.d
+│   │   │   │   │   └── input.bas
+│   │   │   │   ├── github-issue-530-css.d
+│   │   │   │   │   └── input.css
+│   │   │   │   ├── github-issue-531-make.d
+│   │   │   │   │   └── input.mk
+│   │   │   │   ├── github-issue-532-vim.d
+│   │   │   │   │   └── input.vim
+│   │   │   │   ├── github-issue-536-flex.d
+│   │   │   │   │   └── input.as
+│   │   │   │   ├── github-issue-537-beta.d
+│   │   │   │   │   └── input.bet
+│   │   │   │   ├── github-issue-538-sql.d
+│   │   │   │   │   └── input.sql
+│   │   │   │   ├── github-issue-539-js.d
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── github-issue-540-fortran.d
+│   │   │   │   │   └── input.f
+│   │   │   │   ├── github-issue-541-json.d
+│   │   │   │   ├── github-issue-542-vhdl.d
+│   │   │   │   │   └── input.vhdl
+│   │   │   │   ├── github-issue-543-eiffel.d
+│   │   │   │   │   └── input.e
+│   │   │   │   ├── github-issue-625-r.d
+│   │   │   │   │   └── input.r
+│   │   │   │   ├── github-issue-627-perl.d
+│   │   │   │   │   └── input.pl
+│   │   │   │   └── github-issue-628-vera.d
+│   │   │   │       └── input.vr
+│   │   │   ├── csharp-review-needed.r
+│   │   │   │   ├── array_ref_and_out.cs.t
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cs
+│   │   │   │   ├── attributes.cs.t
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cs
+│   │   │   │   ├── bug1515910.cs.t
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cs
+│   │   │   │   ├── bug1611054.cs.t
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cs
+│   │   │   │   ├── bug1800065.cs.t
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cs
+│   │   │   │   ├── bug1830343.cs.t
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cs
+│   │   │   │   ├── bug1830344.cs.t
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cs
+│   │   │   │   ├── bug2411878.cs.t
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cs
+│   │   │   │   ├── events.cs.t
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cs
+│   │   │   │   ├── general.cs.t
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cs
+│   │   │   │   ├── indexer.cs.t
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cs
+│   │   │   │   ├── interface_indexers.cs.t
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cs
+│   │   │   │   ├── interface_properties.cs.t
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cs
+│   │   │   │   ├── internal.cs.t
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cs
+│   │   │   │   ├── keyword_abstract.cs.t
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cs
+│   │   │   │   ├── keyword_catch_try.cs.t
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cs
+│   │   │   │   ├── keyword_class.cs.t
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cs
+│   │   │   │   ├── keyword_const.cs.t
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cs
+│   │   │   │   ├── keyword_delegate.cs.t
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cs
+│   │   │   │   ├── keyword_enum.cs.t
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cs
+│   │   │   │   ├── keyword_event.cs.t
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cs
+│   │   │   │   ├── keyword_explicit.cs.t
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cs
+│   │   │   │   ├── keyword_extern.cs.t
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cs
+│   │   │   │   ├── keyword_implicit.cs.t
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cs
+│   │   │   │   ├── keyword_interface.cs.t
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cs
+│   │   │   │   ├── keyword_namespace.cs.t
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cs
+│   │   │   │   ├── keyword_out.cs.t
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cs
+│   │   │   │   ├── keyword_override.cs.t
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cs
+│   │   │   │   ├── keyword_params.cs.t
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cs
+│   │   │   │   ├── keyword_private.cs.t
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cs
+│   │   │   │   ├── keyword_protected.cs.t
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cs
+│   │   │   │   ├── keyword_public.cs.t
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cs
+│   │   │   │   ├── keyword_sealed.cs.t
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cs
+│   │   │   │   ├── keyword_static.cs.t
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cs
+│   │   │   │   ├── keyword_struct.cs.t
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cs
+│   │   │   │   ├── keyword_virtual.cs.t
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cs
+│   │   │   │   ├── keyword_volatile.cs.t
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cs
+│   │   │   │   └── property.cs.t
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.cs
+│   │   │   ├── extension-with-template-suffix.d
+│   │   │   │   ├── expected.tags
+│   │   │   │   └── input.c.in
+│   │   │   ├── extra-anonymous.d
+│   │   │   │   ├── args.ctags
+│   │   │   │   ├── expected.tags
+│   │   │   │   ├── input-0.js
+│   │   │   │   └── input.c
+│   │   │   ├── extra-disabling-anonymous.d
+│   │   │   │   ├── args.ctags
+│   │   │   │   ├── expected.tags
+│   │   │   │   ├── input-0.js
+│   │   │   │   └── input.c
+│   │   │   ├── extra-file-scope-option.d
+│   │   │   │   ├── args.ctags
+│   │   │   │   ├── expected.tags
+│   │   │   │   └── input.c
+│   │   │   ├── extra-total-lines.d
+│   │   │   │   ├── args.ctags
+│   │   │   │   ├── expected.tags
+│   │   │   │   ├── foo.h
+│   │   │   │   └── input.c
+│   │   │   ├── flags-langdef-directions.r
+│   │   │   │   ├── bidirectional.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input-0.sub
+│   │   │   │   │   └── input.base
+│   │   │   │   ├── dedicated.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input-0.sub
+│   │   │   │   │   └── input.base
+│   │   │   │   ├── default.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input-0.sub
+│   │   │   │   │   └── input.base
+│   │   │   │   └── shared.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       ├── input-0.sub
+│   │   │   │       └── input.base
+│   │   │   ├── foreign-tags.d
+│   │   │   │   ├── args.ctags
+│   │   │   │   ├── expected.tags
+│   │   │   │   └── input.docc
+│   │   │   ├── fuzz-hitting-assertions.r
+│   │   │   │   ├── csharp-fha-0.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cs
+│   │   │   │   ├── d-fha-0.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.d
+│   │   │   │   ├── eiffel-fha-0.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.e
+│   │   │   │   ├── java-fha-0.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.java
+│   │   │   │   ├── systemverilog-fha-0.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sv
+│   │   │   │   ├── vera-fha-0.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.vr
+│   │   │   │   └── verilog-fha-0.d
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.v
+│   │   │   ├── guest-in-optlib-single-line.d
+│   │   │   │   ├── args.ctags
+│   │   │   │   ├── expected.tags
+│   │   │   │   ├── input-0.single
+│   │   │   │   ├── input-1.single
+│   │   │   │   ├── input-2.single
+│   │   │   │   └── input.single
+│   │   │   ├── main-guessing.r
+│   │   │   │   ├── nolang-modeline-emacs-after-shbang.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.nolang
+│   │   │   │   ├── nolang-modeline-emacs-eof.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.nolang
+│   │   │   │   ├── nolang-modeline-emacs-firstline0.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.nolang
+│   │   │   │   ├── nolang-modeline-emacs-firstline1.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.nolang
+│   │   │   │   ├── nolang-modeline-vim0-head.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.nolang
+│   │   │   │   ├── nolang-modeline-vim0-tail.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.nolang
+│   │   │   │   ├── nolang-modeline-vim1-head.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.nolang
+│   │   │   │   ├── nolang-modeline-vim1-tail.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.nolang
+│   │   │   │   ├── nolang-modeline-vim2-head.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.nolang
+│   │   │   │   ├── nolang-modeline-vim2-tail.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.nolang
+│   │   │   │   ├── nolang-modeline-zsh-autoload.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.nolang
+│   │   │   │   ├── nolang-modeline-zsh-compdef.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.nolang
+│   │   │   │   └── nolang-shebang-python3.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.nolang
+│   │   │   ├── matlab-tg-corpus.d
+│   │   │   │   ├── expected.tags
+│   │   │   │   ├── features
+│   │   │   │   └── input.m
+│   │   │   ├── mtable-simple-with-continuation.d
+│   │   │   │   ├── args.ctags
+│   │   │   │   ├── expected.tags
+│   │   │   │   └── input.mtable
+│   │   │   ├── mtable-simple-with-table-extending.d
+│   │   │   │   ├── args.ctags
+│   │   │   │   ├── expected.tags
+│   │   │   │   └── input.mtable
+│   │   │   ├── mtable-simple.d
+│   │   │   │   ├── args.ctags
+│   │   │   │   ├── expected.tags
+│   │   │   │   └── input.mtable
+│   │   │   ├── noext-tg-matlab.d
+│   │   │   │   ├── args.ctags
+│   │   │   │   ├── expected.tags
+│   │   │   │   ├── features
+│   │   │   │   └── input.nolang
+│   │   │   ├── noext-tg-objc.d
+│   │   │   │   ├── args.ctags
+│   │   │   │   ├── expected.tags
+│   │   │   │   └── input.nolang
+│   │   │   ├── objc-tg-corpus.d
+│   │   │   │   ├── expected.tags
+│   │   │   │   └── input.m
+│   │   │   ├── option-add-alias.d
+│   │   │   │   ├── args.ctags
+│   │   │   │   ├── expected.tags
+│   │   │   │   └── input.nolang
+│   │   │   ├── option-disable-kind-in-both.d
+│   │   │   │   ├── args.ctags
+│   │   │   │   ├── expected.tags
+│   │   │   │   └── input.c
+│   │   │   ├── option-disable-kind-in-builtin.d
+│   │   │   │   ├── args.ctags
+│   │   │   │   ├── expected.tags
+│   │   │   │   ├── features
+│   │   │   │   └── input.c
+│   │   │   ├── option-disable-kind-in-regex.d
+│   │   │   │   ├── args.ctags
+│   │   │   │   ├── expected.tags
+│   │   │   │   └── input.c
+│   │   │   ├── option-extradef.d
+│   │   │   │   ├── args.ctags
+│   │   │   │   ├── expected.tags
+│   │   │   │   └── input.py
+│   │   │   ├── option-file-tags-no.d
+│   │   │   │   ├── args.ctags
+│   │   │   │   ├── expected.tags
+│   │   │   │   └── input.mk
+│   │   │   ├── option-file-tags.d
+│   │   │   │   ├── args.ctags
+│   │   │   │   ├── expected.tags
+│   │   │   │   └── input.mk
+│   │   │   ├── option-input-file.d
+│   │   │   │   ├── args.ctags
+│   │   │   │   ├── expected.tags
+│   │   │   │   └── input.c
+│   │   │   ├── option-lang-compatibility.d
+│   │   │   │   ├── args.ctags
+│   │   │   │   ├── expected.tags
+│   │   │   │   ├── features
+│   │   │   │   └── input.foo
+│   │   │   ├── option-langmap-ext--ext.d
+│   │   │   │   ├── args.ctags
+│   │   │   │   ├── expected.tags
+│   │   │   │   └── input.x
+│   │   │   ├── option-langmap-ext--pat-ext.d
+│   │   │   │   ├── args.ctags
+│   │   │   │   ├── expected.tags
+│   │   │   │   └── input.zzz
+│   │   │   ├── option-langmap-ext-pat--ext.d
+│   │   │   │   ├── args.ctags
+│   │   │   │   ├── expected.tags
+│   │   │   │   └── input.x
+│   │   │   ├── option-langmap-pat--ext.d
+│   │   │   │   ├── args.ctags
+│   │   │   │   ├── expected.tags
+│   │   │   │   └── input.x
+│   │   │   ├── option-langmap-pat--pat-ext.d
+│   │   │   │   ├── args.ctags
+│   │   │   │   ├── expected.tags
+│   │   │   │   └── input.zzz
+│   │   │   ├── option-regex-attaching-role.r
+│   │   │   │   ├── extending-existing-parser.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.scm
+│   │   │   │   └── standing-alone-line-parser.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.foo
+│   │   │   ├── option-same-kind-in-regex-and-builtin.d
+│   │   │   │   ├── args.ctags
+│   │   │   │   ├── expected.tags
+│   │   │   │   ├── features
+│   │   │   │   └── input.c
+│   │   │   ├── optlib-recursive.d
+│   │   │   │   ├── optlib
+│   │   │   │   │   └── lang
+│   │   │   │   │       ├── a.ctags
+│   │   │   │   │       ├── b.ctags
+│   │   │   │   │       ├── c.ctags
+│   │   │   │   │       ├── d.ctags
+│   │   │   │   │       └── e.ctags
+│   │   │   │   ├── args.ctags
+│   │   │   │   ├── expected.tags
+│   │   │   │   ├── features
+│   │   │   │   └── input.cof
+│   │   │   ├── optlib-simple.d
+│   │   │   │   ├── optlib
+│   │   │   │   │   └── coffee.ctags
+│   │   │   │   ├── args.ctags
+│   │   │   │   ├── expected.tags
+│   │   │   │   ├── features
+│   │   │   │   └── input.coffee
+│   │   │   ├── optscript.r
+│   │   │   │   ├── op-access.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.unknown
+│   │   │   │   ├── op-anongen.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.foo
+│   │   │   │   ├── op-end.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.unknown
+│   │   │   │   ├── op-extras.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.unknown
+│   │   │   │   ├── op-inherits.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.unknown
+│   │   │   │   ├── op-intervaltab.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.c
+│   │   │   │   ├── op-line.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.unknown
+│   │   │   │   ├── op-markplaceholder.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.unknown
+│   │   │   │   ├── op-matchloc2line.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.unknown
+│   │   │   │   ├── op-not-traced.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.unknown
+│   │   │   │   ├── op-reftag.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.foo
+│   │   │   │   ├── op-scope.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.unknown
+│   │   │   │   ├── op-signature.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.unknown
+│   │   │   │   ├── op-taction.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.unknown
+│   │   │   │   ├── op-tagloc.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.foo
+│   │   │   │   ├── op-traced.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── features
+│   │   │   │   │   └── input.unknown
+│   │   │   │   ├── op-typeref.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.unknown
+│   │   │   │   └── with-foreignLanguage-flag.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       ├── input-0.c
+│   │   │   │       └── input.xxx
+│   │   │   ├── paramdef.r
+│   │   │   │   ├── no-set.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.foo
+│   │   │   │   └── simple.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.foo
+│   │   │   ├── parser-I18nRubyGem.r
+│   │   │   │   ├── language-force.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── features
+│   │   │   │   │   └── input.i18n
+│   │   │   │   ├── locale-kind.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── features
+│   │   │   │   ├── no-language-force.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── features
+│   │   │   │   ├── no-locale.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── features
+│   │   │   │   ├── qualified.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── features
+│   │   │   │   ├── simple-I18nRubyGem.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── features
+│   │   │   │   └── symbols.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── features
+│   │   │   ├── parser-ada.r
+│   │   │   │   ├── ada-adb.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.adb
+│   │   │   │   ├── ada-ads.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.ads
+│   │   │   │   ├── ada-char-literal.d
+│   │   │   │   │   ├── expected.tags-e
+│   │   │   │   │   └── input.adb
+│   │   │   │   ├── ada-end-without-designator.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input.adb
+│   │   │   │   │   └── validator
+│   │   │   │   ├── ada-entry.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input.adb
+│   │   │   │   │   ├── input_0.gpr
+│   │   │   │   │   ├── input_1.adb
+│   │   │   │   │   └── input_1.ads
+│   │   │   │   ├── ada-etags-suffix.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags-e
+│   │   │   │   │   ├── input.ads
+│   │   │   │   │   ├── input_0.adb
+│   │   │   │   │   └── input_0.ads
+│   │   │   │   ├── ada-expression-function-with-generic.d
+│   │   │   │   │   ├── expected.tags-e
+│   │   │   │   │   └── input.adb
+│   │   │   │   ├── ada-expression-function.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.adb
+│   │   │   │   ├── ada-function.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   └── input.broken
+│   │   │   │   ├── ada-generic-in-package.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags-e
+│   │   │   │   │   ├── input.ads
+│   │   │   │   │   ├── input_1.adb
+│   │   │   │   │   └── input_2.ads
+│   │   │   │   ├── ada-label.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.adb
+│   │   │   │   ├── ada-overriding.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input.ads
+│   │   │   │   │   ├── input_2.adb
+│   │   │   │   │   └── input_3.ads
+│   │   │   │   ├── ada-partial-bug.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.adb
+│   │   │   │   ├── ada-partial-bug2.d
+│   │   │   │   │   └── input.adb
+│   │   │   │   ├── ada-partial-type.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.ads
+│   │   │   │   ├── ada-protected.d
+│   │   │   │   │   └── input.adb
+│   │   │   │   ├── ada-separate.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input-1.adb
+│   │   │   │   │   └── input.adb
+│   │   │   │   ├── ada-string-literal.d
+│   │   │   │   │   ├── expected.tags-e
+│   │   │   │   │   └── input.adb
+│   │   │   │   ├── ada-type-new-without-with.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.adb
+│   │   │   │   └── ada-whitespaces-between-id-and-colon.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.adb
+│   │   │   ├── parser-ansibleplaybook.r
+│   │   │   │   ├── broken-input.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   └── features
+│   │   │   │   └── play-name.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── features
+│   │   │   ├── parser-ant.r
+│   │   │   │   ├── regex-based.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── features
+│   │   │   │   ├── xpath-based-unix.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── features
+│   │   │   │   └── xpath-based.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── features
+│   │   │   ├── parser-asciidoc.r
+│   │   │   │   ├── anchor-asciidoc.d
+│   │   │   │   │   └── expected.tags
+│   │   │   │   ├── anchor-invalid-asciidoc.d
+│   │   │   │   │   └── expected.tags
+│   │   │   │   ├── one-character-title.d
+│   │   │   │   │   └── expected.tags
+│   │   │   │   ├── simple-asciidoc.d
+│   │   │   │   │   └── expected.tags
+│   │   │   │   └── utf8-asciidoc.d
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.asc
+│   │   │   ├── parser-asm.r
+│   │   │   │   ├── 68hc11.asm.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.asm
+│   │   │   │   ├── asm-cpp-macro-expansion-cmdline.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.S
+│   │   │   │   ├── asm-cpp-macro-expansion-with-limitation.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.S
+│   │   │   │   ├── asm-cpp-macro-expansion-with-multi-line-args-last-items.b
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.S
+│   │   │   │   ├── asm-cpp-macro-expansion-with-multi-line-args.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.S
+│   │   │   │   ├── asm-cpp-macro-expansion.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input-0.S
+│   │   │   │   │   ├── input-1.S
+│   │   │   │   │   ├── input-2.S
+│   │   │   │   │   ├── input-3.S
+│   │   │   │   │   ├── input-4.S
+│   │   │   │   │   ├── input-5.S
+│   │   │   │   │   ├── input-6.S
+│   │   │   │   │   ├── input-7.S
+│   │   │   │   │   └── input.S
+│   │   │   │   ├── bd32.s.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.s
+│   │   │   │   ├── bug538629.asm.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.asm
+│   │   │   │   ├── cpp-parameter-false.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.s
+│   │   │   │   ├── cpp-parameter-true.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.S
+│   │   │   │   ├── crash-when-deleting-token.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   └── input.S
+│   │   │   │   ├── directive-before-label.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.s
+│   │   │   │   ├── gas-parameterized-comment-no-cpp.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.s
+│   │   │   │   ├── gas-parameterized-comment.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.s
+│   │   │   │   ├── gas-parameterized-linesep-no-cpp.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.s
+│   │   │   │   ├── gas-parameterized-linesep.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.s
+│   │   │   │   ├── gas-section.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input-0.s
+│   │   │   │   │   ├── input-1.s
+│   │   │   │   │   └── input.s
+│   │   │   │   ├── gas.s.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.s
+│   │   │   │   ├── label-capturing.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.S
+│   │   │   │   ├── label-just-before-comment-no-cpp.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.s
+│   │   │   │   ├── label-just-before-comment.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.s
+│   │   │   │   ├── macro-params.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.asm
+│   │   │   │   ├── masm.asm.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.asm
+│   │   │   │   ├── moniker.x68.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.x68
+│   │   │   │   └── unbalanced-end-macro.d
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.S
+│   │   │   ├── parser-autoconf.r
+│   │   │   │   ├── disabling-m4.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.ac
+│   │   │   │   ├── forcing-autoconf-and-disabling-m4.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.m4
+│   │   │   │   ├── nested-block.ac.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.ac
+│   │   │   │   ├── no-string-literal.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.ac
+│   │   │   │   ├── simple.ac.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.ac
+│   │   │   │   └── simple2.ac.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.ac
+│   │   │   ├── parser-autoit.r
+│   │   │   │   └── simple-au3.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.au3
+│   │   │   ├── parser-automake.r
+│   │   │   │   ├── disable-make-parser.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.am
+│   │   │   │   ├── eof-value.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   └── input.am
+│   │   │   │   ├── langstack.am.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.am
+│   │   │   │   ├── noinst.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.am
+│   │   │   │   ├── objprefix.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.am
+│   │   │   │   ├── simple.am.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.am
+│   │   │   │   └── subdirs.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.am
+│   │   │   ├── parser-awk.r
+│   │   │   │   ├── functions.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.awk
+│   │   │   │   ├── gawk-alias.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.unknown
+│   │   │   │   ├── simple-awk.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.awk
+│   │   │   │   └── simple2-awk.d
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.awk
+│   │   │   ├── parser-basic.r
+│   │   │   │   ├── basic-labels.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.bas
+│   │   │   │   ├── freebasic-access.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.bas
+│   │   │   │   ├── freebasic-decls.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.bas
+│   │   │   │   ├── freebasic-namespace.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.bas
+│   │   │   │   ├── simple.bas.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.bas
+│   │   │   │   └── simple.bb.d
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.bb
+│   │   │   ├── parser-bats.r
+│   │   │   │   └── bats-simple.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.bats
+│   │   │   ├── parser-bibtex.r
+│   │   │   │   └── bib-simple.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.bib
+│   │   │   ├── parser-c.r
+│   │   │   │   ├── anonymous-param-in-broken-paramlist.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── input-0.c
+│   │   │   │   │   ├── input-1.c
+│   │   │   │   │   └── input.c
+│   │   │   │   ├── attr-attached-to-array-failed.b
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.c
+│   │   │   │   ├── attr-attached-to-array.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.c
+│   │   │   │   ├── backslash-in-input.c.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.c
+│   │   │   │   ├── bit_field.c.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.c
+│   │   │   │   ├── broken-input-cxx-operator.d
+│   │   │   │   │   └── input.c
+│   │   │   │   ├── bug1020715.c.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.c
+│   │   │   │   ├── bug1085585.c.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.c
+│   │   │   │   ├── bug1086609.c.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.c
+│   │   │   │   ├── bug1198.c.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.c
+│   │   │   │   ├── bug1201689.c.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.c
+│   │   │   │   ├── bug1458930.c.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.c
+│   │   │   │   ├── bug1466117.c.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.c
+│   │   │   │   ├── bug1491666.c.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.c
+│   │   │   │   ├── bug1764143.h.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.h
+│   │   │   │   ├── bug2554.c.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.c
+│   │   │   │   ├── bug507864.c.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.c
+│   │   │   │   ├── bug556645.c.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.c
+│   │   │   │   ├── bug556646.c.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.c
+│   │   │   │   ├── bug945.c.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.c
+│   │   │   │   ├── bug950.c.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.c
+│   │   │   │   ├── c-define-mixed.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.c
+│   │   │   │   ├── c-digraphs.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.c
+│   │   │   │   ├── c-include.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.c
+│   │   │   │   ├── c-keyword-alignas.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.c
+│   │   │   │   ├── c-knr.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.c
+│   │   │   │   ├── c-label.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.c
+│   │   │   │   ├── c-multichars-between-single-quotes.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.c
+│   │   │   │   ├── c-sample.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.c
+│   │   │   │   ├── c-size_t-wchar_t-typedef.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.c
+│   │   │   │   ├── c-struct-var-with-initializer.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.c
+│   │   │   │   ├── c-trigraphs.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.c
+│   │   │   │   ├── c-var-initialized-using-macro.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.c
+│   │   │   │   ├── complex_decl.c.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.c
+│   │   │   │   ├── cxx-keywords-simple.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.h
+│   │   │   │   ├── cxx-scope-keywords.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.h
+│   │   │   │   ├── directives-2.c.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.c
+│   │   │   │   ├── directives.c.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.c
+│   │   │   │   ├── end-field-of-macro.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.c
+│   │   │   │   ├── end-field-of-var.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.c
+│   │   │   │   ├── enum-bit-fields.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.c
+│   │   │   │   ├── enum.c.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.c
+│   │   │   │   ├── extern_variable.h.b
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.h
+│   │   │   │   ├── func-after-typedef-for-fptr-returning-enum.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.c
+│   │   │   │   ├── func-after-typedef-for-fptr-returning-struct.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.c
+│   │   │   │   ├── func_typedef.h.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.h
+│   │   │   │   ├── if0.c.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.c
+│   │   │   │   ├── line_directives.c.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.c
+│   │   │   │   ├── local.c.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.c
+│   │   │   │   ├── macrodef.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.c
+│   │   │   │   ├── macroexpand-empty-arg.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.c
+│   │   │   │   ├── macroexpand-typeof.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.c
+│   │   │   │   ├── macroexpand-with-linenum-adjustment.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.c
+│   │   │   │   ├── macros.c.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.c
+│   │   │   │   ├── option-disable-undef.c.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.c
+│   │   │   │   ├── properties-thread.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.c
+│   │   │   │   ├── properties.c.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.c
+│   │   │   │   ├── prototype.h.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.h
+│   │   │   │   ├── recursive-macros-2.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.c
+│   │   │   │   ├── recursive-macros.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.c
+│   │   │   │   ├── spurious_label_tags.c.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.c
+│   │   │   │   ├── static_array.c.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.c
+│   │   │   │   ├── using-cxx-keyword-in-c-code.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.c
+│   │   │   │   └── vardef-surrounded-by-parentheses.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.c
+│   │   │   ├── parser-cargo.r
+│   │   │   │   └── simple.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       ├── features
+│   │   │   │       └── input.cargo
+│   │   │   ├── parser-clojure.r
+│   │   │   │   ├── broken-ns.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input-0.clj
+│   │   │   │   │   ├── input-1.clj
+│   │   │   │   │   └── input.clj
+│   │   │   │   ├── clojure-metadata-in-fn.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.clj
+│   │   │   │   ├── clojure-metadata-in-ns.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input-0.clj
+│   │   │   │   │   └── input.clj
+│   │   │   │   ├── clojure-methods.b
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.clj
+│   │   │   │   ├── clojure-vars.b
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.clj
+│   │   │   │   └── simple-clojure.d
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.clj
+│   │   │   ├── parser-cmake.r
+│   │   │   │   ├── cmake-comments.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cmake
+│   │   │   │   ├── cmake-function.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cmake
+│   │   │   │   ├── cmake-macro.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cmake
+│   │   │   │   ├── cmake-option.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cmake
+│   │   │   │   ├── cmake-project.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cmake
+│   │   │   │   ├── cmake-scoped-variable.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cmake
+│   │   │   │   ├── cmake-simple.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cmake
+│   │   │   │   ├── cmake-target.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cmake
+│   │   │   │   └── cmake-variable.d
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.cmake
+│   │   │   ├── parser-cobol-to-review.r
+│   │   │   │   ├── HelloWorld.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cbl
+│   │   │   │   ├── HelloWorldFree.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cbl
+│   │   │   │   ├── HelloWorldLatin1.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cbl
+│   │   │   │   ├── MALFORMED.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cbl
+│   │   │   │   ├── TEST-PRINTER.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cbl
+│   │   │   │   ├── TEST-PRINTER2.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cbl
+│   │   │   │   ├── TEST-PRINTER3.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cbl
+│   │   │   │   ├── TEST-SINGLE-QUOTES.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cbl
+│   │   │   │   ├── VIRTUAL-PRINTER.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cbl
+│   │   │   │   └── VIRTUAL-PRINTER2.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.cbl
+│   │   │   ├── parser-cobol-to-review2.r
+│   │   │   │   ├── FETCHTBL.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cbl
+│   │   │   │   ├── INSERTTBL.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cbl
+│   │   │   │   └── sqlca.d
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.cbl
+│   │   │   ├── parser-cobol.r
+│   │   │   │   ├── comments.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cbl
+│   │   │   │   ├── helloworld.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cbl
+│   │   │   │   ├── helloworld2.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cbl
+│   │   │   │   ├── issue-1324.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cbl
+│   │   │   │   ├── levels.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cbl
+│   │   │   │   ├── quoted-program-id.cbl.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cbl
+│   │   │   │   └── simple.cbl.d
+│   │   │   │       ├── expected.tags
+│   │   │   │       ├── features
+│   │   │   │       └── input.cbl
+│   │   │   ├── parser-cpreprocessor.r
+│   │   │   │   ├── asm-area.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input-0.c
+│   │   │   │   │   ├── input-1.c
+│   │   │   │   │   ├── input-2.c
+│   │   │   │   │   ├── input-3.c
+│   │   │   │   │   ├── input-4.c
+│   │   │   │   │   ├── input-5.c
+│   │   │   │   │   ├── input-6.c
+│   │   │   │   │   ├── input-7.asm
+│   │   │   │   │   └── input.c
+│   │   │   │   ├── backslash-in-parameters.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.h
+│   │   │   │   ├── capture-params-in-macro-defs.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.h
+│   │   │   │   ├── disable-cpp-client--clinet-kind.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.c
+│   │   │   │   ├── disable-cpp-client--cpp-kind.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.c
+│   │   │   │   ├── disable-cpp-client.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.c
+│   │   │   │   ├── disable-cpp-cpp.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.dts
+│   │   │   │   ├── if0-false-with-param.c.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.c
+│   │   │   │   ├── if0-true-with-param.c.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.c
+│   │   │   │   ├── macro-condition-role.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.h
+│   │   │   │   ├── macrodef.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.h
+│   │   │   │   ├── macroexpand.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input-0.c
+│   │   │   │   │   ├── input-1.c
+│   │   │   │   │   └── input.c
+│   │   │   │   ├── macros-specified-with-param.c.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.c
+│   │   │   │   ├── simple-cpreprocessor.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.c
+│   │   │   │   ├── skip-newlines-in-literals.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input-0.c
+│   │   │   │   │   ├── input-1.c
+│   │   │   │   │   └── input.c
+│   │   │   │   ├── unget-mbyte-string.d
+│   │   │   │   │   ├── input-0.lds
+│   │   │   │   │   ├── input-1.java
+│   │   │   │   │   ├── input-2.lds
+│   │   │   │   │   ├── input-3.java
+│   │   │   │   │   └── input.java
+│   │   │   │   └── unget-multi-bytes-string.d
+│   │   │   │       ├── input-0.lds
+│   │   │   │       ├── input-1.java
+│   │   │   │       ├── input-2.lds
+│   │   │   │       └── input.java
+│   │   │   ├── parser-css.r
+│   │   │   │   ├── css-at-rules.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.css
+│   │   │   │   ├── css-at-supports.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.css
+│   │   │   │   ├── css-attribute-selectors.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.css
+│   │   │   │   ├── css-comma-no-space.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.css
+│   │   │   │   ├── css-namespace-selectors.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.css
+│   │   │   │   ├── css-pseudo-classes.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.css
+│   │   │   │   ├── css-simple.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.css
+│   │   │   │   ├── css-singlequote-in-comment-issue2.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.css
+│   │   │   │   ├── css-tag-types.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.css
+│   │   │   │   └── css-trivial.d
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.css
+│   │   │   ├── parser-cuda.r
+│   │   │   │   ├── cuda-sample.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cu
+│   │   │   │   └── param-with-default-value.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.cuh
+│   │   │   ├── parser-cxx.r
+│   │   │   │   ├── 1117-using-in-c.d
+│   │   │   │   │   └── input.c
+│   │   │   │   ├── alignas-in-struct.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── angle_bracket.cpp.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── attribute-alias.cpp.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.c
+│   │   │   │   ├── attribute-sections.cpp-no-ldscript.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.c
+│   │   │   │   ├── attribute-sections.cpp.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input-0.c
+│   │   │   │   │   ├── input-1.c
+│   │   │   │   │   └── input.c
+│   │   │   │   ├── attribute.cpp.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── brackets.cpp.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── broken-input.d
+│   │   │   │   │   └── input.cc
+│   │   │   │   ├── bug-github-1111.cpp.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── bug-github-1671.cpp.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── bug-github-1675.cpp.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── bug-github-1781.cpp.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── bug-github-2263.cpp.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cc
+│   │   │   │   ├── bug-github-2538.cpp.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── bug-github-3019.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input-1.cpp
+│   │   │   │   │   ├── input-2.cpp
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── bug-github-3413.cpp.d
+│   │   │   │   │   └── input.hpp
+│   │   │   │   ├── bug-github-871.cpp.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── bug-github-pull-972.cpp.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── bug-issue-3166.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cxx
+│   │   │   │   ├── bug1020715.cpp.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── bug1093123.cpp.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── bug1187505.cpp.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── bug1252.cpp.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── bug1548443.cpp.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── bug1563476.cpp.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── bug1575055.cpp.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── bug1585745.cpp.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── bug1770479.cpp.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── bug1773926.cpp.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── bug1799340.cpp.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── bug1799343-1.cpp.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── bug1799343-2.cpp.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── bug1907083.cpp.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── bug1924919.cpp.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── bug639639.cpp.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.h
+│   │   │   │   ├── bug639644.cpp.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.h
+│   │   │   │   ├── bug665086.cpp.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── bug834.cpp.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── bug849591.cpp.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── bug852368.cpp.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── bug872494.cpp.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── c-header-as-cpp.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.h
+│   │   │   │   ├── class-inheritance.cpp.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── class.cpp.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── complex-macros.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── cpp-type-alias-with-using-keyword.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── cpp_destructor.cpp.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── cxx-keyword-alignas.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cxx
+│   │   │   │   ├── cxx-keywords-as-c-identifiers.b
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── gen-expected-tags.sh
+│   │   │   │   │   ├── gen-input.sh
+│   │   │   │   │   ├── input.h
+│   │   │   │   │   └── keywords.sh
+│   │   │   │   ├── cxx-shift-operators-in-template-parameters.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── cxx11-attributes.cpp.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── cxx11-broken-nested-attributes.cpp.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input-0.cxx
+│   │   │   │   │   └── input.cxx
+│   │   │   │   ├── cxx11-constexpr-variable.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── cxx11-delete.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── cxx11-final.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── cxx11-lambdas.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── cxx11-noexcept.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── cxx11-override.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── cxx11-raw-strings.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── cxx11-user-defined-literals.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.h
+│   │   │   │   ├── cxx11enum.cpp.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── cxx14-combined.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── cxx14-digit-separator.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── digraph-and-template-angle-confliction.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.hh
+│   │   │   │   ├── end-field-for-prototype-kind.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.h
+│   │   │   │   ├── enum-in-a-struct--with-q-extra.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cc
+│   │   │   │   ├── export-2.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input.cpp
+│   │   │   │   │   └── validator
+│   │   │   │   ├── export-3.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input.cpp
+│   │   │   │   │   └── validator
+│   │   │   │   ├── export-namespace-alias.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input.cpp
+│   │   │   │   │   └── validator
+│   │   │   │   ├── export-using.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input.cpp
+│   │   │   │   │   └── validator
+│   │   │   │   ├── extern.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── field-nth.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.h
+│   │   │   │   ├── foreach.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── function-return-type-via-macro.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── function-return-types.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── function_try_block.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cxx
+│   │   │   │   ├── functions.cpp.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── ignoring-macro-with-parameters.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.hxx
+│   │   │   │   ├── import-4.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input-0.cpp
+│   │   │   │   │   ├── input-1.cpp
+│   │   │   │   │   ├── input-2.cpp
+│   │   │   │   │   ├── input-3.cpp
+│   │   │   │   │   ├── input-4.cpp
+│   │   │   │   │   ├── input-5.cpp
+│   │   │   │   │   ├── input-6.cpp
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── import-5.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input-0.cpp
+│   │   │   │   │   ├── input-1.cpp
+│   │   │   │   │   ├── input-2.cpp
+│   │   │   │   │   ├── input-3.cpp
+│   │   │   │   │   ├── input-4.cpp
+│   │   │   │   │   ├── input-5.cpp
+│   │   │   │   │   ├── input-6.cpp
+│   │   │   │   │   ├── input-7.cpp
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── import-6.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input-0.cpp
+│   │   │   │   │   ├── input-1.cpp
+│   │   │   │   │   ├── input-2.cpp
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── initializer-list.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input-0.cpp
+│   │   │   │   │   ├── input-1.cpp
+│   │   │   │   │   ├── input-2.cpp
+│   │   │   │   │   ├── input-3.cpp
+│   │   │   │   │   ├── input-4.cpp
+│   │   │   │   │   ├── input.h
+│   │   │   │   │   ├── validator
+│   │   │   │   │   ├── validator-0
+│   │   │   │   │   ├── validator-1
+│   │   │   │   │   ├── validator-2
+│   │   │   │   │   ├── validator-3
+│   │   │   │   │   └── validator-4
+│   │   │   │   ├── inline-variables.cpp.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── instantiation.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input.hpp
+│   │   │   │   │   └── validator
+│   │   │   │   ├── instantiation2.b
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input.hpp
+│   │   │   │   │   └── validator
+│   │   │   │   ├── iostream.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── k-and-r.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.c
+│   │   │   │   ├── keyword-in-return-type.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cc
+│   │   │   │   ├── less-than-operator-between-anglebrackets.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── member-with-initial-value.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cc
+│   │   │   │   ├── modules-1.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input-0.cpp
+│   │   │   │   │   ├── input-1.cpp
+│   │   │   │   │   ├── input-2.cpp
+│   │   │   │   │   ├── input-3.cpp
+│   │   │   │   │   ├── input-4.cpp
+│   │   │   │   │   ├── input-5.cpp
+│   │   │   │   │   ├── input-6.cpp
+│   │   │   │   │   ├── input-7.cpp
+│   │   │   │   │   ├── input-8.cpp
+│   │   │   │   │   ├── input-9.cpp
+│   │   │   │   │   ├── input.cpp
+│   │   │   │   │   ├── validator
+│   │   │   │   │   ├── validator-0
+│   │   │   │   │   ├── validator-2
+│   │   │   │   │   ├── validator-8
+│   │   │   │   │   └── validator-9
+│   │   │   │   ├── modules-8.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input-0.cpp
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── more-decltypes.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cxx
+│   │   │   │   ├── namespace-alias-in-function.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── namespace-and-preprocessor.cpp.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── namespace-and-scope.b
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── namespace.cpp.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── new-delete.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── operators.cpp.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── out-range-input-for-isspace.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── partition.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input-0.cpp
+│   │   │   │   │   ├── input-1.cpp
+│   │   │   │   │   ├── input-2.cpp
+│   │   │   │   │   ├── input-3.cpp
+│   │   │   │   │   ├── input-4.cpp
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── pointer-to-array.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.c
+│   │   │   │   ├── properties-consteval.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cc
+│   │   │   │   ├── properties-constexpr.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cc
+│   │   │   │   ├── properties-constinit.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cc
+│   │   │   │   ├── properties.cpp.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── prototype-starting-from-scope-op.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── rojas.h.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.h
+│   │   │   │   ├── signature.cpp.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── struct-keyword-not-for-defining-struct.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cc
+│   │   │   │   ├── template-member-forward-declaration.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── template-nested-triangle-brackets.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input-0.hpp
+│   │   │   │   │   ├── input-1.hpp
+│   │   │   │   │   ├── input-2.hpp
+│   │   │   │   │   ├── input-3.hpp
+│   │   │   │   │   ├── input.hpp
+│   │   │   │   │   └── validator-2
+│   │   │   │   ├── template-parameters.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.h
+│   │   │   │   ├── template-prototype.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cc
+│   │   │   │   ├── template-specializations.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── templates-enable-if.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── templates-in-labmdas-1.cpp.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── templates-in-labmdas-2.cpp.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── templates.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── templates2.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── templates3.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── templates4.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── templates5.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── templates6.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input-0.cpp
+│   │   │   │   │   ├── input.hpp
+│   │   │   │   │   └── validator
+│   │   │   │   ├── templates7.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input.hpp
+│   │   │   │   │   └── validator
+│   │   │   │   ├── templates8.d
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── typedef-of-function-ptr-with-macro.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── typedefs.cpp.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── using-in-template.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── using.cpp.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── variable-declarations.cpp.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── variable-templates.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input-0.cpp
+│   │   │   │   │   ├── input-1.cpp
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── variables-in-control-statements.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   ├── variables-prototypes-2.cpp.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.cpp
+│   │   │   │   └── variables-prototypes.cpp.b
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.cpp
+│   │   │   ├── parser-d.r
+│   │   │   │   ├── d-accessmod.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.d
+│   │   │   │   ├── d-size_t-wchar_t-alias.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.d
+│   │   │   │   ├── simple.d.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.d
+│   │   │   │   └── templates.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.d
+│   │   │   ├── parser-dbusinspect.r
+│   │   │   │   ├── node-as-root-with-dtd.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── features
+│   │   │   │   ├── node-as-root-without-dtd.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── features
+│   │   │   │   └── simple-dbusinspect.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── features
+│   │   │   ├── parser-dtd.r
+│   │   │   │   ├── colons-in-name.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.dtd
+│   │   │   │   ├── condtion.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.dtd
+│   │   │   │   ├── elements.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.mod
+│   │   │   │   ├── fq.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.dtd
+│   │   │   │   ├── notation.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.dtd
+│   │   │   │   ├── parameter-entities.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.dtd
+│   │   │   │   └── simple-dtd.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.dtd
+│   │   │   ├── parser-dts.r
+│   │   │   │   ├── dts-core-dump.d
+│   │   │   │   │   └── input.dts
+│   │   │   │   ├── dts-fq-core-dump.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   └── input.dts
+│   │   │   │   ├── dts-fq-without-scope-field.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.dts
+│   │   │   │   └── dts-simple.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.dts
+│   │   │   ├── parser-eiffel.r
+│   │   │   │   ├── aliases.e.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.e
+│   │   │   │   ├── attributes.e.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.e
+│   │   │   │   ├── class.e.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.e
+│   │   │   │   ├── deprecated-syntax.e.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.e
+│   │   │   │   ├── functions.e.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.e
+│   │   │   │   ├── inherit-rename.e.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.e
+│   │   │   │   ├── local-kind.e.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.e
+│   │   │   │   ├── note.e.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.e
+│   │   │   │   ├── obsolete.e.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.e
+│   │   │   │   ├── procedures.e.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.e
+│   │   │   │   └── verbatim.e.d
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.e
+│   │   │   ├── parser-elixir.r
+│   │   │   │   ├── elixir-callbacks.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.ex
+│   │   │   │   ├── elixir-exceptions.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.ex
+│   │   │   │   ├── elixir-functions.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.ex
+│   │   │   │   ├── elixir-macros.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.ex
+│   │   │   │   ├── elixir-modules.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.ex
+│   │   │   │   ├── elixir-records.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.ex
+│   │   │   │   ├── elixir-sign-operators.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.ex
+│   │   │   │   ├── elixir-simple.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.ex
+│   │   │   │   ├── elixir-tests.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.ex
+│   │   │   │   ├── elixir-types.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.ex
+│   │   │   │   └── elixir-word-operators.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.ex
+│   │   │   ├── parser-elm.r
+│   │   │   │   ├── elm-aliases.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.elm
+│   │   │   │   ├── elm-bad-lines.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input-1.elm
+│   │   │   │   │   ├── input-2.elm
+│   │   │   │   │   ├── input-3.elm
+│   │   │   │   │   └── input.elm
+│   │   │   │   ├── elm-case-statements.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.elm
+│   │   │   │   ├── elm-comments.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.elm
+│   │   │   │   ├── elm-complex-types.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.elm
+│   │   │   │   ├── elm-constructor-signatures.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.elm
+│   │   │   │   ├── elm-expressions.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.elm
+│   │   │   │   ├── elm-functions.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.elm
+│   │   │   │   ├── elm-if-then-else.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.elm
+│   │   │   │   ├── elm-imports.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input-1.elm
+│   │   │   │   │   └── input.elm
+│   │   │   │   ├── elm-just-comments.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.elm
+│   │   │   │   ├── elm-let-in.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.elm
+│   │   │   │   ├── elm-modules.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input-1.elm
+│   │   │   │   │   ├── input-2.elm
+│   │   │   │   │   ├── input-3.elm
+│   │   │   │   │   ├── input-4.elm
+│   │   │   │   │   ├── input-5.elm
+│   │   │   │   │   └── input.elm
+│   │   │   │   ├── elm-multiline-strings.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.elm
+│   │   │   │   ├── elm-namespaces.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.elm
+│   │   │   │   ├── elm-optlist-compatibility.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.elm
+│   │   │   │   ├── elm-parameter-capture.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.elm
+│   │   │   │   ├── elm-parameter-patterns.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.elm
+│   │   │   │   ├── elm-ports.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.elm
+│   │   │   │   ├── elm-single-expressions.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.elm
+│   │   │   │   ├── elm-type-annotations.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.elm
+│   │   │   │   └── elm-types.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       ├── input-1.elm
+│   │   │   │       └── input.elm
+│   │   │   ├── parser-emacsLisp.r
+│   │   │   │   ├── definitions.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.el
+│   │   │   │   ├── misleading-names.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.el
+│   │   │   │   ├── newline.b
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.el
+│   │   │   │   └── simple-emacsLisp.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.el
+│   │   │   ├── parser-erlang.r
+│   │   │   │   └── crash1.d
+│   │   │   │       └── input.erl
+│   │   │   ├── parser-flex.r
+│   │   │   │   ├── as-first-token.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.as
+│   │   │   │   ├── classes.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.as
+│   │   │   │   ├── const.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.as
+│   │   │   │   ├── const2.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.as
+│   │   │   │   ├── flex_comment.mxml.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.mxml
+│   │   │   │   ├── flex_only_mxml.mxml.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.mxml
+│   │   │   │   ├── flex_with_actionscript.mxml.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.mxml
+│   │   │   │   ├── method-attributes.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.as
+│   │   │   │   ├── packages.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.as
+│   │   │   │   └── sampler.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.as
+│   │   │   ├── parser-forth.r
+│   │   │   │   └── simple-forth.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.fth
+│   │   │   ├── parser-fortran.r
+│   │   │   │   ├── array-spec.f90.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.f90
+│   │   │   │   ├── array_spec.f90.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.f90
+│   │   │   │   ├── auto.f.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.f
+│   │   │   │   ├── bug565813.f90.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.f90
+│   │   │   │   ├── bug620288.f.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.f
+│   │   │   │   ├── bug629.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.c
+│   │   │   │   ├── bug670433.f90.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.f90
+│   │   │   │   ├── bug726712.f90.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.f90
+│   │   │   │   ├── bug726875.f90.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.f90
+│   │   │   │   ├── bug734933.f90.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.f90
+│   │   │   │   ├── bug858165.f90.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.f90
+│   │   │   │   ├── bug877956.f90.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags-x
+│   │   │   │   │   └── input.f90
+│   │   │   │   ├── byte.f.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.f
+│   │   │   │   ├── char-selector.f90.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.f90
+│   │   │   │   ├── common-json.f.d
+│   │   │   │   │   ├── expected.tags-json
+│   │   │   │   │   └── input.f
+│   │   │   │   ├── common-xref.f.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags-x
+│   │   │   │   │   └── input.f
+│   │   │   │   ├── common.f.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.f
+│   │   │   │   ├── continuation.f90.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.f90
+│   │   │   │   ├── debian_432872.f90.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.f90
+│   │   │   │   ├── dollars-in-names.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input.f
+│   │   │   │   │   └── validator
+│   │   │   │   ├── dopbl2.f.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.f
+│   │   │   │   ├── fortran-abstract-implementation.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.f90
+│   │   │   │   ├── fortran-abstract-interface.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.f90
+│   │   │   │   ├── fortran-associate.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.f90
+│   │   │   │   ├── fortran-bind-c.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.f90
+│   │   │   │   ├── fortran-block.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.f90
+│   │   │   │   ├── fortran-derived-type-params.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.f90
+│   │   │   │   ├── fortran-enum.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.f90
+│   │   │   │   ├── fortran-extends-qualifier.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.f90
+│   │   │   │   ├── fortran-forall.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.f90
+│   │   │   │   ├── fortran-interface.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.f90
+│   │   │   │   ├── fortran-linkname.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.f
+│   │   │   │   ├── fortran-method.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.f90
+│   │   │   │   ├── fortran-pointer.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.f90
+│   │   │   │   ├── fortran-procedure-qualifiers.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.f90
+│   │   │   │   ├── fortran-procedure.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.f90
+│   │   │   │   ├── fortran-protected.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.f90
+│   │   │   │   ├── fortran-signature.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.f90
+│   │   │   │   ├── fortran-square-parens.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.f90
+│   │   │   │   ├── fortran-submodule.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.f90
+│   │   │   │   ├── implied_program.f.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.f
+│   │   │   │   ├── initialization.f90.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.f90
+│   │   │   │   ├── invalid_name.f90.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.f90
+│   │   │   │   ├── lanus.for.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.for
+│   │   │   │   ├── misc_types.f.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.f
+│   │   │   │   ├── misc_types.f90.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.f90
+│   │   │   │   ├── multi-input-fixed-then-free.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input-0.f90
+│   │   │   │   │   └── input.f
+│   │   │   │   ├── multi-input-free-then-fixed.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input-0.f
+│   │   │   │   │   └── input.f90
+│   │   │   │   ├── namelist.f.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.f
+│   │   │   │   ├── numlib.f90.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.f90
+│   │   │   │   ├── pure_elem.f95.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.f95
+│   │   │   │   ├── recursive.f95.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.f95
+│   │   │   │   ├── reset-newline-state.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input-1.f90
+│   │   │   │   │   ├── input-2.f90
+│   │   │   │   │   └── input.f90
+│   │   │   │   ├── semicolon.f90.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.f90
+│   │   │   │   ├── stdcall.f.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.f
+│   │   │   │   ├── structure.f.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.f
+│   │   │   │   ├── union.f.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.f
+│   │   │   │   └── value.f.d
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.f
+│   │   │   ├── parser-function-parameters.r
+│   │   │   │   ├── perl-fp-test.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.pl
+│   │   │   │   └── simple.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       ├── input-0.pl
+│   │   │   │       └── input.pl
+│   │   │   ├── parser-fypp.r
+│   │   │   │   ├── cont.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.fy
+│   │   │   │   ├── emptyline.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.fy
+│   │   │   │   ├── first-if-area.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.fy
+│   │   │   │   ├── if-cont.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.fy
+│   │   │   │   ├── if-with-no-endif.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.fy
+│   │   │   │   ├── run-alt-guest.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.fy
+│   │   │   │   ├── run-guest.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.fy
+│   │   │   │   ├── segv.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   └── input.fy
+│   │   │   │   └── simple-fypp.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.fy
+│   │   │   ├── parser-gdscript.r
+│   │   │   │   ├── broken-input.d
+│   │   │   │   │   └── input.gd
+│   │   │   │   ├── class_name-extends-no-implicit-class.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.gd
+│   │   │   │   ├── class_name-extends.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.gd
+│   │   │   │   ├── inner-class.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.gd
+│   │   │   │   ├── modifiers.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.gd
+│   │   │   │   ├── no-implicit-class.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.gd
+│   │   │   │   ├── sample.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.gd
+│   │   │   │   └── signal.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       ├── input-0.gd
+│   │   │   │       ├── input-1.gd
+│   │   │   │       └── input.gd
+│   │   │   ├── parser-gemspec.r
+│   │   │   │   └── simple-gemspec.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       ├── input-0.gemspec
+│   │   │   │       ├── input-1.gemspec
+│   │   │   │       └── input.gemspec
+│   │   │   ├── parser-go.r
+│   │   │   │   ├── github-issue-2430.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.go
+│   │   │   │   ├── go-anonmember.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.go
+│   │   │   │   ├── go-crash-issue-2220.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.go
+│   │   │   │   ├── go-dont-solve-type-for-underscore-var.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.go
+│   │   │   │   ├── go-end-field-for-types.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.go
+│   │   │   │   ├── go-funcs.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.go
+│   │   │   │   ├── go-goroutines.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.go
+│   │   │   │   ├── go-helloworld.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.go
+│   │   │   │   ├── go-ignore-underscore-var.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.go
+│   │   │   │   ├── go-import.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input-0.go
+│   │   │   │   │   ├── input-1.go
+│   │   │   │   │   ├── input-2.go
+│   │   │   │   │   ├── input-3.go
+│   │   │   │   │   ├── input-4.go
+│   │   │   │   │   ├── input-5.go
+│   │   │   │   │   ├── input-6.go
+│   │   │   │   │   ├── input-7.go
+│   │   │   │   │   └── input.go
+│   │   │   │   ├── go-incomplete-func.d
+│   │   │   │   │   └── input.go
+│   │   │   │   ├── go-incomplete-input.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   └── input.go
+│   │   │   │   ├── go-interface.d
+│   │   │   │   │   ├── src
+│   │   │   │   │   │   └── ext
+│   │   │   │   │   │       └── iface.go
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.go
+│   │   │   │   ├── go-op-less-than.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.go
+│   │   │   │   ├── go-scope.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.go
+│   │   │   │   ├── go-timeouts.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.go
+│   │   │   │   ├── go-torture.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.go
+│   │   │   │   ├── go-type-aliases.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.go
+│   │   │   │   ├── go-variadic-dots-broken.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   └── input.go
+│   │   │   │   ├── go-variadic-dots.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.go
+│   │   │   │   └── go-vars.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.go
+│   │   │   ├── parser-gperf.r
+│   │   │   │   └── simple.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       ├── input-0.gperf
+│   │   │   │       ├── input-1.perf
+│   │   │   │       └── input.perf
+│   │   │   ├── parser-haskell.r
+│   │   │   │   ├── literate-haskell1.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.lhs
+│   │   │   │   ├── literate-haskell2.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.lhs
+│   │   │   │   ├── multi-line-type-signature.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.hs
+│   │   │   │   └── simple-haskell.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.hs
+│   │   │   ├── parser-html.r
+│   │   │   │   ├── class-and-id.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── minitrip
+│   │   │   │   ├── comment-starter-in-script.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   └── expected.tags
+│   │   │   │   ├── external-files.html.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── minitrip
+│   │   │   │   ├── jsp-with-bom.d
+│   │   │   │   │   └── args.ctags
+│   │   │   │   ├── jsp.d
+│   │   │   │   │   └── args.ctags
+│   │   │   │   ├── script.html.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── minitrip
+│   │   │   │   ├── simple.html.t
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── features
+│   │   │   │   ├── string-in-script.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   └── expected.tags
+│   │   │   │   └── whitespaces.html.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── minitrip
+│   │   │   ├── parser-iPythonCell.r
+│   │   │   │   ├── customizing.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.py
+│   │   │   │   ├── default-formats.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.py
+│   │   │   │   └── double-sharps.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.py
+│   │   │   ├── parser-iniconf.r
+│   │   │   │   ├── ignore-utf8-bom.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.ini
+│   │   │   │   └── toml-support-in-geany.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.toml
+│   │   │   ├── parser-inko.r
+│   │   │   │   ├── comments.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.inko
+│   │   │   │   ├── everything.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.inko
+│   │   │   │   ├── implementations.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.inko
+│   │   │   │   ├── let.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.inko
+│   │   │   │   ├── methods.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.inko
+│   │   │   │   ├── objects.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.inko
+│   │   │   │   ├── strings.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.inko
+│   │   │   │   └── traits.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.inko
+│   │   │   ├── parser-itcl.r
+│   │   │   │   ├── force-use.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.tcl
+│   │   │   │   ├── fq-with-namespace.b
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.tcl
+│   │   │   │   ├── itcl-1.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.tcl
+│   │   │   │   ├── itcl-2.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.tcl
+│   │   │   │   ├── itcl-3.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.tcl
+│   │   │   │   ├── no-itcl-2.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.tcl
+│   │   │   │   └── simple-itcl.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.tcl
+│   │   │   ├── parser-java.r
+│   │   │   │   ├── accented-latin1-identifiers.java.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.java
+│   │   │   │   ├── anonymous-class.b
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.java
+│   │   │   │   ├── bug1447756.java.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.java
+│   │   │   │   ├── bug1691412.java.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.java
+│   │   │   │   ├── bug1777340.java.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.java
+│   │   │   │   ├── bug1777344.java.b
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.java
+│   │   │   │   ├── bug2049723.java.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.java
+│   │   │   │   ├── bug2117073.java.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.java
+│   │   │   │   ├── bug814263.java.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.java
+│   │   │   │   ├── default-literals.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.java
+│   │   │   │   ├── enum.java.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.java
+│   │   │   │   ├── imported-role.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.java
+│   │   │   │   ├── infinite_loop.java.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.java
+│   │   │   │   ├── java-catch-block.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.java
+│   │   │   │   └── java_enum.java.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.java
+│   │   │   ├── parser-javascript.r
+│   │   │   │   ├── 1795612.js.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── 1850914.js.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── 1878155.js.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── 1880687.js.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── 2023624.js.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── 3470609.js.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── babel-decorators.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── bug1950327.js.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── bug2777310.js.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── bug2888482.js.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── bug3036476.js.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── bug3571233.js.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── contextual.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── dont-append-eof-to-repr.d
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── generators.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── github-issue-1389.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── github-issue-1933.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── github-issue-3641.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── github-issue-4005.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── github-issue-780.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── github-issue-900.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── js-arraylist.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── js-arrow-funcs.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input-0.js
+│   │   │   │   │   ├── input.js
+│   │   │   │   │   └── validator
+│   │   │   │   ├── js-async1.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── js-async2.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── js-broken-strings.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── js-broken-template-backslash.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── js-broken-template-dollar.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── js-broken-template.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── js-class-related-unterminated.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── js-comma-at-end-of-object.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── js-commas-and-missing-semicolons.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── js-complex-return.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── js-computed-propname.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── js-const.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── js-crlf.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── js-default-export.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── js-destructural-binding-todo.b
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input-1.js
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── js-destructural-binding.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input-0.js
+│   │   │   │   │   ├── input-1.js
+│   │   │   │   │   ├── input-2.js
+│   │   │   │   │   ├── input-3.js
+│   │   │   │   │   ├── input.js
+│   │   │   │   │   └── validator
+│   │   │   │   ├── js-do-while.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── js-empty-class-name.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── js-es6-class.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── js-es6-mixin.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── js-export.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── js-extract-empty-property-in-json.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags-json
+│   │   │   │   │   ├── features
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── js-extract-empty-property.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags-x
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── js-fields.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── js-fq-tags.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── js-func-in-method.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── js-function-in-arglist.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── js-get-and-set.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── js-get-and-set2.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── js-getter-and-setter.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── js-implicit-semicolons.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── js-let.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── js-many-functions.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── js-methods.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── js-multiple-vars.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── js-naked-blocks.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── js-non-printable-in-signature.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── js-null-tag-for-broken-input0.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── js-null-tag-for-broken-input1.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── js-null-tag-for-broken-input2.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── js-null-tag-for-broken-input3.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── js-null-tag-for-broken-input4.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── js-object-value-shortcut.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── js-odd-method-names.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── js-parenthesis-rvalue.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── js-parse-function-block.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── js-qualified-name-after-new-op.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── js-rest-parameters.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input.js
+│   │   │   │   │   └── validator
+│   │   │   │   ├── js-scope-resolution.b
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── js-scope.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── js-self-invoking-anon-func.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.ctags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── js-shebang-gjs.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.nolang
+│   │   │   │   ├── js-shebang-node.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.nolang
+│   │   │   │   ├── js-shebang-nodejs.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.nolang
+│   │   │   │   ├── js-shebang-seed.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.nolang
+│   │   │   │   ├── js-shebang.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── js-signature.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── js-skip-empty-property.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── js-static-block.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input.js
+│   │   │   │   │   └── validator
+│   │   │   │   ├── js-string-continuation.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── js-sub-block-scope.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── js-template-strings.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── js-tricky-newlines.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── js-two-vars.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── js-unicode-escape-iconv.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── features
+│   │   │   │   │   ├── input.js
+│   │   │   │   │   └── minitrip
+│   │   │   │   ├── js-unicode-escape-naked-surrogate.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input.js
+│   │   │   │   │   └── minitrip
+│   │   │   │   ├── js-unicode-escape.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── js-unknown-construct-nesting.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── js-unterminated-leak.d
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── js-unterminated-new.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── js-var-at-eof.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── jsFunc_tutorial.js.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── no_terminator.js.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── qualified-contextual.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── regexp.js.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── secondary_fcn_name.js.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── shift-op-jsx.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── input-0.js
+│   │   │   │   │   ├── input-1.js
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── simple-jsx-no-guest.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input-0.jsx
+│   │   │   │   │   └── input.jsx
+│   │   │   │   ├── simple-jsx.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input-0.jsx
+│   │   │   │   │   └── input.jsx
+│   │   │   │   ├── simple.js.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── spread-operator.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.js
+│   │   │   │   ├── tagging-empty-name.d
+│   │   │   │   │   └── input.js
+│   │   │   │   └── ui5.controller.js.d
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.js
+│   │   │   ├── parser-jni.r
+│   │   │   │   ├── broken.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.c
+│   │   │   │   └── simple.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       ├── input-0.cpp
+│   │   │   │       ├── input-1.cpp
+│   │   │   │       └── input.cpp
+│   │   │   ├── parser-json.r
+│   │   │   │   ├── dotted-names.d
+│   │   │   │   │   └── expected.tags
+│   │   │   │   ├── fq-tags.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   └── expected.tags
+│   │   │   │   ├── nulltags.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   └── expected.tags-x
+│   │   │   │   └── simple-json.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── validator
+│   │   │   ├── parser-julia.r
+│   │   │   │   ├── corner_cases.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.jl
+│   │   │   │   ├── empty_line.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.jl
+│   │   │   │   ├── function_scope.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.jl
+│   │   │   │   ├── import_module.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.jl
+│   │   │   │   ├── infinite_loop.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.jl
+│   │   │   │   ├── julia_test.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.jl
+│   │   │   │   ├── parametric_constructor.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.jl
+│   │   │   │   ├── scoped_macro.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.jl
+│   │   │   │   └── struct_attributes.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.jl
+│   │   │   ├── parser-kconfig.r
+│   │   │   │   ├── comment-starting-from-middle-of-lines.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.kconfig
+│   │   │   │   ├── macros.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.kconfig
+│   │   │   │   ├── simple-kconfig.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input-1.kconfig
+│   │   │   │   │   ├── input-2.kconfig
+│   │   │   │   │   ├── input-3.kconfig
+│   │   │   │   │   ├── input-4.kconfig
+│   │   │   │   │   └── input.kconfig
+│   │   │   │   └── unbalance.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       ├── input-0.kconfig
+│   │   │   │       ├── input-1.kconfig
+│   │   │   │       ├── input-2.kconfig
+│   │   │   │       ├── input-3.kconfig
+│   │   │   │       └── input.kconfig
+│   │   │   ├── parser-kotlin.r
+│   │   │   │   ├── kotlin-annotations.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.kt
+│   │   │   │   ├── kotlin-backticks.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.kt
+│   │   │   │   ├── kotlin-comments.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.kt
+│   │   │   │   ├── kotlin-destructuring.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.kt
+│   │   │   │   ├── kotlin-extensions.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.kt
+│   │   │   │   ├── kotlin-generics.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.kt
+│   │   │   │   ├── kotlin-invalid-input.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.kt
+│   │   │   │   ├── kotlin-rawstrings.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.kt
+│   │   │   │   ├── kotlin-scope.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.kt
+│   │   │   │   ├── kotlin-strings.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.kt
+│   │   │   │   └── kotlin-syntax.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.kt
+│   │   │   ├── parser-ldscript.r
+│   │   │   │   ├── anon-version.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.lds
+│   │   │   │   ├── cpp-out-of-band-chars.d
+│   │   │   │   │   ├── input-0.lds
+│   │   │   │   │   ├── input-1.lds
+│   │   │   │   │   └── input.lds
+│   │   │   │   ├── crash-when-deleting-token.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   └── input.lds
+│   │   │   │   ├── discard.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.lds
+│   │   │   │   ├── input-sections.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.lds
+│   │   │   │   ├── ld-hello.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.ld
+│   │   │   │   ├── ld-symtab.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── features
+│   │   │   │   │   └── input.lds
+│   │   │   │   ├── lds-invalid-macro-call.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.lds.S
+│   │   │   │   ├── lds-macro-expansion.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.lds.S
+│   │   │   │   ├── multi-versions.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.lds
+│   │   │   │   ├── simple-ldscript.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.lds.S
+│   │   │   │   ├── sort.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.lds
+│   │   │   │   └── versions.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.lds
+│   │   │   ├── parser-lex.r
+│   │   │   │   └── simple-lex.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.l
+│   │   │   ├── parser-lisp.r
+│   │   │   │   ├── misleading-names.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.lisp
+│   │   │   │   ├── more-defsomething.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.lisp
+│   │   │   │   ├── newline-between-tokens.b
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.l
+│   │   │   │   └── simple-lisp.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.l
+│   │   │   ├── parser-lua.r
+│   │   │   │   ├── lua-broken-nested-tables.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   └── input.lua
+│   │   │   │   ├── lua-double-equals.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.lua
+│   │   │   │   ├── lua-equal-after-function.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.lua
+│   │   │   │   ├── lua-function-in-nested-tables.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.lua
+│   │   │   │   ├── lua-function-in-string-literal.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.lua
+│   │   │   │   ├── lua-skip-curly-brackets.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.lua
+│   │   │   │   ├── lua-skip-whitespaces-in-name.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input.lua
+│   │   │   │   │   └── minitrip
+│   │   │   │   └── simple.lua.d
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.lua
+│   │   │   ├── parser-m4.r
+│   │   │   │   ├── disabling-autoconf.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.m4
+│   │   │   │   ├── disabling-subparser.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.m4
+│   │   │   │   ├── m4-autoconf-and-optlib.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.m4
+│   │   │   │   ├── m4-comment.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.m4
+│   │   │   │   ├── m4-multi-undef.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.m4
+│   │   │   │   ├── m4-quotestring.b
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.m4
+│   │   │   │   ├── m4-simple.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.m4
+│   │   │   │   ├── m4-switch-lang-by-ac.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.m4
+│   │   │   │   └── m4-switch-lang-by-m4.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.m4
+│   │   │   ├── parser-make.r
+│   │   │   │   ├── bug2959889.mak.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.mak
+│   │   │   │   ├── cpp-marcros.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input-0.mak
+│   │   │   │   │   ├── input-1.mak
+│   │   │   │   │   ├── input-2.mak
+│   │   │   │   │   └── input.mak
+│   │   │   │   ├── in-define.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.mak
+│   │   │   │   ├── make.comment-in-rule.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.mak
+│   │   │   │   ├── make.continuation.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.mak
+│   │   │   │   ├── make.gnumake-not-special-targets.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.mak
+│   │   │   │   ├── make.gnumake-pattern-rules.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.mak
+│   │   │   │   ├── make.include.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.mk
+│   │   │   │   ├── make.multi-target.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.mak
+│   │   │   │   ├── make.parenthesis.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.mk
+│   │   │   │   ├── make.target-with-parentheses.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.mak
+│   │   │   │   ├── make.variable-on-cmdline.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.mak
+│   │   │   │   ├── make.variable-set-if-undefined.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.mak
+│   │   │   │   ├── override-directive.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.mak
+│   │   │   │   ├── same-line.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.mak
+│   │   │   │   ├── shell-assignment-op.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.mak
+│   │   │   │   └── simple.mak.t
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.mak
+│   │   │   ├── parser-man.r
+│   │   │   │   ├── double-quoted.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   └── expected.tags
+│   │   │   │   └── simple.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       └── expected.tags
+│   │   │   ├── parser-markdown.r
+│   │   │   │   ├── backquote.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   └── expected.tags
+│   │   │   │   ├── c-guest.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   └── expected.tags
+│   │   │   │   ├── code-block-under-items.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   └── expected.tags
+│   │   │   │   ├── empty-frontmatter.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   └── features
+│   │   │   │   ├── footnotes.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   └── expected.tags
+│   │   │   │   ├── frontmatter.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── languages
+│   │   │   │   ├── gaps-in-section-hierarchy.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   └── expected.tags
+│   │   │   │   ├── hashtags-utf8.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   └── expected.tags
+│   │   │   │   ├── packcc-parser-running-within-code-block-with-bom.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── features
+│   │   │   │   ├── packcc-parser-running-within-code-block.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── features
+│   │   │   │   ├── scope-field-markdown.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   └── expected.tags
+│   │   │   │   ├── section-prefixed-with-spaces.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   └── expected.tags
+│   │   │   │   ├── simple-markdown.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   └── expected.tags
+│   │   │   │   ├── xml-comment.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   └── expected.tags
+│   │   │   │   └── yaml-in-code-block.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       └── expected.tags
+│   │   │   ├── parser-matlab.r
+│   │   │   │   ├── matchfail.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.m
+│   │   │   │   ├── matlab_backtracking.m.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── features
+│   │   │   │   │   └── input.m
+│   │   │   │   ├── matlab_setget.m.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── features
+│   │   │   │   │   └── input.m
+│   │   │   │   └── matlab_test.m.d
+│   │   │   │       ├── expected.tags
+│   │   │   │       ├── features
+│   │   │   │       └── input.m
+│   │   │   ├── parser-meson.r
+│   │   │   │   ├── config.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.meson
+│   │   │   │   ├── escape-in-string.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.meson
+│   │   │   │   ├── modules.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.meson
+│   │   │   │   └── simple-meson.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       ├── input-0.meson
+│   │   │   │       ├── input-1.meson
+│   │   │   │       ├── input-2.meson
+│   │   │   │       ├── input-3.meson
+│   │   │   │       ├── input-4.meson
+│   │   │   │       ├── input-5.meson
+│   │   │   │       ├── input-6.meson
+│   │   │   │       └── input.meson
+│   │   │   ├── parser-moose.r
+│   │   │   │   ├── no-use-only.d
+│   │   │   │   │   └── input.pm
+│   │   │   │   ├── parse-overrun.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.pm
+│   │   │   │   ├── role.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.pl
+│   │   │   │   ├── simple-moose.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input-0.pl
+│   │   │   │   │   └── input.pl
+│   │   │   │   └── wrong-position.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.pl
+│   │   │   ├── parser-myrddin.r
+│   │   │   │   └── simple.d
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.myr
+│   │   │   ├── parser-nsis.r
+│   │   │   │   ├── include.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.nsi
+│   │   │   │   ├── langstr.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.nsi
+│   │   │   │   ├── section_groups.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.nsi
+│   │   │   │   ├── simple-nsis.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.nsi
+│   │   │   │   └── various-sections.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.nsi
+│   │   │   ├── parser-objectivec.r
+│   │   │   │   ├── crash-in-parsing-protocol.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input-0.h
+│   │   │   │   │   └── input.h
+│   │   │   │   ├── objc-extern-c.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input-0.m
+│   │   │   │   │   └── input.h
+│   │   │   │   ├── objc-signature.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.m
+│   │   │   │   ├── objc.m.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.m
+│   │   │   │   ├── objc_underscore.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.mm
+│   │   │   │   ├── objectivec_implementation.m.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.m
+│   │   │   │   ├── objectivec_interface.h.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.h
+│   │   │   │   ├── objectivec_property.h.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.h
+│   │   │   │   └── objectivec_protocol.h.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.h
+│   │   │   ├── parser-ocaml.r
+│   │   │   │   ├── github-451-improved.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.ml
+│   │   │   │   ├── ocamlAllKinds.ml.t
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.ml
+│   │   │   │   ├── ocamlCommentInStringAllowed.ml.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.ml
+│   │   │   │   ├── ocaml_empty.ml.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.ml
+│   │   │   │   ├── ocaml_empty.ml_etags.d
+│   │   │   │   │   ├── expected.tags-e
+│   │   │   │   │   └── input.ml
+│   │   │   │   ├── ocaml_empty.ml_xref.d
+│   │   │   │   │   ├── expected.tags-x
+│   │   │   │   │   └── input.ml
+│   │   │   │   ├── ocaml_only_str.ml.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.ml
+│   │   │   │   ├── ocaml_string_tests.ml.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.ml
+│   │   │   │   └── ocaml_two_files.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       ├── input-0.ml
+│   │   │   │       └── input.ml
+│   │   │   ├── parser-openapi.r
+│   │   │   │   ├── broken-input.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   └── features
+│   │   │   │   ├── crash-test.d
+│   │   │   │   ├── openapi.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── features
+│   │   │   │   └── swagger.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── features
+│   │   │   ├── parser-org.r
+│   │   │   │   └── simple-org.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.org
+│   │   │   ├── parser-pascal.r
+│   │   │   │   ├── bug612019.pas.t
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.pas
+│   │   │   │   ├── comment-after-keyword.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.pas
+│   │   │   │   ├── simple-pascal.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.pas
+│   │   │   │   └── various-comments.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.pas
+│   │   │   ├── parser-perl.r
+│   │   │   │   ├── bug612621.pl.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.pl
+│   │   │   │   ├── bug842077.pl.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.pl
+│   │   │   │   ├── curly-bracket.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.pl
+│   │   │   │   ├── format.pl.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.pl
+│   │   │   │   ├── no-heredoc.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input-0.pl
+│   │   │   │   │   └── input.pl
+│   │   │   │   ├── package.pm.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.pm
+│   │   │   │   ├── perl-autoloader.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.pm
+│   │   │   │   ├── perl-module.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.pl
+│   │   │   │   ├── perl-pod-after-end-no-guest.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input-1.pl
+│   │   │   │   │   └── input.pl
+│   │   │   │   ├── perl-pod-after-end.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input-1.pl
+│   │   │   │   │   └── input.pl
+│   │   │   │   ├── perl-selfloader.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.pm
+│   │   │   │   ├── perl-two-line-package.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.pm
+│   │   │   │   ├── simple.pl.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.pl
+│   │   │   │   └── skip-heredoc.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       ├── input-0.pl
+│   │   │   │       └── input.pl
+│   │   │   ├── parser-php.r
+│   │   │   │   ├── anonymous_functions.php.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.php
+│   │   │   │   ├── bug681824.php.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.php
+│   │   │   │   ├── classes.php.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.php
+│   │   │   │   ├── coverage.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.php
+│   │   │   │   ├── mode.php.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.php
+│   │   │   │   ├── nullable-return-type-decl.d
+│   │   │   │   │   ├── args.tags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.php
+│   │   │   │   ├── php-7-4-typed-props-with-use-trait.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.php
+│   │   │   │   ├── php-7-4-typed-props.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.php
+│   │   │   │   ├── php-anonymous-classes.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.php
+│   │   │   │   ├── php-anonymous_functions.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.php
+│   │   │   │   ├── php-bug681824.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.php
+│   │   │   │   ├── php-case_sensitivity.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.php
+│   │   │   │   ├── php-classes.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.php
+│   │   │   │   ├── php-full-qualified-tags-no-esc.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.php
+│   │   │   │   ├── php-full-qualified-tags.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.php
+│   │   │   │   ├── php-heredoc-cr.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.php
+│   │   │   │   ├── php-heredoc.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.php
+│   │   │   │   ├── php-marker.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.unknown-lang
+│   │   │   │   ├── php-mode.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.php
+│   │   │   │   ├── php-namespaces.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.php
+│   │   │   │   ├── php-namespaces2.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.php
+│   │   │   │   ├── php-php5_5_class_kw.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.php
+│   │   │   │   ├── php-return-type-declaration.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.php
+│   │   │   │   ├── php-semi-reserved-keywords.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.php
+│   │   │   │   ├── php-simple.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.php
+│   │   │   │   ├── php-strings.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.php
+│   │   │   │   ├── php-traits.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.php
+│   │   │   │   ├── php-use.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.php
+│   │   │   │   ├── php-whitespaces.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input.php
+│   │   │   │   │   └── minitrip
+│   │   │   │   ├── run-as-guest-with-bom.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sh
+│   │   │   │   ├── run-as-guest.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sh
+│   │   │   │   ├── run-guest-nested.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.php
+│   │   │   │   ├── run-guest-with-bom.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.php
+│   │   │   │   ├── run-guest.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.php
+│   │   │   │   ├── simple.php.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.php
+│   │   │   │   ├── traits.php.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.php
+│   │   │   │   ├── whitespaces.php.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input.php
+│   │   │   │   │   └── minitrip
+│   │   │   │   ├── wp-guest-with-bom.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.php
+│   │   │   │   ├── wp-guest.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.php
+│   │   │   │   └── xml.d
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.php
+│   │   │   ├── parser-pod.r
+│   │   │   │   ├── broken-levels.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.pod
+│   │   │   │   └── simple-pod.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.pod
+│   │   │   ├── parser-powershell.r
+│   │   │   │   ├── class-powershell.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.ps1
+│   │   │   │   ├── enum-powershell.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.ps1
+│   │   │   │   ├── filter-powershell.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.ps1
+│   │   │   │   ├── herestring.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input-0.ps1
+│   │   │   │   │   ├── input-1.ps1
+│   │   │   │   │   ├── input-2.ps1
+│   │   │   │   │   ├── input-3.ps1
+│   │   │   │   │   ├── input-4.ps1
+│   │   │   │   │   ├── input-5.ps1
+│   │   │   │   │   ├── input-6.ps1
+│   │   │   │   │   └── input.ps1
+│   │   │   │   └── simple-powershell.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.ps1
+│   │   │   ├── parser-protobuf.r
+│   │   │   │   ├── package-name-including-dot.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.proto
+│   │   │   │   ├── protobuf-group.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.proto
+│   │   │   │   ├── protobuf-oneof.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.proto
+│   │   │   │   ├── simple-protobuf.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.proto
+│   │   │   │   ├── syntax-proto3.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.proto
+│   │   │   │   └── version-2-3-files.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       ├── input-0.proto
+│   │   │   │       └── input.proto
+│   │   │   ├── parser-puppetManifest.r
+│   │   │   │   ├── class-with-parameters.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.pp
+│   │   │   │   ├── nested-blocks.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.pp
+│   │   │   │   ├── node.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.pp
+│   │   │   │   ├── puppet-aliastest.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.pp
+│   │   │   │   ├── puppet-append.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input.pp
+│   │   │   │   │   └── validator
+│   │   │   │   ├── puppet-argumentdefaults.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.pp
+│   │   │   │   ├── puppet-arithmetic_expression.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.pp
+│   │   │   │   ├── puppet-arraytrailingcomma.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.pp
+│   │   │   │   ├── puppet-casestatement.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.pp
+│   │   │   │   ├── puppet-classheirarchy.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.pp
+│   │   │   │   ├── puppet-classincludes.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.pp
+│   │   │   │   ├── puppet-classname.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.pp
+│   │   │   │   ├── puppet-classpathtest.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.pp
+│   │   │   │   ├── puppet-collection.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.pp
+│   │   │   │   ├── puppet-collection_override.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.pp
+│   │   │   │   ├── puppet-collection_within_virtual_definitions.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.pp
+│   │   │   │   ├── puppet-componentmetaparams.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.pp
+│   │   │   │   ├── puppet-componentrequire.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.pp
+│   │   │   │   ├── puppet-deepclassheirarchy.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.pp
+│   │   │   │   ├── puppet-defineoverrides.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.pp
+│   │   │   │   ├── puppet-definitionname.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.pp
+│   │   │   │   ├── puppet-emptyclass.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.pp
+│   │   │   │   ├── puppet-emptyexec.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.pp
+│   │   │   │   ├── puppet-emptyif.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.pp
+│   │   │   │   ├── puppet-emptyifelse.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.pp
+│   │   │   │   ├── puppet-falsevalues.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.pp
+│   │   │   │   ├── puppet-filecreate.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.pp
+│   │   │   │   ├── puppet-fqdefinition.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.pp
+│   │   │   │   ├── puppet-fqparents.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.pp
+│   │   │   │   ├── puppet-funccomma.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.pp
+│   │   │   │   ├── puppet-hash.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.pp
+│   │   │   │   ├── puppet-ifexpression.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.pp
+│   │   │   │   ├── puppet-implicititeration.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.pp
+│   │   │   │   ├── puppet-multilinecomments.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.pp
+│   │   │   │   ├── puppet-multipleclass.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.pp
+│   │   │   │   ├── puppet-multipleinstances.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.pp
+│   │   │   │   ├── puppet-multisubs.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.pp
+│   │   │   │   ├── puppet-namevartest.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.pp
+│   │   │   │   ├── puppet-scopetest.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.pp
+│   │   │   │   ├── puppet-selectorvalues.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.pp
+│   │   │   │   ├── puppet-simpledefaults.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.pp
+│   │   │   │   ├── puppet-simpleselector.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.pp
+│   │   │   │   ├── puppet-singleary.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.pp
+│   │   │   │   ├── puppet-singlequote.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.pp
+│   │   │   │   ├── puppet-singleselector.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.pp
+│   │   │   │   ├── puppet-subclass_name_duplication.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.pp
+│   │   │   │   ├── puppet-tag.b
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   └── input.pp
+│   │   │   │   ├── puppet-tagged.b
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   └── input.pp
+│   │   │   │   ├── puppet-virtualresources.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.pp
+│   │   │   │   ├── root-sep.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.pp
+│   │   │   │   ├── typealias.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.pp
+│   │   │   │   ├── unless.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.pp
+│   │   │   │   ├── varname.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.pp
+│   │   │   │   └── validator
+│   │   │   ├── parser-python.r
+│   │   │   │   ├── async.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.py
+│   │   │   │   ├── blanks.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.py
+│   │   │   │   ├── bug1764148.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.bug1764148
+│   │   │   │   ├── bug1809024.py.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.py
+│   │   │   │   ├── bug1856363.py.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.py
+│   │   │   │   ├── bug1906062.py.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.py
+│   │   │   │   ├── bug1988026.py.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.py
+│   │   │   │   ├── bug1988027.py.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.py
+│   │   │   │   ├── bug1988130.py.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.py
+│   │   │   │   ├── bug2075402.py.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.py
+│   │   │   │   ├── bug3168705.py.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.py
+│   │   │   │   ├── bug699171.py.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.py
+│   │   │   │   ├── cython-external.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.pyx
+│   │   │   │   ├── cython_sample.pyx.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.pyx
+│   │   │   │   ├── cython_sample2.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.pyx
+│   │   │   │   ├── dotted-variable-leftovers.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.py
+│   │   │   │   ├── f-strings.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.py
+│   │   │   │   ├── matrix-multiplication-operator.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.py
+│   │   │   │   ├── multiline-arglist.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.py
+│   │   │   │   ├── multiline-class-def.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.py
+│   │   │   │   ├── multiline-def.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.py
+│   │   │   │   ├── nested-parenthesis.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.py
+│   │   │   │   ├── newlines-cr.b
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.py
+│   │   │   │   ├── newlines-crlf.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.py
+│   │   │   │   ├── pep604-bar-operator-for-union.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.py
+│   │   │   │   ├── py-skipped-string.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.py
+│   │   │   │   ├── python-access.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.py
+│   │   │   │   ├── python-anonymous-nestlevel_ctags-bug-356.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.py
+│   │   │   │   ├── python-arguments.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.py
+│   │   │   │   ├── python-comments.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.py
+│   │   │   │   ├── python-decorators.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.py
+│   │   │   │   ├── python-disable-member-kind.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   └── input.py
+│   │   │   │   ├── python-dot-in-import.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.py
+│   │   │   │   ├── python-dotted-variable.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.py
+│   │   │   │   ├── python-end-field.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.py
+│   │   │   │   ├── python-fullqualified-tags.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.py
+│   │   │   │   ├── python-geany-bug-612.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.py
+│   │   │   │   ├── python-import.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.py
+│   │   │   │   ├── python-keyword-tabulation.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.py
+│   │   │   │   ├── python-local-lambdas.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.py
+│   │   │   │   ├── python-local-variables.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.py
+│   │   │   │   ├── python-multivar-no-declaration.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.py
+│   │   │   │   ├── python-multivar-statement-with-lambdas.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.py
+│   │   │   │   ├── python-multivar-statement.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.py
+│   │   │   │   ├── python-semicolon.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.py
+│   │   │   │   ├── python2-arglists.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.py
+│   │   │   │   ├── python3-arglists.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.py
+│   │   │   │   ├── python3-function-annotations.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.py
+│   │   │   │   ├── reserved-words.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.py
+│   │   │   │   ├── simple.py.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.py
+│   │   │   │   ├── simpleNamespace.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input-0.py
+│   │   │   │   │   └── input.py
+│   │   │   │   ├── strings.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.py
+│   │   │   │   ├── tabindent.py.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.py
+│   │   │   │   ├── test.py.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.py
+│   │   │   │   ├── toplevel-funcall-with-keyword-args.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.py
+│   │   │   │   ├── triple-quotes-after-def.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.py
+│   │   │   │   ├── triple-quotes-in-class.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.py
+│   │   │   │   ├── triple-quotes-in-default-arg.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.py
+│   │   │   │   ├── triple-quotes-in-list.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.py
+│   │   │   │   ├── triple-quotes.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.py
+│   │   │   │   ├── typehint.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.py
+│   │   │   │   ├── underscore-numeric-literals.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.py
+│   │   │   │   └── variable-annotations.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.py
+│   │   │   ├── parser-qemuhx.r
+│   │   │   │   ├── disable.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.hx
+│   │   │   │   ├── enable.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.hx
+│   │   │   │   └── optscript-translation.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.hx
+│   │   │   ├── parser-qtmoc.r
+│   │   │   │   └── simple-qt.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.h
+│   │   │   ├── parser-quarto.r
+│   │   │   │   ├── simple.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.qmd
+│   │   │   │   └── unexecuted-block.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.qmd
+│   │   │   ├── parser-r.r
+│   │   │   │   ├── r-avoid-duplication.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.r
+│   │   │   │   ├── r-broken-input.d
+│   │   │   │   │   ├── input-0.r
+│   │   │   │   │   ├── input-1.r
+│   │   │   │   │   ├── input-2.r
+│   │   │   │   │   └── input.r
+│   │   │   │   ├── r-dataframe.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.r
+│   │   │   │   ├── r-dots.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.r
+│   │   │   │   ├── r-extended.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.r
+│   │   │   │   ├── r-external-entities.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input-0.r
+│   │   │   │   │   └── input.r
+│   │   │   │   ├── r-list-indexing.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.r
+│   │   │   │   ├── r-loop-counters.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.r
+│   │   │   │   ├── r-nested-vector.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.r
+│   │   │   │   ├── r-scope.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input-2.r
+│   │   │   │   │   ├── input-3.r
+│   │   │   │   │   ├── input-4.r
+│   │   │   │   │   ├── input-5.r
+│   │   │   │   │   ├── input-6.r
+│   │   │   │   │   ├── input-7.r
+│   │   │   │   │   ├── input-8.r
+│   │   │   │   │   └── input.r
+│   │   │   │   ├── r-signature.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.r
+│   │   │   │   ├── r-simple.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.r
+│   │   │   │   ├── r-upper-scope-assignement.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.r
+│   │   │   │   ├── r-uppercase-extension.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.R
+│   │   │   │   └── r-vector.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.r
+│   │   │   ├── parser-r6class.r
+│   │   │   │   ├── infinite-loop.d
+│   │   │   │   │   ├── input-0.r
+│   │   │   │   │   └── input.r
+│   │   │   │   ├── r6prefix.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.r
+│   │   │   │   └── simple-r6class.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.r
+│   │   │   ├── parser-rake.r
+│   │   │   │   ├── anonymous.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.rake
+│   │   │   │   ├── crash.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.rake
+│   │   │   │   ├── simple-rake.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.rake
+│   │   │   │   └── xtasks.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       ├── input-0.rake
+│   │   │   │       ├── input-1.rake
+│   │   │   │       └── input.rake
+│   │   │   ├── parser-raku.r
+│   │   │   │   ├── raku-bunch1.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.rakumod
+│   │   │   │   ├── raku-bunch2.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.rakumod
+│   │   │   │   └── raku-package.d
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.rakumod
+│   │   │   ├── parser-rdoc.r
+│   │   │   │   ├── run-as-guest.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input.rb
+│   │   │   │   │   └── languages
+│   │   │   │   ├── simple-rdoc.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── languages
+│   │   │   │   └── too-deep-level.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── languages
+│   │   │   ├── parser-relaxng.r
+│   │   │   │   ├── element.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── features
+│   │   │   │   │   └── input.rng
+│   │   │   │   └── grammar.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       ├── features
+│   │   │   │       └── input.rng
+│   │   │   ├── parser-restructuredtext.r
+│   │   │   │   ├── citation.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   └── expected.tags
+│   │   │   │   ├── code-blocks.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   └── expected.tags
+│   │   │   │   ├── iso8859-1-restructuredtext.d
+│   │   │   │   │   └── expected.tags
+│   │   │   │   ├── markup-line-with-spaces.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   └── expected.tags
+│   │   │   │   ├── simple-restructuredtext.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   └── expected.tags
+│   │   │   │   ├── substdef.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   └── expected.tags
+│   │   │   │   ├── target-restructuredtext.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   └── expected.tags
+│   │   │   │   ├── title.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   └── expected.tags
+│   │   │   │   └── utf8-restructuredtext.d
+│   │   │   │       └── expected.tags
+│   │   │   ├── parser-rmarkdown.r
+│   │   │   │   ├── frontmatter.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input.rmd
+│   │   │   │   │   └── languages
+│   │   │   │   └── simple-rmarkdown.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.rmd
+│   │   │   ├── parser-robot.r
+│   │   │   │   ├── dashes-in-identifiers.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.robot
+│   │   │   │   ├── keyword-started-from-varref.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.robot
+│   │   │   │   ├── simple-robot-no-extra.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.robot
+│   │   │   │   └── simple-robot.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.robot
+│   │   │   ├── parser-rpmMacros.r
+│   │   │   │   ├── lua.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.macros
+│   │   │   │   └── simple.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       ├── input-0.macros
+│   │   │   │       ├── input-1.macros
+│   │   │   │       ├── input-2.macros
+│   │   │   │       └── input.macros
+│   │   │   ├── parser-rpmspec.r
+│   │   │   │   ├── empty-line-in-macro.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   └── expected.tags
+│   │   │   │   └── simple-rpmspec.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       └── expected.tags
+│   │   │   ├── parser-rspec.r
+│   │   │   │   ├── broken-input.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   └── input.rb
+│   │   │   │   └── simple-rspec.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.rb
+│   │   │   ├── parser-ruby.r
+│   │   │   │   ├── bug1742588.rb.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.rb
+│   │   │   │   ├── ruby-alias.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input-0.rb
+│   │   │   │   │   └── input.rb
+│   │   │   │   ├── ruby-anonymouse-class.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.rb
+│   │   │   │   ├── ruby-attr.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.rb
+│   │   │   │   ├── ruby-block-assign.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.rb
+│   │   │   │   ├── ruby-block-call.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.rb
+│   │   │   │   ├── ruby-class-method-in-lt-lt-self.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.rb
+│   │   │   │   ├── ruby-class-method-with-prefixing-self.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.rb
+│   │   │   │   ├── ruby-curly-brackets.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input-0.rb
+│   │   │   │   │   ├── input-1.rb
+│   │   │   │   │   ├── input-2.rb
+│   │   │   │   │   └── input.rb
+│   │   │   │   ├── ruby-define-method.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.rb
+│   │   │   │   ├── ruby-doc.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.rb
+│   │   │   │   ├── ruby-geany-sf-bug-302.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.rb
+│   │   │   │   ├── ruby-geany-sf-bug-542.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.rb
+│   │   │   │   ├── ruby-inheritance.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.rb
+│   │   │   │   ├── ruby-kind-option.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.rb
+│   │   │   │   ├── ruby-library.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.rb
+│   │   │   │   ├── ruby-methods-for-visiblity.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.rb
+│   │   │   │   ├── ruby-mixin-field.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.rb
+│   │   │   │   ├── ruby-modules-indirect.b
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.rb
+│   │   │   │   ├── ruby-modules.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.rb
+│   │   │   │   ├── ruby-namespaced-class.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.rb
+│   │   │   │   ├── ruby-scope-after-anonymous-class.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.rb
+│   │   │   │   ├── ruby-sending-define-method.b
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.rb
+│   │   │   │   ├── ruby-sf-bug-364.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.rb
+│   │   │   │   ├── ruby-signature-field-complicated.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.rb
+│   │   │   │   ├── ruby-signature-field.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.rb
+│   │   │   │   ├── ruby-skip-data.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.rb
+│   │   │   │   ├── simple.rb.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.rb
+│   │   │   │   └── validator
+│   │   │   ├── parser-rust.r
+│   │   │   │   ├── rust-simple.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── features
+│   │   │   │   │   └── input.rs
+│   │   │   │   ├── rust-test_input.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.rs
+│   │   │   │   ├── rust-test_input2.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.rs
+│   │   │   │   ├── rust-visibility-spec.d
+│   │   │   │   │   ├── args.crags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.rs
+│   │   │   │   └── rust-vstringput-eof.d
+│   │   │   │       └── input.rs
+│   │   │   ├── parser-scdoc.r
+│   │   │   │   ├── end-with-subsection.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.scd
+│   │   │   │   └── simple-scdoc.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.scd
+│   │   │   ├── parser-scheme.r
+│   │   │   │   ├── scheme-simple-define.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.scm
+│   │   │   │   ├── scheme-simple-setbang.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.scm
+│   │   │   │   ├── scheme-srfi-30-comment.b
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.scm
+│   │   │   │   └── scheme-string.b
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.scm
+│   │   │   ├── parser-scss.r
+│   │   │   │   ├── function.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.scss
+│   │   │   │   ├── mixin.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.scss
+│   │   │   │   ├── placeholder.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.scss
+│   │   │   │   ├── selectors.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.scss
+│   │   │   │   ├── use.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.scss
+│   │   │   │   └── variable.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.scss
+│   │   │   ├── parser-selinux-interface.r
+│   │   │   │   └── simple.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.if
+│   │   │   ├── parser-selinux-type-enforcement.r
+│   │   │   │   ├── modules.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input-0.te
+│   │   │   │   │   └── input.te
+│   │   │   │   └── simple.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.te
+│   │   │   ├── parser-sh.r
+│   │   │   │   ├── array-alike-function.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.bash
+│   │   │   │   ├── function-identifiers-bash.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.bash
+│   │   │   │   ├── function-identifiers-no-function-keyword-bash.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.bash
+│   │   │   │   ├── sh-alias.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input-0.zsh
+│   │   │   │   │   └── input.sh
+│   │   │   │   ├── sh-comments.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sh
+│   │   │   │   ├── sh-heredoc-broken.d
+│   │   │   │   │   └── input.sh
+│   │   │   │   ├── sh-heredoc-broken2.d
+│   │   │   │   │   └── input.sh
+│   │   │   │   ├── sh-heredoc-checks.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sh
+│   │   │   │   ├── sh-heredoc-env-with-no-command.d
+│   │   │   │   │   └── input.sh
+│   │   │   │   ├── sh-heredoc-role.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sh
+│   │   │   │   ├── sh-heredoc-run-guest-parser-with-external-libs-and-bom.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── features
+│   │   │   │   │   ├── input-0.sh
+│   │   │   │   │   └── input.sh
+│   │   │   │   ├── sh-heredoc-run-guest-parser-with-external-libs.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── features
+│   │   │   │   │   ├── input-0.sh
+│   │   │   │   │   └── input.sh
+│   │   │   │   ├── sh-heredoc-run-guest-parser-with-packcc-with-bom.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── features
+│   │   │   │   │   └── input.sh
+│   │   │   │   ├── sh-heredoc-run-guest-parser-with-packcc.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── features
+│   │   │   │   │   └── input.sh
+│   │   │   │   ├── sh-heredoc-run-guest-parser.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sh
+│   │   │   │   ├── sh-heredoc.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sh
+│   │   │   │   ├── sh-herestring.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sh
+│   │   │   │   ├── sh-modeline-1-emacs-shell-script.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.nolang
+│   │   │   │   ├── sh-modeline-2-emacs-shell-script.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.nolang
+│   │   │   │   ├── sh-modeline-at-eof-emacs-shell-script.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.nolang
+│   │   │   │   ├── sh-quoted-func.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sh
+│   │   │   │   ├── sh-quotes.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sh
+│   │   │   │   ├── sh-source.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sh
+│   │   │   │   ├── sh-spaces-in-funcdef.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input.sh
+│   │   │   │   │   └── minitrip
+│   │   │   │   ├── sh-statements.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sh
+│   │   │   │   ├── simple.ksh.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.ksh
+│   │   │   │   ├── simple.sh.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sh
+│   │   │   │   └── zsh-traced-function.d
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.zsh
+│   │   │   ├── parser-sql.r
+│   │   │   │   ├── 3184782.sql.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sql
+│   │   │   │   ├── bug1324663.sql.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sql
+│   │   │   │   ├── bug1428714.sql.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sql
+│   │   │   │   ├── bug1570779.sql.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sql
+│   │   │   │   ├── bug1938565.sql.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sql
+│   │   │   │   ├── bug1944150.sql.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sql
+│   │   │   │   ├── bug2961855.sql.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sql
+│   │   │   │   ├── bug629115.sql.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sql
+│   │   │   │   ├── bug722501.sql.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sql
+│   │   │   │   ├── bug823000.sql.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sql
+│   │   │   │   ├── comment-as-identifier.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sql
+│   │   │   │   ├── countall.sql.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sql
+│   │   │   │   ├── db-trig.sql.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input-0.sql
+│   │   │   │   │   └── input.sql
+│   │   │   │   ├── funcions.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input-0.sql
+│   │   │   │   │   └── input.sql
+│   │   │   │   ├── hex2dec.sql.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sql
+│   │   │   │   ├── is-as-funcname.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sql
+│   │   │   │   ├── labels.sql.r
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sql
+│   │   │   │   ├── partial.d
+│   │   │   │   │   └── input.sql
+│   │   │   │   ├── random.sql.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sql
+│   │   │   │   ├── readlob.sql.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sql
+│   │   │   │   ├── readlong.sql.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sql
+│   │   │   │   ├── refcurs.sql.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sql
+│   │   │   │   ├── sharp-comment.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sql
+│   │   │   │   ├── sql-create-database.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sql
+│   │   │   │   ├── sql-create-extension.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sql
+│   │   │   │   ├── sql-create-schema.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sql
+│   │   │   │   ├── sql-create-table-as.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sql
+│   │   │   │   ├── sql-create-table-extra-select.b
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sql
+│   │   │   │   ├── sql-create-table-if-not-exists.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sql
+│   │   │   │   ├── sql-create-table-select.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sql
+│   │   │   │   ├── sql-create-view-if-not-exists.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sql
+│   │   │   │   ├── sql-plsql-ccflags.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sql
+│   │   │   │   ├── sql-plsql-inquiry-directive.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input-1.sql
+│   │   │   │   │   ├── input-2.sql
+│   │   │   │   │   └── input.sql
+│   │   │   │   ├── sql-plsql-selection-directive.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sql
+│   │   │   │   ├── sql_pgSQL_dollar_quote.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sql
+│   │   │   │   ├── sql_pgSQL_dollar_quote_complicated.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sql
+│   │   │   │   ├── sql_pgSQL_empty_decl.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sql
+│   │   │   │   ├── sql_pgSQL_guest.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sql
+│   │   │   │   ├── sql_pgSQL_with_function_x.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sql
+│   │   │   │   ├── sql_single_quote.sql.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sql
+│   │   │   │   └── transaction.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.sql
+│   │   │   ├── parser-svg.r
+│   │   │   │   ├── defs.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── features
+│   │   │   │   └── simple-svg.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── features
+│   │   │   ├── parser-systemtap.r
+│   │   │   │   ├── functions.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.stp
+│   │   │   │   ├── macros.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.stpm
+│   │   │   │   ├── probes.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.stp
+│   │   │   │   └── vars.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.stp
+│   │   │   ├── parser-tcl.r
+│   │   │   │   ├── comments.tcl.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.tcl
+│   │   │   │   ├── dollar-in-regex.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.tcl
+│   │   │   │   ├── duplication-tags-in-autofq.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.tcl
+│   │   │   │   ├── end-of-cmdline.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.tcl
+│   │   │   │   ├── escaping.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.tcl
+│   │   │   │   ├── namespace-disabled.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.tcl
+│   │   │   │   ├── namespace.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.tcl
+│   │   │   │   ├── nulltags.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags-x
+│   │   │   │   │   └── input.tcl
+│   │   │   │   ├── prefixed-proc.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.tcl
+│   │   │   │   ├── signature.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.tcl
+│   │   │   │   ├── simple.tcl.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.tcl
+│   │   │   │   ├── tcl-issue-1368.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.tcl
+│   │   │   │   └── tcl-issue-3638.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       └── input.tcl
+│   │   │   ├── parser-tcloo.r
+│   │   │   │   ├── force-use.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.tcl
+│   │   │   │   ├── namespace-class.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.tcl
+│   │   │   │   ├── namespace-wildcard.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.tcl
+│   │   │   │   ├── no-class-in-create.d
+│   │   │   │   │   └── input.tcl
+│   │   │   │   ├── no-empty-line-between-classes.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.tcl
+│   │   │   │   └── simple-tcloo.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.tcl
+│   │   │   ├── parser-terraform.r
+│   │   │   │   ├── data.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.tf
+│   │   │   │   ├── local.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.tf
+│   │   │   │   ├── module.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.tf
+│   │   │   │   ├── output.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.tf
+│   │   │   │   ├── provider.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.tf
+│   │   │   │   ├── resource.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.tf
+│   │   │   │   ├── simple-terraform.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input-0.tfvars
+│   │   │   │   │   └── input.tf
+│   │   │   │   └── variable.d
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.tf
+│   │   │   ├── parser-tex.r
+│   │   │   │   ├── bibitem.d
+│   │   │   │   │   └── expected.tags
+│   │   │   │   ├── bug2886870.tex.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   └── expected.tags
+│   │   │   │   ├── cleveref-label.d
+│   │   │   │   │   └── expected.tags
+│   │   │   │   ├── empty-arg.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   └── expected.tags
+│   │   │   │   ├── intro.tex.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   └── expected.tags
+│   │   │   │   ├── intro_orig.tex.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   └── expected.tags
+│   │   │   │   ├── newcommand.d
+│   │   │   │   │   └── expected.tags
+│   │   │   │   ├── newcounter.d
+│   │   │   │   │   └── expected.tags
+│   │   │   │   ├── newenvironment.d
+│   │   │   │   │   └── expected.tags
+│   │   │   │   ├── state-cleanup.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   └── expected.tags
+│   │   │   │   ├── unicode-sections.d
+│   │   │   │   │   └── expected.tags
+│   │   │   │   └── xinput.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input-3.bib
+│   │   │   ├── parser-thrift.r
+│   │   │   │   ├── cpp_include.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.thrift
+│   │   │   │   ├── exception.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input-0.thrift
+│   │   │   │   │   └── input.thrift
+│   │   │   │   ├── include.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.thrift
+│   │   │   │   └── simple-thrift.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.thrift
+│   │   │   ├── parser-toml.r
+│   │   │   │   ├── garbage-at-eof.b
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── features
+│   │   │   │   │   └── input.toml
+│   │   │   │   ├── run-as-guest-with-bom.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   └── expected.tags
+│   │   │   │   ├── run-as-guest.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   └── expected.tags
+│   │   │   │   └── simple.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       ├── features
+│   │   │   │       ├── input-0.toml
+│   │   │   │       └── input.toml
+│   │   │   ├── parser-ttcn.r
+│   │   │   │   ├── ttcn-altstep.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.ttcn
+│   │   │   │   ├── ttcn-comments.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input-0.ttcn
+│   │   │   │   │   ├── input-1.ttcn
+│   │   │   │   │   └── input.ttcn
+│   │   │   │   ├── ttcn-component.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.ttcn
+│   │   │   │   ├── ttcn-constants.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.ttcn
+│   │   │   │   ├── ttcn-enum.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.ttcn
+│   │   │   │   ├── ttcn-function.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.ttcn
+│   │   │   │   ├── ttcn-group.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.ttcn
+│   │   │   │   ├── ttcn-module.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.ttcn
+│   │   │   │   ├── ttcn-numbers.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.ttcn
+│   │   │   │   ├── ttcn-signature.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.ttcn
+│   │   │   │   ├── ttcn-strings-with-quotes.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.ttcn
+│   │   │   │   ├── ttcn-strings.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.ttcn
+│   │   │   │   ├── ttcn-template-function.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.ttcn
+│   │   │   │   ├── ttcn-template-restriction.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.ttcn
+│   │   │   │   ├── ttcn-template-template.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.ttcn
+│   │   │   │   ├── ttcn-template-type.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.ttcn
+│   │   │   │   ├── ttcn-template-variables-and-constants.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.ttcn
+│   │   │   │   ├── ttcn-template.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.ttcn
+│   │   │   │   ├── ttcn-testcase.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.ttcn
+│   │   │   │   ├── ttcn-timer.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.ttcn
+│   │   │   │   ├── ttcn-types.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.ttcn
+│   │   │   │   └── ttcn-variables.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.ttcn
+│   │   │   ├── parser-typescript.r
+│   │   │   │   ├── ts-class-fq-white.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.ts
+│   │   │   │   ├── ts-class-fq.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.ts
+│   │   │   │   ├── ts-class-member-init.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.ts
+│   │   │   │   ├── ts-class-white.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.ts
+│   │   │   │   ├── ts-class.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.ts
+│   │   │   │   ├── ts-const.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.ts
+│   │   │   │   ├── ts-decorators-white.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.ts
+│   │   │   │   ├── ts-decorators.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.ts
+│   │   │   │   ├── ts-enum-white.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.ts
+│   │   │   │   ├── ts-enum.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.ts
+│   │   │   │   ├── ts-function-variable-white.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.ts
+│   │   │   │   ├── ts-function-variable.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.ts
+│   │   │   │   ├── ts-function-white.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.ts
+│   │   │   │   ├── ts-function.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.ts
+│   │   │   │   ├── ts-interface-white.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.ts
+│   │   │   │   ├── ts-interface.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.ts
+│   │   │   │   ├── ts-namespace-with-fq-name-white.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.ts
+│   │   │   │   ├── ts-namespace-with-fq-name.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.ts
+│   │   │   │   ├── ts-namespaces-white.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.ts
+│   │   │   │   ├── ts-namespaces.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.ts
+│   │   │   │   ├── ts-type-white.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.ts
+│   │   │   │   └── ts-type.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.ts
+│   │   │   ├── parser-typespec.r
+│   │   │   │   └── simple-typespec.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.tsp
+│   │   │   ├── parser-unknown.r
+│   │   │   │   ├── etags.d
+│   │   │   │   │   ├── expected.tags-e
+│   │   │   │   │   └── input.unknown
+│   │   │   │   ├── no-unknown-parser.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.unknown
+│   │   │   │   ├── unknown-parser-with-some-lines.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.unknown
+│   │   │   │   └── unknown-parser.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.unknown
+│   │   │   ├── parser-v.r
+│   │   │   │   ├── helloworld.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.v
+│   │   │   │   ├── torture.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input-1.v
+│   │   │   │   │   └── input.v
+│   │   │   │   ├── v-const.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input-1.v
+│   │   │   │   │   └── input.v
+│   │   │   │   ├── v-enum.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input-1.v
+│   │   │   │   │   └── input.v
+│   │   │   │   ├── v-expr.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input-1.v
+│   │   │   │   │   ├── input-2.v
+│   │   │   │   │   └── input.v
+│   │   │   │   ├── v-extern.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.v
+│   │   │   │   ├── v-fn.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input-1.v
+│   │   │   │   │   ├── input-2.v
+│   │   │   │   │   ├── input-3.v
+│   │   │   │   │   ├── input-4.v
+│   │   │   │   │   ├── input-5.v
+│   │   │   │   │   ├── input-6.v
+│   │   │   │   │   └── input.v
+│   │   │   │   ├── v-import.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input-1.v
+│   │   │   │   │   ├── input-2.v
+│   │   │   │   │   ├── input-3.v
+│   │   │   │   │   └── input.v
+│   │   │   │   ├── v-match.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input-1.v
+│   │   │   │   │   ├── input-2.v
+│   │   │   │   │   ├── input-3.v
+│   │   │   │   │   ├── input-4.v
+│   │   │   │   │   └── input.v
+│   │   │   │   ├── v-misc.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.v
+│   │   │   │   ├── v-statements.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input-1.v
+│   │   │   │   │   ├── input-2.v
+│   │   │   │   │   ├── input-3.v
+│   │   │   │   │   ├── input-4.v
+│   │   │   │   │   ├── input-5.v
+│   │   │   │   │   ├── input-6.v
+│   │   │   │   │   └── input.v
+│   │   │   │   ├── v-struct.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input-1.v
+│   │   │   │   │   ├── input-2.v
+│   │   │   │   │   ├── input-3.v
+│   │   │   │   │   ├── input-4.v
+│   │   │   │   │   ├── input-5.v
+│   │   │   │   │   ├── input-6.v
+│   │   │   │   │   ├── input-7.v
+│   │   │   │   │   └── input.v
+│   │   │   │   └── v-type.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       ├── input-1.v
+│   │   │   │       └── input.v
+│   │   │   ├── parser-varlink.r
+│   │   │   │   ├── varlink-enum.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── features
+│   │   │   │   │   └── input.varlink
+│   │   │   │   └── varlink-type-method-error.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       ├── features
+│   │   │   │       └── input.varlink
+│   │   │   ├── parser-vera.r
+│   │   │   │   └── vera-interface.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.vr
+│   │   │   ├── parser-verilog.r
+│   │   │   │   ├── systemverilog-2d-array.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sv
+│   │   │   │   ├── systemverilog-assertion.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input.sv
+│   │   │   │   │   └── validator
+│   │   │   │   ├── systemverilog-assignment.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input.sv
+│   │   │   │   │   └── validator
+│   │   │   │   ├── systemverilog-basic.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sv
+│   │   │   │   ├── systemverilog-block.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sv
+│   │   │   │   ├── systemverilog-checker.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input.sv
+│   │   │   │   │   └── validator
+│   │   │   │   ├── systemverilog-class.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sv
+│   │   │   │   ├── systemverilog-clocking.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sv
+│   │   │   │   ├── systemverilog-constraint.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sv
+│   │   │   │   ├── systemverilog-covergroup.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sv
+│   │   │   │   ├── systemverilog-directive.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input.sv
+│   │   │   │   │   └── validator
+│   │   │   │   ├── systemverilog-github2635.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sv
+│   │   │   │   ├── systemverilog-github3457.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input.sv
+│   │   │   │   │   └── validator
+│   │   │   │   ├── systemverilog-github3462.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sv
+│   │   │   │   ├── systemverilog-github3712.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sv
+│   │   │   │   ├── systemverilog-github4056.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sv
+│   │   │   │   ├── systemverilog-github4109.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sv
+│   │   │   │   ├── systemverilog-github646.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input.sv
+│   │   │   │   │   └── validator
+│   │   │   │   ├── systemverilog-illegal.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── input-0-2724.sv
+│   │   │   │   │   ├── input-1-2738.sv
+│   │   │   │   │   └── input.sv
+│   │   │   │   ├── systemverilog-interface.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sv
+│   │   │   │   ├── systemverilog-module.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sv
+│   │   │   │   ├── systemverilog-net-var.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input.sv
+│   │   │   │   │   └── validator
+│   │   │   │   ├── systemverilog-nocontext.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sv
+│   │   │   │   ├── systemverilog-nulltags.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags-x
+│   │   │   │   │   └── input.sv
+│   │   │   │   ├── systemverilog-package.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sv
+│   │   │   │   ├── systemverilog-parameter.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sv
+│   │   │   │   ├── systemverilog-procedural.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sv
+│   │   │   │   ├── systemverilog-program.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sv
+│   │   │   │   ├── systemverilog-prototype.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sv
+│   │   │   │   ├── systemverilog-qualifiers.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sv
+│   │   │   │   ├── systemverilog-string.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sv
+│   │   │   │   ├── systemverilog-struct.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sv
+│   │   │   │   ├── systemverilog-symtab.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sv
+│   │   │   │   ├── systemverilog-task-function.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sv
+│   │   │   │   ├── systemverilog-typed-parameter.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sv
+│   │   │   │   ├── systemverilog-typedef.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sv
+│   │   │   │   ├── verilog-2001.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.v
+│   │   │   │   ├── verilog-basic.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.v
+│   │   │   │   ├── verilog-escaped-id.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.v
+│   │   │   │   ├── verilog-github624.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input.v
+│   │   │   │   │   └── validator
+│   │   │   │   ├── verilog-instance.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.v
+│   │   │   │   ├── verilog-memleak.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input.v
+│   │   │   │   │   └── validator
+│   │   │   │   ├── verilog-module-ref.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.v
+│   │   │   │   ├── verilog-multiline-macro.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sv
+│   │   │   │   ├── verilog-nocontext.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.v
+│   │   │   │   ├── verilog-sf_bug108_1.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.v
+│   │   │   │   ├── verilog-sf_bug108_2.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.v
+│   │   │   │   ├── verilog-sf_bug174.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.v
+│   │   │   │   ├── verilog-sf_bug73_1.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.v
+│   │   │   │   ├── verilog-sf_bug73_2.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.v
+│   │   │   │   ├── verilog-sf_bug73_3.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.v
+│   │   │   │   ├── verilog-sf_bug98.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.v
+│   │   │   │   ├── verilog-sf_bug99.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.v
+│   │   │   │   ├── verilog-sf_patch57.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.v
+│   │   │   │   └── validator
+│   │   │   ├── parser-vhdl.r
+│   │   │   │   ├── bug2374109.vhd.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.vhd
+│   │   │   │   ├── vhdl-component.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input-0.vhd
+│   │   │   │   │   ├── input-1.vhd
+│   │   │   │   │   └── input.vhd
+│   │   │   │   ├── vhdl-crash.d
+│   │   │   │   │   └── input.vhd
+│   │   │   │   ├── vhdl-local.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.vhd
+│   │   │   │   ├── vhdl-port.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input-0.vhd
+│   │   │   │   │   ├── input-1.vhd
+│   │   │   │   │   └── input.vhd
+│   │   │   │   ├── vhdl-process.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input-0.vhd
+│   │   │   │   │   └── input.vhd
+│   │   │   │   └── vhdl-type.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.vhd
+│   │   │   ├── parser-vim.r
+│   │   │   │   ├── 3214129.vim.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.vim
+│   │   │   │   ├── 3548393.vim.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.vim
+│   │   │   │   ├── bug3032253.vim.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.vim
+│   │   │   │   ├── bug358.vim.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.vim
+│   │   │   │   ├── bug359.vim.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.vim
+│   │   │   │   ├── end-field.vim.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.vim
+│   │   │   │   ├── simple.vim.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.vim
+│   │   │   │   ├── vim-class.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input-0.vim
+│   │   │   │   │   ├── input-1.vim
+│   │   │   │   │   └── input.vim
+│   │   │   │   ├── vim-command-in-function.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.vim
+│   │   │   │   ├── vim-command-not-command.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.vim
+│   │   │   │   ├── vim-command.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.vim
+│   │   │   │   ├── vim-const.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── input-0.vim
+│   │   │   │   │   └── input.vim
+│   │   │   │   ├── vim-heredoc.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.vim
+│   │   │   │   ├── vim-let-in-function.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.vim
+│   │   │   │   ├── vim-map-special-args.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.vim
+│   │   │   │   ├── vim-signature.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.vim
+│   │   │   │   ├── vim9-def-function.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.vim
+│   │   │   │   ├── vim9-export.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.vim
+│   │   │   │   ├── vim9-var.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.vim
+│   │   │   │   └── vimball.vim.d
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.vba
+│   │   │   ├── parser-xml.r
+│   │   │   │   ├── doctype.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── features
+│   │   │   │   ├── dos-eol.d
+│   │   │   │   │   ├── .gitattributes
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── features
+│   │   │   │   ├── ns-with-no-prefix.d
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── features
+│   │   │   │   └── simple-xml.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── features
+│   │   │   ├── parser-xslt.r
+│   │   │   │   └── xslt-simple.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       ├── features
+│   │   │   │       └── input.xsl
+│   │   │   ├── parser-yacc.r
+│   │   │   │   ├── bom.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.y
+│   │   │   │   ├── c-anon-ids.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.y
+│   │   │   │   ├── nested.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.y
+│   │   │   │   ├── not-union.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.y
+│   │   │   │   └── token-and-cstr.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.y
+│   │   │   ├── parser-yaml.r
+│   │   │   │   └── yaml-anchor.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── features
+│   │   │   ├── parser-zephir.r
+│   │   │   │   ├── zephir-return-hint.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.zep
+│   │   │   │   └── zephir-simple.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.zep
+│   │   │   ├── parser-zsh.r
+│   │   │   │   └── autoload.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.zsh
+│   │   │   ├── pcre2-single-line.d
+│   │   │   │   ├── args.ctags
+│   │   │   │   ├── expected.tags
+│   │   │   │   ├── features
+│   │   │   │   └── input.foo
+│   │   │   ├── readtags.r
+│   │   │   │   └── backslash-at-the-end-of-pattern.d
+│   │   │   │       ├── expected.tags
+│   │   │   │       ├── input.c
+│   │   │   │       └── minitrip
+│   │   │   ├── regex-flag-anonymous.d
+│   │   │   │   ├── args.ctags
+│   │   │   │   ├── expected.tags
+│   │   │   │   └── input.foo
+│   │   │   ├── regex-flag-long.d
+│   │   │   │   ├── args.ctags
+│   │   │   │   ├── expected.tags
+│   │   │   │   ├── features
+│   │   │   │   └── input.dummy
+│   │   │   ├── regex-flag-postrun.d
+│   │   │   │   ├── args.ctags
+│   │   │   │   ├── expected.tags
+│   │   │   │   └── input.c
+│   │   │   ├── regex-flag-scope.r
+│   │   │   │   ├── intervaltab-case-label.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.c
+│   │   │   │   ├── intervaltab-linux-cb.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.c
+│   │   │   │   ├── intervaltab-update-line.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.foox
+│   │   │   │   ├── regex-with-scope-autoFQTag.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.foo
+│   │   │   │   ├── regex-with-scope-nested.d
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.foo
+│   │   │   │   └── regex-with-scope.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── input.foo
+│   │   │   ├── regex-flag-simple.d
+│   │   │   │   ├── args.ctags
+│   │   │   │   ├── expected.tags
+│   │   │   │   ├── features
+│   │   │   │   └── input.dummy
+│   │   │   ├── regex-multiline-flag-advnaceTo.d
+│   │   │   │   ├── args.ctags
+│   │   │   │   ├── expected.tags
+│   │   │   │   ├── input-0.bar
+│   │   │   │   ├── input-1.baz
+│   │   │   │   └── input.foo
+│   │   │   ├── regex-multiline-flag-dos.d
+│   │   │   │   ├── args.ctags
+│   │   │   │   ├── expected.tags
+│   │   │   │   └── input.mlt
+│   │   │   ├── regex-multiline-flag-hat-and-doller.d
+│   │   │   │   ├── args.ctags
+│   │   │   │   ├── expected.tags
+│   │   │   │   └── input.foobar
+│   │   │   ├── regex-multiline-flag-newline.d
+│   │   │   │   ├── args.ctags
+│   │   │   │   ├── expected.tags
+│   │   │   │   └── input.foobar
+│   │   │   ├── regex-multiline-flag-scope.d
+│   │   │   │   ├── args.ctags
+│   │   │   │   ├── expected.tags
+│   │   │   │   └── input.foo
+│   │   │   ├── regex-multiline-flag.d
+│   │   │   │   ├── args.ctags
+│   │   │   │   ├── expected.tags
+│   │   │   │   └── input.java
+│   │   │   ├── review-needed.r
+│   │   │   │   ├── bug816636.sml.t
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sml
+│   │   │   │   ├── dosbatch_test.cmd.t
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   ├── features
+│   │   │   │   │   └── input.cmd
+│   │   │   │   ├── flex_override.mxml.t
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.mxml
+│   │   │   │   ├── ingres_procedures.sql.t
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sql
+│   │   │   │   ├── jbrown.vr.t
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.vr
+│   │   │   │   ├── maze.erl.t
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.erl
+│   │   │   │   ├── maze.hrl.t
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.hrl
+│   │   │   │   ├── simple.asp.t
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.asp
+│   │   │   │   ├── simple.fal.t
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.fal
+│   │   │   │   ├── simple.pb.t
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.pb
+│   │   │   │   ├── simple.sml.t
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.sml
+│   │   │   │   ├── simple.vr.t
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.vr
+│   │   │   │   ├── test.vhd.t
+│   │   │   │   │   ├── args.ctags
+│   │   │   │   │   ├── expected.tags
+│   │   │   │   │   └── input.vhd
+│   │   │   │   └── too-large-for-reviewing-3526726.tex.t
+│   │   │   │       └── expected.tags
+│   │   │   ├── roundtrip-escapes.d
+│   │   │   │   ├── expected.tags
+│   │   │   │   └── minitrip
+│   │   │   ├── simple-PythonEntryPoints.d
+│   │   │   │   ├── args.ctags
+│   │   │   │   ├── expected.tags
+│   │   │   │   └── input.pythonentrypoints
+│   │   │   ├── simple-abaqus.d
+│   │   │   │   ├── args.ctags
+│   │   │   │   ├── expected.tags
+│   │   │   │   └── input.inp
+│   │   │   ├── simple-abc.d
+│   │   │   │   ├── args.ctags
+│   │   │   │   ├── expected.tags
+│   │   │   │   └── input.abc
+│   │   │   ├── simple-ctags.d
+│   │   │   │   ├── expected.tags
+│   │   │   │   ├── features
+│   │   │   │   └── input.ctags
+│   │   │   ├── simple-diff.d
+│   │   │   │   ├── expected.tags
+│   │   │   │   └── input.diff
+│   │   │   ├── simple-gdbinit.d
+│   │   │   │   ├── args.ctags
+│   │   │   │   ├── expected.tags
+│   │   │   │   └── input.gdb
+│   │   │   ├── simple-glade.d
+│   │   │   │   ├── args.ctags
+│   │   │   │   ├── expected.tags
+│   │   │   │   ├── features
+│   │   │   │   └── input.glade
+│   │   │   ├── simple-haxe.d
+│   │   │   │   ├── args.ctags
+│   │   │   │   ├── expected.tags
+│   │   │   │   └── input.hx
+│   │   │   ├── simple-javaproperties.d
+│   │   │   │   ├── expected.tags
+│   │   │   │   └── input.properties
+│   │   │   ├── simple-maven2.d
+│   │   │   │   ├── args.ctags
+│   │   │   │   ├── expected.tags
+│   │   │   │   └── features
+│   │   │   ├── simple-meson-options.d
+│   │   │   │   ├── args.ctags
+│   │   │   │   ├── expected.tags
+│   │   │   │   └── input.meson_options
+│   │   │   ├── simple-passwd.d
+│   │   │   │   ├── args.ctags
+│   │   │   │   ├── expected.tags
+│   │   │   │   └── input.passwd
+│   │   │   ├── simple-pkgconfig.d
+│   │   │   │   ├── args.ctags
+│   │   │   │   ├── expected.tags
+│   │   │   │   └── input.pc
+│   │   │   ├── simple-plist.d
+│   │   │   │   ├── args.ctags
+│   │   │   │   ├── expected.tags
+│   │   │   │   ├── features
+│   │   │   │   └── input.plist
+│   │   │   ├── simple-pythonLoggingConfig.d
+│   │   │   │   ├── args.ctags
+│   │   │   │   ├── expected.tags
+│   │   │   │   └── input.conf
+│   │   │   ├── simple-s4class.d
+│   │   │   │   ├── args.ctags
+│   │   │   │   ├── expected.tags
+│   │   │   │   └── input.r
+│   │   │   ├── simple-systemdunit.d
+│   │   │   │   ├── args.ctags
+│   │   │   │   ├── expected.tags
+│   │   │   │   └── input.service
+│   │   │   ├── simple-texBeamer.d
+│   │   │   │   ├── args.ctags
+│   │   │   │   └── expected.tags
+│   │   │   ├── simple-txt2tags.d
+│   │   │   │   ├── args.ctags
+│   │   │   │   ├── expected.tags
+│   │   │   │   └── input.t2t
+│   │   │   ├── simple-windres.d
+│   │   │   │   ├── expected.tags
+│   │   │   │   └── input.rc
+│   │   │   ├── simple-xrc.d
+│   │   │   │   ├── args.ctags
+│   │   │   │   ├── expected.tags
+│   │   │   │   ├── features
+│   │   │   │   └── input.xrc
+│   │   │   ├── simple-xref.d
+│   │   │   │   ├── expected.tags-x
+│   │   │   │   └── input.c
+│   │   │   ├── simple-yumrepo.d
+│   │   │   │   ├── args.ctags
+│   │   │   │   ├── expected.tags
+│   │   │   │   └── input.repo
+│   │   │   ├── unit-example-multi-inputs.d
+│   │   │   │   ├── args.ctags
+│   │   │   │   ├── expected.tags
+│   │   │   │   ├── input-0.h
+│   │   │   │   ├── input-1.sh
+│   │   │   │   ├── input-2.c
+│   │   │   │   ├── input-3.c
+│   │   │   │   └── input.c
+│   │   │   ├── writer-ctags.r
+│   │   │   │   └── output-field-escaping.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags
+│   │   │   │       └── minitrip
+│   │   │   ├── writer-etags.r
+│   │   │   │   ├── cork-etags.d
+│   │   │   │   │   ├── expected.tags-e
+│   │   │   │   │   └── input.clj
+│   │   │   │   └── simple-etags.d
+│   │   │   │       ├── expected.tags-e
+│   │   │   │       └── input.c
+│   │   │   ├── writer-json.r
+│   │   │   │   └── fq-json.d
+│   │   │   │       ├── args.ctags
+│   │   │   │       ├── expected.tags-json
+│   │   │   │       └── input.py
+│   │   │   └── writer-xref.r
+│   │   │       ├── cork-xref.d
+│   │   │       │   ├── expected.tags-x
+│   │   │       │   └── input.clj
+│   │   │       ├── format-CfSt.d
+│   │   │       │   ├── args.ctags
+│   │   │       │   ├── expected.tags-x
+│   │   │       │   └── input.c
+│   │   │       ├── format-NlKkFnP.d
+│   │   │       │   ├── args.ctags
+│   │   │       │   ├── expected.tags-x
+│   │   │       │   ├── filter
+│   │   │       │   └── input.m
+│   │   │       ├── format-aim.d
+│   │   │       │   ├── args.ctags
+│   │   │       │   ├── expected.tags-x
+│   │   │       │   └── input.java
+│   │   │       ├── fq-xref.d
+│   │   │       │   ├── args.ctags
+│   │   │       │   ├── expected.tags-x
+│   │   │       │   └── input.py
+│   │   │       ├── ptag-xref.d
+│   │   │       │   ├── args.ctags
+│   │   │       │   ├── expected.tags-x
+│   │   │       │   └── input.c
+│   │   │       └── truncation.d
+│   │   │           ├── args.ctags
+│   │   │           ├── expected.tags-x
+│   │   │           └── input.c
+│   │   ├── autom4te.cache
+│   │   │   ├── output.0
+│   │   │   ├── requests
+│   │   │   └── traces.0
+│   │   ├── dsl
+│   │   │   ├── .deps
+│   │   │   │   ├── .dirstamp
+│   │   │   │   ├── libctags_a-es.Po
+│   │   │   │   ├── libctags_a-optscript.Po
+│   │   │   │   ├── readtags-dsl.Po
+│   │   │   │   ├── readtags-es.Po
+│   │   │   │   ├── readtags-formatter.Po
+│   │   │   │   ├── readtags-qualifier.Po
+│   │   │   │   └── readtags-sorter.Po
+│   │   │   ├── .dirstamp
+│   │   │   ├── dsl.c
+│   │   │   ├── dsl.h
+│   │   │   ├── es.c
+│   │   │   ├── es.h
+│   │   │   ├── formatter.c
+│   │   │   ├── formatter.h
+│   │   │   ├── libctags_a-es.o
+│   │   │   ├── libctags_a-optscript.o
+│   │   │   ├── optscript.c
+│   │   │   ├── optscript.h
+│   │   │   ├── qualifier.c
+│   │   │   ├── qualifier.h
+│   │   │   ├── sorter.c
+│   │   │   └── sorter.h
+│   │   ├── extra-cmds
+│   │   │   ├── .deps
+│   │   │   │   ├── optscript-optscript-repl.Po
+│   │   │   │   ├── readtags-printtags.Po
+│   │   │   │   ├── readtags-readtags-cmd.Po
+│   │   │   │   ├── readtags-readtags-stub.Po
+│   │   │   │   ├── utiltest-readtags-stub.Po
+│   │   │   │   └── utiltest-utiltest.Po
+│   │   │   ├── Makefile
+│   │   │   ├── acutest.h
+│   │   │   ├── optscript-repl.c
+│   │   │   ├── printtags.c
+│   │   │   ├── printtags.h
+│   │   │   ├── readtags-cmd.c
+│   │   │   ├── readtags-stub.c
+│   │   │   ├── readtags-stub.h
+│   │   │   └── utiltest.c
+│   │   ├── gnulib
+│   │   │   ├── .deps
+│   │   │   │   ├── btowc.Po
+│   │   │   │   ├── fnmatch.Po
+│   │   │   │   ├── fnmatch_loop.Po
+│   │   │   │   ├── hard-locale.Po
+│   │   │   │   ├── isblank.Po
+│   │   │   │   ├── lc-charset-dispatch.Po
+│   │   │   │   ├── localcharset.Po
+│   │   │   │   ├── localeconv.Po
+│   │   │   │   ├── mbrtowc.Po
+│   │   │   │   ├── mbsinit.Po
+│   │   │   │   ├── mbsrtowcs-state.Po
+│   │   │   │   ├── mbsrtowcs.Po
+│   │   │   │   ├── mbtowc-lock.Po
+│   │   │   │   ├── mbtowc.Po
+│   │   │   │   ├── memchr.Po
+│   │   │   │   ├── mempcpy.Po
+│   │   │   │   ├── nl_langinfo-lock.Po
+│   │   │   │   ├── nl_langinfo.Po
+│   │   │   │   ├── regcomp.Po
+│   │   │   │   ├── regex.Po
+│   │   │   │   ├── regex_internal.Po
+│   │   │   │   ├── regexec.Po
+│   │   │   │   ├── setlocale-lock.Po
+│   │   │   │   ├── setlocale_null.Po
+│   │   │   │   ├── strnlen.Po
+│   │   │   │   ├── strnlen1.Po
+│   │   │   │   ├── unistd.Po
+│   │   │   │   ├── wcrtomb.Po
+│   │   │   │   ├── wctype-h.Po
+│   │   │   │   ├── windows-mutex.Po
+│   │   │   │   ├── windows-once.Po
+│   │   │   │   ├── windows-recmutex.Po
+│   │   │   │   ├── windows-rwlock.Po
+│   │   │   │   ├── wmemchr.Po
+│   │   │   │   └── wmempcpy.Po
+│   │   │   ├── glthread
+│   │   │   │   ├── .deps
+│   │   │   │   │   ├── .dirstamp
+│   │   │   │   │   ├── lock.Po
+│   │   │   │   │   └── threadlib.Po
+│   │   │   │   ├── .dirstamp
+│   │   │   │   ├── lock.c
+│   │   │   │   ├── lock.h
+│   │   │   │   ├── lock.o
+│   │   │   │   ├── threadlib.c
+│   │   │   │   └── threadlib.o
+│   │   │   ├── malloc
+│   │   │   │   ├── .deps
+│   │   │   │   │   ├── .dirstamp
+│   │   │   │   │   ├── dynarray-skeleton.Po
+│   │   │   │   │   ├── dynarray_at_failure.Po
+│   │   │   │   │   ├── dynarray_emplace_enlarge.Po
+│   │   │   │   │   ├── dynarray_finalize.Po
+│   │   │   │   │   ├── dynarray_resize.Po
+│   │   │   │   │   └── dynarray_resize_clear.Po
+│   │   │   │   ├── .dirstamp
+│   │   │   │   ├── dynarray-skeleton.c
+│   │   │   │   ├── dynarray-skeleton.gl.h
+│   │   │   │   ├── dynarray.gl.h
+│   │   │   │   ├── dynarray.h
+│   │   │   │   ├── dynarray_at_failure.c
+│   │   │   │   ├── dynarray_at_failure.o
+│   │   │   │   ├── dynarray_emplace_enlarge.c
+│   │   │   │   ├── dynarray_emplace_enlarge.o
+│   │   │   │   ├── dynarray_finalize.c
+│   │   │   │   ├── dynarray_finalize.o
+│   │   │   │   ├── dynarray_resize.c
+│   │   │   │   ├── dynarray_resize.o
+│   │   │   │   ├── dynarray_resize_clear.c
+│   │   │   │   └── dynarray_resize_clear.o
+│   │   │   ├── sys
+│   │   │   │   └── types.h
+│   │   │   ├── Makefile
+│   │   │   ├── Makefile.am
+│   │   │   ├── Makefile.in
+│   │   │   ├── _Noreturn.h
+│   │   │   ├── alloca.h
+│   │   │   ├── alloca.in.h
+│   │   │   ├── arg-nonnull.h
+│   │   │   ├── attribute.h
+│   │   │   ├── btowc.c
+│   │   │   ├── c++defs.h
+│   │   │   ├── cdefs.h
+│   │   │   ├── ctype.h
+│   │   │   ├── ctype.in.h
+│   │   │   ├── dynarray.h
+│   │   │   ├── flexmember.h
+│   │   │   ├── fnmatch.c
+│   │   │   ├── fnmatch.in.h
+│   │   │   ├── fnmatch_loop.c
+│   │   │   ├── hard-locale.c
+│   │   │   ├── hard-locale.h
+│   │   │   ├── hard-locale.o
+│   │   │   ├── idx.h
+│   │   │   ├── intprops.h
+│   │   │   ├── inttypes.h
+│   │   │   ├── inttypes.in.h
+│   │   │   ├── isblank.c
+│   │   │   ├── langinfo.h
+│   │   │   ├── langinfo.in.h
+│   │   │   ├── lc-charset-dispatch.c
+│   │   │   ├── lc-charset-dispatch.h
+│   │   │   ├── libc-config.h
+│   │   │   ├── libgnu.a
+│   │   │   ├── limits.h
+│   │   │   ├── limits.in.h
+│   │   │   ├── localcharset.c
+│   │   │   ├── localcharset.h
+│   │   │   ├── localcharset.o
+│   │   │   ├── locale.h
+│   │   │   ├── locale.in.h
+│   │   │   ├── localeconv.c
+│   │   │   ├── mbrtowc-impl-utf8.h
+│   │   │   ├── mbrtowc-impl.h
+│   │   │   ├── mbrtowc.c
+│   │   │   ├── mbrtowc.o
+│   │   │   ├── mbsinit.c
+│   │   │   ├── mbsrtowcs-impl.h
+│   │   │   ├── mbsrtowcs-state.c
+│   │   │   ├── mbsrtowcs.c
+│   │   │   ├── mbtowc-impl.h
+│   │   │   ├── mbtowc-lock.c
+│   │   │   ├── mbtowc-lock.h
+│   │   │   ├── mbtowc.c
+│   │   │   ├── memchr.c
+│   │   │   ├── memchr.valgrind
+│   │   │   ├── mempcpy.c
+│   │   │   ├── nl_langinfo-lock.c
+│   │   │   ├── nl_langinfo.c
+│   │   │   ├── nl_langinfo.o
+│   │   │   ├── regcomp.c
+│   │   │   ├── regex.c
+│   │   │   ├── regex.h
+│   │   │   ├── regex_internal.c
+│   │   │   ├── regex_internal.h
+│   │   │   ├── regexec.c
+│   │   │   ├── setlocale-lock.c
+│   │   │   ├── setlocale_null.c
+│   │   │   ├── setlocale_null.h
+│   │   │   ├── setlocale_null.o
+│   │   │   ├── stdbool.in.h
+│   │   │   ├── stddef.in.h
+│   │   │   ├── stdint.h
+│   │   │   ├── stdint.in.h
+│   │   │   ├── stdlib.h
+│   │   │   ├── stdlib.in.h
+│   │   │   ├── streq.h
+│   │   │   ├── string.h
+│   │   │   ├── string.in.h
+│   │   │   ├── strnlen.c
+│   │   │   ├── strnlen1.c
+│   │   │   ├── strnlen1.h
+│   │   │   ├── strnlen1.o
+│   │   │   ├── sys_types.in.h
+│   │   │   ├── unistd.c
+│   │   │   ├── unistd.h
+│   │   │   ├── unistd.in.h
+│   │   │   ├── unistd.o
+│   │   │   ├── verify.h
+│   │   │   ├── warn-on-use.h
+│   │   │   ├── wchar.h
+│   │   │   ├── wchar.in.h
+│   │   │   ├── wcrtomb.c
+│   │   │   ├── wctype-h.c
+│   │   │   ├── wctype-h.o
+│   │   │   ├── wctype.h
+│   │   │   ├── wctype.in.h
+│   │   │   ├── windows-initguard.h
+│   │   │   ├── windows-mutex.c
+│   │   │   ├── windows-mutex.h
+│   │   │   ├── windows-once.c
+│   │   │   ├── windows-once.h
+│   │   │   ├── windows-recmutex.c
+│   │   │   ├── windows-recmutex.h
+│   │   │   ├── windows-rwlock.c
+│   │   │   ├── windows-rwlock.h
+│   │   │   ├── wmemchr-impl.h
+│   │   │   ├── wmemchr.c
+│   │   │   └── wmempcpy.c
+│   │   ├── libreadtags
+│   │   │   ├── .circleci
+│   │   │   ├── .deps
+│   │   │   │   └── readtags-readtags.Po
+│   │   │   ├── tests
+│   │   │   │   ├── Makefile.am
+│   │   │   │   ├── api-tagsOpen-ectags.tags
+│   │   │   │   ├── api-tagsOpen-incomplete-program-author-0.tags
+│   │   │   │   ├── api-tagsOpen-incomplete-program-author-1.tags
+│   │   │   │   ├── api-tagsOpen-incomplete-program-author-2.tags
+│   │   │   │   ├── api-tagsOpen-incomplete-program-author-3.tags
+│   │   │   │   ├── api-tagsOpen-incomplete-program-author-4.tags
+│   │   │   │   ├── api-tagsOpen-incomplete-program-author-5.tags
+│   │   │   │   ├── api-tagsOpen-wrong-format-nonum.tags
+│   │   │   │   ├── api-tagsOpen-wrong-format-num.tags
+│   │   │   │   ├── api-tagsOpen-wrong-sort-method-nonum.tags
+│   │   │   │   ├── api-tagsOpen-wrong-sort-method-num.tags
+│   │   │   │   ├── broken-line-field-in-middle.tags
+│   │   │   │   ├── broken-line-field-other-than-first.tags
+│   │   │   │   ├── broken-line-field.tags
+│   │   │   │   ├── duplicated-names--sorted-foldcase.tags
+│   │   │   │   ├── duplicated-names--sorted-no.tags
+│   │   │   │   ├── duplicated-names--sorted-yes.tags
+│   │   │   │   ├── duplicated-names.c
+│   │   │   │   ├── empty-no-newline.tags
+│   │   │   │   ├── empty.tags
+│   │   │   │   ├── null-deref.tags
+│   │   │   │   ├── ptag-sort-no.tags
+│   │   │   │   ├── ptag-sort-yes.tags
+│   │   │   │   ├── test-api-tagsClose.c
+│   │   │   │   ├── test-api-tagsFind.c
+│   │   │   │   ├── test-api-tagsFindPseudoTag.c
+│   │   │   │   ├── test-api-tagsFirst.c
+│   │   │   │   ├── test-api-tagsFirstPseudoTag.c
+│   │   │   │   ├── test-api-tagsOpen.c
+│   │   │   │   ├── test-api-tagsSetSortType.c
+│   │   │   │   ├── test-fields.h
+│   │   │   │   ├── test-fix-large-tags.c
+│   │   │   │   ├── test-fix-null-deref.c
+│   │   │   │   ├── test-fix-unescaping-input-fields-backslash.c
+│   │   │   │   ├── test-fix-unescaping-input-fields-exuberant.c
+│   │   │   │   ├── test-fix-unescaping-input-fields-no-filesep.c
+│   │   │   │   ├── test-fix-unescaping-input-fields-no-mode.c
+│   │   │   │   ├── test-fix-unescaping-input-fields.c
+│   │   │   │   ├── test-fix-unescaping.c
+│   │   │   │   ├── unescaping-input-fields-backslash.tags
+│   │   │   │   ├── unescaping-input-fields-exuberant.tags
+│   │   │   │   ├── unescaping-input-fields-no-filesep.tags
+│   │   │   │   ├── unescaping-input-fields-no-mode.tags
+│   │   │   │   ├── unescaping-input-fields.tags
+│   │   │   │   └── unescaping.tags
+│   │   │   ├── .dir-locals.el
+│   │   │   ├── .editorconfig
+│   │   │   ├── .indent.pro
+│   │   │   ├── .uncrustify.cfg
+│   │   │   ├── Makefile.am
+│   │   │   ├── autogen.sh
+│   │   │   ├── configure.ac
+│   │   │   ├── libreadtags-uninstalled.pc.in
+│   │   │   ├── libreadtags.pc.in
+│   │   │   ├── readtags.c
+│   │   │   ├── readtags.h
+│   │   │   └── test_inline.c
+│   │   ├── m4
+│   │   │   ├── 00gnulib.m4
+│   │   │   ├── __inline.m4
+│   │   │   ├── absolute-header.m4
+│   │   │   ├── alloca.m4
+│   │   │   ├── attributes.m4
+│   │   │   ├── ax_check_compile_flag.m4
+│   │   │   ├── btowc.m4
+│   │   │   ├── builtin-expect.m4
+│   │   │   ├── codeset.m4
+│   │   │   ├── ctype_h.m4
+│   │   │   ├── eealloc.m4
+│   │   │   ├── extensions.m4
+│   │   │   ├── extern-inline.m4
+│   │   │   ├── flexmember.m4
+│   │   │   ├── fnmatch.m4
+│   │   │   ├── fnmatch_h.m4
+│   │   │   ├── gnulib-cache.m4
+│   │   │   ├── gnulib-common.m4
+│   │   │   ├── gnulib-comp.m4
+│   │   │   ├── gnulib-tool.m4
+│   │   │   ├── include_next.m4
+│   │   │   ├── inttypes.m4
+│   │   │   ├── isblank.m4
+│   │   │   ├── langinfo_h.m4
+│   │   │   ├── limits-h.m4
+│   │   │   ├── localcharset.m4
+│   │   │   ├── locale-fr.m4
+│   │   │   ├── locale-ja.m4
+│   │   │   ├── locale-zh.m4
+│   │   │   ├── locale_h.m4
+│   │   │   ├── localeconv.m4
+│   │   │   ├── lock.m4
+│   │   │   ├── mbrtowc.m4
+│   │   │   ├── mbsinit.m4
+│   │   │   ├── mbsrtowcs.m4
+│   │   │   ├── mbstate_t.m4
+│   │   │   ├── mbtowc.m4
+│   │   │   ├── memchr.m4
+│   │   │   ├── mempcpy.m4
+│   │   │   ├── mmap-anon.m4
+│   │   │   ├── multiarch.m4
+│   │   │   ├── nl_langinfo.m4
+│   │   │   ├── off_t.m4
+│   │   │   ├── pid_t.m4
+│   │   │   ├── pthread_rwlock_rdlock.m4
+│   │   │   ├── regex.m4
+│   │   │   ├── setlocale_null.m4
+│   │   │   ├── ssize_t.m4
+│   │   │   ├── std-gnu11.m4
+│   │   │   ├── stdbool.m4
+│   │   │   ├── stddef_h.m4
+│   │   │   ├── stdint.m4
+│   │   │   ├── stdlib_h.m4
+│   │   │   ├── string_h.m4
+│   │   │   ├── strnlen.m4
+│   │   │   ├── sys_types_h.m4
+│   │   │   ├── threadlib.m4
+│   │   │   ├── unistd_h.m4
+│   │   │   ├── visibility.m4
+│   │   │   ├── warn-on-use.m4
+│   │   │   ├── wchar_h.m4
+│   │   │   ├── wchar_t.m4
+│   │   │   ├── wcrtomb.m4
+│   │   │   ├── wctype_h.m4
+│   │   │   ├── wint_t.m4
+│   │   │   ├── wmemchr.m4
+│   │   │   ├── wmempcpy.m4
+│   │   │   └── zzgnulib.m4
+│   │   ├── main
+│   │   │   ├── .deps
+│   │   │   │   ├── .dirstamp
+│   │   │   │   ├── ctags-cmd.Po
+│   │   │   │   ├── libctags_a-CommonPrelude.Po
+│   │   │   │   ├── libctags_a-args.Po
+│   │   │   │   ├── libctags_a-collector.Po
+│   │   │   │   ├── libctags_a-colprint.Po
+│   │   │   │   ├── libctags_a-debug.Po
+│   │   │   │   ├── libctags_a-dependency.Po
+│   │   │   │   ├── libctags_a-entry.Po
+│   │   │   │   ├── libctags_a-entry_private.Po
+│   │   │   │   ├── libctags_a-error.Po
+│   │   │   │   ├── libctags_a-field.Po
+│   │   │   │   ├── libctags_a-flags.Po
+│   │   │   │   ├── libctags_a-fmt.Po
+│   │   │   │   ├── libctags_a-fname.Po
+│   │   │   │   ├── libctags_a-htable.Po
+│   │   │   │   ├── libctags_a-intern.Po
+│   │   │   │   ├── libctags_a-keyword.Po
+│   │   │   │   ├── libctags_a-kind.Po
+│   │   │   │   ├── libctags_a-lregex-default.Po
+│   │   │   │   ├── libctags_a-lregex-pcre2.Po
+│   │   │   │   ├── libctags_a-lregex.Po
+│   │   │   │   ├── libctags_a-lxpath.Po
+│   │   │   │   ├── libctags_a-main.Po
+│   │   │   │   ├── libctags_a-mbcs.Po
+│   │   │   │   ├── libctags_a-mio.Po
+│   │   │   │   ├── libctags_a-nestlevel.Po
+│   │   │   │   ├── libctags_a-numarray.Po
+│   │   │   │   ├── libctags_a-objpool.Po
+│   │   │   │   ├── libctags_a-options.Po
+│   │   │   │   ├── libctags_a-param.Po
+│   │   │   │   ├── libctags_a-parse.Po
+│   │   │   │   ├── libctags_a-portable-scandir.Po
+│   │   │   │   ├── libctags_a-promise.Po
+│   │   │   │   ├── libctags_a-ptag.Po
+│   │   │   │   ├── libctags_a-ptrarray.Po
+│   │   │   │   ├── libctags_a-rbtree.Po
+│   │   │   │   ├── libctags_a-read.Po
+│   │   │   │   ├── libctags_a-repoinfo.Po
+│   │   │   │   ├── libctags_a-routines.Po
+│   │   │   │   ├── libctags_a-script.Po
+│   │   │   │   ├── libctags_a-seccomp.Po
+│   │   │   │   ├── libctags_a-selectors.Po
+│   │   │   │   ├── libctags_a-sort.Po
+│   │   │   │   ├── libctags_a-stats.Po
+│   │   │   │   ├── libctags_a-strlist.Po
+│   │   │   │   ├── libctags_a-tokeninfo.Po
+│   │   │   │   ├── libctags_a-trace.Po
+│   │   │   │   ├── libctags_a-trashbox.Po
+│   │   │   │   ├── libctags_a-unwindi.Po
+│   │   │   │   ├── libctags_a-utf8_str.Po
+│   │   │   │   ├── libctags_a-vstring.Po
+│   │   │   │   ├── libctags_a-writer-ctags.Po
+│   │   │   │   ├── libctags_a-writer-etags.Po
+│   │   │   │   ├── libctags_a-writer-json.Po
+│   │   │   │   ├── libctags_a-writer-xref.Po
+│   │   │   │   ├── libctags_a-writer.Po
+│   │   │   │   ├── libctags_a-xtag.Po
+│   │   │   │   ├── libutil_a-collector.Po
+│   │   │   │   ├── libutil_a-fname.Po
+│   │   │   │   ├── libutil_a-htable.Po
+│   │   │   │   ├── libutil_a-intern.Po
+│   │   │   │   ├── libutil_a-mio.Po
+│   │   │   │   ├── libutil_a-numarray.Po
+│   │   │   │   ├── libutil_a-ptrarray.Po
+│   │   │   │   ├── libutil_a-routines.Po
+│   │   │   │   ├── libutil_a-trashbox.Po
+│   │   │   │   ├── libutil_a-vstring.Po
+│   │   │   │   └── mini_geany-mini-geany.Po
+│   │   │   ├── .dirstamp
+│   │   │   ├── CommonPrelude.c
+│   │   │   ├── CommonPrelude.ps
+│   │   │   ├── Makefile
+│   │   │   ├── args.c
+│   │   │   ├── args_p.h
+│   │   │   ├── cmd.c
+│   │   │   ├── collector.c
+│   │   │   ├── collector.h
+│   │   │   ├── colprint.c
+│   │   │   ├── colprint_p.h
+│   │   │   ├── ctags-cmd.o
+│   │   │   ├── ctags.h
+│   │   │   ├── debug.c
+│   │   │   ├── debug.h
+│   │   │   ├── dependency.c
+│   │   │   ├── dependency.h
+│   │   │   ├── dependency_p.h
+│   │   │   ├── e_msoft.h
+│   │   │   ├── entry.c
+│   │   │   ├── entry.h
+│   │   │   ├── entry_p.h
+│   │   │   ├── entry_private.c
+│   │   │   ├── error.c
+│   │   │   ├── error_p.h
+│   │   │   ├── field.c
+│   │   │   ├── field.h
+│   │   │   ├── field_p.h
+│   │   │   ├── flags.c
+│   │   │   ├── flags_p.h
+│   │   │   ├── fmt.c
+│   │   │   ├── fmt_p.h
+│   │   │   ├── fname.c
+│   │   │   ├── fname.h
+│   │   │   ├── gcc-attr.h
+│   │   │   ├── general.h
+│   │   │   ├── gvars.h
+│   │   │   ├── htable.c
+│   │   │   ├── htable.h
+│   │   │   ├── inline.h
+│   │   │   ├── interactive_p.h
+│   │   │   ├── intern.c
+│   │   │   ├── intern.h
+│   │   │   ├── interval_tree_generic.h
+│   │   │   ├── keyword.c
+│   │   │   ├── keyword.h
+│   │   │   ├── keyword_p.h
+│   │   │   ├── kind.c
+│   │   │   ├── kind.h
+│   │   │   ├── kind_p.h
+│   │   │   ├── libctags_a-CommonPrelude.o
+│   │   │   ├── libctags_a-args.o
+│   │   │   ├── libctags_a-collector.o
+│   │   │   ├── libctags_a-colprint.o
+│   │   │   ├── libctags_a-debug.o
+│   │   │   ├── libctags_a-dependency.o
+│   │   │   ├── libctags_a-entry.o
+│   │   │   ├── libctags_a-entry_private.o
+│   │   │   ├── libctags_a-error.o
+│   │   │   ├── libctags_a-field.o
+│   │   │   ├── libctags_a-flags.o
+│   │   │   ├── libctags_a-fmt.o
+│   │   │   ├── libctags_a-fname.o
+│   │   │   ├── libctags_a-htable.o
+│   │   │   ├── libctags_a-intern.o
+│   │   │   ├── libctags_a-keyword.o
+│   │   │   ├── libctags_a-kind.o
+│   │   │   ├── libctags_a-lregex-default.o
+│   │   │   ├── libctags_a-lregex.o
+│   │   │   ├── libctags_a-lxpath.o
+│   │   │   ├── libctags_a-main.o
+│   │   │   ├── libctags_a-mbcs.o
+│   │   │   ├── libctags_a-mio.o
+│   │   │   ├── libctags_a-nestlevel.o
+│   │   │   ├── libctags_a-numarray.o
+│   │   │   ├── libctags_a-objpool.o
+│   │   │   ├── libctags_a-options.o
+│   │   │   ├── libctags_a-param.o
+│   │   │   ├── libctags_a-parse.o
+│   │   │   ├── libctags_a-portable-scandir.o
+│   │   │   ├── libctags_a-promise.o
+│   │   │   ├── libctags_a-ptag.o
+│   │   │   ├── libctags_a-ptrarray.o
+│   │   │   ├── libctags_a-rbtree.o
+│   │   │   ├── libctags_a-read.o
+│   │   │   ├── libctags_a-repoinfo.o
+│   │   │   ├── libctags_a-routines.o
+│   │   │   ├── libctags_a-script.o
+│   │   │   ├── libctags_a-seccomp.o
+│   │   │   ├── libctags_a-selectors.o
+│   │   │   ├── libctags_a-sort.o
+│   │   │   ├── libctags_a-stats.o
+│   │   │   ├── libctags_a-strlist.o
+│   │   │   ├── libctags_a-tokeninfo.o
+│   │   │   ├── libctags_a-trace.o
+│   │   │   ├── libctags_a-trashbox.o
+│   │   │   ├── libctags_a-unwindi.o
+│   │   │   ├── libctags_a-utf8_str.o
+│   │   │   ├── libctags_a-vstring.o
+│   │   │   ├── libctags_a-writer-ctags.o
+│   │   │   ├── libctags_a-writer-etags.o
+│   │   │   ├── libctags_a-writer-json.o
+│   │   │   ├── libctags_a-writer-xref.o
+│   │   │   ├── libctags_a-writer.o
+│   │   │   ├── libctags_a-xtag.o
+│   │   │   ├── lregex-default.c
+│   │   │   ├── lregex-pcre2.c
+│   │   │   ├── lregex.c
+│   │   │   ├── lregex.h
+│   │   │   ├── lregex_p.h
+│   │   │   ├── lxpath.c
+│   │   │   ├── lxpath.h
+│   │   │   ├── lxpath_p.h
+│   │   │   ├── main.c
+│   │   │   ├── main_p.h
+│   │   │   ├── mbcs.c
+│   │   │   ├── mbcs.h
+│   │   │   ├── mbcs_p.h
+│   │   │   ├── mini-geany.c
+│   │   │   ├── mio.c
+│   │   │   ├── mio.h
+│   │   │   ├── nestlevel.c
+│   │   │   ├── nestlevel.h
+│   │   │   ├── numarray.c
+│   │   │   ├── numarray.h
+│   │   │   ├── objpool.c
+│   │   │   ├── objpool.h
+│   │   │   ├── options.c
+│   │   │   ├── options.h
+│   │   │   ├── options_p.h
+│   │   │   ├── param.c
+│   │   │   ├── param.h
+│   │   │   ├── param_p.h
+│   │   │   ├── parse.c
+│   │   │   ├── parse.h
+│   │   │   ├── parse_p.h
+│   │   │   ├── parsers_p.h
+│   │   │   ├── portable-dirent_p.h
+│   │   │   ├── portable-scandir.c
+│   │   │   ├── promise.c
+│   │   │   ├── promise.h
+│   │   │   ├── promise_p.h
+│   │   │   ├── ptag.c
+│   │   │   ├── ptag_p.h
+│   │   │   ├── ptrarray.c
+│   │   │   ├── ptrarray.h
+│   │   │   ├── rbtree.c
+│   │   │   ├── rbtree.h
+│   │   │   ├── rbtree_augmented.h
+│   │   │   ├── read.c
+│   │   │   ├── read.h
+│   │   │   ├── read_p.h
+│   │   │   ├── repoinfo.c
+│   │   │   ├── repoinfo.h
+│   │   │   ├── routines.c
+│   │   │   ├── routines.h
+│   │   │   ├── routines_p.h
+│   │   │   ├── script.c
+│   │   │   ├── script_p.h
+│   │   │   ├── seccomp.c
+│   │   │   ├── selectors.c
+│   │   │   ├── selectors.h
+│   │   │   ├── sort.c
+│   │   │   ├── sort_p.h
+│   │   │   ├── sort_r.h
+│   │   │   ├── stats.c
+│   │   │   ├── stats_p.h
+│   │   │   ├── strlist.c
+│   │   │   ├── strlist.h
+│   │   │   ├── subparser.h
+│   │   │   ├── subparser_p.h
+│   │   │   ├── tokeninfo.c
+│   │   │   ├── tokeninfo.h
+│   │   │   ├── trace.c
+│   │   │   ├── trace.h
+│   │   │   ├── trashbox.c
+│   │   │   ├── trashbox.h
+│   │   │   ├── trashbox_p.h
+│   │   │   ├── types.h
+│   │   │   ├── unwindi.c
+│   │   │   ├── unwindi.h
+│   │   │   ├── utf8_str.c
+│   │   │   ├── utf8_str.h
+│   │   │   ├── vstring.c
+│   │   │   ├── vstring.h
+│   │   │   ├── writer-ctags.c
+│   │   │   ├── writer-etags.c
+│   │   │   ├── writer-json.c
+│   │   │   ├── writer-xref.c
+│   │   │   ├── writer.c
+│   │   │   ├── writer_p.h
+│   │   │   ├── xtag.c
+│   │   │   ├── xtag.h
+│   │   │   └── xtag_p.h
+│   │   ├── makefiles
+│   │   │   ├── help.mak
+│   │   │   └── testing.mak
+│   │   ├── man
+│   │   │   ├── GNUmakefile
+│   │   │   ├── GNUmakefile.am
+│   │   │   ├── GNUmakefile.in
+│   │   │   ├── Makefile
+│   │   │   ├── ctags-client-tools.7.rst.in
+│   │   │   ├── ctags-faq.7.rst.in
+│   │   │   ├── ctags-incompatibilities.7.rst.in
+│   │   │   ├── ctags-json-output.5.rst.in
+│   │   │   ├── ctags-lang-asm.7.rst.in
+│   │   │   ├── ctags-lang-autoit.7.rst.in
+│   │   │   ├── ctags-lang-automake.7.rst.in
+│   │   │   ├── ctags-lang-c++.7.rst.in
+│   │   │   ├── ctags-lang-c.7.rst.in
+│   │   │   ├── ctags-lang-clojure.7.rst.in
+│   │   │   ├── ctags-lang-cuda.7.rst.in
+│   │   │   ├── ctags-lang-elm.7.rst.in
+│   │   │   ├── ctags-lang-emacslisp.7.rst.in
+│   │   │   ├── ctags-lang-fortran.7.rst.in
+│   │   │   ├── ctags-lang-gdscript.7.rst.in
+│   │   │   ├── ctags-lang-i18nrubygem.7.rst.in
+│   │   │   ├── ctags-lang-iPythonCell.7.rst.in
+│   │   │   ├── ctags-lang-inko.7.rst.in
+│   │   │   ├── ctags-lang-javascript.7.rst.in
+│   │   │   ├── ctags-lang-julia.7.rst.in
+│   │   │   ├── ctags-lang-kconfig.7.rst.in
+│   │   │   ├── ctags-lang-ldscript.7.rst.in
+│   │   │   ├── ctags-lang-lex.7.rst.in
+│   │   │   ├── ctags-lang-lisp.7.rst.in
+│   │   │   ├── ctags-lang-make.7.rst.in
+│   │   │   ├── ctags-lang-markdown.7.rst.in
+│   │   │   ├── ctags-lang-meson.7.rst.in
+│   │   │   ├── ctags-lang-powershell.7.rst.in
+│   │   │   ├── ctags-lang-python.7.rst.in
+│   │   │   ├── ctags-lang-r.7.rst.in
+│   │   │   ├── ctags-lang-rmarkdown.7.rst.in
+│   │   │   ├── ctags-lang-scheme.7.rst.in
+│   │   │   ├── ctags-lang-scss.7.rst.in
+│   │   │   ├── ctags-lang-sql.7.rst.in
+│   │   │   ├── ctags-lang-systemtap.7.rst.in
+│   │   │   ├── ctags-lang-tcl.7.rst.in
+│   │   │   ├── ctags-lang-terraform.7.rst.in
+│   │   │   ├── ctags-lang-verilog.7.rst.in
+│   │   │   ├── ctags-lang-vim.7.rst.in
+│   │   │   ├── ctags-optlib.7.rst.in
+│   │   │   ├── ctags.1.rst.in
+│   │   │   ├── readtags.1.rst.in
+│   │   │   └── tags.5.rst.in
+│   │   ├── misc
+│   │   │   ├── packcc
+│   │   │   │   ├── benchmark
+│   │   │   │   │   ├── grammars
+│   │   │   │   │   │   ├── calc.peg
+│   │   │   │   │   │   ├── json.peg
+│   │   │   │   │   │   └── kotlin.peg
+│   │   │   │   │   ├── inputs
+│   │   │   │   │   │   └── kotlin.kt
+│   │   │   │   │   └── benchmark.sh
+│   │   │   │   ├── build
+│   │   │   │   │   ├── clang
+│   │   │   │   │   │   └── Makefile
+│   │   │   │   │   ├── gcc
+│   │   │   │   │   │   └── Makefile
+│   │   │   │   │   ├── mingw-clang
+│   │   │   │   │   │   └── Makefile
+│   │   │   │   │   ├── mingw-gcc
+│   │   │   │   │   │   └── Makefile
+│   │   │   │   │   └── msvc
+│   │   │   │   │       ├── examples
+│   │   │   │   │       │   └── calc
+│   │   │   │   │       │       ├── calc.vcxproj
+│   │   │   │   │       │       ├── calc.vcxproj.filters
+│   │   │   │   │       │       └── calc.vcxproj.user
+│   │   │   │   │       ├── msvc.sln
+│   │   │   │   │       ├── packcc.vcxproj
+│   │   │   │   │       ├── packcc.vcxproj.filters
+│   │   │   │   │       └── packcc.vcxproj.user
+│   │   │   │   ├── examples
+│   │   │   │   │   ├── ast-tinyc
+│   │   │   │   │   │   ├── inputs
+│   │   │   │   │   │   │   ├── erroneous1.c
+│   │   │   │   │   │   │   ├── example1.c
+│   │   │   │   │   │   │   ├── example2.c
+│   │   │   │   │   │   │   ├── example3.c
+│   │   │   │   │   │   │   ├── example4.c
+│   │   │   │   │   │   │   └── example5.c
+│   │   │   │   │   │   ├── main.c
+│   │   │   │   │   │   ├── parser.peg
+│   │   │   │   │   │   ├── system.c
+│   │   │   │   │   │   ├── system.h
+│   │   │   │   │   │   ├── utility.c
+│   │   │   │   │   │   └── utility.h
+│   │   │   │   │   └── calc.peg
+│   │   │   │   ├── src
+│   │   │   │   │   └── packcc.c
+│   │   │   │   └── tests
+│   │   │   │       ├── ascii.d
+│   │   │   │       │   ├── ascii.bats
+│   │   │   │       │   └── input.peg
+│   │   │   │       ├── basic.d
+│   │   │   │       │   └── input.peg
+│   │   │   │       ├── calc.d
+│   │   │   │       │   └── calc.bats
+│   │   │   │       ├── captures.d
+│   │   │   │       │   └── input.peg
+│   │   │   │       ├── character_classes_0.d
+│   │   │   │       │   └── input.peg
+│   │   │   │       ├── character_classes_1.d
+│   │   │   │       │   └── input.peg
+│   │   │   │       ├── character_classes_2.d
+│   │   │   │       │   └── input.peg
+│   │   │   │       ├── code_generation.d
+│   │   │   │       │   ├── generation.bats
+│   │   │   │       │   └── input.peg
+│   │   │   │       ├── debug_macro.d
+│   │   │   │       │   └── input.peg
+│   │   │   │       ├── dump.d
+│   │   │   │       │   └── dump.bats
+│   │   │   │       ├── error_action.d
+│   │   │   │       │   └── input.peg
+│   │   │   │       ├── escape_sequences.d
+│   │   │   │       │   └── input.peg
+│   │   │   │       ├── issue_28.d
+│   │   │   │       │   └── input.peg
+│   │   │   │       ├── lines.d
+│   │   │   │       │   ├── input.peg
+│   │   │   │       │   └── lines.bats
+│   │   │   │       ├── negative_predicate.d
+│   │   │   │       │   └── input.peg
+│   │   │   │       ├── positive_predicate.d
+│   │   │   │       │   └── input.peg
+│   │   │   │       ├── quantifiers.d
+│   │   │   │       │   └── input.peg
+│   │   │   │       ├── strings.d
+│   │   │   │       │   └── input.peg
+│   │   │   │       ├── style.d
+│   │   │   │       │   └── style.bats
+│   │   │   │       ├── main.c
+│   │   │   │       ├── test.sh
+│   │   │   │       ├── uncrustify.cfg
+│   │   │   │       └── utils.sh
+│   │   │   ├── validators
+│   │   │   │   ├── g++-common.sh
+│   │   │   │   ├── gfortran-common.sh
+│   │   │   │   ├── validator-KNOWN-INVALIDATION
+│   │   │   │   ├── validator-NONE
+│   │   │   │   ├── validator-c
+│   │   │   │   ├── validator-cxx03
+│   │   │   │   ├── validator-cxx11
+│   │   │   │   ├── validator-cxx17
+│   │   │   │   ├── validator-cxx20+module
+│   │   │   │   ├── validator-fortran+dollar-ok
+│   │   │   │   ├── validator-gnat
+│   │   │   │   ├── validator-jq
+│   │   │   │   ├── validator-node
+│   │   │   │   ├── validator-puppet
+│   │   │   │   ├── validator-ruby
+│   │   │   │   └── validator-svlint
+│   │   │   ├── addbom
+│   │   │   ├── badinput.c
+│   │   │   ├── budge
+│   │   │   ├── budge.ctags
+│   │   │   ├── ctags-optlib-mode.el
+│   │   │   ├── enumstr.sh
+│   │   │   ├── gen-repoinfo
+│   │   │   ├── gencxxtypedumper.sh
+│   │   │   ├── git-tag-maybe.sh
+│   │   │   ├── hasbom
+│   │   │   ├── man-test.py
+│   │   │   ├── mg++
+│   │   │   ├── mini-geany.expected
+│   │   │   ├── mk-interactive-request.sh
+│   │   │   ├── news.bash
+│   │   │   ├── optlib2c
+│   │   │   ├── pull-libreadtags.sh
+│   │   │   ├── pull-packcc.sh
+│   │   │   ├── readtags.supp
+│   │   │   ├── review
+│   │   │   ├── roundtrip
+│   │   │   ├── src-check
+│   │   │   ├── tinst
+│   │   │   ├── tlib
+│   │   │   ├── txt2cstr
+│   │   │   ├── units
+│   │   │   ├── units.py
+│   │   │   └── visit-version-info.bash
+│   │   ├── optlib
+│   │   │   ├── .deps
+│   │   │   │   ├── .dirstamp
+│   │   │   │   ├── libctags_a-cmake.Po
+│   │   │   │   ├── libctags_a-ctags-optlib.Po
+│   │   │   │   ├── libctags_a-elixir.Po
+│   │   │   │   ├── libctags_a-forth.Po
+│   │   │   │   ├── libctags_a-gdbinit.Po
+│   │   │   │   ├── libctags_a-gperf.Po
+│   │   │   │   ├── libctags_a-iPythonCell.Po
+│   │   │   │   ├── libctags_a-inko.Po
+│   │   │   │   ├── libctags_a-kconfig.Po
+│   │   │   │   ├── libctags_a-lex.Po
+│   │   │   │   ├── libctags_a-man.Po
+│   │   │   │   ├── libctags_a-meson.Po
+│   │   │   │   ├── libctags_a-mesonOptions.Po
+│   │   │   │   ├── libctags_a-org.Po
+│   │   │   │   ├── libctags_a-passwd.Po
+│   │   │   │   ├── libctags_a-pkgConfig.Po
+│   │   │   │   ├── libctags_a-pod.Po
+│   │   │   │   ├── libctags_a-puppetManifest.Po
+│   │   │   │   ├── libctags_a-qemuhx.Po
+│   │   │   │   ├── libctags_a-rdoc.Po
+│   │   │   │   ├── libctags_a-rpmMacros.Po
+│   │   │   │   ├── libctags_a-scdoc.Po
+│   │   │   │   ├── libctags_a-scss.Po
+│   │   │   │   ├── libctags_a-selinux-type-enforcement.Po
+│   │   │   │   ├── libctags_a-systemtap.Po
+│   │   │   │   ├── libctags_a-terraform.Po
+│   │   │   │   ├── libctags_a-terraformvariables.Po
+│   │   │   │   └── libctags_a-yacc.Po
+│   │   │   ├── .dirstamp
+│   │   │   ├── cmake.c
+│   │   │   ├── cmake.ctags
+│   │   │   ├── ctags-optlib.c
+│   │   │   ├── ctags-optlib.ctags
+│   │   │   ├── elixir.c
+│   │   │   ├── elixir.ctags
+│   │   │   ├── forth.c
+│   │   │   ├── forth.ctags
+│   │   │   ├── gdbinit.c
+│   │   │   ├── gdbinit.ctags
+│   │   │   ├── gperf.c
+│   │   │   ├── gperf.ctags
+│   │   │   ├── iPythonCell.c
+│   │   │   ├── iPythonCell.ctags
+│   │   │   ├── inko.c
+│   │   │   ├── inko.ctags
+│   │   │   ├── kconfig.c
+│   │   │   ├── kconfig.ctags
+│   │   │   ├── lex.c
+│   │   │   ├── lex.ctags
+│   │   │   ├── libctags_a-cmake.o
+│   │   │   ├── libctags_a-ctags-optlib.o
+│   │   │   ├── libctags_a-elixir.o
+│   │   │   ├── libctags_a-forth.o
+│   │   │   ├── libctags_a-gdbinit.o
+│   │   │   ├── libctags_a-gperf.o
+│   │   │   ├── libctags_a-iPythonCell.o
+│   │   │   ├── libctags_a-inko.o
+│   │   │   ├── libctags_a-kconfig.o
+│   │   │   ├── libctags_a-lex.o
+│   │   │   ├── libctags_a-man.o
+│   │   │   ├── libctags_a-meson.o
+│   │   │   ├── libctags_a-mesonOptions.o
+│   │   │   ├── libctags_a-org.o
+│   │   │   ├── libctags_a-passwd.o
+│   │   │   ├── libctags_a-pkgConfig.o
+│   │   │   ├── libctags_a-pod.o
+│   │   │   ├── libctags_a-puppetManifest.o
+│   │   │   ├── libctags_a-qemuhx.o
+│   │   │   ├── libctags_a-rpmMacros.o
+│   │   │   ├── libctags_a-scdoc.o
+│   │   │   ├── libctags_a-scss.o
+│   │   │   ├── libctags_a-selinux-type-enforcement.o
+│   │   │   ├── libctags_a-systemtap.o
+│   │   │   ├── libctags_a-terraform.o
+│   │   │   ├── libctags_a-terraformvariables.o
+│   │   │   ├── libctags_a-yacc.o
+│   │   │   ├── man.c
+│   │   │   ├── man.ctags
+│   │   │   ├── meson.c
+│   │   │   ├── meson.ctags
+│   │   │   ├── mesonOptions.c
+│   │   │   ├── mesonOptions.ctags
+│   │   │   ├── org.c
+│   │   │   ├── org.ctags
+│   │   │   ├── passwd.c
+│   │   │   ├── passwd.ctags
+│   │   │   ├── pkgConfig.c
+│   │   │   ├── pkgConfig.ctags
+│   │   │   ├── pod.c
+│   │   │   ├── pod.ctags
+│   │   │   ├── puppetManifest.c
+│   │   │   ├── puppetManifest.ctags
+│   │   │   ├── qemuhx.c
+│   │   │   ├── qemuhx.ctags
+│   │   │   ├── rdoc.c
+│   │   │   ├── rdoc.ctags
+│   │   │   ├── rpmMacros.c
+│   │   │   ├── rpmMacros.ctags
+│   │   │   ├── scdoc.c
+│   │   │   ├── scdoc.ctags
+│   │   │   ├── scss.c
+│   │   │   ├── scss.ctags
+│   │   │   ├── selinux-type-enforcement.c
+│   │   │   ├── selinux-type-enforcement.ctags
+│   │   │   ├── systemtap.c
+│   │   │   ├── systemtap.ctags
+│   │   │   ├── terraform.c
+│   │   │   ├── terraform.ctags
+│   │   │   ├── terraformvariables.c
+│   │   │   ├── terraformvariables.ctags
+│   │   │   ├── yacc.c
+│   │   │   └── yacc.ctags
+│   │   ├── parsers
+│   │   │   ├── .deps
+│   │   │   │   ├── .dirstamp
+│   │   │   │   ├── libctags_a-abaqus.Po
+│   │   │   │   ├── libctags_a-abc.Po
+│   │   │   │   ├── libctags_a-ada.Po
+│   │   │   │   ├── libctags_a-ansibleplaybook.Po
+│   │   │   │   ├── libctags_a-ant.Po
+│   │   │   │   ├── libctags_a-asciidoc.Po
+│   │   │   │   ├── libctags_a-asm.Po
+│   │   │   │   ├── libctags_a-asp.Po
+│   │   │   │   ├── libctags_a-autoconf.Po
+│   │   │   │   ├── libctags_a-autoit.Po
+│   │   │   │   ├── libctags_a-automake.Po
+│   │   │   │   ├── libctags_a-awk.Po
+│   │   │   │   ├── libctags_a-basic.Po
+│   │   │   │   ├── libctags_a-bats.Po
+│   │   │   │   ├── libctags_a-beta.Po
+│   │   │   │   ├── libctags_a-biblatex.Po
+│   │   │   │   ├── libctags_a-bibtex.Po
+│   │   │   │   ├── libctags_a-c-based.Po
+│   │   │   │   ├── libctags_a-cargo.Po
+│   │   │   │   ├── libctags_a-clojure.Po
+│   │   │   │   ├── libctags_a-cobol.Po
+│   │   │   │   ├── libctags_a-cpreprocessor.Po
+│   │   │   │   ├── libctags_a-css.Po
+│   │   │   │   ├── libctags_a-dbusintrospect.Po
+│   │   │   │   ├── libctags_a-diff.Po
+│   │   │   │   ├── libctags_a-dosbatch.Po
+│   │   │   │   ├── libctags_a-dtd.Po
+│   │   │   │   ├── libctags_a-dts.Po
+│   │   │   │   ├── libctags_a-eiffel.Po
+│   │   │   │   ├── libctags_a-erlang.Po
+│   │   │   │   ├── libctags_a-falcon.Po
+│   │   │   │   ├── libctags_a-flex.Po
+│   │   │   │   ├── libctags_a-fortran.Po
+│   │   │   │   ├── libctags_a-frontmatter.Po
+│   │   │   │   ├── libctags_a-fypp.Po
+│   │   │   │   ├── libctags_a-gdscript.Po
+│   │   │   │   ├── libctags_a-gemspec.Po
+│   │   │   │   ├── libctags_a-glade.Po
+│   │   │   │   ├── libctags_a-go.Po
+│   │   │   │   ├── libctags_a-haskell.Po
+│   │   │   │   ├── libctags_a-haxe.Po
+│   │   │   │   ├── libctags_a-html.Po
+│   │   │   │   ├── libctags_a-i18nrubygem.Po
+│   │   │   │   ├── libctags_a-iniconf.Po
+│   │   │   │   ├── libctags_a-itcl.Po
+│   │   │   │   ├── libctags_a-jprop.Po
+│   │   │   │   ├── libctags_a-jscript.Po
+│   │   │   │   ├── libctags_a-json.Po
+│   │   │   │   ├── libctags_a-julia.Po
+│   │   │   │   ├── libctags_a-ldscript.Po
+│   │   │   │   ├── libctags_a-lisp.Po
+│   │   │   │   ├── libctags_a-lua.Po
+│   │   │   │   ├── libctags_a-m4.Po
+│   │   │   │   ├── libctags_a-make.Po
+│   │   │   │   ├── libctags_a-markdown.Po
+│   │   │   │   ├── libctags_a-matlab.Po
+│   │   │   │   ├── libctags_a-maven2.Po
+│   │   │   │   ├── libctags_a-myrddin.Po
+│   │   │   │   ├── libctags_a-nsis.Po
+│   │   │   │   ├── libctags_a-objc.Po
+│   │   │   │   ├── libctags_a-ocaml.Po
+│   │   │   │   ├── libctags_a-openapi.Po
+│   │   │   │   ├── libctags_a-pascal.Po
+│   │   │   │   ├── libctags_a-perl-function-parameters.Po
+│   │   │   │   ├── libctags_a-perl-moose.Po
+│   │   │   │   ├── libctags_a-perl.Po
+│   │   │   │   ├── libctags_a-php.Po
+│   │   │   │   ├── libctags_a-plist.Po
+│   │   │   │   ├── libctags_a-powershell.Po
+│   │   │   │   ├── libctags_a-protobuf.Po
+│   │   │   │   ├── libctags_a-python-entry-points.Po
+│   │   │   │   ├── libctags_a-python-logging-config.Po
+│   │   │   │   ├── libctags_a-python.Po
+│   │   │   │   ├── libctags_a-quarto.Po
+│   │   │   │   ├── libctags_a-r-r6class.Po
+│   │   │   │   ├── libctags_a-r-s4class.Po
+│   │   │   │   ├── libctags_a-r.Po
+│   │   │   │   ├── libctags_a-rake.Po
+│   │   │   │   ├── libctags_a-raku.Po
+│   │   │   │   ├── libctags_a-relaxng.Po
+│   │   │   │   ├── libctags_a-rexx.Po
+│   │   │   │   ├── libctags_a-rmarkdown.Po
+│   │   │   │   ├── libctags_a-robot.Po
+│   │   │   │   ├── libctags_a-rpmspec.Po
+│   │   │   │   ├── libctags_a-rspec.Po
+│   │   │   │   ├── libctags_a-rst.Po
+│   │   │   │   ├── libctags_a-ruby.Po
+│   │   │   │   ├── libctags_a-rust.Po
+│   │   │   │   ├── libctags_a-scheme.Po
+│   │   │   │   ├── libctags_a-selinux-interface.Po
+│   │   │   │   ├── libctags_a-sh.Po
+│   │   │   │   ├── libctags_a-slang.Po
+│   │   │   │   ├── libctags_a-sml.Po
+│   │   │   │   ├── libctags_a-sql.Po
+│   │   │   │   ├── libctags_a-svg.Po
+│   │   │   │   ├── libctags_a-systemdunit.Po
+│   │   │   │   ├── libctags_a-tcl.Po
+│   │   │   │   ├── libctags_a-tcloo.Po
+│   │   │   │   ├── libctags_a-tex-beamer.Po
+│   │   │   │   ├── libctags_a-tex.Po
+│   │   │   │   ├── libctags_a-ttcn.Po
+│   │   │   │   ├── libctags_a-txt2tags.Po
+│   │   │   │   ├── libctags_a-typescript.Po
+│   │   │   │   ├── libctags_a-typespec.Po
+│   │   │   │   ├── libctags_a-v.Po
+│   │   │   │   ├── libctags_a-vera.Po
+│   │   │   │   ├── libctags_a-verilog.Po
+│   │   │   │   ├── libctags_a-vhdl.Po
+│   │   │   │   ├── libctags_a-vim.Po
+│   │   │   │   ├── libctags_a-windres.Po
+│   │   │   │   ├── libctags_a-xml.Po
+│   │   │   │   ├── libctags_a-xrc.Po
+│   │   │   │   ├── libctags_a-xslt.Po
+│   │   │   │   ├── libctags_a-yaml.Po
+│   │   │   │   ├── libctags_a-yamlfrontmatter.Po
+│   │   │   │   └── libctags_a-yumrepo.Po
+│   │   │   ├── cxx
+│   │   │   │   ├── .deps
+│   │   │   │   │   ├── .dirstamp
+│   │   │   │   │   ├── libctags_a-cxx.Po
+│   │   │   │   │   ├── libctags_a-cxx_debug.Po
+│   │   │   │   │   ├── libctags_a-cxx_debug_type.Po
+│   │   │   │   │   ├── libctags_a-cxx_jni.Po
+│   │   │   │   │   ├── libctags_a-cxx_keyword.Po
+│   │   │   │   │   ├── libctags_a-cxx_parser.Po
+│   │   │   │   │   ├── libctags_a-cxx_parser_block.Po
+│   │   │   │   │   ├── libctags_a-cxx_parser_function.Po
+│   │   │   │   │   ├── libctags_a-cxx_parser_lambda.Po
+│   │   │   │   │   ├── libctags_a-cxx_parser_module.Po
+│   │   │   │   │   ├── libctags_a-cxx_parser_namespace.Po
+│   │   │   │   │   ├── libctags_a-cxx_parser_template.Po
+│   │   │   │   │   ├── libctags_a-cxx_parser_tokenizer.Po
+│   │   │   │   │   ├── libctags_a-cxx_parser_typedef.Po
+│   │   │   │   │   ├── libctags_a-cxx_parser_using.Po
+│   │   │   │   │   ├── libctags_a-cxx_parser_variable.Po
+│   │   │   │   │   ├── libctags_a-cxx_qtmoc.Po
+│   │   │   │   │   ├── libctags_a-cxx_scope.Po
+│   │   │   │   │   ├── libctags_a-cxx_side_chain.Po
+│   │   │   │   │   ├── libctags_a-cxx_subparser.Po
+│   │   │   │   │   ├── libctags_a-cxx_tag.Po
+│   │   │   │   │   ├── libctags_a-cxx_token.Po
+│   │   │   │   │   └── libctags_a-cxx_token_chain.Po
+│   │   │   │   ├── .dirstamp
+│   │   │   │   ├── Makefile
+│   │   │   │   ├── cxx.c
+│   │   │   │   ├── cxx_debug.c
+│   │   │   │   ├── cxx_debug.h
+│   │   │   │   ├── cxx_debug_type.c
+│   │   │   │   ├── cxx_jni.c
+│   │   │   │   ├── cxx_keyword.c
+│   │   │   │   ├── cxx_keyword.h
+│   │   │   │   ├── cxx_parser.c
+│   │   │   │   ├── cxx_parser.h
+│   │   │   │   ├── cxx_parser_block.c
+│   │   │   │   ├── cxx_parser_function.c
+│   │   │   │   ├── cxx_parser_internal.h
+│   │   │   │   ├── cxx_parser_lambda.c
+│   │   │   │   ├── cxx_parser_module.c
+│   │   │   │   ├── cxx_parser_namespace.c
+│   │   │   │   ├── cxx_parser_template.c
+│   │   │   │   ├── cxx_parser_tokenizer.c
+│   │   │   │   ├── cxx_parser_typedef.c
+│   │   │   │   ├── cxx_parser_using.c
+│   │   │   │   ├── cxx_parser_variable.c
+│   │   │   │   ├── cxx_qtmoc.c
+│   │   │   │   ├── cxx_scope.c
+│   │   │   │   ├── cxx_scope.h
+│   │   │   │   ├── cxx_side_chain.c
+│   │   │   │   ├── cxx_side_chain.h
+│   │   │   │   ├── cxx_subparser.c
+│   │   │   │   ├── cxx_subparser.h
+│   │   │   │   ├── cxx_subparser_internal.h
+│   │   │   │   ├── cxx_tag.c
+│   │   │   │   ├── cxx_tag.h
+│   │   │   │   ├── cxx_token.c
+│   │   │   │   ├── cxx_token.h
+│   │   │   │   ├── cxx_token_chain.c
+│   │   │   │   ├── cxx_token_chain.h
+│   │   │   │   ├── libctags_a-cxx.o
+│   │   │   │   ├── libctags_a-cxx_debug.o
+│   │   │   │   ├── libctags_a-cxx_debug_type.o
+│   │   │   │   ├── libctags_a-cxx_jni.o
+│   │   │   │   ├── libctags_a-cxx_keyword.o
+│   │   │   │   ├── libctags_a-cxx_parser.o
+│   │   │   │   ├── libctags_a-cxx_parser_block.o
+│   │   │   │   ├── libctags_a-cxx_parser_function.o
+│   │   │   │   ├── libctags_a-cxx_parser_lambda.o
+│   │   │   │   ├── libctags_a-cxx_parser_module.o
+│   │   │   │   ├── libctags_a-cxx_parser_namespace.o
+│   │   │   │   ├── libctags_a-cxx_parser_template.o
+│   │   │   │   ├── libctags_a-cxx_parser_tokenizer.o
+│   │   │   │   ├── libctags_a-cxx_parser_typedef.o
+│   │   │   │   ├── libctags_a-cxx_parser_using.o
+│   │   │   │   ├── libctags_a-cxx_parser_variable.o
+│   │   │   │   ├── libctags_a-cxx_qtmoc.o
+│   │   │   │   ├── libctags_a-cxx_scope.o
+│   │   │   │   ├── libctags_a-cxx_side_chain.o
+│   │   │   │   ├── libctags_a-cxx_subparser.o
+│   │   │   │   ├── libctags_a-cxx_tag.o
+│   │   │   │   ├── libctags_a-cxx_token.o
+│   │   │   │   └── libctags_a-cxx_token_chain.o
+│   │   │   ├── .dirstamp
+│   │   │   ├── Makefile
+│   │   │   ├── abaqus.c
+│   │   │   ├── abc.c
+│   │   │   ├── ada.c
+│   │   │   ├── ansibleplaybook.c
+│   │   │   ├── ant.c
+│   │   │   ├── asciidoc.c
+│   │   │   ├── asm.c
+│   │   │   ├── asp.c
+│   │   │   ├── autoconf.c
+│   │   │   ├── autoit.c
+│   │   │   ├── automake.c
+│   │   │   ├── awk.c
+│   │   │   ├── basic.c
+│   │   │   ├── bats.c
+│   │   │   ├── beta.c
+│   │   │   ├── biblatex.c
+│   │   │   ├── bibtex.c
+│   │   │   ├── c-based.c
+│   │   │   ├── cargo.c
+│   │   │   ├── clojure.c
+│   │   │   ├── cobol.c
+│   │   │   ├── cpreprocessor.c
+│   │   │   ├── css.c
+│   │   │   ├── dbusintrospect.c
+│   │   │   ├── diff.c
+│   │   │   ├── dosbatch.c
+│   │   │   ├── dtd.c
+│   │   │   ├── dts.c
+│   │   │   ├── eiffel.c
+│   │   │   ├── erlang.c
+│   │   │   ├── falcon.c
+│   │   │   ├── flex.c
+│   │   │   ├── fortran.c
+│   │   │   ├── frontmatter.c
+│   │   │   ├── fypp.c
+│   │   │   ├── gdscript.c
+│   │   │   ├── gemspec.c
+│   │   │   ├── glade.c
+│   │   │   ├── go.c
+│   │   │   ├── haskell.c
+│   │   │   ├── haxe.c
+│   │   │   ├── html.c
+│   │   │   ├── i18nrubygem.c
+│   │   │   ├── iniconf.c
+│   │   │   ├── itcl.c
+│   │   │   ├── jprop.c
+│   │   │   ├── jscript.c
+│   │   │   ├── json.c
+│   │   │   ├── julia.c
+│   │   │   ├── ldscript.c
+│   │   │   ├── libctags_a-abaqus.o
+│   │   │   ├── libctags_a-abc.o
+│   │   │   ├── libctags_a-ada.o
+│   │   │   ├── libctags_a-ant.o
+│   │   │   ├── libctags_a-asciidoc.o
+│   │   │   ├── libctags_a-asm.o
+│   │   │   ├── libctags_a-asp.o
+│   │   │   ├── libctags_a-autoconf.o
+│   │   │   ├── libctags_a-autoit.o
+│   │   │   ├── libctags_a-automake.o
+│   │   │   ├── libctags_a-awk.o
+│   │   │   ├── libctags_a-basic.o
+│   │   │   ├── libctags_a-bats.o
+│   │   │   ├── libctags_a-beta.o
+│   │   │   ├── libctags_a-biblatex.o
+│   │   │   ├── libctags_a-bibtex.o
+│   │   │   ├── libctags_a-c-based.o
+│   │   │   ├── libctags_a-cargo.o
+│   │   │   ├── libctags_a-clojure.o
+│   │   │   ├── libctags_a-cobol.o
+│   │   │   ├── libctags_a-cpreprocessor.o
+│   │   │   ├── libctags_a-css.o
+│   │   │   ├── libctags_a-diff.o
+│   │   │   ├── libctags_a-dosbatch.o
+│   │   │   ├── libctags_a-dtd.o
+│   │   │   ├── libctags_a-dts.o
+│   │   │   ├── libctags_a-eiffel.o
+│   │   │   ├── libctags_a-erlang.o
+│   │   │   ├── libctags_a-falcon.o
+│   │   │   ├── libctags_a-flex.o
+│   │   │   ├── libctags_a-fortran.o
+│   │   │   ├── libctags_a-frontmatter.o
+│   │   │   ├── libctags_a-fypp.o
+│   │   │   ├── libctags_a-gdscript.o
+│   │   │   ├── libctags_a-gemspec.o
+│   │   │   ├── libctags_a-go.o
+│   │   │   ├── libctags_a-haskell.o
+│   │   │   ├── libctags_a-haxe.o
+│   │   │   ├── libctags_a-html.o
+│   │   │   ├── libctags_a-iniconf.o
+│   │   │   ├── libctags_a-itcl.o
+│   │   │   ├── libctags_a-jprop.o
+│   │   │   ├── libctags_a-jscript.o
+│   │   │   ├── libctags_a-json.o
+│   │   │   ├── libctags_a-julia.o
+│   │   │   ├── libctags_a-ldscript.o
+│   │   │   ├── libctags_a-lisp.o
+│   │   │   ├── libctags_a-lua.o
+│   │   │   ├── libctags_a-m4.o
+│   │   │   ├── libctags_a-make.o
+│   │   │   ├── libctags_a-markdown.o
+│   │   │   ├── libctags_a-matlab.o
+│   │   │   ├── libctags_a-myrddin.o
+│   │   │   ├── libctags_a-nsis.o
+│   │   │   ├── libctags_a-objc.o
+│   │   │   ├── libctags_a-ocaml.o
+│   │   │   ├── libctags_a-pascal.o
+│   │   │   ├── libctags_a-perl-function-parameters.o
+│   │   │   ├── libctags_a-perl-moose.o
+│   │   │   ├── libctags_a-perl.o
+│   │   │   ├── libctags_a-php.o
+│   │   │   ├── libctags_a-powershell.o
+│   │   │   ├── libctags_a-protobuf.o
+│   │   │   ├── libctags_a-python-entry-points.o
+│   │   │   ├── libctags_a-python-logging-config.o
+│   │   │   ├── libctags_a-python.o
+│   │   │   ├── libctags_a-quarto.o
+│   │   │   ├── libctags_a-r-r6class.o
+│   │   │   ├── libctags_a-r-s4class.o
+│   │   │   ├── libctags_a-r.o
+│   │   │   ├── libctags_a-rake.o
+│   │   │   ├── libctags_a-raku.o
+│   │   │   ├── libctags_a-rexx.o
+│   │   │   ├── libctags_a-rmarkdown.o
+│   │   │   ├── libctags_a-robot.o
+│   │   │   ├── libctags_a-rpmspec.o
+│   │   │   ├── libctags_a-rspec.o
+│   │   │   ├── libctags_a-rst.o
+│   │   │   ├── libctags_a-ruby.o
+│   │   │   ├── libctags_a-rust.o
+│   │   │   ├── libctags_a-scheme.o
+│   │   │   ├── libctags_a-selinux-interface.o
+│   │   │   ├── libctags_a-sh.o
+│   │   │   ├── libctags_a-slang.o
+│   │   │   ├── libctags_a-sml.o
+│   │   │   ├── libctags_a-sql.o
+│   │   │   ├── libctags_a-systemdunit.o
+│   │   │   ├── libctags_a-tcl.o
+│   │   │   ├── libctags_a-tcloo.o
+│   │   │   ├── libctags_a-tex-beamer.o
+│   │   │   ├── libctags_a-tex.o
+│   │   │   ├── libctags_a-ttcn.o
+│   │   │   ├── libctags_a-txt2tags.o
+│   │   │   ├── libctags_a-typescript.o
+│   │   │   ├── libctags_a-typespec.o
+│   │   │   ├── libctags_a-v.o
+│   │   │   ├── libctags_a-vera.o
+│   │   │   ├── libctags_a-verilog.o
+│   │   │   ├── libctags_a-vhdl.o
+│   │   │   ├── libctags_a-vim.o
+│   │   │   ├── libctags_a-windres.o
+│   │   │   ├── libctags_a-yumrepo.o
+│   │   │   ├── lisp.c
+│   │   │   ├── lua.c
+│   │   │   ├── m4.c
+│   │   │   ├── make.c
+│   │   │   ├── markdown.c
+│   │   │   ├── matlab.c
+│   │   │   ├── maven2.c
+│   │   │   ├── myrddin.c
+│   │   │   ├── nsis.c
+│   │   │   ├── objc.c
+│   │   │   ├── ocaml.c
+│   │   │   ├── openapi.c
+│   │   │   ├── pascal.c
+│   │   │   ├── perl-function-parameters.c
+│   │   │   ├── perl-moose.c
+│   │   │   ├── perl.c
+│   │   │   ├── php.c
+│   │   │   ├── plist.c
+│   │   │   ├── powershell.c
+│   │   │   ├── protobuf.c
+│   │   │   ├── python-entry-points.c
+│   │   │   ├── python-logging-config.c
+│   │   │   ├── python.c
+│   │   │   ├── quarto.c
+│   │   │   ├── r-r6class.c
+│   │   │   ├── r-s4class.c
+│   │   │   ├── r.c
+│   │   │   ├── rake.c
+│   │   │   ├── raku.c
+│   │   │   ├── relaxng.c
+│   │   │   ├── rexx.c
+│   │   │   ├── rmarkdown.c
+│   │   │   ├── robot.c
+│   │   │   ├── rpmspec.c
+│   │   │   ├── rspec.c
+│   │   │   ├── rst.c
+│   │   │   ├── ruby.c
+│   │   │   ├── rust.c
+│   │   │   ├── scheme.c
+│   │   │   ├── selinux-interface.c
+│   │   │   ├── sh.c
+│   │   │   ├── slang.c
+│   │   │   ├── sml.c
+│   │   │   ├── sql.c
+│   │   │   ├── svg.c
+│   │   │   ├── systemdunit.c
+│   │   │   ├── tcl.c
+│   │   │   ├── tcloo.c
+│   │   │   ├── tex-beamer.c
+│   │   │   ├── tex.c
+│   │   │   ├── ttcn.c
+│   │   │   ├── txt2tags.c
+│   │   │   ├── typescript.c
+│   │   │   ├── typespec.c
+│   │   │   ├── v.c
+│   │   │   ├── vera.c
+│   │   │   ├── verilog.c
+│   │   │   ├── vhdl.c
+│   │   │   ├── vim.c
+│   │   │   ├── windres.c
+│   │   │   ├── x-autoconf.h
+│   │   │   ├── x-bibtex.h
+│   │   │   ├── x-cpreprocessor.h
+│   │   │   ├── x-frontmatter.h
+│   │   │   ├── x-html.h
+│   │   │   ├── x-iniconf.h
+│   │   │   ├── x-jscript.h
+│   │   │   ├── x-lisp.h
+│   │   │   ├── x-m4.h
+│   │   │   ├── x-make.h
+│   │   │   ├── x-markdown.h
+│   │   │   ├── x-perl.h
+│   │   │   ├── x-python.h
+│   │   │   ├── x-r.h
+│   │   │   ├── x-ruby.h
+│   │   │   ├── x-sh.h
+│   │   │   ├── x-tcl.h
+│   │   │   ├── x-tex.h
+│   │   │   ├── x-toml.h
+│   │   │   ├── x-xml.h
+│   │   │   ├── x-yaml.h
+│   │   │   ├── xml.c
+│   │   │   ├── xrc.c
+│   │   │   ├── xslt.c
+│   │   │   ├── yaml.c
+│   │   │   ├── yamlfrontmatter.c
+│   │   │   └── yumrepo.c
+│   │   ├── peg
+│   │   │   ├── .deps
+│   │   │   │   ├── .dirstamp
+│   │   │   │   ├── libctags_a-elm.Po
+│   │   │   │   ├── libctags_a-kotlin.Po
+│   │   │   │   ├── libctags_a-thrift.Po
+│   │   │   │   ├── libctags_a-toml.Po
+│   │   │   │   └── libctags_a-varlink.Po
+│   │   │   ├── .dirstamp
+│   │   │   ├── elm.peg
+│   │   │   ├── elm_post.h
+│   │   │   ├── elm_pre.h
+│   │   │   ├── kotlin.c
+│   │   │   ├── kotlin.h
+│   │   │   ├── kotlin.peg
+│   │   │   ├── kotlin_post.h
+│   │   │   ├── kotlin_pre.h
+│   │   │   ├── libctags_a-varlink.o
+│   │   │   ├── peg_common.h
+│   │   │   ├── thrift.peg
+│   │   │   ├── thrift_post.h
+│   │   │   ├── thrift_pre.h
+│   │   │   ├── toml.peg
+│   │   │   ├── toml_post.h
+│   │   │   ├── toml_pre.h
+│   │   │   ├── varlink.c
+│   │   │   ├── varlink.h
+│   │   │   ├── varlink.peg
+│   │   │   ├── varlink_post.h
+│   │   │   └── varlink_pre.h
+│   │   ├── win32
+│   │   │   ├── gnulib_h
+│   │   │   │   ├── fnmatch.h
+│   │   │   │   ├── langinfo.h
+│   │   │   │   ├── locale.h
+│   │   │   │   ├── string.h
+│   │   │   │   ├── unistd.h
+│   │   │   │   └── wchar.h
+│   │   │   ├── license
+│   │   │   │   ├── Copyright.libxml2
+│   │   │   │   ├── LICENCE.pcre2
+│   │   │   │   ├── LICENSE.janssen
+│   │   │   │   └── LICENSE.libyaml
+│   │   │   ├── mkstemp
+│   │   │   │   └── mkstemp.c
+│   │   │   ├── GNUmakefile
+│   │   │   ├── Makefile
+│   │   │   ├── appveyor.bat
+│   │   │   ├── config_mingw.h
+│   │   │   ├── config_mvc.h
+│   │   │   ├── ctags.rc
+│   │   │   ├── ctags_vs2013.sln
+│   │   │   ├── ctags_vs2013.vcxproj
+│   │   │   ├── ctags_vs2013.vcxproj.filters
+│   │   │   ├── ctags_vs2013.vcxproj.filters.in
+│   │   │   ├── ctags_vs2013.vcxproj.in
+│   │   │   ├── gen-repoinfo.bat
+│   │   │   ├── peg_rule.mak
+│   │   │   └── resource.h
+│   │   ├── .dir-locals.el
+│   │   ├── .editorconfig
+│   │   ├── .gdbinit
+│   │   ├── .gitattributes
+│   │   ├── .indent.pro
+│   │   ├── .uncrustify.cfg
+│   │   ├── COPYING
+│   │   ├── Makefile
+│   │   ├── Makefile.am
+│   │   ├── Makefile.in
+│   │   ├── aclocal.m4
+│   │   ├── autogen.sh
+│   │   ├── compile
+│   │   ├── config.guess
+│   │   ├── config.h
+│   │   ├── config.h.in
+│   │   ├── config.status
+│   │   ├── config.sub
+│   │   ├── configure
+│   │   ├── configure.ac
+│   │   ├── depcomp
+│   │   ├── install-sh
+│   │   ├── missing
+│   │   ├── mk_mingw.mak
+│   │   ├── mk_mvc.mak
+│   │   ├── packcc
+│   │   ├── source.mak
+│   │   └── stamp-h1
+│   ├── graphrag
+│   │   ├── __pycache__
+│   │   ├── config
+│   │   │   ├── secure_config.py
+│   │   │   └── settings.py
+│   │   ├── embedding_service
+│   │   │   ├── async_pipeline.py
+│   │   │   └── service.py
+│   │   ├── milvus
+│   │   │   └── manager.py
+│   │   ├── neo4j
+│   │   │   └── manager.py
+│   │   ├── nlp
+│   │   │   └── processor.py
+│   │   ├── rag_system
+│   │   │   ├── __pycache__
+│   │   │   ├── main.py
+│   │   │   └── service.py
+│   │   └── logger.py
+│   ├── mdc_output
+│   ├── src
+│   │   ├── graphrag
+│   │   │   ├── config
+│   │   │   │   └── settings.py
+│   │   │   ├── embedding_service
+│   │   │   │   └── service.py
+│   │   │   ├── milvus
+│   │   │   │   └── manager.py
+│   │   │   ├── neo4j
+│   │   │   │   └── manager.py
+│   │   │   ├── nlp
+│   │   │   │   └── processor.py
+│   │   │   ├── rag_system
+│   │   │   │   └── main.py
+│   │   │   └── logger.py
+│   │   └── milvus_rag.egg-info
+│   │       └── PKG-INFO
+│   ├── tests
+│   │   ├── test_nlp_processor.py
+│   │   └── test_rag_system.py
+│   ├── venv
+│   │   ├── bin
+│   │   │   ├── activate
+│   │   │   ├── activate.csh
+│   │   │   ├── activate.fish
+│   │   │   ├── activate.nu
+│   │   │   ├── activate.ps1
+│   │   │   ├── activate_this.py
+│   │   │   ├── pip
+│   │   │   ├── pip-3.12
+│   │   │   ├── pip3
+│   │   │   ├── pip3.12
+│   │   │   ├── python
+│   │   │   ├── python3
+│   │   │   └── python3.12
+│   │   ├── lib
+│   │   │   └── python3.12
+│   │   │       └── site-packages
+│   │   │           ├── __pycache__
+│   │   │           ├── pip
+│   │   │           │   ├── _internal
+│   │   │           │   │   ├── cli
+│   │   │           │   │   │   ├── autocompletion.py
+│   │   │           │   │   │   ├── base_command.py
+│   │   │           │   │   │   ├── cmdoptions.py
+│   │   │           │   │   │   ├── command_context.py
+│   │   │           │   │   │   ├── index_command.py
+│   │   │           │   │   │   ├── main.py
+│   │   │           │   │   │   ├── main_parser.py
+│   │   │           │   │   │   ├── parser.py
+│   │   │           │   │   │   ├── progress_bars.py
+│   │   │           │   │   │   ├── req_command.py
+│   │   │           │   │   │   ├── spinners.py
+│   │   │           │   │   │   └── status_codes.py
+│   │   │           │   │   ├── commands
+│   │   │           │   │   │   ├── cache.py
+│   │   │           │   │   │   ├── check.py
+│   │   │           │   │   │   ├── completion.py
+│   │   │           │   │   │   ├── configuration.py
+│   │   │           │   │   │   ├── debug.py
+│   │   │           │   │   │   ├── download.py
+│   │   │           │   │   │   ├── freeze.py
+│   │   │           │   │   │   ├── hash.py
+│   │   │           │   │   │   ├── help.py
+│   │   │           │   │   │   ├── index.py
+│   │   │           │   │   │   ├── inspect.py
+│   │   │           │   │   │   ├── install.py
+│   │   │           │   │   │   ├── list.py
+│   │   │           │   │   │   ├── lock.py
+│   │   │           │   │   │   ├── search.py
+│   │   │           │   │   │   ├── show.py
+│   │   │           │   │   │   ├── uninstall.py
+│   │   │           │   │   │   └── wheel.py
+│   │   │           │   │   ├── distributions
+│   │   │           │   │   │   ├── base.py
+│   │   │           │   │   │   ├── installed.py
+│   │   │           │   │   │   ├── sdist.py
+│   │   │           │   │   │   └── wheel.py
+│   │   │           │   │   ├── index
+│   │   │           │   │   │   ├── collector.py
+│   │   │           │   │   │   ├── package_finder.py
+│   │   │           │   │   │   └── sources.py
+│   │   │           │   │   ├── locations
+│   │   │           │   │   │   ├── _distutils.py
+│   │   │           │   │   │   ├── _sysconfig.py
+│   │   │           │   │   │   └── base.py
+│   │   │           │   │   ├── metadata
+│   │   │           │   │   │   ├── importlib
+│   │   │           │   │   │   │   ├── _compat.py
+│   │   │           │   │   │   │   ├── _dists.py
+│   │   │           │   │   │   │   └── _envs.py
+│   │   │           │   │   │   ├── _json.py
+│   │   │           │   │   │   ├── base.py
+│   │   │           │   │   │   └── pkg_resources.py
+│   │   │           │   │   ├── models
+│   │   │           │   │   │   ├── candidate.py
+│   │   │           │   │   │   ├── direct_url.py
+│   │   │           │   │   │   ├── format_control.py
+│   │   │           │   │   │   ├── index.py
+│   │   │           │   │   │   ├── installation_report.py
+│   │   │           │   │   │   ├── link.py
+│   │   │           │   │   │   ├── pylock.py
+│   │   │           │   │   │   ├── scheme.py
+│   │   │           │   │   │   ├── search_scope.py
+│   │   │           │   │   │   ├── selection_prefs.py
+│   │   │           │   │   │   ├── target_python.py
+│   │   │           │   │   │   └── wheel.py
+│   │   │           │   │   ├── network
+│   │   │           │   │   │   ├── auth.py
+│   │   │           │   │   │   ├── cache.py
+│   │   │           │   │   │   ├── download.py
+│   │   │           │   │   │   ├── lazy_wheel.py
+│   │   │           │   │   │   ├── session.py
+│   │   │           │   │   │   ├── utils.py
+│   │   │           │   │   │   └── xmlrpc.py
+│   │   │           │   │   ├── operations
+│   │   │           │   │   │   ├── build
+│   │   │           │   │   │   │   ├── build_tracker.py
+│   │   │           │   │   │   │   ├── metadata.py
+│   │   │           │   │   │   │   ├── metadata_editable.py
+│   │   │           │   │   │   │   ├── metadata_legacy.py
+│   │   │           │   │   │   │   ├── wheel.py
+│   │   │           │   │   │   │   ├── wheel_editable.py
+│   │   │           │   │   │   │   └── wheel_legacy.py
+│   │   │           │   │   │   ├── install
+│   │   │           │   │   │   │   ├── editable_legacy.py
+│   │   │           │   │   │   │   └── wheel.py
+│   │   │           │   │   │   ├── check.py
+│   │   │           │   │   │   ├── freeze.py
+│   │   │           │   │   │   └── prepare.py
+│   │   │           │   │   ├── req
+│   │   │           │   │   │   ├── constructors.py
+│   │   │           │   │   │   ├── req_dependency_group.py
+│   │   │           │   │   │   ├── req_file.py
+│   │   │           │   │   │   ├── req_install.py
+│   │   │           │   │   │   ├── req_set.py
+│   │   │           │   │   │   └── req_uninstall.py
+│   │   │           │   │   ├── resolution
+│   │   │           │   │   │   ├── legacy
+│   │   │           │   │   │   │   └── resolver.py
+│   │   │           │   │   │   ├── resolvelib
+│   │   │           │   │   │   │   ├── base.py
+│   │   │           │   │   │   │   ├── candidates.py
+│   │   │           │   │   │   │   ├── factory.py
+│   │   │           │   │   │   │   ├── found_candidates.py
+│   │   │           │   │   │   │   ├── provider.py
+│   │   │           │   │   │   │   ├── reporter.py
+│   │   │           │   │   │   │   ├── requirements.py
+│   │   │           │   │   │   │   └── resolver.py
+│   │   │           │   │   │   └── base.py
+│   │   │           │   │   ├── utils
+│   │   │           │   │   │   ├── _jaraco_text.py
+│   │   │           │   │   │   ├── _log.py
+│   │   │           │   │   │   ├── appdirs.py
+│   │   │           │   │   │   ├── compat.py
+│   │   │           │   │   │   ├── compatibility_tags.py
+│   │   │           │   │   │   ├── datetime.py
+│   │   │           │   │   │   ├── deprecation.py
+│   │   │           │   │   │   ├── direct_url_helpers.py
+│   │   │           │   │   │   ├── egg_link.py
+│   │   │           │   │   │   ├── entrypoints.py
+│   │   │           │   │   │   ├── filesystem.py
+│   │   │           │   │   │   ├── filetypes.py
+│   │   │           │   │   │   ├── glibc.py
+│   │   │           │   │   │   ├── hashes.py
+│   │   │           │   │   │   ├── logging.py
+│   │   │           │   │   │   ├── misc.py
+│   │   │           │   │   │   ├── packaging.py
+│   │   │           │   │   │   ├── retry.py
+│   │   │           │   │   │   ├── setuptools_build.py
+│   │   │           │   │   │   ├── subprocess.py
+│   │   │           │   │   │   ├── temp_dir.py
+│   │   │           │   │   │   ├── unpacking.py
+│   │   │           │   │   │   ├── urls.py
+│   │   │           │   │   │   ├── virtualenv.py
+│   │   │           │   │   │   └── wheel.py
+│   │   │           │   │   ├── vcs
+│   │   │           │   │   │   ├── bazaar.py
+│   │   │           │   │   │   ├── git.py
+│   │   │           │   │   │   ├── mercurial.py
+│   │   │           │   │   │   ├── subversion.py
+│   │   │           │   │   │   └── versioncontrol.py
+│   │   │           │   │   ├── build_env.py
+│   │   │           │   │   ├── cache.py
+│   │   │           │   │   ├── configuration.py
+│   │   │           │   │   ├── exceptions.py
+│   │   │           │   │   ├── main.py
+│   │   │           │   │   ├── pyproject.py
+│   │   │           │   │   ├── self_outdated_check.py
+│   │   │           │   │   └── wheel_builder.py
+│   │   │           │   ├── _vendor
+│   │   │           │   │   ├── cachecontrol
+│   │   │           │   │   │   ├── caches
+│   │   │           │   │   │   │   ├── file_cache.py
+│   │   │           │   │   │   │   └── redis_cache.py
+│   │   │           │   │   │   ├── _cmd.py
+│   │   │           │   │   │   ├── adapter.py
+│   │   │           │   │   │   ├── cache.py
+│   │   │           │   │   │   ├── controller.py
+│   │   │           │   │   │   ├── filewrapper.py
+│   │   │           │   │   │   ├── heuristics.py
+│   │   │           │   │   │   ├── py.typed
+│   │   │           │   │   │   ├── serialize.py
+│   │   │           │   │   │   └── wrapper.py
+│   │   │           │   │   ├── certifi
+│   │   │           │   │   │   ├── __main__.py
+│   │   │           │   │   │   ├── cacert.pem
+│   │   │           │   │   │   ├── core.py
+│   │   │           │   │   │   └── py.typed
+│   │   │           │   │   ├── dependency_groups
+│   │   │           │   │   │   ├── __main__.py
+│   │   │           │   │   │   ├── _implementation.py
+│   │   │           │   │   │   ├── _lint_dependency_groups.py
+│   │   │           │   │   │   ├── _pip_wrapper.py
+│   │   │           │   │   │   ├── _toml_compat.py
+│   │   │           │   │   │   └── py.typed
+│   │   │           │   │   ├── distlib
+│   │   │           │   │   │   ├── compat.py
+│   │   │           │   │   │   ├── database.py
+│   │   │           │   │   │   ├── index.py
+│   │   │           │   │   │   ├── locators.py
+│   │   │           │   │   │   ├── manifest.py
+│   │   │           │   │   │   ├── markers.py
+│   │   │           │   │   │   ├── metadata.py
+│   │   │           │   │   │   ├── resources.py
+│   │   │           │   │   │   ├── scripts.py
+│   │   │           │   │   │   ├── t32.exe
+│   │   │           │   │   │   ├── t64-arm.exe
+│   │   │           │   │   │   ├── t64.exe
+│   │   │           │   │   │   ├── util.py
+│   │   │           │   │   │   ├── version.py
+│   │   │           │   │   │   ├── w32.exe
+│   │   │           │   │   │   ├── w64-arm.exe
+│   │   │           │   │   │   ├── w64.exe
+│   │   │           │   │   │   └── wheel.py
+│   │   │           │   │   ├── distro
+│   │   │           │   │   │   ├── __main__.py
+│   │   │           │   │   │   ├── distro.py
+│   │   │           │   │   │   └── py.typed
+│   │   │           │   │   ├── idna
+│   │   │           │   │   │   ├── codec.py
+│   │   │           │   │   │   ├── compat.py
+│   │   │           │   │   │   ├── core.py
+│   │   │           │   │   │   ├── idnadata.py
+│   │   │           │   │   │   ├── intranges.py
+│   │   │           │   │   │   ├── package_data.py
+│   │   │           │   │   │   ├── py.typed
+│   │   │           │   │   │   └── uts46data.py
+│   │   │           │   │   ├── msgpack
+│   │   │           │   │   │   ├── exceptions.py
+│   │   │           │   │   │   ├── ext.py
+│   │   │           │   │   │   └── fallback.py
+│   │   │           │   │   ├── packaging
+│   │   │           │   │   │   ├── licenses
+│   │   │           │   │   │   │   └── _spdx.py
+│   │   │           │   │   │   ├── _elffile.py
+│   │   │           │   │   │   ├── _manylinux.py
+│   │   │           │   │   │   ├── _musllinux.py
+│   │   │           │   │   │   ├── _parser.py
+│   │   │           │   │   │   ├── _structures.py
+│   │   │           │   │   │   ├── _tokenizer.py
+│   │   │           │   │   │   ├── markers.py
+│   │   │           │   │   │   ├── metadata.py
+│   │   │           │   │   │   ├── py.typed
+│   │   │           │   │   │   ├── requirements.py
+│   │   │           │   │   │   ├── specifiers.py
+│   │   │           │   │   │   ├── tags.py
+│   │   │           │   │   │   ├── utils.py
+│   │   │           │   │   │   └── version.py
+│   │   │           │   │   ├── pkg_resources
+│   │   │           │   │   ├── platformdirs
+│   │   │           │   │   │   ├── __main__.py
+│   │   │           │   │   │   ├── android.py
+│   │   │           │   │   │   ├── api.py
+│   │   │           │   │   │   ├── macos.py
+│   │   │           │   │   │   ├── py.typed
+│   │   │           │   │   │   ├── unix.py
+│   │   │           │   │   │   ├── version.py
+│   │   │           │   │   │   └── windows.py
+│   │   │           │   │   ├── pygments
+│   │   │           │   │   │   ├── filters
+│   │   │           │   │   │   ├── formatters
+│   │   │           │   │   │   │   └── _mapping.py
+│   │   │           │   │   │   ├── lexers
+│   │   │           │   │   │   │   ├── _mapping.py
+│   │   │           │   │   │   │   └── python.py
+│   │   │           │   │   │   ├── styles
+│   │   │           │   │   │   │   └── _mapping.py
+│   │   │           │   │   │   ├── __main__.py
+│   │   │           │   │   │   ├── console.py
+│   │   │           │   │   │   ├── filter.py
+│   │   │           │   │   │   ├── formatter.py
+│   │   │           │   │   │   ├── lexer.py
+│   │   │           │   │   │   ├── modeline.py
+│   │   │           │   │   │   ├── plugin.py
+│   │   │           │   │   │   ├── regexopt.py
+│   │   │           │   │   │   ├── scanner.py
+│   │   │           │   │   │   ├── sphinxext.py
+│   │   │           │   │   │   ├── style.py
+│   │   │           │   │   │   ├── token.py
+│   │   │           │   │   │   ├── unistring.py
+│   │   │           │   │   │   └── util.py
+│   │   │           │   │   ├── pyproject_hooks
+│   │   │           │   │   │   ├── _in_process
+│   │   │           │   │   │   │   └── _in_process.py
+│   │   │           │   │   │   ├── _impl.py
+│   │   │           │   │   │   └── py.typed
+│   │   │           │   │   ├── requests
+│   │   │           │   │   │   ├── __version__.py
+│   │   │           │   │   │   ├── _internal_utils.py
+│   │   │           │   │   │   ├── adapters.py
+│   │   │           │   │   │   ├── api.py
+│   │   │           │   │   │   ├── auth.py
+│   │   │           │   │   │   ├── certs.py
+│   │   │           │   │   │   ├── compat.py
+│   │   │           │   │   │   ├── cookies.py
+│   │   │           │   │   │   ├── exceptions.py
+│   │   │           │   │   │   ├── help.py
+│   │   │           │   │   │   ├── hooks.py
+│   │   │           │   │   │   ├── models.py
+│   │   │           │   │   │   ├── packages.py
+│   │   │           │   │   │   ├── sessions.py
+│   │   │           │   │   │   ├── status_codes.py
+│   │   │           │   │   │   ├── structures.py
+│   │   │           │   │   │   └── utils.py
+│   │   │           │   │   ├── resolvelib
+│   │   │           │   │   │   ├── resolvers
+│   │   │           │   │   │   │   ├── abstract.py
+│   │   │           │   │   │   │   ├── criterion.py
+│   │   │           │   │   │   │   ├── exceptions.py
+│   │   │           │   │   │   │   └── resolution.py
+│   │   │           │   │   │   ├── providers.py
+│   │   │           │   │   │   ├── py.typed
+│   │   │           │   │   │   ├── reporters.py
+│   │   │           │   │   │   └── structs.py
+│   │   │           │   │   ├── rich
+│   │   │           │   │   │   ├── __main__.py
+│   │   │           │   │   │   ├── _cell_widths.py
+│   │   │           │   │   │   ├── _emoji_codes.py
+│   │   │           │   │   │   ├── _emoji_replace.py
+│   │   │           │   │   │   ├── _export_format.py
+│   │   │           │   │   │   ├── _extension.py
+│   │   │           │   │   │   ├── _fileno.py
+│   │   │           │   │   │   ├── _inspect.py
+│   │   │           │   │   │   ├── _log_render.py
+│   │   │           │   │   │   ├── _loop.py
+│   │   │           │   │   │   ├── _null_file.py
+│   │   │           │   │   │   ├── _palettes.py
+│   │   │           │   │   │   ├── _pick.py
+│   │   │           │   │   │   ├── _ratio.py
+│   │   │           │   │   │   ├── _spinners.py
+│   │   │           │   │   │   ├── _stack.py
+│   │   │           │   │   │   ├── _timer.py
+│   │   │           │   │   │   ├── _win32_console.py
+│   │   │           │   │   │   ├── _windows.py
+│   │   │           │   │   │   ├── _windows_renderer.py
+│   │   │           │   │   │   ├── _wrap.py
+│   │   │           │   │   │   ├── abc.py
+│   │   │           │   │   │   ├── align.py
+│   │   │           │   │   │   ├── ansi.py
+│   │   │           │   │   │   ├── bar.py
+│   │   │           │   │   │   ├── box.py
+│   │   │           │   │   │   ├── cells.py
+│   │   │           │   │   │   ├── color.py
+│   │   │           │   │   │   ├── color_triplet.py
+│   │   │           │   │   │   ├── columns.py
+│   │   │           │   │   │   ├── console.py
+│   │   │           │   │   │   ├── constrain.py
+│   │   │           │   │   │   ├── containers.py
+│   │   │           │   │   │   ├── control.py
+│   │   │           │   │   │   ├── default_styles.py
+│   │   │           │   │   │   ├── diagnose.py
+│   │   │           │   │   │   ├── emoji.py
+│   │   │           │   │   │   ├── errors.py
+│   │   │           │   │   │   ├── file_proxy.py
+│   │   │           │   │   │   ├── filesize.py
+│   │   │           │   │   │   ├── highlighter.py
+│   │   │           │   │   │   ├── json.py
+│   │   │           │   │   │   ├── jupyter.py
+│   │   │           │   │   │   ├── layout.py
+│   │   │           │   │   │   ├── live.py
+│   │   │           │   │   │   ├── live_render.py
+│   │   │           │   │   │   ├── logging.py
+│   │   │           │   │   │   ├── markup.py
+│   │   │           │   │   │   ├── measure.py
+│   │   │           │   │   │   ├── padding.py
+│   │   │           │   │   │   ├── pager.py
+│   │   │           │   │   │   ├── palette.py
+│   │   │           │   │   │   ├── panel.py
+│   │   │           │   │   │   ├── pretty.py
+│   │   │           │   │   │   ├── progress.py
+│   │   │           │   │   │   ├── progress_bar.py
+│   │   │           │   │   │   ├── prompt.py
+│   │   │           │   │   │   ├── protocol.py
+│   │   │           │   │   │   ├── py.typed
+│   │   │           │   │   │   ├── region.py
+│   │   │           │   │   │   ├── repr.py
+│   │   │           │   │   │   ├── rule.py
+│   │   │           │   │   │   ├── scope.py
+│   │   │           │   │   │   ├── screen.py
+│   │   │           │   │   │   ├── segment.py
+│   │   │           │   │   │   ├── spinner.py
+│   │   │           │   │   │   ├── status.py
+│   │   │           │   │   │   ├── style.py
+│   │   │           │   │   │   ├── styled.py
+│   │   │           │   │   │   ├── syntax.py
+│   │   │           │   │   │   ├── table.py
+│   │   │           │   │   │   ├── terminal_theme.py
+│   │   │           │   │   │   ├── text.py
+│   │   │           │   │   │   ├── theme.py
+│   │   │           │   │   │   ├── themes.py
+│   │   │           │   │   │   ├── traceback.py
+│   │   │           │   │   │   └── tree.py
+│   │   │           │   │   ├── tomli
+│   │   │           │   │   │   ├── _parser.py
+│   │   │           │   │   │   ├── _re.py
+│   │   │           │   │   │   ├── _types.py
+│   │   │           │   │   │   └── py.typed
+│   │   │           │   │   ├── tomli_w
+│   │   │           │   │   │   ├── _writer.py
+│   │   │           │   │   │   └── py.typed
+│   │   │           │   │   ├── truststore
+│   │   │           │   │   │   ├── _api.py
+│   │   │           │   │   │   ├── _macos.py
+│   │   │           │   │   │   ├── _openssl.py
+│   │   │           │   │   │   ├── _ssl_constants.py
+│   │   │           │   │   │   ├── _windows.py
+│   │   │           │   │   │   └── py.typed
+│   │   │           │   │   ├── urllib3
+│   │   │           │   │   │   ├── contrib
+│   │   │           │   │   │   │   ├── _securetransport
+│   │   │           │   │   │   │   │   ├── bindings.py
+│   │   │           │   │   │   │   │   └── low_level.py
+│   │   │           │   │   │   │   ├── _appengine_environ.py
+│   │   │           │   │   │   │   ├── appengine.py
+│   │   │           │   │   │   │   ├── ntlmpool.py
+│   │   │           │   │   │   │   ├── pyopenssl.py
+│   │   │           │   │   │   │   ├── securetransport.py
+│   │   │           │   │   │   │   └── socks.py
+│   │   │           │   │   │   ├── packages
+│   │   │           │   │   │   │   ├── backports
+│   │   │           │   │   │   │   │   ├── makefile.py
+│   │   │           │   │   │   │   │   └── weakref_finalize.py
+│   │   │           │   │   │   │   └── six.py
+│   │   │           │   │   │   ├── util
+│   │   │           │   │   │   │   ├── connection.py
+│   │   │           │   │   │   │   ├── proxy.py
+│   │   │           │   │   │   │   ├── queue.py
+│   │   │           │   │   │   │   ├── request.py
+│   │   │           │   │   │   │   ├── response.py
+│   │   │           │   │   │   │   ├── retry.py
+│   │   │           │   │   │   │   ├── ssl_.py
+│   │   │           │   │   │   │   ├── ssl_match_hostname.py
+│   │   │           │   │   │   │   ├── ssltransport.py
+│   │   │           │   │   │   │   ├── timeout.py
+│   │   │           │   │   │   │   ├── url.py
+│   │   │           │   │   │   │   └── wait.py
+│   │   │           │   │   │   ├── _collections.py
+│   │   │           │   │   │   ├── _version.py
+│   │   │           │   │   │   ├── connection.py
+│   │   │           │   │   │   ├── connectionpool.py
+│   │   │           │   │   │   ├── exceptions.py
+│   │   │           │   │   │   ├── fields.py
+│   │   │           │   │   │   ├── filepost.py
+│   │   │           │   │   │   ├── poolmanager.py
+│   │   │           │   │   │   ├── request.py
+│   │   │           │   │   │   └── response.py
+│   │   │           │   │   └── typing_extensions.py
+│   │   │           │   ├── __main__.py
+│   │   │           │   ├── __pip-runner__.py
+│   │   │           │   └── py.typed
+│   │   │           ├── pip-25.1.1.dist-info
+│   │   │           │   ├── licenses
+│   │   │           │   ├── INSTALLER
+│   │   │           │   ├── METADATA
+│   │   │           │   ├── RECORD
+│   │   │           │   └── WHEEL
+│   │   │           ├── _virtualenv.pth
+│   │   │           ├── _virtualenv.py
+│   │   │           └── pip-25.1.1.virtualenv
+│   │   ├── CACHEDIR.TAG
+│   │   └── pyvenv.cfg
+│   ├── .tags
+│   ├── Dockerfile
+│   ├── auto_commit.sh
+│   ├── create_code_updates.sh
+│   ├── create_conda.sh
+│   ├── create_fernet.py
+│   ├── encypt_key2.py
+│   ├── health_check.sh
+│   ├── run_in_env.sh
+│   ├── setup_docker_env.sh
+│   └── structure.sh
+```
+
+## Code Dependency Graph
+
+- Total files analyzed: 7079
+- Total relationships: 1355
+
+### Dependency Graph Visualization
+
+#### Force-Directed Layout
+![Repository Dependency Graph](./dependency_graph.png)
+
+### Most Important Files
+
+#### Most Imported Files
+
+- **venv/lib/python3.12/site-packages/pip/_internal/exceptions.py**: Imported by 55 files
+- **venv/lib/python3.12/site-packages/pip/_internal/utils/misc.py**: Imported by 53 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/packaging/utils.py**: Imported by 34 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/rich/style.py**: Imported by 27 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/rich/text.py**: Imported by 25 files
+- **venv/lib/python3.12/site-packages/pip/_internal/metadata/__init__.py**: Imported by 25 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/packaging/version.py**: Imported by 23 files
+- **venv/lib/python3.12/site-packages/pip/_internal/req/req_install.py**: Imported by 22 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/rich/segment.py**: Imported by 20 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/rich/console.py**: Imported by 20 files
+
+#### Files With Most Dependencies
+
+- **venv/lib/python3.12/site-packages/pip/_internal/req/req_install.py**: Imports 29 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/rich/console.py**: Imports 25 files
+- **venv/lib/python3.12/site-packages/pip/_internal/commands/install.py**: Imports 24 files
+- **venv/lib/python3.12/site-packages/pip/_internal/resolution/resolvelib/factory.py**: Imports 23 files
+- **venv/lib/python3.12/site-packages/pip/_internal/operations/prepare.py**: Imports 22 files
+- **venv/lib/python3.12/site-packages/pip/_internal/index/package_finder.py**: Imports 21 files
+- **venv/lib/python3.12/site-packages/pip/_internal/wheel_builder.py**: Imports 18 files
+- **venv/lib/python3.12/site-packages/pip/_internal/resolution/legacy/resolver.py**: Imports 18 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/rich/syntax.py**: Imports 17 files
+- **venv/lib/python3.12/site-packages/pip/_internal/cli/req_command.py**: Imports 17 files
+
+#### Potential Core Modules
+
+These files are imported by multiple other files and may represent core functionality:
+
+- **venv/lib/python3.12/site-packages/pip/_internal/exceptions.py**: Imported by 55 files
+- **venv/lib/python3.12/site-packages/pip/_internal/utils/misc.py**: Imported by 53 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/packaging/utils.py**: Imported by 34 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/rich/style.py**: Imported by 27 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/rich/text.py**: Imported by 25 files
+- **venv/lib/python3.12/site-packages/pip/_internal/metadata/__init__.py**: Imported by 25 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/packaging/version.py**: Imported by 23 files
+- **venv/lib/python3.12/site-packages/pip/_internal/req/req_install.py**: Imported by 22 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/rich/segment.py**: Imported by 20 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/rich/console.py**: Imported by 20 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/urllib3/exceptions.py**: Imported by 20 files
+- **venv/lib/python3.12/site-packages/pip/_internal/cli/status_codes.py**: Imported by 20 files
+- **venv/lib/python3.12/site-packages/pip/_internal/utils/logging.py**: Imported by 19 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/rich/jupyter.py**: Imported by 18 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/rich/measure.py**: Imported by 18 files
+- **venv/lib/python3.12/site-packages/pip/_internal/utils/compat.py**: Imported by 18 files
+- **venv/lib/python3.12/site-packages/pip/_internal/utils/temp_dir.py**: Imported by 17 files
+- **venv/lib/python3.12/site-packages/pip/_internal/models/link.py**: Imported by 17 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/rich/__init__.py**: Imported by 16 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/urllib3/packages/__init__.py**: Imported by 16 files
+- **venv/lib/python3.12/site-packages/pip/_internal/utils/subprocess.py**: Imported by 16 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/packaging/requirements.py**: Imported by 15 files
+- **venv/lib/python3.12/site-packages/pip/_internal/cli/__init__.py**: Imported by 14 files
+- **venv/lib/python3.12/site-packages/pip/_internal/cli/base_command.py**: Imported by 13 files
+- **venv/lib/python3.12/site-packages/pip/_internal/utils/urls.py**: Imported by 12 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/distlib/util.py**: Imported by 11 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/rich/_loop.py**: Imported by 10 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/rich/highlighter.py**: Imported by 10 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/__init__.py**: Imported by 10 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/requests/compat.py**: Imported by 10 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/distlib/compat.py**: Imported by 10 files
+- **venv/lib/python3.12/site-packages/pip/_internal/utils/virtualenv.py**: Imported by 10 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/packaging/specifiers.py**: Imported by 9 files
+- **venv/lib/python3.12/site-packages/pip/_internal/utils/packaging.py**: Imported by 9 files
+- **venv/lib/python3.12/site-packages/pip/_internal/locations/__init__.py**: Imported by 9 files
+- **graphrag/logger.py**: Imported by 9 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/rich/color.py**: Imported by 8 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/rich/cells.py**: Imported by 8 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/requests/structures.py**: Imported by 8 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/requests/models.py**: Imported by 8 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/distlib/__init__.py**: Imported by 8 files
+- **venv/lib/python3.12/site-packages/pip/_internal/cache.py**: Imported by 8 files
+- **venv/lib/python3.12/site-packages/pip/_internal/models/wheel.py**: Imported by 8 files
+- **venv/lib/python3.12/site-packages/pip/_internal/index/package_finder.py**: Imported by 8 files
+- **venv/lib/python3.12/site-packages/pip/_internal/network/session.py**: Imported by 8 files
+- **venv/lib/python3.12/site-packages/pip/_internal/utils/hashes.py**: Imported by 8 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/rich/align.py**: Imported by 7 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/cachecontrol/cache.py**: Imported by 7 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/packaging/tags.py**: Imported by 7 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/resolvelib/structs.py**: Imported by 7 files
+- **venv/lib/python3.12/site-packages/pip/_internal/build_env.py**: Imported by 7 files
+- **venv/lib/python3.12/site-packages/pip/_internal/models/direct_url.py**: Imported by 7 files
+- **venv/lib/python3.12/site-packages/pip/_internal/vcs/__init__.py**: Imported by 7 files
+- **venv/lib/python3.12/site-packages/pip/_internal/metadata/base.py**: Imported by 7 files
+- **venv/lib/python3.12/site-packages/pip/_internal/req/constructors.py**: Imported by 7 files
+- **venv/lib/python3.12/site-packages/pip/_internal/resolution/resolvelib/base.py**: Imported by 7 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/rich/table.py**: Imported by 6 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/rich/pretty.py**: Imported by 6 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/requests/exceptions.py**: Imported by 6 files
+- **venv/lib/python3.12/site-packages/pip/__init__.py**: Imported by 6 files
+- **venv/lib/python3.12/site-packages/pip/_internal/cli/spinners.py**: Imported by 6 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/pyproject_hooks/__init__.py**: Imported by 6 files
+- **venv/lib/python3.12/site-packages/pip/_internal/utils/filetypes.py**: Imported by 6 files
+- **venv/lib/python3.12/site-packages/pip/_internal/cli/req_command.py**: Imported by 6 files
+- **venv/lib/python3.12/site-packages/pip/_internal/operations/build/build_tracker.py**: Imported by 6 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/rich/repr.py**: Imported by 5 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/rich/control.py**: Imported by 5 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/pygments/token.py**: Imported by 5 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/pygments/util.py**: Imported by 5 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/rich/panel.py**: Imported by 5 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/urllib3/__init__.py**: Imported by 5 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/packaging/__init__.py**: Imported by 5 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/packaging/markers.py**: Imported by 5 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/urllib3/util/ssl_.py**: Imported by 5 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/requests/_internal_utils.py**: Imported by 5 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/requests/cookies.py**: Imported by 5 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/requests/utils.py**: Imported by 5 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/distlib/version.py**: Imported by 5 files
+- **venv/lib/python3.12/site-packages/pip/_internal/utils/__init__.py**: Imported by 5 files
+- **venv/lib/python3.12/site-packages/pip/_internal/models/selection_prefs.py**: Imported by 5 files
+- **venv/lib/python3.12/site-packages/pip/_internal/utils/filesystem.py**: Imported by 5 files
+- **venv/lib/python3.12/site-packages/pip/_internal/utils/deprecation.py**: Imported by 5 files
+- **venv/lib/python3.12/site-packages/pip/_internal/models/index.py**: Imported by 5 files
+- **venv/lib/python3.12/site-packages/pip/_internal/vcs/versioncontrol.py**: Imported by 5 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/rich/terminal_theme.py**: Imported by 4 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/rich/color_triplet.py**: Imported by 4 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/rich/padding.py**: Imported by 4 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/rich/markup.py**: Imported by 4 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/urllib3/_collections.py**: Imported by 4 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/urllib3/packages/six.py**: Imported by 4 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/urllib3/util/retry.py**: Imported by 4 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/urllib3/util/url.py**: Imported by 4 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/urllib3/util/__init__.py**: Imported by 4 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/api.py**: Imported by 4 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/requests/auth.py**: Imported by 4 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/requests/__init__.py**: Imported by 4 files
+- **venv/lib/python3.12/site-packages/pip/_internal/index/collector.py**: Imported by 4 files
+- **venv/lib/python3.12/site-packages/pip/_internal/utils/setuptools_build.py**: Imported by 4 files
+- **venv/lib/python3.12/site-packages/pip/_internal/utils/unpacking.py**: Imported by 4 files
+- **venv/lib/python3.12/site-packages/pip/_internal/utils/direct_url_helpers.py**: Imported by 4 files
+- **venv/lib/python3.12/site-packages/pip/_internal/utils/compatibility_tags.py**: Imported by 4 files
+- **venv/lib/python3.12/site-packages/pip/_internal/models/target_python.py**: Imported by 4 files
+- **venv/lib/python3.12/site-packages/pip/_internal/req/__init__.py**: Imported by 4 files
+- **venv/lib/python3.12/site-packages/pip/_internal/network/utils.py**: Imported by 4 files
+- **venv/lib/python3.12/site-packages/pip/_internal/resolution/base.py**: Imported by 4 files
+- **venv/lib/python3.12/site-packages/pip/_internal/operations/prepare.py**: Imported by 4 files
+- **graphrag/config/settings.py**: Imported by 4 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/rich/_emoji_replace.py**: Imported by 3 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/rich/theme.py**: Imported by 3 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/rich/protocol.py**: Imported by 3 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/rich/_pick.py**: Imported by 3 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/rich/constrain.py**: Imported by 3 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/rich/emoji.py**: Imported by 3 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/dependency_groups/_implementation.py**: Imported by 3 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/dependency_groups/_toml_compat.py**: Imported by 3 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/cachecontrol/controller.py**: Imported by 3 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/requests/adapters.py**: Imported by 3 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/packaging/_tokenizer.py**: Imported by 3 files
+- **./venv/lib/python3.12/site-packages/pip/_vendor/urllib3/packages/six/moves/http_client**: Imported by 3 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/urllib3/connectionpool.py**: Imported by 3 files
+- **./venv/lib/python3.12/site-packages/pip/_vendor/urllib3/packages/six/moves/urllib/parse**: Imported by 3 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/urllib3/request.py**: Imported by 3 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/urllib3/util/proxy.py**: Imported by 3 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/urllib3/connection.py**: Imported by 3 files
+- **./venv/lib/python3.12/site-packages/pip/_vendor/urllib3/packages/six/moves**: Imported by 3 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/certifi/__init__.py**: Imported by 3 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/truststore/_ssl_constants.py**: Imported by 3 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/distlib/metadata.py**: Imported by 3 files
+- **venv/lib/python3.12/site-packages/pip/_internal/configuration.py**: Imported by 3 files
+- **venv/lib/python3.12/site-packages/pip/_internal/utils/wheel.py**: Imported by 3 files
+- **venv/lib/python3.12/site-packages/pip/_internal/utils/_log.py**: Imported by 3 files
+- **venv/lib/python3.12/site-packages/pip/_internal/utils/egg_link.py**: Imported by 3 files
+- **venv/lib/python3.12/site-packages/pip/_internal/models/format_control.py**: Imported by 3 files
+- **venv/lib/python3.12/site-packages/pip/_internal/models/search_scope.py**: Imported by 3 files
+- **venv/lib/python3.12/site-packages/pip/_internal/models/scheme.py**: Imported by 3 files
+- **venv/lib/python3.12/site-packages/pip/_internal/req/req_set.py**: Imported by 3 files
+- **venv/lib/python3.12/site-packages/pip/_internal/distributions/base.py**: Imported by 3 files
+- **venv/lib/python3.12/site-packages/pip/_internal/cli/parser.py**: Imported by 3 files
+- **venv/lib/python3.12/site-packages/pip/_internal/commands/__init__.py**: Imported by 3 files
+- **venv/lib/python3.12/site-packages/pip/_internal/cli/index_command.py**: Imported by 3 files
+- **venv/lib/python3.12/site-packages/pip/_internal/cli/cmdoptions.py**: Imported by 3 files
+- **venv/lib/python3.12/site-packages/pip/_internal/req/req_file.py**: Imported by 3 files
+
+#### Potential Entry Points
+
+These files import other modules but are not imported themselves, suggesting they may be entry points:
+
+- **tests/test_nlp_processor.py**: Imports 1 files
+- **tests/test_rag_system.py**: Imports 1 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/distro/__main__.py**: Imports 1 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/rich/prompt.py**: Imports 3 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/rich/themes.py**: Imports 2 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/rich/rule.py**: Imports 7 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/rich/status.py**: Imports 5 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/rich/_inspect.py**: Imports 8 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/rich/json.py**: Imports 2 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/rich/bar.py**: Imports 6 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/rich/_windows_renderer.py**: Imports 2 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/rich/tree.py**: Imports 7 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/rich/__main__.py**: Imports 10 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/rich/layout.py**: Imports 10 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/rich/diagnose.py**: Imports 4 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/dependency_groups/_lint_dependency_groups.py**: Imports 2 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/dependency_groups/_pip_wrapper.py**: Imports 2 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/dependency_groups/__main__.py**: Imports 2 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/pygments/formatter.py**: Imports 2 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/pygments/lexers/python.py**: Imports 4 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/cachecontrol/_cmd.py**: Imports 4 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/cachecontrol/wrapper.py**: Imports 2 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/cachecontrol/caches/redis_cache.py**: Imports 1 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/cachecontrol/caches/file_cache.py**: Imports 2 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/packaging/metadata.py**: Imports 2 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/packaging/_manylinux.py**: Imports 1 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/packaging/_musllinux.py**: Imports 1 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/urllib3/util/ssltransport.py**: Imports 2 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/urllib3/contrib/ntlmpool.py**: Imports 2 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/urllib3/contrib/socks.py**: Imports 5 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/urllib3/contrib/pyopenssl.py**: Imports 3 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/urllib3/contrib/appengine.py**: Imports 7 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/urllib3/contrib/securetransport.py**: Imports 5 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/certifi/__main__.py**: Imports 1 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/truststore/_macos.py**: Imports 1 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/truststore/_api.py**: Imports 1 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/truststore/_windows.py**: Imports 1 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/windows.py**: Imports 1 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/unix.py**: Imports 1 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/macos.py**: Imports 1 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/__main__.py**: Imports 1 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/android.py**: Imports 1 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/tomli/_parser.py**: Imports 2 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/resolvelib/resolvers/resolution.py**: Imports 4 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/requests/packages.py**: Imports 1 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/requests/help.py**: Imports 2 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/requests/sessions.py**: Imports 11 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/requests/certs.py**: Imports 1 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/requests/api.py**: Imports 1 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/msgpack/fallback.py**: Imports 2 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/distlib/index.py**: Imports 3 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/distlib/locators.py**: Imports 7 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/distlib/manifest.py**: Imports 3 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/idna/compat.py**: Imports 1 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/idna/codec.py**: Imports 1 files
+- **venv/lib/python3.12/site-packages/pip/_vendor/pyproject_hooks/_impl.py**: Imports 1 files
+- **venv/lib/python3.12/site-packages/pip/_internal/utils/appdirs.py**: Imports 1 files
+- **venv/lib/python3.12/site-packages/pip/_internal/locations/_sysconfig.py**: Imports 4 files
+- **venv/lib/python3.12/site-packages/pip/_internal/locations/_distutils.py**: Imports 4 files
+- **venv/lib/python3.12/site-packages/pip/_internal/metadata/pkg_resources.py**: Imports 9 files
+- **venv/lib/python3.12/site-packages/pip/_internal/metadata/importlib/_envs.py**: Imports 5 files
+- **venv/lib/python3.12/site-packages/pip/_internal/resolution/legacy/resolver.py**: Imports 18 files
+- **venv/lib/python3.12/site-packages/pip/_internal/resolution/resolvelib/resolver.py**: Imports 16 files
+- **venv/lib/python3.12/site-packages/pip/_internal/distributions/wheel.py**: Imports 3 files
+- **venv/lib/python3.12/site-packages/pip/_internal/distributions/sdist.py**: Imports 5 files
+- **venv/lib/python3.12/site-packages/pip/_internal/vcs/git.py**: Imports 4 files
+- **venv/lib/python3.12/site-packages/pip/_internal/vcs/subversion.py**: Imports 3 files
+- **venv/lib/python3.12/site-packages/pip/_internal/vcs/bazaar.py**: Imports 4 files
+- **venv/lib/python3.12/site-packages/pip/_internal/vcs/mercurial.py**: Imports 5 files
+- **venv/lib/python3.12/site-packages/pip/_internal/commands/uninstall.py**: Imports 9 files
+- **venv/lib/python3.12/site-packages/pip/_internal/commands/list.py**: Imports 10 files
+- **venv/lib/python3.12/site-packages/pip/_internal/commands/configuration.py**: Imports 6 files
+- **venv/lib/python3.12/site-packages/pip/_internal/commands/index.py**: Imports 12 files
+- **venv/lib/python3.12/site-packages/pip/_internal/commands/wheel.py**: Imports 10 files
+- **venv/lib/python3.12/site-packages/pip/_internal/commands/lock.py**: Imports 10 files
+- **venv/lib/python3.12/site-packages/pip/_internal/commands/help.py**: Imports 3 files
+- **venv/lib/python3.12/site-packages/pip/_internal/commands/freeze.py**: Imports 5 files
+- **venv/lib/python3.12/site-packages/pip/_internal/commands/install.py**: Imports 24 files
+- **venv/lib/python3.12/site-packages/pip/_internal/commands/check.py**: Imports 6 files
+- **venv/lib/python3.12/site-packages/pip/_internal/commands/inspect.py**: Imports 9 files
+- **venv/lib/python3.12/site-packages/pip/_internal/commands/download.py**: Imports 8 files
+- **venv/lib/python3.12/site-packages/pip/_internal/commands/debug.py**: Imports 12 files
+- **venv/lib/python3.12/site-packages/pip/_internal/commands/cache.py**: Imports 6 files
+- **venv/lib/python3.12/site-packages/pip/_internal/commands/hash.py**: Imports 4 files
+- **venv/lib/python3.12/site-packages/pip/_internal/commands/completion.py**: Imports 3 files
+- **venv/lib/python3.12/site-packages/pip/_internal/commands/show.py**: Imports 6 files
+- **ctags/Units/parser-python.r/python-dot-in-import.d/input.py**: Imports 4 files
+- **src/graphrag/neo4j/manager.py**: Imports 3 files
+- **src/graphrag/embedding_service/service.py**: Imports 1 files
+- **src/graphrag/rag_system/main.py**: Imports 5 files
+- **src/graphrag/nlp/processor.py**: Imports 1 files
+- **src/graphrag/milvus/manager.py**: Imports 2 files
+- **graphrag/embedding_service/async_pipeline.py**: Imports 1 files
+
+### Most Shared Functions, Classes, and Variables
+
+This section shows individual components (functions, classes, variables) that are imported across multiple files.
+
+#### Most Imported Functions
+
+- **canonicalize_name**: Imported 31 times from venv/lib/python3.12/site-packages/pip/_vendor/packaging/utils.py
+- **ensure_dir**: Imported 10 times from venv/lib/python3.12/site-packages/pip/_internal/utils/misc.py
+- **running_under_virtualenv**: Imported 10 times from venv/lib/python3.12/site-packages/pip/_internal/utils/virtualenv.py
+- **get_default_environment**: Imported 10 times from venv/lib/python3.12/site-packages/pip/_internal/metadata/__init__.py
+- **loop_last**: Imported 9 times from venv/lib/python3.12/site-packages/pip/_vendor/rich/_loop.py
+- **path_to_url**: Imported 9 times from venv/lib/python3.12/site-packages/pip/_internal/utils/urls.py
+- **parse**: Imported 9 times from venv/lib/python3.12/site-packages/pip/_vendor/packaging/version.py
+- **indent_log**: Imported 9 times from venv/lib/python3.12/site-packages/pip/_internal/utils/logging.py
+- **write_output**: Imported 9 times from venv/lib/python3.12/site-packages/pip/_internal/utils/misc.py
+- **cell_len**: Imported 8 times from venv/lib/python3.12/site-packages/pip/_vendor/rich/cells.py
+
+#### Most Imported Classes
+
+- **Text**: Imported 24 times from venv/lib/python3.12/site-packages/pip/_vendor/rich/text.py
+- **InstallationError**: Imported 21 times from venv/lib/python3.12/site-packages/pip/_internal/exceptions.py
+- **Style**: Imported 21 times from venv/lib/python3.12/site-packages/pip/_vendor/pygments/style.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/style.py
+- **Segment**: Imported 20 times from venv/lib/python3.12/site-packages/pip/_vendor/rich/segment.py
+- **InstallRequirement**: Imported 20 times from venv/lib/python3.12/site-packages/pip/_internal/req/req_install.py
+- **JupyterMixin**: Imported 18 times from venv/lib/python3.12/site-packages/pip/_vendor/rich/jupyter.py
+- **Measurement**: Imported 18 times from venv/lib/python3.12/site-packages/pip/_vendor/rich/measure.py
+- **Console**: Imported 18 times from venv/lib/python3.12/site-packages/pip/_vendor/rich/console.py
+- **Link**: Imported 17 times from venv/lib/python3.12/site-packages/pip/_internal/models/link.py
+- **Requirement**: Imported 16 times from venv/lib/python3.12/site-packages/pip/_internal/resolution/resolvelib/base.py, venv/lib/python3.12/site-packages/pip/_vendor/packaging/requirements.py
+
+#### Most Imported Variables and Constants
+
+- **SUCCESS**: Imported 18 times from venv/lib/python3.12/site-packages/pip/_internal/cli/status_codes.py
+- **StyleType**: Imported 15 times from venv/lib/python3.12/site-packages/pip/_vendor/rich/style.py
+- **RenderResult**: Imported 12 times from venv/lib/python3.12/site-packages/pip/_vendor/rich/console.py
+- **NormalizedName**: Imported 11 times from venv/lib/python3.12/site-packages/pip/_vendor/packaging/utils.py
+- **logger**: Imported 10 times from graphrag/logger.py, venv/lib/python3.12/site-packages/pip/_vendor/cachecontrol/controller.py
+- **RenderableType**: Imported 10 times from venv/lib/python3.12/site-packages/pip/_vendor/rich/console.py
+- **WINDOWS**: Imported 10 times from venv/lib/python3.12/site-packages/pip/_internal/utils/compat.py
+- **TextType**: Imported 9 times from venv/lib/python3.12/site-packages/pip/_vendor/rich/text.py
+- **__version__**: Imported 9 times from venv/lib/python3.12/site-packages/pip/__init__.py, venv/lib/python3.12/site-packages/pip/_vendor/distlib/__init__.py, venv/lib/python3.12/site-packages/pip/_vendor/requests/__version__.py, venv/lib/python3.12/site-packages/pip/_vendor/urllib3/_version.py
+- **ERROR**: Imported 8 times from venv/lib/python3.12/site-packages/pip/_internal/cli/status_codes.py
+
+#### Components Used Across Multiple Files
+
+These components are imported by 3 or more different files and may represent core shared functionality:
+
+- **logger** (variable): Used in 10 files - graphrag/embedding_service/service.py, graphrag/milvus/manager.py, graphrag/neo4j/manager.py, graphrag/nlp/processor.py, src/graphrag/embedding_service/service.py, src/graphrag/milvus/manager.py, src/graphrag/neo4j/manager.py, src/graphrag/nlp/processor.py, src/graphrag/rag_system/main.py, venv/lib/python3.12/site-packages/pip/_vendor/cachecontrol/_cmd.py
+- **Style** (class): Used in 20 files - venv/lib/python3.12/site-packages/pip/_internal/utils/logging.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/__main__.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/_win32_console.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/ansi.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/bar.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/console.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/default_styles.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/emoji.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/markup.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/padding.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/panel.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/progress_bar.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/rule.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/segment.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/syntax.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/table.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/text.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/theme.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/traceback.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/tree.py
+- **errors** (unknown): Used in 4 files - venv/lib/python3.12/site-packages/pip/_vendor/rich/console.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/measure.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/style.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/table.py
+- **Color** (class): Used in 6 files - venv/lib/python3.12/site-packages/pip/_vendor/rich/__main__.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/ansi.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/bar.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/progress_bar.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/style.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/syntax.py
+- **ColorSystem** (class): Used in 3 files - venv/lib/python3.12/site-packages/pip/_vendor/rich/_win32_console.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/console.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/style.py
+- **blend_rgb** (function): Used in 4 files - venv/lib/python3.12/site-packages/pip/_vendor/rich/console.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/progress_bar.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/style.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/syntax.py
+- **Result** (variable): Used in 4 files - venv/lib/python3.12/site-packages/pip/_vendor/rich/color.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/layout.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/segment.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/style.py
+- **rich_repr** (function): Used in 4 files - venv/lib/python3.12/site-packages/pip/_vendor/rich/color.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/layout.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/segment.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/style.py
+- **DEFAULT_TERMINAL_THEME** (constant): Used in 4 files - venv/lib/python3.12/site-packages/pip/_vendor/rich/color.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/console.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/jupyter.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/style.py
+- **get_console** (function): Used in 7 files - venv/lib/python3.12/site-packages/pip/_internal/cli/progress_bars.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/jupyter.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/live.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/logging.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/pretty.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/progress.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/prompt.py
+- **Segment** (class): Used in 20 files - venv/lib/python3.12/site-packages/pip/_internal/utils/logging.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/__main__.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/_windows_renderer.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/align.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/bar.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/console.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/control.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/emoji.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/jupyter.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/layout.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/live_render.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/padding.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/panel.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/progress_bar.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/screen.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/styled.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/syntax.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/table.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/text.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/tree.py
+- **cell_len** (function): Used in 8 files - venv/lib/python3.12/site-packages/pip/_vendor/rich/_wrap.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/containers.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/panel.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/pretty.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/rule.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/segment.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/syntax.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/text.py
+- **set_cell_size** (function): Used in 3 files - venv/lib/python3.12/site-packages/pip/_vendor/rich/rule.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/segment.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/text.py
+- **ColorTriplet** (class): Used in 4 files - venv/lib/python3.12/site-packages/pip/_vendor/rich/color.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/palette.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/progress_bar.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/terminal_theme.py
+- **Text** (class): Used in 24 files - venv/lib/python3.12/site-packages/pip/_internal/exceptions.py, venv/lib/python3.12/site-packages/pip/_internal/self_outdated_check.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/__main__.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/_inspect.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/_log_render.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/ansi.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/console.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/file_proxy.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/highlighter.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/json.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/live.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/live_render.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/logging.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/markup.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/panel.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/pretty.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/progress.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/prompt.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/rule.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/scope.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/spinner.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/syntax.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/table.py, venv/lib/python3.12/site-packages/pip/_vendor/rich/traceback.py
+
+...and 213 more heavily used components.
+
+See repo_graph.graphml and repo_graph.json for detailed graph data.
+
+## MDC Documentation Files
+
+Cursor-compatible MDC documentation files have been generated in the `.cursor/rules` directory. These files provide context-aware documentation for:
+
+- Individual files
+- Directories
+- The entire repository
+
+These files include dependency information and are designed to provide contextual help within the Cursor IDE.
+
