@@ -1,20 +1,20 @@
 {
   "models": {
     "main": {
-      "provider": "google",
-      "modelId": "gemini-2.0-flash",
+      "provider": "ollama",
+      "modelId": "qwen3:14b",
       "maxTokens": 120000,
       "temperature": 0.2
     },
     "research": {
-      "provider": "openrouter",
-      "modelId": "qwen/qwen3-235b-a22b",
+      "provider": "ollama",
+      "modelId": "qwen3:14b",
       "maxTokens": 8700,
       "temperature": 0.1
     },
     "fallback": {
-      "provider": "openrouter",
-      "modelId": "openai/gpt-4.1-mini",
+      "provider": "ollama",
+      "modelId": "qwen3:14b",
       "maxTokens": 8192,
       "temperature": 0.1
     }
