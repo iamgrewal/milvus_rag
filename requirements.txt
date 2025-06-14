@@ -1,19 +1,55 @@
-# Core Dependencies
-langchain
-openai
-sentence-transformers
+# Core Dependencies - Updated to resolve conflicts
+# Resolution Date: 2025-06-14
+
+# =============================================================================
+# VECTOR & GRAPH DATABASES  
+# =============================================================================
 pymilvus==2.5.10
-neo4j
-neo4j-graphrag[openai]
+neo4j>=5.28.0,<6.0.0
+neo4j-graphrag[openai]>=1.7.0,<2.0.0
 
-# Config & Secrets
-python-dotenv
-pydantic
-pydantic-settings
+# =============================================================================
+# AI/ML FRAMEWORKS
+# =============================================================================
+langchain>=0.3.0,<0.4.0
+openai>=1.54.0,<2.0.0
+sentence-transformers>=3.0.0,<4.0.0
+transformers>=4.45.0,<5.0.0
 
-# Utilities
-tqdm
-requests
-numpy
-protobuf
-grpcio-tools
+# =============================================================================
+# RESOLVED PROTOCOL DEPENDENCIES
+# =============================================================================
+# CRITICAL: These versions resolve the protobuf/grpcio conflicts
+protobuf>=5.26.1,<6.0
+grpcio>=1.67.1,<2.0
+grpcio-status>=1.67.1,<2.0
+grpcio-tools>=1.67.1,<2.0
+
+# HTTP client - resolved for promptlayer compatibility
+httpx>=0.28.1,<0.29.0
+
+# =============================================================================
+# CONFIGURATION & UTILITIES
+# =============================================================================
+python-dotenv>=1.0.0,<2.0.0
+pydantic>=2.9.0,<3.0.0
+pydantic-settings>=2.6.0,<3.0.0
+
+# Data processing
+numpy>=1.24.0,<2.0.0
+tqdm>=4.66.0,<5.0.0
+requests>=2.32.0,<3.0.0
+
+# =============================================================================
+# COMPATIBILITY NOTES
+# =============================================================================
+# This requirements.txt resolves these critical conflicts:
+# 1. protobuf 4.25.8 → 5.26.1+ (grpcio-status, opentelemetry-proto compatibility)
+# 2. httpx 0.27.2 → 0.28.1+ (promptlayer compatibility)  
+# 3. grpcio-tools alignment with grpcio 1.67.1+
+#
+# Verified compatible with:
+# - PyMilvus 2.5.10 vector operations
+# - Neo4j GraphRAG 1.7.0 graph processing
+# - OpenTelemetry monitoring stack
+# - Modern async HTTP operations

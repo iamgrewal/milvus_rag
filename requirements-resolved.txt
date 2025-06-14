@@ -1,0 +1,129 @@
+# Milvus RAG - Resolved Dependencies
+# Generated: 2025-06-14
+# Resolves conflicts: protobuf 5.0+, httpx 0.28+, grpcio-status 1.67+
+
+# =============================================================================
+# CORE VECTOR & GRAPH DATABASES
+# =============================================================================
+
+# Milvus Vector Database
+pymilvus==2.5.10
+# Dependencies: grpcio, milvus-lite, pandas, protobuf, python-dotenv, setuptools, ujson
+
+# Neo4j Graph Database  
+neo4j==5.28.1
+neo4j-graphrag[openai]==1.7.0
+# Dependencies: fsspec, json-repair, neo4j, pydantic, pypdf, pyyaml, types-pyyaml
+
+# =============================================================================
+# RESOLVED CORE PROTOCOLS (Main Conflict Resolution)
+# =============================================================================
+
+# Protobuf - Resolved to 5.26.1+ for compatibility with grpcio-status
+protobuf>=5.26.1,<6.0
+# Compatible with: grpcio-status>=1.67.1, opentelemetry-proto>=1.32.1
+
+# gRPC Core - Updated to latest compatible version
+grpcio>=1.67.1,<2.0
+grpcio-status>=1.67.1,<2.0
+grpcio-tools>=1.67.1,<2.0
+
+# HTTP Client - Resolved to support promptlayer and modern frameworks
+httpx>=0.28.1,<0.29.0
+
+# =============================================================================
+# AI/ML FRAMEWORKS
+# =============================================================================
+
+# Language Processing
+langchain>=0.3.0,<0.4.0
+langchain-community>=0.3.0,<0.4.0
+langchain-openai>=0.2.0,<0.3.0
+
+# OpenAI Integration
+openai>=1.54.0,<2.0.0
+
+# Embedding Models
+sentence-transformers>=3.0.0,<4.0.0
+
+# NLP Processing
+spacy>=3.8.0,<4.0.0
+nltk>=3.9.0,<4.0.0
+
+# Transformers for QA Pipeline
+transformers>=4.45.0,<5.0.0
+torch>=2.4.0,<3.0.0
+
+# =============================================================================
+# CONFIGURATION & UTILITIES
+# =============================================================================
+
+# Configuration Management
+python-dotenv>=1.0.0,<2.0.0
+pydantic>=2.9.0,<3.0.0
+pydantic-settings>=2.6.0,<3.0.0
+
+# Data Processing
+numpy>=1.24.0,<2.0.0
+pandas>=2.0.0,<3.0.0
+tqdm>=4.66.0,<5.0.0
+
+# HTTP & Async
+requests>=2.32.0,<3.0.0
+aiohttp>=3.10.0,<4.0.0
+
+# Serialization & Parsing
+ujson>=5.10.0,<6.0.0
+pyyaml>=6.0.0,<7.0.0
+
+# =============================================================================
+# GOOGLE/OPENTELEMETRY COMPATIBILITY
+# =============================================================================
+
+# OpenTelemetry (requires protobuf>=5.0)
+opentelemetry-api>=1.26.0,<2.0.0
+opentelemetry-sdk>=1.26.0,<2.0.0
+opentelemetry-proto>=1.32.1,<2.0.0
+
+# Google Common Libraries
+googleapis-common-protos>=1.65.0,<2.0.0
+
+# =============================================================================
+# PACKAGING & BUILD TOOLS
+# =============================================================================
+
+setuptools>=75.0.0,<76.0.0
+packaging>=24.0,<25.0
+
+# =============================================================================
+# OPTIONAL: DEVELOPMENT DEPENDENCIES
+# =============================================================================
+# Uncomment for development environment
+
+# pytest>=8.3.0,<9.0.0
+# pytest-asyncio>=0.24.0,<1.0.0
+# black>=24.8.0,<25.0.0
+# ruff>=0.6.0,<1.0.0
+# mypy>=1.11.0,<2.0.0
+# pre-commit>=4.0.0,<5.0.0
+
+# =============================================================================
+# COMPATIBILITY NOTES
+# =============================================================================
+#
+# Key Resolved Conflicts:
+# 1. protobuf: 4.25.8 → 5.26.1+ (satisfies grpcio-status, opentelemetry-proto)
+# 2. httpx: 0.27.2 → 0.28.1+ (satisfies promptlayer requirements)  
+# 3. grpcio: Updated to 1.67.1+ (compatible with grpcio-status)
+#
+# Tested Compatibility Matrix:
+# - pymilvus 2.5.10 + protobuf 5.26.1 + grpcio 1.67.1 ✓
+# - neo4j-graphrag 1.7.0 + httpx 0.28.1 ✓
+# - opentelemetry-proto 1.32.1 + protobuf 5.26.1 ✓
+# - grpcio-status 1.67.1 + protobuf 5.26.1 ✓
+#
+# Version Pinning Strategy:
+# - Core databases: Exact versions for stability
+# - Protocols: Compatible ranges for flexibility  
+# - AI/ML: Conservative ranges for model compatibility
+# - Utilities: Broad compatibility ranges
