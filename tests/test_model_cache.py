@@ -1,8 +1,11 @@
 import pytest
 import threading
 import time
-from src.utils.model_cache import ModelCache
-from src.graphrag.embedding_service.service import EmbeddingService
+import sys
+import os
+sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'src'))
+from utils.model_cache import ModelCache
+from graphrag.embedding_service.service import EmbeddingService
 
 
 class TestModelCache:
