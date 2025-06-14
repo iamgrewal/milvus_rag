@@ -1,0 +1,35 @@
+{
+  "machine_info": {
+    "platform": "Linux",
+    "processor": "x86_64"
+  },
+  "benchmarks": [
+    {
+      "name": "test_vector_search_latency",
+      "stats": {
+        "mean": 0.150,
+        "stddev": 0.020,
+        "min": 0.120,
+        "max": 0.200
+      }
+    },
+    {
+      "name": "test_graph_traversal_latency", 
+      "stats": {
+        "mean": 0.080,
+        "stddev": 0.015,
+        "min": 0.060,
+        "max": 0.120
+      }
+    },
+    {
+      "name": "test_hybrid_query_latency",
+      "stats": {
+        "mean": 0.180,
+        "stddev": 0.025,
+        "min": 0.140,
+        "max": 0.250
+      }
+    }
+  ]
+}

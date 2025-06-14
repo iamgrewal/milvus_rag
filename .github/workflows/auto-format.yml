@@ -1,0 +1,44 @@
+name: Auto Format
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  auto-format:
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        ref: ${{ github.head_ref }}
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.9"
+
+    - name: Install formatting tools
+      run: |
+        pip install black ruff isort
+
+    - name: Format code
+      run: |
+        black src/ tests/ || true
+        ruff check --fix src/ tests/ || true
+        isort src/ tests/ || true
+
+    - name: Commit changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add -A
+        if ! git diff --cached --quiet; then
+          git commit -m "🎨 Auto-format code [skip ci]"
+          git push
+        else
+          echo "No formatting changes needed"
+        fi

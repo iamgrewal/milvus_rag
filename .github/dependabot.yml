@@ -1,0 +1,42 @@
+version: 2
+updates:
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "⬆️"
+      include: "scope"
+    groups:
+      milvus-dependencies:
+        patterns:
+          - "pymilvus*"
+          - "milvus*"
+      ai-ml-dependencies:
+        patterns:
+          - "sentence-transformers*"
+          - "transformers*"
+          - "torch*"
+          - "numpy*"
+      neo4j-dependencies:
+        patterns:
+          - "neo4j*"
+      testing-dependencies:
+        patterns:
+          - "pytest*"
+          - "coverage*"
+
+  - package-ecosystem: "docker"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 3
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    open-pull-requests-limit: 2

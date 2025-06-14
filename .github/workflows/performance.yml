@@ -1,0 +1,111 @@
+---
+
+# .github/workflows/performance.yml
+name: Performance Testing
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+  schedule:
+    - cron: '0 4 * * *'  # Daily at 4 AM
+
+jobs:
+  performance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    services:
+      milvus:
+        image: milvusdb/milvus:v2.3.0
+        ports:
+          - 19530:19530
+      neo4j:
+        image: neo4j:5.15-community
+        ports:
+          - 7687:7687
+        env:
+          NEO4J_AUTH: neo4j/testpassword
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.9"
+
+    - name: Install dependencies
+      run: |
+        pip install uv
+        uv pip install --system -r requirements.txt
+        uv pip install --system pytest-benchmark
+
+    - name: Wait for services
+      run: |
+        timeout 60 bash -c 'until curl -f http://localhost:19530/health; do sleep 2; done'
+        timeout 60 bash -c 'until echo "RETURN 1" | cypher-shell -u neo4j -p testpassword; do sleep 2; done'
+
+    - name: Run performance benchmarks
+      env:
+        MILVUS_HOST: localhost
+        NEO4J_URI: bolt://localhost:7687
+        NEO4J_USER: neo4j
+        NEO4J_PASSWORD: testpassword
+      run: |
+        pytest tests/benchmarks/ \
+          --benchmark-only \
+          --benchmark-json=benchmark-results.json \
+          --benchmark-min-rounds=5
+
+    - name: Performance regression check
+      run: |
+        python scripts/check_performance_regression.py \
+          --current benchmark-results.json \
+          --baseline .github/performance-baseline.json \
+          --threshold 20  # 20% regression threshold
+
+    - name: Update performance baseline
+      if: github.ref == 'refs/heads/main'
+      run: |
+        cp benchmark-results.json .github/performance-baseline.json
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add .github/performance-baseline.json
+        git commit -m "📈 Update performance baseline [skip ci]" || exit 0
+        git push
+
+    - name: Comment performance results
+      if: github.event_name == 'pull_request'
+      uses: actions/github-script@v6
+      with:
+        script: |
+          const fs = require('fs');
+          
+          try {
+            const results = JSON.parse(fs.readFileSync('benchmark-results.json', 'utf8'));
+            
+            let comment = '## 📈 Performance Benchmark Results\n\n';
+            comment += '| Test | Time (avg) | Ops/sec | Change |\n';
+            comment += '|------|------------|---------|--------|\n';
+            
+            results.benchmarks.forEach(bench => {
+              const name = bench.name.split('::').pop();
+              const time = (bench.stats.mean * 1000).toFixed(2);
+              const ops = (1 / bench.stats.mean).toFixed(1);
+              comment += `| ${name} | ${time}ms | ${ops} | ➖ |\n`;
+            });
+            
+            comment += '\n> 🎯 **Target**: <200ms query latency, >50 QPS throughput';
+            
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: comment
+            });
+          } catch (e) {
+            console.log('Performance results not available');
+          }
