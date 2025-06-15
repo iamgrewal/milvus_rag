@@ -1,0 +1,11 @@
+Running command in milvus_env environment: pip install redis hiredis
+Collecting redis
+  Downloading redis-6.2.0-py3-none-any.whl.metadata (10 kB)
+Collecting hiredis
+  Downloading hiredis-3.2.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (7.2 kB)
+Requirement already satisfied: async-timeout>=4.0.3 in /home/jgrewal/anaconda3/envs/milvus_env/lib/python3.10/site-packages (from redis) (4.0.3)
+Downloading redis-6.2.0-py3-none-any.whl (278 kB)
+Downloading hiredis-3.2.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (169 kB)
+Installing collected packages: redis, hiredis
+
+Successfully installed hiredis-3.2.1 redis-6.2.0

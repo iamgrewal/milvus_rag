@@ -6,17 +6,18 @@ partitioning strategies, and optimized search parameters according to the rhoSea
 """
 
 import asyncio
-from typing import List, Dict, Any, Optional
+from typing import Any, Dict, List, Optional
+
+import structlog
 from pymilvus import (
-    connections,
     Collection,
     CollectionSchema,
-    FieldSchema,
     DataType,
-    utility,
+    FieldSchema,
     SearchParams,
+    connections,
+    utility,
 )
-import structlog
 
 from ..config.settings import Config
 
