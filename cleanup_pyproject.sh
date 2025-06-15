@@ -31,7 +31,7 @@ if [ -f "pyproject.toml" ]; then
 fi
 
 # Create the clean version
-cat > pyproject.toml << 'EOF'
+cat >pyproject.toml <<'EOF'
 [build-system]
 requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
@@ -41,7 +41,7 @@ name = "milvus_rag"
 version = "0.1.1"
 description = "Hybrid RAG system using Milvus and Neo4j for enterprise AI applications"
 authors = [
-    {name = "Jay Grewal", email = "jay@onixnet.com"}
+    {name = "Jay Grewal", email = "jay@Rhobytenet.com"}
 ]
 license = {text = "MIT"}
 readme = "README.md"

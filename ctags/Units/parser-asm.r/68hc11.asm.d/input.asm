@@ -16,7 +16,7 @@ PROMPT      FCB CR,LF
 COLD        LDS  #STACK
             LDAA #$20
 
-; http://www.mekatronix.com/downloads/docs/as11_man.pdf
+; http://www.mekatrRhobyte.com/downloads/docs/as11_man.pdf
 sym1 EQU 1
 sym2: EQU 2
 sym3:

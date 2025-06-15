@@ -7,7 +7,7 @@ name = "milvus_rag"
 version = "0.1.1"
 description = "Hybrid RAG system using Milvus and Neo4j for enterprise AI applications"
 authors = [
-    {name = "Jay Grewal", email = "jay@onixnet.com"}
+    {name = "Jay Grewal", email = "jay@Rhobytenet.com"}
 ]
 license = {text = "MIT"}
 readme = "README.md"

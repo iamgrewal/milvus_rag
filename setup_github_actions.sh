@@ -14,25 +14,25 @@ NC='\033[0m' # No Color
 
 # Function to print colored output
 print_status() {
-    echo -e "${GREEN}✅ $1${NC}"
+  echo -e "${GREEN}✅ $1${NC}"
 }
 
 print_warning() {
-    echo -e "${YELLOW}⚠️  $1${NC}"
+  echo -e "${YELLOW}⚠️  $1${NC}"
 }
 
 print_error() {
-    echo -e "${RED}❌ $1${NC}"
+  echo -e "${RED}❌ $1${NC}"
 }
 
 print_info() {
-    echo -e "${BLUE}ℹ️  $1${NC}"
+  echo -e "${BLUE}ℹ️  $1${NC}"
 }
 
 # Check if we're in a git repository
 if [ ! -d ".git" ]; then
-    print_error "Not in a git repository. Please run this from your project root."
-    exit 1
+  print_error "Not in a git repository. Please run this from your project root."
+  exit 1
 fi
 
 # Create .github directory structure
@@ -43,7 +43,7 @@ mkdir -p .github/{workflows,ISSUE_TEMPLATE}
 print_info "Creating workflow files..."
 
 # CI/CD Pipeline
-cat > .github/workflows/ci.yml << 'EOF'
+cat >.github/workflows/ci.yml <<'EOF'
 name: CI/CD Pipeline
 
 on:
@@ -164,7 +164,7 @@ jobs:
 EOF
 
 # Claude Assistant workflow
-cat > .github/workflows/claude-assistant.yml << 'EOF'
+cat >.github/workflows/claude-assistant.yml <<'EOF'
 name: Claude PR Assistant
 
 on:
@@ -219,7 +219,7 @@ jobs:
 EOF
 
 # Auto-format workflow
-cat > .github/workflows/auto-format.yml << 'EOF'
+cat >.github/workflows/auto-format.yml <<'EOF'
 name: Auto Format
 
 on:
@@ -267,7 +267,7 @@ jobs:
 EOF
 
 # Create dependabot configuration
-cat > .github/dependabot.yml << 'EOF'
+cat >.github/dependabot.yml <<'EOF'
 version: 2
 updates:
   - package-ecosystem: "pip"
@@ -313,7 +313,7 @@ updates:
 EOF
 
 # Create issue templates
-cat > .github/ISSUE_TEMPLATE/bug_report.yml << 'EOF'
+cat >.github/ISSUE_TEMPLATE/bug_report.yml <<'EOF'
 name: 🐛 Bug Report
 description: Report a bug in the Milvus RAG system
 title: "[BUG] "
@@ -384,7 +384,7 @@ body:
       required: true
 EOF
 
-cat > .github/ISSUE_TEMPLATE/feature_request.yml << 'EOF'
+cat >.github/ISSUE_TEMPLATE/feature_request.yml <<'EOF'
 name: 🚀 Feature Request
 description: Suggest a new feature
 title: "[FEATURE] "
@@ -422,7 +422,7 @@ body:
 EOF
 
 # Create PR template
-cat > .github/PULL_REQUEST_TEMPLATE.md << 'EOF'
+cat >.github/PULL_REQUEST_TEMPLATE.md <<'EOF'
 ## 📋 Pull Request Summary
 
 ### Phase and Component
@@ -460,7 +460,7 @@ EOF
 # Create scripts directory and performance check script
 mkdir -p scripts
 
-cat > scripts/check_performance_regression.py << 'EOF'
+cat >scripts/check_performance_regression.py <<'EOF'
 #!/usr/bin/env python3
 """
 Performance regression detection script for GitHub Actions
@@ -559,7 +559,7 @@ EOF
 chmod +x scripts/check_performance_regression.py
 
 # Create baseline performance file
-cat > .github/performance-baseline.json << 'EOF'
+cat >.github/performance-baseline.json <<'EOF'
 {
   "machine_info": {
     "platform": "Linux",
@@ -599,8 +599,8 @@ EOF
 
 # Create or update pyproject.toml if it doesn't exist
 if [ ! -f "pyproject.toml" ]; then
-    print_info "Creating pyproject.toml..."
-    cat > pyproject.toml << 'EOF'
+  print_info "Creating pyproject.toml..."
+  cat >pyproject.toml <<'EOF'
 [build-system]
 requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
@@ -609,7 +609,7 @@ build-backend = "setuptools.build_meta"
 name = "milvus-rag"
 version = "0.1.0"
 description = "Hybrid RAG system using Milvus and Neo4j"
-authors = [{name = "Jay Grewal", email = "jay@onixnet.com"}]
+authors = [{name = "Jay Grewal", email = "jay@Rhobytenet.com"}]
 license = {text = "MIT"}
 readme = "README.md"
 requires-python = ">=3.9"
@@ -665,7 +665,7 @@ exclude_lines = [
 ]
 EOF
 else
-    print_warning "pyproject.toml already exists, skipping..."
+  print_warning "pyproject.toml already exists, skipping..."
 fi
 
 print_status "GitHub Actions workflows created successfully!"
@@ -702,7 +702,7 @@ print_status "Setup complete! Your repository now has enterprise-grade CI/CD wor
 echo ""
 print_info "📖 Workflow Overview:"
 echo "   🔧 CI/CD Pipeline: Runs tests, linting, and coverage on every PR"
-echo "   🤖 Claude Assistant: Responds to @claude mentions in PRs and issues"  
+echo "   🤖 Claude Assistant: Responds to @claude mentions in PRs and issues"
 echo "   🎨 Auto-format: Automatically formats code in PRs"
 echo "   🔄 Dependabot: Keeps dependencies updated weekly"
 echo "   📊 Performance: Tracks and prevents performance regressions"

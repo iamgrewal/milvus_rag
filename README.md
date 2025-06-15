@@ -430,7 +430,7 @@ print(f'Model sharing: {s1.model is s2.model}')
 
 ## 📊 Business Context
 
-### Onix Strategic Alignment
+### Rhobyte Strategic Alignment
 - **AI Solutions**: Showcase advanced RAG capabilities to clients
 - **Cloud Expertise**: Demonstrate scalable AI infrastructure  
 - **Supply Chain**: Knowledge graph applications for logistics
@@ -449,8 +449,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 👥 Team
 
 - **Jay Grewal** - Technical Lead, Rhobyte  
-- **Project**: AI/Cloud Solutions for Onix  
-- **Contact**: jay@onixnet.com
+- **Project**: AI/Cloud Solutions for Rhobyte  
+- **Contact**: jay@Rhobytenet.com
 
 ---
 

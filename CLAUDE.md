@@ -3,19 +3,25 @@
 ## Project Overview
 
 **Project Name:** Milvus RAG Implementation  
-**Type:** Hybrid Retrieval-Augmented Generation System  
-**Architecture:** Milvus (Vector) + Neo4j (Graph) + LLM  
-**Environment:** Debian WSL + Docker + Conda  
-**Current Status:** Phase 1 - Foundation Optimization → Hybrid RAG Engine Evolution  
+**Type:** Advanced Hybrid Retrieval-Augmented Generation System  
+**Architecture:** Milvus (Vector) + Neo4j (Graph) + LLM + Self-Correction
+**Environment:** Debian 12 + Docker + Conda  
+**Current Status:** Phase 2 - Hybrid RAG Engine with Advanced Intelligence
 
 ### Core Mission
-Build a production-grade RAG system that combines vector similarity search with graph-based relationship retrieval for intelligent document querying, optimized for Onix's AI/Cloud solution offerings.
+
+Build a production-grade hybrid RAG system that combines vector similarity search with graph-based relationship retrieval, advanced context enhancement, and self-correction capabilities, optimized for Rhobyte's AI/Cloud solution offerings.
 
 ## Development Environment Setup
 
 The project uses Conda for environment management with specific setup scripts:
 
+```
+conda activate milvus_env
+```
+
 ### Environment Creation and Management
+
 ```bash
 # Create environment (run once)
 ./create_conda.sh
@@ -27,21 +33,29 @@ The project uses Conda for environment management with specific setup scripts:
 ```
 
 ### Testing Commands
+
 ```bash
 # Run all tests
 ./run_in_env.sh pytest
 
-# Run specific test file
+# Run hybrid system tests
 ./run_in_env.sh pytest tests/test_hybrid_rag_system.py
+
+# Run context enhancement tests
+./run_in_env.sh pytest tests/test_context_enhancement.py
+
+# Run self-correction tests
+./run_in_env.sh pytest tests/test_self_correction.py
 
 # Run tests with coverage
 ./run_in_env.sh pytest --cov=src/graphrag
 
 # Run async tests specifically
-./run_in_env.sh pytest tests/test_hybrid_rag_system.py -v -s
+./run_in_env.sh pytest tests/test_hybrid_rag_system.py -v -s --asyncio-mode=no
 ```
 
 ### Code Quality and Linting
+
 ```bash
 # Format code with black
 ./run_in_env.sh black src/ tests/
@@ -57,6 +71,7 @@ The project uses Conda for environment management with specific setup scripts:
 ```
 
 ### Docker Development
+
 ```bash
 # Start development environment
 docker-compose up -d milvus-standalone neo4j
@@ -94,6 +109,7 @@ docker-compose up
    - **Target:** Singleton pattern with ModelCache for 67% memory reduction
 
 ### Package Structure
+
 ```
 src/graphrag/
 ├── config/          # Configuration management
@@ -108,17 +124,20 @@ src/graphrag/
 ## Development Context
 
 ### Current Performance Profile
+
 - **Query Latency:** 700ms (p95) → Target: 200ms
 - **Throughput:** 10 QPS → Target: 50 QPS  
 - **Memory Usage:** 2GB → Target: 800MB
 - **Test Coverage:** <30% → Target: >80%
 
 ### Architecture Evolution Roadmap
+
 **Current State:** Basic Milvus RAG (Phase 1)  
 **Target State:** Hybrid RAG Engine with Neo4j + Advanced Capabilities  
 **Evolution Path:** 4-phase incremental development with production validation at each stage
 
 ### Critical Issues Identified (Phase 1 Focus)
+
 1. **Dependency Conflicts:** protobuf, httpx, grpcio-status version incompatibilities
 2. **Synchronous Bottlenecks:** Sequential operations blocking pipeline
 3. **Inefficient Indexing:** IVF_FLAT instead of HNSW
@@ -131,6 +150,7 @@ src/graphrag/
 ### Phase-Based Development Strategy
 
 **Phase 1 - Foundation Stabilization (Current Focus - Week 1-2):**
+
 ```bash
 # Quick wins for immediate 2-3x performance improvement
 claude code "Implement ModelCache singleton in src/utils/model_cache.py to eliminate 300MB model loading overhead"
@@ -140,6 +160,7 @@ claude code "Implement batch Neo4j operations to eliminate N+1 query problem"
 ```
 
 **Phase 2 - Hybrid Foundation (Week 3-6):**
+
 ```bash
 claude code "Implement Neo4j integration for dual-database hybrid search"
 claude code "Add parallel vector + graph retrieval with asyncio.gather()"
@@ -147,6 +168,7 @@ claude code "Create basic result fusion engine for combining search results"
 ```
 
 **Phase 3 - Intelligence Layer (Week 7-10):**
+
 ```bash
 claude code "Implement ML-powered query classification for intelligent routing"
 claude code "Add Weighted Reciprocal Rank Fusion (RRF) for result combination"
@@ -154,6 +176,7 @@ claude code "Create self-correction framework with hallucination detection"
 ```
 
 **Phase 4 - Production Excellence (Week 11-16):**
+
 ```bash
 claude code "Implement multi-tier fallback architecture with Tavily integration"
 claude code "Add comprehensive observability with OpenTelemetry and Prometheus"
@@ -163,6 +186,7 @@ claude code "Create LangGraph orchestration for agentic workflows"
 ### Code Generation Preferences
 
 **Architecture Patterns (All Phases):**
+
 - **Async First:** All new code should use async/await
 - **Batch Operations:** Prefer batch processing over individual calls
 - **Singleton Models:** Use ModelCache for all ML model instances
@@ -170,12 +194,14 @@ claude code "Create LangGraph orchestration for agentic workflows"
 - **Error Handling:** Comprehensive try/catch with retry logic
 
 **Performance Requirements:**
+
 - **Sub-200ms Latency:** All query operations target <200ms
 - **High Throughput:** Design for 50+ concurrent queries
 - **Memory Efficiency:** Minimize model loading overhead
 - **Caching Strategy:** Implement multi-level caching (query, embedding, entity)
 
 **Code Style Standards:**
+
 ```python
 # Preferred async pattern with observability
 async def answer(self, question: str) -> RAGResponse:
@@ -204,6 +230,7 @@ async def answer(self, question: str) -> RAGResponse:
 ### Database Optimization Patterns
 
 **Milvus Best Practices:**
+
 ```python
 # HNSW index configuration (Phase 1 priority)
 index_params = {
@@ -221,6 +248,7 @@ async def insert_batch(self, entities: List[Dict], batch_size: int = 1000):
 ```
 
 **Neo4j Best Practices:**
+
 ```python
 # Batch query pattern (Phase 1 priority)
 async def get_related_batch(self, entities: List[str]) -> Dict[str, List[str]]:
@@ -236,16 +264,19 @@ async def get_related_batch(self, entities: List[str]) -> Dict[str, List[str]]:
 ### Environment-Specific Considerations
 
 **WSL Development:**
+
 - Docker volume paths: `/mnt/d/projects/wslprojects/milvus_env`
 - Use Docker Desktop integration
 - Conda environment: `milvus_env` (Python 3.9)
 
 **Docker Services:**
+
 - Milvus: `localhost:19530`
-- Neo4j: `localhost:7687` 
+- Neo4j: `localhost:7687`
 - MinIO: `localhost:9000`
 
 **Dependency Management:**
+
 - Pin compatible versions in requirements.txt
 - Test all package imports before deployment
 - Use conda for environment isolation
@@ -253,22 +284,26 @@ async def get_related_batch(self, entities: List[str]) -> Dict[str, List[str]]:
 ## Testing Strategy
 
 ### Current Test Architecture
+
 - **Unit Tests:** Individual component testing
 - **Integration Tests:** End-to-end RAG system testing (`test_hybrid_rag_system.py`)
 - **Async Testing:** Uses pytest-asyncio for async components
 
 ### Key Test Files
+
 - `tests/test_hybrid_rag_system.py`: Comprehensive hybrid RAG system tests
 - `tests/test_nlp_processor.py`: NLP component tests
 - `tests/test_rag_system.py`: Core RAG system tests
 
 ### Required Test Coverage by Phase
+
 - **Phase 1:** >80% coverage with performance benchmarks
 - **Phase 2:** Integration tests for hybrid operations
 - **Phase 3:** ML model validation and confidence tracking
 - **Phase 4:** Production load tests and health checks
 
 ### Performance Benchmark Tests
+
 ```python
 # Performance validation (Phase 1 requirement)
 @pytest.mark.asyncio
@@ -285,30 +320,35 @@ async def test_query_latency():
 ## Migration Path: Basic → Advanced Hybrid RAG Engine
 
 ### Phase 1: Foundation Stabilization (Current - Week 1-2)
+
 - Fix dependency conflicts and optimize current Milvus implementation
 - Implement model caching and HNSW indexing
 - Add comprehensive testing framework
 - **Success Criteria:** 2-3x performance improvement, <30min implementation
 
 ### Phase 2: Dual-Database Integration (Week 3-6)
+
 - Neo4j graph database integration
 - Entity extraction and relationship mapping
 - Basic hybrid retrieval (vector + graph)
 - **Success Criteria:** Parallel search operations, improved context quality
 
 ### Phase 3: Intelligence Layer (Week 7-10)
+
 - Advanced query routing and classification
 - Weighted Reciprocal Rank Fusion (RRF)
 - Self-correction and validation framework
 - **Success Criteria:** <2s response time, >85% accuracy
 
 ### Phase 4: Enterprise Production (Week 11-16)
+
 - Multi-tier fallback architecture with Tavily integration
 - Circuit breakers and comprehensive observability
 - Advanced agentic capabilities and monitoring
 - **Success Criteria:** 99.9% uptime, enterprise-grade reliability
 
 ### Migration Strategy
+
 1. **Risk-Minimized Evolution:** Each phase builds on proven foundation
 2. **Production Validation:** Deploy and validate each phase before advancing
 3. **Parallel Development:** Maintain basic system while building advanced features
@@ -317,7 +357,9 @@ async def test_query_latency():
 ## Future Architecture Vision
 
 ### Hybrid RAG Engine (Target Architecture)
+
 The ultimate goal is a sophisticated hybrid system combining:
+
 - **Dual-Database Strategy:** Milvus (semantic) + Neo4j (relationships)
 - **Intelligent Fallback:** Multi-tier strategy with Tavily web search integration
 - **Self-Correction Engine:** Advanced validation and hallucination detection
@@ -325,6 +367,7 @@ The ultimate goal is a sophisticated hybrid system combining:
 - **Enterprise Observability:** Comprehensive monitoring with OpenTelemetry
 
 **Key Success Metrics (Target):**
+
 - Query Response Time: <2s (P95)
 - Retrieval Accuracy: >85% precision, >90% recall
 - System Availability: 99.9% uptime
@@ -335,6 +378,7 @@ The ultimate goal is a sophisticated hybrid system combining:
 ## Monitoring & Production Requirements
 
 ### Key Metrics (Phase 1 Focus)
+
 - **Query Latency:** p50, p95, p99 response times
 - **Throughput:** Queries per second (QPS)
 - **Cache Hit Rate:** Model and query cache efficiency  
@@ -342,6 +386,7 @@ The ultimate goal is a sophisticated hybrid system combining:
 - **Resource Usage:** Memory, CPU, disk utilization
 
 ### Health Checks
+
 ```python
 # Service health monitoring (current implementation)
 async def health_check() -> HealthStatus:
@@ -359,6 +404,7 @@ async def health_check() -> HealthStatus:
 ```
 
 ### Service Health Monitoring
+
 - Health check script: `./health_check.sh`
 - Checks Neo4j HTTP endpoint, Milvus port connectivity, and app initialization
 - Required for production deployment validation
@@ -366,39 +412,44 @@ async def health_check() -> HealthStatus:
 ## Claude Code Integration Notes
 
 ### Development Workflow by Phase
+
 **Phase 1 (Current):** `claude code assess project-health` → Fix dependencies → Optimize performance  
 **Phase 2:** `claude code "Implement Neo4j integration following hybrid RAG architecture patterns"`  
 **Phase 3:** `claude code "Add intelligent query routing and validation framework"`  
 **Phase 4:** `claude code "Implement production-grade fallback mechanisms and observability"`
 
 ### Phase-Specific Focus Areas
+
 - **Phase 1:** Performance optimization, dependency management, testing foundation
 - **Phase 2:** Graph database integration, entity extraction, hybrid search patterns  
 - **Phase 3:** ML-powered classification, advanced fusion algorithms, validation systems
 - **Phase 4:** Production infrastructure, monitoring, enterprise deployment patterns
 
 ### Architecture-Aware Development
+
 Claude Code will understand the target hybrid architecture while maintaining focus on current phase requirements. Each generated solution should be compatible with the eventual dual-database strategy without over-engineering current needs.
 
 ## Business Context
 
-### Onix Strategic Alignment
+### Rhobyte Strategic Alignment
+
 - **AI Solutions:** Showcase advanced RAG capabilities to clients
 - **Cloud Expertise:** Demonstrate scalable AI infrastructure
 - **Supply Chain:** Knowledge graph applications for logistics
 - **Healthcare:** Intelligent document processing for medical records
 
 ### Success Metrics by Phase
+
 - **Phase 1:** 2-3x performance improvement, foundation stability
 - **Phase 2:** Enhanced context quality, parallel processing
 - **Phase 3:** <2s response time, >85% accuracy
 - **Phase 4:** 99.9% uptime, enterprise deployment ready
 
-**Strategic Value:** Position Onix as the AI/Cloud partner that delivers enterprise-grade solutions with cutting-edge development practices.
+**Strategic Value:** Position Rhobyte as the AI/Cloud partner that delivers enterprise-grade solutions with cutting-edge development practices.
 
 ---
 
 **Last Updated:** June 2025  
-**Project Lead:** Jay Grewal, Rhobyte 
+**Project Lead:** Jay Grewal, Rhobyte
 **Technical Focus:** Production-grade RAG system for AI/Cloud solutions  
 **Current Phase:** Phase 1 - Foundation Optimization
