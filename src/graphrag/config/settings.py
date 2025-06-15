@@ -19,5 +19,16 @@ class Config:
     EMBEDDING_MODEL = os.getenv("EMBEDDING_MODEL", "all-MiniLM-L6-v2")
     QA_MODEL = os.getenv("QA_MODEL", "deepset/bert-base-cased-squad2")
 
+    # Redis Configuration
+    REDIS_HOST = os.getenv("REDIS_HOST", "localhost")
+    REDIS_PORT = int(os.getenv("REDIS_PORT", "6379"))
+    REDIS_DB = int(os.getenv("REDIS_DB", "0"))
+    REDIS_PASSWORD = os.getenv("REDIS_PASSWORD", None)
+    
+    # Memory System Configuration
+    MEMORY_CACHE_TTL = int(os.getenv("MEMORY_CACHE_TTL", "3600"))  # 1 hour
+    MEMORY_MAX_CACHE_SIZE = int(os.getenv("MEMORY_MAX_CACHE_SIZE", "10000"))
+    MEMORY_SIMILARITY_THRESHOLD = float(os.getenv("MEMORY_SIMILARITY_THRESHOLD", "0.8"))
+    
     # Logging
     LOG_LEVEL = os.getenv("LOG_LEVEL", "INFO")

@@ -83,9 +83,307 @@ docker-compose up
 ./health_check.sh
 ```
 
-## Current Architecture Overview
+## Phase 2 Architecture Overview
 
-### Core Components (Phase 1 - Current Implementation)
+### Core Components (Phase 2 - Current Implementation)
+
+1. **Vector Store (Milvus)**: Optimized semantic similarity search
+
+    - Located in: `src/graphrag/milvus/manager.py`
+    - **Phase 1 Achievement:** HNSW index with L2 metric for 2-3x performance improvement
+    - **Phase 2 Enhancement:** Dynamic collection management and batch operations
+    - Default embedding dimension: 384
+2. **Graph Store (Neo4j)**: Advanced relationship and knowledge graph management
+
+    - Located in: `src/graphrag/neo4j/manager.py`
+    - **Phase 1 Achievement:** Batch operations eliminating N+1 query problem
+    - **Phase 2 Enhancement:** Dynamic relationship discovery and graph expansion
+    - Advanced Cypher query optimization for multi-hop traversals
+3. **Context Enhancement Engine**: Advanced relationship mapping and discovery
+
+    - Located in: `src/graphrag/graph_enrichment/context_engine.py`
+    - **NEW in Phase 2:** Multi-strategy relationship discovery
+    - Semantic similarity, co-occurrence, and temporal relationship analysis
+    - Dynamic context graph construction with NetworkX integration
+4. **Self-Correction Framework**: Validation and hallucination detection
+
+    - Located in: `src/graphrag/validation/self_correction.py`
+    - **NEW in Phase 2:** Multi-layer validation system
+    - Confidence scoring and automated correction mechanisms
+    - LLM-based consistency checking
+5. **Contextual Memory System**: Advanced caching with similarity search
+
+    - Located in: `src/graphrag/graph_enrichment/memory_system.py`
+    - **NEW in Phase 2:** Redis-based similarity caching
+    - Embedding-based context retrieval and cache optimization
+6. **Hybrid RAG Orchestrator**: Intelligent query routing and result fusion
+
+    - Located in: `src/graphrag/rag_system/hybrid_orchestrator.py`
+    - **NEW in Phase 2:** Parallel vector + graph retrieval
+    - Weighted Reciprocal Rank Fusion (RRF) for result combination
+
+### Enhanced Package Structure
+
+```
+src/graphrag/
+├── config/                    # Configuration management
+├── embedding_service/         # Text-to-vector conversion (ModelCache optimized)
+├── milvus/                   # Vector database operations (HNSW optimized)
+├── neo4j/                    # Graph database operations (Batch optimized)
+├── nlp/                      # Natural language processing
+├── rag_system/               # Main RAG orchestration
+│   ├── hybrid_orchestrator.py  # NEW: Hybrid search coordination
+│   └── main.py               # Enhanced main system
+├── graph_enrichment/         # NEW: Advanced context enhancement
+│   ├── context_engine.py     # Relationship mapping and discovery
+│   └── memory_system.py      # Contextual memory with similarity search
+├── validation/               # NEW: Self-correction framework
+│   ├── self_correction.py    # Validation and correction logic
+│   └── confidence_scoring.py # Confidence assessment
+├── utils/                    # NEW: Shared utilities
+│   ├── model_cache.py        # Phase 1: ModelCache singleton
+│   └── observability.py     # Phase 2: Monitoring and metrics
+└── logger.py                 # Logging configuration
+```
+
+## Phase 2 Performance Profile
+
+### Current Achievement (Phase 1 → Phase 2)
+
+- **Query Latency:** 700ms → 200ms (p95) → **Target: <200ms with hybrid search**
+- **Throughput:** 10 QPS → 50 QPS → **Target: 100+ QPS with parallel processing**
+- **Memory Usage:** 2GB → 800MB → **Target: <1GB with advanced caching**
+- **Test Coverage:** <30% → 80% → **Target: >90% with Phase 2 components**
+- **Context Quality:** Basic → **Enhanced with relationship discovery**
+- **Accuracy:** Standard RAG → **Self-corrected with validation framework**
+
+### New Phase 2 Capabilities
+
+1. **Hybrid Retrieval**: Parallel vector + graph search with intelligent fusion
+2. **Context Enhancement**: Multi-strategy relationship discovery and mapping
+3. **Self-Correction**: Automated validation and hallucination detection
+4. **Memory System**: Similarity-based context caching and retrieval
+5. **Advanced Observability**: Comprehensive monitoring with OpenTelemetry
+
+## Claude Code Implementation Guide
+
+### Phase 2 Implementation Strategy
+
+**Approach:** Incremental enhancement of Phase 1 foundation  
+**Duration:** 4-6 weeks  
+**Risk:** Low (builds on stable Phase 1 foundation)
+
+### Step-by-Step Claude Code Instructions
+
+#### Week 1: Neo4j Integration and Context Enhancement
+
+```bash
+# Step 1: Implement Advanced Context Enhancement Engine
+claude code "Create src/graphrag/graph_enrichment/context_engine.py implementing the ContextEnhancementEngine class with multi-strategy relationship discovery (Neo4j, semantic similarity, co-occurrence, temporal analysis) as shown in the provided specifications"
+
+# Step 2: Add Contextual Memory System
+claude code "Implement src/graphrag/graph_enrichment/memory_system.py with Redis-based similarity caching, embedding-based retrieval, and automatic cache management as specified in the memory system requirements"
+
+# Step 3: Enhance Neo4j Manager for Advanced Operations
+claude code "Update src/graphrag/neo4j/manager.py to support dynamic relationship discovery, multi-hop traversals, and integration with the ContextEnhancementEngine"
+
+# Step 4: Create Configuration Support
+claude code "Update src/graphrag/config/ to support new Phase 2 configuration parameters for graph expansion, similarity thresholds, caching settings, and validation parameters"
+```
+
+#### Week 2: Self-Correction Framework
+
+```bash
+# Step 5: Implement Self-Correction Framework
+claude code "Create src/graphrag/validation/self_correction.py implementing multi-layer validation system with confidence scoring, consistency checking, and automated correction mechanisms"
+
+# Step 6: Add Confidence Scoring System
+claude code "Implement src/graphrag/validation/confidence_scoring.py with LLM-based confidence assessment, uncertainty quantification, and validation rule engine"
+
+# Step 7: Create Validation Integration
+claude code "Update the main RAG system to integrate self-correction validation at appropriate checkpoints in the query processing pipeline"
+```
+
+#### Week 3: Hybrid Orchestration
+
+```bash
+# Step 8: Create Hybrid RAG Orchestrator
+claude code "Implement src/graphrag/rag_system/hybrid_orchestrator.py with parallel vector + graph retrieval, intelligent query routing, and Weighted Reciprocal Rank Fusion (RRF) for result combination"
+
+# Step 9: Enhance Main RAG System
+claude code "Update src/graphrag/rag_system/main.py to use the hybrid orchestrator, integrate context enhancement, and implement the full Phase 2 pipeline"
+
+# Step 10: Add Observability Framework
+claude code "Create src/graphrag/utils/observability.py implementing comprehensive monitoring with OpenTelemetry, Prometheus metrics, and performance tracking for Phase 2 components"
+```
+
+#### Week 4: Integration and Testing
+
+```bash
+# Step 11: Create Comprehensive Test Suite
+claude code "Implement tests/test_context_enhancement.py with comprehensive tests for the context enhancement engine, relationship discovery, and graph expansion"
+
+# Step 12: Add Self-Correction Tests
+claude code "Create tests/test_self_correction.py testing the validation framework, confidence scoring, and correction mechanisms"
+
+# Step 13: Implement Integration Tests
+claude code "Update tests/test_hybrid_rag_system.py to include end-to-end testing of the hybrid system with parallel retrieval, context enhancement, and self-correction"
+
+# Step 14: Performance Validation
+claude code "Create performance tests validating <200ms query latency, >90% accuracy improvement, and successful parallel processing under load"
+```
+
+### Architecture-Aware Development Patterns
+
+**Async-First Pattern (Phase 2 Enhancement):**
+
+```python
+# Hybrid retrieval with parallel operations
+async def hybrid_search(self, question: str) -> HybridRAGResponse:
+    """Enhanced hybrid search with context enhancement and validation."""
+    try:
+        # Phase 2: Parallel context enhancement and retrieval
+        context_task = asyncio.create_task(
+            self.context_engine.enhance_query_context(question, [])
+        )
+        vector_task = asyncio.create_task(self.vector_search(question))
+        graph_task = asyncio.create_task(self.graph_traverse(question))
+        
+        enhanced_context, vector_results, graph_results = await asyncio.gather(
+            context_task, vector_task, graph_task
+        )
+        
+        # Phase 2: Intelligent result fusion with RRF
+        fused_results = await self.fusion_engine.weighted_fusion(
+            vector_results, graph_results, enhanced_context
+        )
+        
+        # Phase 2: Self-correction and validation
+        response = await self.generate_response(question, fused_results)
+        validated_response = await self.validation_engine.validate_and_correct(
+            question, response, enhanced_context
+        )
+        
+        return validated_response
+        
+    except Exception as e:
+        logger.error(f"Hybrid RAG query failed: {e}")
+        raise HybridRAGException(f"Query processing error: {e}")
+```
+
+**Context Enhancement Pattern:**
+
+```python
+# Advanced relationship discovery and mapping
+async def discover_relationships(self, entities: List[Dict]) -> List[EntityRelationship]:
+    """Multi-strategy relationship discovery."""
+    
+    relationship_tasks = [
+        self._find_neo4j_relationships(entities),
+        self._find_semantic_relationships(entities),
+        self._find_cooccurrence_relationships(entities),
+        self._find_temporal_relationships(entities)
+    ]
+    
+    all_relationships = await asyncio.gather(*relationship_tasks)
+    return self._deduplicate_and_rank_relationships(all_relationships)
+```
+
+## Phase 2 Success Criteria
+
+### Technical Metrics
+
+- **Parallel Operations**: Successful concurrent vector + graph retrieval
+- **Context Quality**: >40% improvement in relationship discovery
+- **Response Accuracy**: >85% accuracy with self-correction
+- **Query Latency**: Maintain <200ms despite added complexity
+- **System Reliability**: >99% uptime with enhanced components
+
+### Business Value Metrics
+
+- **Enhanced Context**: Rich relationship mapping for complex queries
+- **Reduced Hallucinations**: 60% reduction through self-correction
+- **Improved User Experience**: More accurate and contextual responses
+- **Scalability**: Support for 100+ concurrent users
+
+## Migration Path: Phase 1 → Phase 2
+
+### Preservation of Phase 1 Achievements
+
+✅ **ModelCache Singleton**: Maintained and enhanced  
+✅ **HNSW Indexing**: Preserved and integrated with hybrid search  
+✅ **Batch Neo4j Operations**: Enhanced with advanced traversals  
+✅ **Performance Optimizations**: Built upon with parallel processing  
+✅ **Test Coverage**: Expanded to include Phase 2 components
+
+### Phase 2 Incremental Enhancements
+
+🔄 **Context Enhancement**: Added without disrupting existing vector search  
+🔄 **Self-Correction**: Integrated as optional validation layer  
+🔄 **Memory System**: Added as performance optimization  
+🔄 **Hybrid Orchestration**: Coordinates existing components
+
+### Rollback Strategy
+
+- Phase 1 components remain functional independently
+- Phase 2 features can be disabled via configuration
+- Database schemas are backward compatible
+- Performance monitoring ensures no regression
+
+## Monitoring & Production Requirements
+
+### Phase 2 Enhanced Metrics
+
+- **Hybrid Search Performance**: Vector vs Graph vs Hybrid latency comparison
+- **Context Enhancement Quality**: Relationship discovery success rate
+- **Self-Correction Effectiveness**: Validation accuracy and correction rate
+- **Memory System Efficiency**: Cache hit rates and similarity search performance
+- **Overall System Health**: End-to-end accuracy and user satisfaction
+
+### Health Checks
+
+```python
+# Enhanced health monitoring for Phase 2
+async def phase2_health_check() -> HealthStatus:
+    """Comprehensive Phase 2 system health validation."""
+    checks = await asyncio.gather(
+        check_milvus_connection(),
+        check_neo4j_connection(),
+        check_redis_connection(),  # NEW: Redis for memory system
+        check_context_enhancement_engine(),  # NEW: Context enhancement
+        check_self_correction_framework(),  # NEW: Validation system
+        check_hybrid_orchestrator(),  # NEW: Hybrid coordination
+        check_model_cache_performance()
+    )
+    return HealthStatus(all(checks))
+```
+
+## Business Context
+
+### Onix Strategic Alignment (Phase 2)
+
+- **AI Solutions**: Showcase cutting-edge hybrid RAG with self-correction
+- **Cloud Expertise**: Demonstrate advanced multi-service orchestration
+- **Supply Chain**: Enhanced relationship mapping for complex logistics
+- **Healthcare**: Improved accuracy through validation for medical queries
+
+### Phase 2 Value Proposition
+
+- **Enhanced Accuracy**: Self-correction reduces hallucinations by 60%
+- **Richer Context**: Advanced relationship discovery improves response quality
+- **Scalable Architecture**: Parallel processing supports enterprise workloads
+- **Production Ready**: Comprehensive monitoring and validation frameworks
+
+---
+
+**Last Updated:** June 2025  
+**Project Lead:** Jay Grewal, VP Sales - Rhobyte
+**Technical Focus:** Production-grade Hybrid RAG with Advanced Intelligence  
+**Current Phase:** Phase 2 - Hybrid RAG Engine with Self-Correction
+
+## CPhase 1 Architecture Overview
+
+### Core Components (Phase 1 - Existing Implementation)
 
 1. **Vector Store (Milvus)**: Stores entity embeddings for semantic similarity search
    - Located in: `src/graphrag/milvus/manager.py`
@@ -108,7 +406,7 @@ docker-compose up
    - **Current:** Loads 300MB+ models on every initialization
    - **Target:** Singleton pattern with ModelCache for 67% memory reduction
 
-### Package Structure
+### Phase 1 Package Structure
 
 ```
 src/graphrag/
@@ -121,16 +419,16 @@ src/graphrag/
 └── logger.py        # Logging configuration
 ```
 
-## Development Context
+## Phase 1 Development Context
 
-### Current Performance Profile
+### Phase 1 Current Performance Profile
 
 - **Query Latency:** 700ms (p95) → Target: 200ms
 - **Throughput:** 10 QPS → Target: 50 QPS  
 - **Memory Usage:** 2GB → Target: 800MB
 - **Test Coverage:** <30% → Target: >80%
 
-### Architecture Evolution Roadmap
+### Phase 1 Architecture Evolution Roadmap
 
 **Current State:** Basic Milvus RAG (Phase 1)  
 **Target State:** Hybrid RAG Engine with Neo4j + Advanced Capabilities  
@@ -263,14 +561,17 @@ async def get_related_batch(self, entities: List[str]) -> Dict[str, List[str]]:
 
 ### Environment-Specific Considerations
 
-**WSL Development:**
+**Linux  Development:**
 
-- Docker volume paths: `/mnt/d/projects/wslprojects/milvus_env`
+- Docker volume paths: `/home/jgrewal/projects/aiprojects/milvus_rag`
 - Use Docker Desktop integration
-- Conda environment: `milvus_env` (Python 3.9)
-
+- Conda environment: `milvus_env` (Python Python 3.10.18)
+(milvus_env) jgrewal@devbox:~/projects/aiprojects/milvus_rag$ pip --version
+pip 25.1.1 from /home/jgrewal/anaconda3/envs/milvus_env/lib/python3.10/site-packages/pip (python 3.10)
+uv 0.7.13
+/home/jgrewal/.local/bin/uv
 **Docker Services:**
-
+docker version 28.2.2
 - Milvus: `localhost:19530`
 - Neo4j: `localhost:7687`
 - MinIO: `localhost:9000`
